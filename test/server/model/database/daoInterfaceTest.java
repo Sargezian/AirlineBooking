@@ -1,5 +1,6 @@
 package server.model.database;
 
+import org.junit.Test;
 import org.junit.jupiter.api.Test;
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
@@ -10,8 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class daoInterfaceTest
 {
-
-
 
   @Test
   public void createChar() throws SQLException
@@ -28,9 +27,6 @@ class daoInterfaceTest
 
     assertEquals("ww",inputUser.getInput());
 
-
-
-
   }
 
   @org.junit.jupiter.api.Test void createUser() throws SQLException {
@@ -44,10 +40,10 @@ class daoInterfaceTest
     InputUser p = dao.createUser("mike");
 
     assertEquals("mike",p.getOutput());
-   assertNotNull(p.getId());
+    //assertNotNull(p.getId());
 
 
+    //heeeej
   }
-
 
 }
