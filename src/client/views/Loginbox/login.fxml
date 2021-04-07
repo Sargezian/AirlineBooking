@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="434.0" prefWidth="306.0" style="-fx-background-color: #4153F2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.Loginbox.loginViewController">
+   <children>
+      <Button cacheShape="false" layoutX="67.0" layoutY="281.0" mnemonicParsing="false" onAction="#onLogButton" prefHeight="27.0" prefWidth="91.0" style="-fx-background-color: #37a1ff;" text="Log Ind" textFill="WHITE" />
+      <Label fx:id="error" layoutX="118.0" layoutY="245.0" prefHeight="17.0" prefWidth="161.0" text="Error label" textFill="WHITE" />
+      <TextField fx:id="navn" layoutX="85.0" layoutY="163.0" promptText="Username" />
+      <Button layoutX="169.0" layoutY="281.0" mnemonicParsing="false" onAction="#onkald" prefHeight="27.0" prefWidth="91.0" style="-fx-background-color: #27a1ff;" text="Luk" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Button>
+      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="99.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: #ffffff;">
+         <image>
+            <Image url="@../../../../../—Pngtree—vector%20avatar%20icon_4013749.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="41.0" fitWidth="35.0" layoutX="33.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Billeder/—Pngtree—vector%20avatar%20icon_4013749.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="37.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Billeder/padlock.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="132.0" layoutY="103.0" text="Login" textFill="WHITE">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="82.0" fitWidth="91.0" layoutX="124.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Billeder/chat.png" />
+         </image>
+      </ImageView>
+      <PasswordField fx:id="kode" layoutX="85.0" layoutY="207.0" promptText="Password" />
+   </children>
+</AnchorPane>

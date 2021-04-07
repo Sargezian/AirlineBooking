@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.myflightplan.myflightplanViewController">
+   <children>
+      <VBox prefHeight="502.0" prefWidth="231.0" style="-fx-background-color: #4153F2;">
+         <children>
+            <AnchorPane prefHeight="504.0" prefWidth="231.0">
+               <children>
+                  <ImageView fitHeight="88.0" fitWidth="179.0" layoutX="82.0" layoutY="7.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Billeder/world.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="myName" alignment="CENTER" layoutX="4.0" layoutY="114.0" prefHeight="34.0" prefWidth="231.0" text="Name" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="1.0" layoutY="158.0" prefHeight="27.0" prefWidth="231.0" text="Email" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma" size="15.0" />
+                     </font>
+                  </Label>
+                  <Button alignment="BASELINE_LEFT" layoutX="59.0" layoutY="339.0" mnemonicParsing="false" onAction="#onBackDashboard" prefHeight="52.0" prefWidth="173.0" style="-fx-background-color: #4153F2;" text="Dashboard" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="62.0" layoutY="199.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="173.0" style="-fx-background-color: #4153F2;" text="My Flight Plan" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="62.0" layoutY="248.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="173.0" style="-fx-background-color: #4153F2;" text="Checklist" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" layoutX="59.0" layoutY="300.0" mnemonicParsing="false" onAction="#onChat" prefHeight="43.0" prefWidth="173.0" style="-fx-background-color: #4153F2;" text="Feedback Forum" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="79.0" fitWidth="88.0" layoutX="77.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Billeder/flight-route.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="33.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Billeder/undo.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="69.0" fitWidth="27.0" layoutX="33.0" layoutY="212.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Billeder/airplane.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="33.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Billeder/pie-chart.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="33.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Billeder/feedback.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

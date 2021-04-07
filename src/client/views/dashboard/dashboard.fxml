@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.dashboard.dashboardViewController">
+    <children>
+        <VBox prefHeight="502.0" prefWidth="231.0" style="-fx-background-color: #4153F2;">
+            <children>
+                <AnchorPane prefHeight="504.0" prefWidth="231.0">
+                    <children>
+                        <ImageView fitHeight="88.0" fitWidth="179.0" layoutX="82.0" layoutY="7.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../Billeder/world.png" />
+                            </image>
+                        </ImageView>
+                        <Button alignment="BASELINE_LEFT" layoutX="62.0" layoutY="275.0" mnemonicParsing="false" onAction="#OnLogin" prefHeight="52.0" prefWidth="173.0" style="-fx-background-color: #4153F2;" text="Login" textFill="WHITE">
+                            <font>
+                                <Font name="Tahoma Bold" size="18.0" />
+                            </font>
+                        </Button>
+                        <Button alignment="BASELINE_LEFT" layoutX="62.0" layoutY="177.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="173.0" style="-fx-background-color: #4153F2;" text="Flights" textFill="WHITE">
+                            <font>
+                                <Font name="Tahoma Bold" size="18.0" />
+                            </font>
+                        </Button>
+                        <Button alignment="BASELINE_LEFT" layoutX="62.0" layoutY="226.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="173.0" style="-fx-background-color: #4153F2;" text="Statistics" textFill="WHITE">
+                            <font>
+                                <Font name="Tahoma Bold" size="18.0" />
+                            </font>
+                        </Button>
+                        <ImageView fitHeight="79.0" fitWidth="88.0" layoutX="78.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../Billeder/flight-route.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="33.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../Billeder/—Pngtree—vector%20avatar%20icon_4013749.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="69.0" fitWidth="27.0" layoutX="33.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../Billeder/airplane.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="33.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../Billeder/pie-chart.png" />
+                            </image>
+                        </ImageView>
+                  <Label alignment="CENTER" layoutX="26.0" layoutY="113.0" prefHeight="52.0" prefWidth="184.0" text="Airline Booking" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="20.0" />
+                     </font>
+                  </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+      <TableView layoutX="250.0" layoutY="14.0" prefHeight="344.0" prefWidth="455.0">
+        <columns>
+          <TableColumn prefWidth="223.20001220703125" text="C1" />
+          <TableColumn prefWidth="231.19992065429688" text="C2" />
+        </columns>
+      </TableView>
+    </children>
+</AnchorPane>
