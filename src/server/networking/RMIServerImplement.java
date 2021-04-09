@@ -31,6 +31,7 @@ public class RMIServerImplement implements RMIServer {
 
     @Override
     public String sendMsg(String str) {
+        System.out.println("RMI SERVER READ CHAT");
         return textManager.sendMsg(str);
     }
 
@@ -46,6 +47,7 @@ public class RMIServerImplement implements RMIServer {
 
     @Override
     public List<InputUser> getUser()  {
+        System.out.println("RMISERVER read user");
         return textManager.getUser();
     }
 

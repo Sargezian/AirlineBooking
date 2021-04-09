@@ -24,6 +24,7 @@ public class daoImpl implements daoInterface
 
   @Override public InputChat createChar(String str)
   {
+    System.out.println("Her starter create Chat");
     try {
       try (Connection connection = getConnection()){
         PreparedStatement statement = connection.prepareStatement("INSERT INTO InputChat(chat) VALUES (?) ");
@@ -34,6 +35,7 @@ public class daoImpl implements daoInterface
     } catch (SQLException throwables) {
       throwables.printStackTrace();
     }
+    System.out.println("Her slutter Create Chat");
     return null;
   }
 
@@ -63,6 +65,7 @@ public class daoImpl implements daoInterface
 
  @Override public InputUser createUser(String txt)
   {
+    System.out.println("Her begynder createUser");
     try {
       try (Connection connection = getConnection()){
         PreparedStatement statement = connection.prepareStatement("INSERT INTO InputUser(user_) VALUES (?) ", PreparedStatement.RETURN_GENERATED_KEYS);
@@ -84,11 +87,13 @@ public class daoImpl implements daoInterface
     } catch (SQLException throwables) {
       throwables.printStackTrace();
     }
+    System.out.println("Her slutter create User");
     return null;
   }
 
  @Override public List<InputUser> readUser()
   {
+    System.out.println("Her begynder readUser");
     try {
       try (Connection connection = getConnection()){
 
@@ -108,11 +113,13 @@ public class daoImpl implements daoInterface
     } catch (SQLException throwables) {
       throwables.printStackTrace();
     }
+    System.out.println("Her Slutter read user ");
 return null;
   }
 
   @Override
   public void update(InputChat inputchat)  {
+    System.out.println("Her begynder Update");
     try {
       try (Connection connection = getConnection()){
         PreparedStatement statement = connection.prepareStatement("UPDATE InputChat SET chat=? ");

@@ -31,30 +31,37 @@ public class TextManagerImpl implements TextManager{
 
     @Override
     public String sendMsg(String str) {
+      System.out.println("Her starter send msg");
         //InputChat inputChat = new InputChat(str);
         //chatListe.add(inputChat);//Denne skal laves om til at den gemmer i databasen
         InputChat inputChat = dao.createChar(str);
         support.firePropertyChange(utils.NEWCHAT, null, inputChat);
         System.out.println("support.getPropertyChangeListeners().length:" + support.getPropertyChangeListeners().length);
+      System.out.println("Her slutter msg");
         return str;
     }
 
     @Override
     public List<InputChat> getChat() {
+      System.out.println("Her prøver vi at return read chat");
         return dao.readChat();//Denne skal laves om til at den læser fra databasen
     }
 
     @Override
     public String username(String txt) {
+      System.out.println("Her starter username");
         InputUser inputUser = dao.createUser(txt);
         support.firePropertyChange(utils.NEWUSER, null, inputUser);
         System.out.println("support.getPropertyChangeListeners().length:" + support.getPropertyChangeListeners().length);
+      System.out.println("Her slutter Username ");
         return txt;
     }
 
     @Override
     public List<InputUser> getUser() {
-        return dao.readUser();
+
+      System.out.println("Her bliver der lavet et return på readuser");
+      return dao.readUser();
     }
 
     @Override
