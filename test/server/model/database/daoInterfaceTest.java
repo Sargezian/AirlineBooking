@@ -31,10 +31,12 @@ public class daoInterfaceTest
 
   @Test public void readChat() throws SQLException {
 
+    dao.readChat();
 
-    InputChat inputUser =  dao.createChar("ww");
 
-    assertEquals("ww",inputUser.getInput());
+//    InputChat inputUser =  dao.createChar("ww");
+//
+//    assertEquals("ww",inputUser.getInput());
 
 
 
@@ -53,7 +55,7 @@ public class daoInterfaceTest
     InputUser p = dao.createUser("mike");
 
     assertEquals("mike",p.getOutput());
-    assertNotNull(p.getId());
+
 
 
   }

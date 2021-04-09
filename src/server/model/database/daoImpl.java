@@ -13,38 +13,57 @@ import static server.model.database.daoConnection.getConnection;
 
 public class daoImpl implements daoInterface
 {
-  public daoImpl() throws SQLException
+  public daoImpl()
   {
-    DriverManager.registerDriver(new org.postgresql.Driver());
-  }
-
-  @Override public InputChat createChar(String str) throws SQLException
-  {
-    try (Connection connection = getConnection()){
-      PreparedStatement statement = connection.prepareStatement("INSERT INTO InputChat(chat) VALUES (?) ");
-      statement.setString(1,str);
-      statement.executeUpdate();
-      return new InputChat(str);
+    try {
+      DriverManager.registerDriver(new org.postgresql.Driver());
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
     }
   }
 
- @Override public List<InputChat> readChat( ) throws SQLException
+  @Override public InputChat createChar(String str)
   {
-    try (Connection connection = getConnection()){
-      PreparedStatement statement = connection.prepareStatement("SELECT * FROM InputChat");
-      ResultSet resultSet = statement.executeQuery();
-      ArrayList<InputChat> result = new ArrayList<>();
-      while(resultSet.next()){
-        String str =  resultSet.getString("chat");
-        InputChat inputChat = new InputChat(str);
-        result.add(inputChat);
+    try {
+      try (Connection connection = getConnection()){
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO InputChat(chat) VALUES (?) ");
+        statement.setString(1,str);
+        statement.executeUpdate();
+        return new InputChat(str);
       }
-       return result;
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
     }
+    return null;
   }
 
- @Override public InputUser createUser(String txt) throws SQLException
+ @Override public List<InputChat> readChat( )
   {
+    System.out.println("her begynder readchat");
+    try {
+      try (Connection connection = getConnection()){
+        PreparedStatement statement = connection.prepareStatement("SELECT chat FROM InputChat");
+        ResultSet resultSet = statement.executeQuery();
+        ArrayList<InputChat> result = new ArrayList<>();
+        while(resultSet.next()){
+          String str =  resultSet.getString("chat");
+          InputChat inputChat = new InputChat(str);
+          result.add(inputChat);
+
+        }
+        System.out.println(result.size() + " readchat size ");
+         return result;
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+    System.out.println("her slutter readchat");
+    return null;
+  }
+
+ @Override public InputUser createUser(String txt)
+  {
+    try {
       try (Connection connection = getConnection()){
         PreparedStatement statement = connection.prepareStatement("INSERT INTO InputUser(user_) VALUES (?) ", PreparedStatement.RETURN_GENERATED_KEYS);
         statement.setString(1,txt);
@@ -62,65 +81,89 @@ public class daoImpl implements daoInterface
 
         }
     }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+    return null;
   }
 
- @Override public List<InputUser> readUser() throws SQLException
+ @Override public List<InputUser> readUser()
   {
-    try (Connection connection = getConnection()){
+    try {
+      try (Connection connection = getConnection()){
 
-      PreparedStatement statement = connection.prepareStatement("SELECT * FROM InputUser ");
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM InputUser ");
 
-      ResultSet resultSet = statement.executeQuery();
-      ArrayList<InputUser> result = new ArrayList<>();
-      while (resultSet.next()){
-        String txt =  resultSet.getString("user_");
-        int id = resultSet.getInt("id");
-        InputUser inputUser = new InputUser(id,txt);
-        result.add(inputUser);
+        ResultSet resultSet = statement.executeQuery();
+        ArrayList<InputUser> result = new ArrayList<>();
+        while (resultSet.next()){
+          String txt =  resultSet.getString("user_");
+          int id = resultSet.getInt("id");
+          InputUser inputUser = new InputUser(id,txt);
+          result.add(inputUser);
+
+        }
+        return result;
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+return null;
+  }
+
+  @Override
+  public void update(InputChat inputchat)  {
+    try {
+      try (Connection connection = getConnection()){
+        PreparedStatement statement = connection.prepareStatement("UPDATE InputChat SET chat=? ");
+        statement.setString(1,inputchat.getInput());
+        statement.executeUpdate();
 
       }
-      return result;
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+  }
+
+  @Override
+  public void update(InputUser inputuser)  {
+    try {
+      try (Connection connection = getConnection()){
+        PreparedStatement statement = connection.prepareStatement("UPDATE InputUser SET id=?,use_ =? ");
+        statement.setInt(1,inputuser.getId());
+        statement.setString(2,inputuser.getOutput());
+        statement.executeUpdate();
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
     }
 
   }
 
   @Override
-  public void update(InputChat inputchat) throws SQLException {
-    try (Connection connection = getConnection()){
-      PreparedStatement statement = connection.prepareStatement("UPDATE InputChat SET chat=? ");
-      statement.setString(1,inputchat.getInput());
-      statement.executeUpdate();
+  public void remove(InputChat inputChat) {
+    try {
+      try (Connection connection = getConnection()){
+        PreparedStatement statement = connection.prepareStatement("DELETE  FROM InputChat ");
+        statement.executeUpdate();
 
+
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
     }
   }
 
   @Override
-  public void update(InputUser inputuser) throws SQLException {
-    try (Connection connection = getConnection()){
-      PreparedStatement statement = connection.prepareStatement("UPDATE InputUser SET id=?,use_ =? ");
-      statement.setInt(1,inputuser.getId());
-      statement.setString(2,inputuser.getOutput());
-      statement.executeUpdate();
-    }
+  public void remove(InputUser inputUser)  {
+    try {
+      try (Connection connection = getConnection()){
+        PreparedStatement statement = connection.prepareStatement("DELETE  FROM InputUser");
+        statement.executeUpdate();
 
-  }
-
-  @Override
-  public void remove(InputChat inputChat) throws SQLException {
-    try (Connection connection = getConnection()){
-      PreparedStatement statement = connection.prepareStatement("DELETE  FROM InputChat ");
-      statement.executeUpdate();
-
-
-    }
-  }
-
-  @Override
-  public void remove(InputUser inputUser) throws SQLException {
-    try (Connection connection = getConnection()){
-      PreparedStatement statement = connection.prepareStatement("DELETE  FROM InputUser");
-      statement.executeUpdate();
-
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
     }
   }
 }
