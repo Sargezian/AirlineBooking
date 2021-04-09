@@ -17,6 +17,7 @@ public class TextManagerImpl implements TextManager{
     private PropertyChangeSupport support;
     private List<InputChat> chatListe;
     private List<InputUser> userNameList;
+    private daoInterface dao;
 
 
     public TextManagerImpl() {

@@ -1,5 +1,6 @@
 package server.model.database;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
@@ -8,22 +9,29 @@ import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class daoInterfaceTest
+public class daoInterfaceTest
 {
 
+  private daoInterface dao;
 
+
+@BeforeEach
+ public void createDao() throws SQLException {
+  dao = new daoImpl();
+
+  }
 
   @Test
   public void createChar() throws SQLException
   {
-    daoInterface dao = new daoImpl();
+
     dao.createChar("hej wdet er fint");
 
   }
 
-  @org.junit.jupiter.api.Test void readChat() throws SQLException {
+  @Test public void readChat() throws SQLException {
 
-    daoInterface dao = new daoImpl();
+
     InputChat inputUser =  dao.createChar("ww");
 
     assertEquals("ww",inputUser.getInput());
@@ -33,18 +41,19 @@ class daoInterfaceTest
 
   }
 
-  @org.junit.jupiter.api.Test void createUser() throws SQLException {
-    daoInterface dao = new daoImpl();
-    dao.createUser("tim");
+  @Test public void createUser() throws SQLException {
+     dao.createUser("tim");
+
+
 
   }
 
-  @org.junit.jupiter.api.Test void readUser() throws SQLException {
-    daoInterface dao = new daoImpl();
+  @Test public void readUser() throws SQLException {
+
     InputUser p = dao.createUser("mike");
 
     assertEquals("mike",p.getOutput());
-   assertNotNull(p.getId());
+    assertNotNull(p.getId());
 
 
   }

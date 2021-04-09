@@ -82,6 +82,45 @@ public class daoImpl implements daoInterface
       return result;
     }
 
+  }
 
+  @Override
+  public void update(InputChat inputchat) throws SQLException {
+    try (Connection connection = getConnection()){
+      PreparedStatement statement = connection.prepareStatement("UPDATE InputChat SET chat=? ");
+      statement.setString(1,inputchat.getInput());
+      statement.executeUpdate();
+
+    }
+  }
+
+  @Override
+  public void update(InputUser inputuser) throws SQLException {
+    try (Connection connection = getConnection()){
+      PreparedStatement statement = connection.prepareStatement("UPDATE InputUser SET id=?,use_ =? ");
+      statement.setInt(1,inputuser.getId());
+      statement.setString(2,inputuser.getOutput());
+      statement.executeUpdate();
+    }
+
+  }
+
+  @Override
+  public void remove(InputChat inputChat) throws SQLException {
+    try (Connection connection = getConnection()){
+      PreparedStatement statement = connection.prepareStatement("DELETE  FROM InputChat ");
+      statement.executeUpdate();
+
+
+    }
+  }
+
+  @Override
+  public void remove(InputUser inputUser) throws SQLException {
+    try (Connection connection = getConnection()){
+      PreparedStatement statement = connection.prepareStatement("DELETE  FROM InputUser");
+      statement.executeUpdate();
+
+    }
   }
 }

@@ -4,6 +4,7 @@ import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
 import shared.util.Subject;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface TextManager extends Subject {
