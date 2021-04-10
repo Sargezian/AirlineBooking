@@ -1,20 +1,15 @@
 package server.model.database;
 
-import server.model.TextManager;
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
-
-import java.beans.PropertyChangeListener;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 import static server.model.database.daoConnection.getConnection;
 
-public class daoImpl implements daoInterface
-{
-  public daoImpl()
-  {
+public class daoImpl implements daoInterface {
+  public daoImpl() {
     try {
       DriverManager.registerDriver(new org.postgresql.Driver());
     } catch (SQLException throwables) {
@@ -22,13 +17,13 @@ public class daoImpl implements daoInterface
     }
   }
 
-  @Override public InputChat createChar(String str)
-  {
+  @Override
+  public InputChat createChar(String str) {
     System.out.println("Her starter create Chat");
     try {
-      try (Connection connection = getConnection()){
+      try (Connection connection = getConnection()) {
         PreparedStatement statement = connection.prepareStatement("INSERT INTO InputChat(chat) VALUES (?) ");
-        statement.setString(1,str);
+        statement.setString(1, str);
         statement.executeUpdate();
         return new InputChat(str);
       }
@@ -39,22 +34,22 @@ public class daoImpl implements daoInterface
     return null;
   }
 
- @Override public List<InputChat> readChat( )
-  {
+  @Override
+  public List<InputChat> readChat() {
     System.out.println("her begynder readchat");
     try {
-      try (Connection connection = getConnection()){
+      try (Connection connection = getConnection()) {
         PreparedStatement statement = connection.prepareStatement("SELECT chat FROM InputChat");
         ResultSet resultSet = statement.executeQuery();
         ArrayList<InputChat> result = new ArrayList<>();
-        while(resultSet.next()){
-          String str =  resultSet.getString("chat");
+        while (resultSet.next()) {
+          String str = resultSet.getString("chat");
           InputChat inputChat = new InputChat(str);
           result.add(inputChat);
 
         }
         System.out.println(result.size() + " readchat size ");
-         return result;
+        return result;
       }
     } catch (SQLException throwables) {
       throwables.printStackTrace();
@@ -63,27 +58,25 @@ public class daoImpl implements daoInterface
     return null;
   }
 
- @Override public InputUser createUser(String txt)
-  {
+  @Override
+  public InputUser createUser(String txt) {
     System.out.println("Her begynder createUser");
     try {
-      try (Connection connection = getConnection()){
+      try (Connection connection = getConnection()) {
         PreparedStatement statement = connection.prepareStatement("INSERT INTO InputUser(user_) VALUES (?) ", PreparedStatement.RETURN_GENERATED_KEYS);
-        statement.setString(1,txt);
+        statement.setString(1, txt);
         statement.executeUpdate();
         ResultSet key = statement.getGeneratedKeys();
 
-        if (key.next()){
+        if (key.next()) {
 
-          return new InputUser(key.getInt(1),txt);
-        }
-
-        else{
+          return new InputUser(key.getInt(1), txt);
+        } else {
 
           throw new SQLException("hej med dig");
 
         }
-    }
+      }
     } catch (SQLException throwables) {
       throwables.printStackTrace();
     }
@@ -91,20 +84,20 @@ public class daoImpl implements daoInterface
     return null;
   }
 
- @Override public List<InputUser> readUser()
-  {
+  @Override
+  public List<InputUser> readUser() {
     System.out.println("Her begynder readUser");
     try {
-      try (Connection connection = getConnection()){
+      try (Connection connection = getConnection()) {
 
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM InputUser ");
 
         ResultSet resultSet = statement.executeQuery();
         ArrayList<InputUser> result = new ArrayList<>();
-        while (resultSet.next()){
-          String txt =  resultSet.getString("user_");
+        while (resultSet.next()) {
+          String txt = resultSet.getString("user_");
           int id = resultSet.getInt("id");
-          InputUser inputUser = new InputUser(id,txt);
+          InputUser inputUser = new InputUser(id, txt);
           result.add(inputUser);
 
         }
@@ -114,16 +107,16 @@ public class daoImpl implements daoInterface
       throwables.printStackTrace();
     }
     System.out.println("Her Slutter read user ");
-return null;
+    return null;
   }
 
   @Override
-  public void update(InputChat inputchat)  {
+  public void update(InputChat inputchat) {
     System.out.println("Her begynder Update");
     try {
-      try (Connection connection = getConnection()){
+      try (Connection connection = getConnection()) {
         PreparedStatement statement = connection.prepareStatement("UPDATE InputChat SET chat=? ");
-        statement.setString(1,inputchat.getInput());
+        statement.setString(1, inputchat.getInput());
         statement.executeUpdate();
 
       }
@@ -133,12 +126,12 @@ return null;
   }
 
   @Override
-  public void update(InputUser inputuser)  {
+  public void update(InputUser inputuser) {
     try {
-      try (Connection connection = getConnection()){
+      try (Connection connection = getConnection()) {
         PreparedStatement statement = connection.prepareStatement("UPDATE InputUser SET id=?,use_ =? ");
-        statement.setInt(1,inputuser.getId());
-        statement.setString(2,inputuser.getOutput());
+        statement.setInt(1, inputuser.getId());
+        statement.setString(2, inputuser.getOutput());
         statement.executeUpdate();
       }
     } catch (SQLException throwables) {
@@ -150,7 +143,7 @@ return null;
   @Override
   public void remove(InputChat inputChat) {
     try {
-      try (Connection connection = getConnection()){
+      try (Connection connection = getConnection()) {
         PreparedStatement statement = connection.prepareStatement("DELETE  FROM InputChat ");
         statement.executeUpdate();
 
@@ -162,9 +155,9 @@ return null;
   }
 
   @Override
-  public void remove(InputUser inputUser)  {
+  public void remove(InputUser inputUser) {
     try {
-      try (Connection connection = getConnection()){
+      try (Connection connection = getConnection()) {
         PreparedStatement statement = connection.prepareStatement("DELETE  FROM InputUser");
         statement.executeUpdate();
 

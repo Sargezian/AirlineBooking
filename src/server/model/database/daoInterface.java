@@ -9,9 +9,10 @@ import java.util.List;
 public interface daoInterface
 {
   InputChat createChar(String str);
-  List<InputChat> readChat() ;
+  List<InputChat> readChat();
   InputUser createUser(String txt) ;
-  List<InputUser> readUser( );
+  List<InputUser> readUser();
+
   void update(InputChat inputchat) ;
   void update(InputUser inputuser) ;
   void remove(InputChat inputChat) ;

@@ -13,6 +13,10 @@ public class InputUser implements Serializable {
         this.id = id;
     }
 
+    public InputUser(String output) {
+        this.output = output;
+    }
+
     public String getOutput() {
         return output;
     }

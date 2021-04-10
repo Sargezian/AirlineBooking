@@ -17,15 +17,15 @@ import java.util.List;
 public class TextManagerImpl implements TextManager{
 
     private PropertyChangeSupport support;
-   // private List<InputChat> chatListe;
-    // private List<InputUser> userNameList;
+    private List<InputChat> chatListe;
+    private List<InputUser> userNameList;
     private daoInterface dao;
 
 
     public TextManagerImpl() {
         support = new PropertyChangeSupport(this);
-        //chatListe = new ArrayList<>();
-        //userNameList = new ArrayList<>();
+        chatListe = new ArrayList<>();
+        userNameList = new ArrayList<>();
         dao = new daoImpl();
     }
 
@@ -33,8 +33,8 @@ public class TextManagerImpl implements TextManager{
     public String sendMsg(String str) {
       System.out.println("Her starter send msg");
         //InputChat inputChat = new InputChat(str);
-        //chatListe.add(inputChat);//Denne skal laves om til at den gemmer i databasen
         InputChat inputChat = dao.createChar(str);
+        chatListe.add(inputChat);//Denne skal laves om til at den gemmer i databasen
         support.firePropertyChange(utils.NEWCHAT, null, inputChat);
         System.out.println("support.getPropertyChangeListeners().length:" + support.getPropertyChangeListeners().length);
       System.out.println("Her slutter msg");
@@ -44,13 +44,16 @@ public class TextManagerImpl implements TextManager{
     @Override
     public List<InputChat> getChat() {
       System.out.println("Her prøver vi at return read chat");
-        return dao.readChat();//Denne skal laves om til at den læser fra databasen
+        return dao.readChat();
+        //return new ArrayList<>(chatListe);
     }
 
     @Override
     public String username(String txt) {
       System.out.println("Her starter username");
+        //InputUser inputUser = new InputUser(txt);
         InputUser inputUser = dao.createUser(txt);
+        userNameList.add(inputUser);
         support.firePropertyChange(utils.NEWUSER, null, inputUser);
         System.out.println("support.getPropertyChangeListeners().length:" + support.getPropertyChangeListeners().length);
       System.out.println("Her slutter Username ");
@@ -62,6 +65,7 @@ public class TextManagerImpl implements TextManager{
 
       System.out.println("Her bliver der lavet et return på readuser");
       return dao.readUser();
+      //return new ArrayList<>(userNameList);
     }
 
     @Override
