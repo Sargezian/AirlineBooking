@@ -31,7 +31,7 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
-    public String sendMsg(String text) {
+    public InputChat sendMsg(String text) {
         return client.sendMsg(text);
     }
 
@@ -41,7 +41,7 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
-    public String username(String txt) {
+    public InputUser username(String txt) {
         return client.username(txt);
     }
 

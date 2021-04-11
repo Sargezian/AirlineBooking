@@ -38,7 +38,7 @@ public class RMIClient implements Client, ClientCallBack {
     }
 
     @Override
-    public String sendMsg(String str) {
+    public InputChat sendMsg(String str) {
         try {
             return server.sendMsg(str);
         } catch (RemoteException e) {
@@ -56,7 +56,7 @@ public class RMIClient implements Client, ClientCallBack {
     }
 
     @Override
-    public String username(String txt) {
+    public InputUser username(String txt) {
         try {
             return server.username(txt);
         } catch (RemoteException e) {

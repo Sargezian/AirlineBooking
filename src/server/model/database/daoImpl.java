@@ -6,22 +6,40 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static server.model.database.daoConnection.getConnection;
 
-public class daoImpl implements daoInterface {
-  public daoImpl() {
+public class daoImpl implements daoInterface  {
+
+  private static daoImpl daoInstance;
+  private daoConnection daoconnection;
+
+
+  private daoImpl() {
     try {
       DriverManager.registerDriver(new org.postgresql.Driver());
     } catch (SQLException throwables) {
       throwables.printStackTrace();
     }
+    daoconnection = daoConnection.getInstance();
   }
 
-  @Override
+     public static synchronized daoImpl getInstance(){
+
+          if (daoInstance == null){
+
+            daoInstance = new daoImpl();
+
+          }
+
+          return daoInstance;
+     }
+
+
+
+
   public InputChat createChar(String str) {
     System.out.println("Her starter create Chat");
     try {
-      try (Connection connection = getConnection()) {
+      try (Connection connection = daoConnection.getConnection()) {
         PreparedStatement statement = connection.prepareStatement("INSERT INTO InputChat(chat) VALUES (?) ");
         statement.setString(1, str);
         statement.executeUpdate();
@@ -34,11 +52,11 @@ public class daoImpl implements daoInterface {
     return null;
   }
 
-  @Override
+
   public List<InputChat> readChat() {
     System.out.println("her begynder readchat");
     try {
-      try (Connection connection = getConnection()) {
+      try (Connection connection =  daoConnection.getConnection()) {
         PreparedStatement statement = connection.prepareStatement("SELECT chat FROM InputChat");
         ResultSet resultSet = statement.executeQuery();
         ArrayList<InputChat> result = new ArrayList<>();
@@ -58,11 +76,11 @@ public class daoImpl implements daoInterface {
     return null;
   }
 
-  @Override
+
   public InputUser createUser(String txt) {
     System.out.println("Her begynder createUser");
     try {
-      try (Connection connection = getConnection()) {
+      try (Connection connection =  daoConnection.getConnection()) {
         PreparedStatement statement = connection.prepareStatement("INSERT INTO InputUser(user_) VALUES (?) ", PreparedStatement.RETURN_GENERATED_KEYS);
         statement.setString(1, txt);
         statement.executeUpdate();
@@ -84,11 +102,11 @@ public class daoImpl implements daoInterface {
     return null;
   }
 
-  @Override
+
   public List<InputUser> readUser() {
     System.out.println("Her begynder readUser");
     try {
-      try (Connection connection = getConnection()) {
+      try (Connection connection =  daoConnection.getConnection()) {
 
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM InputUser ");
 
@@ -110,11 +128,10 @@ public class daoImpl implements daoInterface {
     return null;
   }
 
-  @Override
   public void update(InputChat inputchat) {
     System.out.println("Her begynder Update");
     try {
-      try (Connection connection = getConnection()) {
+      try (Connection connection =  daoConnection.getConnection()) {
         PreparedStatement statement = connection.prepareStatement("UPDATE InputChat SET chat=? ");
         statement.setString(1, inputchat.getInput());
         statement.executeUpdate();
@@ -125,10 +142,10 @@ public class daoImpl implements daoInterface {
     }
   }
 
-  @Override
+
   public void update(InputUser inputuser) {
     try {
-      try (Connection connection = getConnection()) {
+      try (Connection connection =  daoConnection.getConnection()) {
         PreparedStatement statement = connection.prepareStatement("UPDATE InputUser SET id=?,use_ =? ");
         statement.setInt(1, inputuser.getId());
         statement.setString(2, inputuser.getOutput());
@@ -140,10 +157,10 @@ public class daoImpl implements daoInterface {
 
   }
 
-  @Override
+
   public void remove(InputChat inputChat) {
     try {
-      try (Connection connection = getConnection()) {
+      try (Connection connection =  daoConnection.getConnection()) {
         PreparedStatement statement = connection.prepareStatement("DELETE  FROM InputChat ");
         statement.executeUpdate();
 
@@ -154,10 +171,10 @@ public class daoImpl implements daoInterface {
     }
   }
 
-  @Override
+
   public void remove(InputUser inputUser) {
     try {
-      try (Connection connection = getConnection()) {
+      try (Connection connection =  daoConnection.getConnection()) {
         PreparedStatement statement = connection.prepareStatement("DELETE  FROM InputUser");
         statement.executeUpdate();
 

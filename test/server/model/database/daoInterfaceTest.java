@@ -12,13 +12,14 @@ public class daoInterfaceTest
 
 @BeforeEach
  public void createDao() throws SQLException {
-  dao = new daoImpl();
+  dao = daoImpl.getInstance();
   }
 
   @Test
   public void createChar() throws SQLException
   {
     dao.createChar("hej wdet er fint");
+      dao.createChar("hej wdet er fint");
   }
 
   @Test public void readChat() throws SQLException {

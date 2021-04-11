@@ -8,9 +8,6 @@ import shared.util.utils;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,50 +19,53 @@ public class TextManagerImpl implements TextManager{
     private daoInterface dao;
 
 
+
+
     public TextManagerImpl() {
         support = new PropertyChangeSupport(this);
         chatListe = new ArrayList<>();
         userNameList = new ArrayList<>();
-        dao = new daoImpl();
+        dao = daoImpl.getInstance();
+
+
     }
 
     @Override
-    public String sendMsg(String str) {
+    public InputChat sendMsg(String str) {
       System.out.println("Her starter send msg");
         InputChat inputChat = new InputChat(str);
-        //InputChat inputChat = dao.createChar(str);
-        chatListe.add(inputChat);//Denne skal laves om til at den gemmer i databasen
+       // dao.createChar(str);
+       chatListe.add(dao.createChar(str));//Denne skal laves om til at den gemmer i databasen
         support.firePropertyChange(utils.NEWCHAT, null, inputChat);
         System.out.println("support.getPropertyChangeListeners().length:" + support.getPropertyChangeListeners().length);
-      System.out.println("Her slutter msg");
-        return str;
+        System.out.println("Her slutter msg");
+        return inputChat;
     }
 
     @Override
     public List<InputChat> getChat() {
       System.out.println("Her prøver vi at return read chat");
-      //  return dao.readChat();
-        return new ArrayList<>(chatListe);
+       //return dao.readChat();
+       return new ArrayList<>(dao.readChat());
     }
 
     @Override
-    public String username(String txt) {
+    public InputUser username(String txt) {
       System.out.println("Her starter username");
         InputUser inputUser = new InputUser(txt);
-        //InputUser inputUser = dao.createUser(txt);
-        userNameList.add(inputUser);
+        userNameList.add(dao.createUser(txt));
         support.firePropertyChange(utils.NEWUSER, null, inputUser);
         System.out.println("support.getPropertyChangeListeners().length:" + support.getPropertyChangeListeners().length);
       System.out.println("Her slutter Username ");
-        return txt;
+        return inputUser;
     }
 
     @Override
     public List<InputUser> getUser() {
 
       System.out.println("Her bliver der lavet et return på readuser");
-      //return dao.readUser();
-      return new ArrayList<>(userNameList);
+     // return dao.readUser();
+      return new ArrayList<>(dao.readUser());
     }
 
     @Override

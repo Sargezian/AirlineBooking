@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface Client extends Subject {
 
-    String sendMsg(String str);
+    InputChat sendMsg(String str);
     List<InputChat> getChat();
-    String username(String txt);
+    InputUser username(String txt);
     List<InputUser> getUser();
     void startClient();
 }

@@ -6,15 +6,31 @@ import java.sql.SQLException;
 
 public class daoConnection
   {
-    private static Connection connection;
-    protected static Connection getConnection() throws SQLException
+
+
+    private static daoConnection instance;
+
+    private daoConnection() {
+    }
+
+    public static synchronized daoConnection getInstance() {
+
+      if (instance == null){
+
+        instance = new daoConnection();
+
+      }
+       return instance;
+
+    }
+
+
+
+    public static Connection getConnection() throws SQLException
     {
-      if (connection == null)
-      {
-        connection = DriverManager.getConnection(
+     return DriverManager.getConnection(
             "jdbc:postgresql://localhost:5432/postgres?currentSchema=sep2",
             "postgres", "42323087");
-      }
-      return connection;
+
     }
   }

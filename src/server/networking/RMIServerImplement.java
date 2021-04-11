@@ -30,7 +30,7 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public String sendMsg(String str) {
+    public InputChat sendMsg(String str) {
         System.out.println("RMI SERVER READ CHAT");
         return textManager.sendMsg(str);
     }
@@ -41,7 +41,7 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public String username(String txt)  {
+    public InputUser username(String txt)  {
         return textManager.username(txt);
     }
 
