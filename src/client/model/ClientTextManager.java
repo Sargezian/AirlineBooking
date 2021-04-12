@@ -3,6 +3,7 @@ package client.model;
 import client.network.Client;
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
+import shared.transferobjects.flights;
 import shared.util.utils;
 
 import java.beans.PropertyChangeEvent;
@@ -49,6 +50,12 @@ public class ClientTextManager implements ClientText {
     public List<InputUser> getUser() {
        return client.getUser();
     }
+
+    @Override
+    public List<flights> getflights() {
+        return client.getflights();
+    }
+
 
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {

@@ -4,6 +4,7 @@ import server.model.database.daoImpl;
 import server.model.database.daoInterface;
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
+import shared.transferobjects.flights;
 import shared.util.utils;
 
 import java.beans.PropertyChangeListener;
@@ -16,18 +17,16 @@ public class TextManagerImpl implements TextManager{
     private PropertyChangeSupport support;
     private List<InputChat> chatListe;
     private List<InputUser> userNameList;
+    private List<flights> flightList;
     private daoInterface dao;
-
-
 
 
     public TextManagerImpl() {
         support = new PropertyChangeSupport(this);
         chatListe = new ArrayList<>();
         userNameList = new ArrayList<>();
+        flightList = new ArrayList<>();
         dao = daoImpl.getInstance();
-
-
     }
 
     @Override
@@ -67,6 +66,12 @@ public class TextManagerImpl implements TextManager{
      // return dao.readUser();
       return new ArrayList<>(dao.readUser());
     }
+
+    @Override
+    public List<flights> getflights() {
+        return new ArrayList<>(flightList);
+    }
+
 
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.dashboard.dashboardViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.dashboard.dashboardViewController">
     <children>
         <VBox prefHeight="502.0" prefWidth="231.0" style="-fx-background-color: #4153F2;">
             <children>
@@ -56,20 +56,21 @@
                                 <Image url="@../../../Billeder/pie-chart.png" />
                             </image>
                         </ImageView>
-                  <Label alignment="CENTER" layoutX="26.0" layoutY="113.0" prefHeight="52.0" prefWidth="184.0" text="Airline Booking" textFill="WHITE">
-                     <font>
-                        <Font name="Tahoma Bold" size="20.0" />
-                     </font>
-                  </Label>
+                        <Label alignment="CENTER" layoutX="26.0" layoutY="113.0" prefHeight="52.0" prefWidth="184.0" text="Airline Booking" textFill="WHITE">
+                            <font>
+                                <Font name="Tahoma Bold" size="20.0" />
+                            </font>
+                        </Label>
                     </children>
                 </AnchorPane>
             </children>
         </VBox>
-      <TableView layoutX="250.0" layoutY="14.0" prefHeight="344.0" prefWidth="455.0">
-        <columns>
-          <TableColumn prefWidth="223.20001220703125" text="C1" />
-          <TableColumn prefWidth="231.19992065429688" text="C2" />
-        </columns>
-      </TableView>
+        <TableView fx:id="tableView" layoutX="250.0" layoutY="14.0" prefHeight="344.0" prefWidth="455.0">
+            <columns>
+                <TableColumn fx:id="flightColumn" prefWidth="223.20001220703125" text="Flights" />
+                <TableColumn fx:id="seatColumn" prefWidth="231.19992065429688" text="Seats" />
+            </columns>
+        </TableView>
+        <Button layoutX="323.0" layoutY="387.0" mnemonicParsing="false" onAction="#onpush" text="Order" />
     </children>
 </AnchorPane>

@@ -7,5 +7,6 @@ public class utils
 
     public static final String NEWCHAT = "NewInputChat";
     public static final String NEWUSER = "NewInputUser";
+    public static final String NEWFLIGHT = "NewInputflight";
 
 }

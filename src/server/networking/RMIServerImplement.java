@@ -5,6 +5,7 @@ import shared.networking.ClientCallBack;
 import shared.networking.RMIServer;
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
+import shared.transferobjects.flights;
 import shared.util.utils;
 
 import java.beans.PropertyChangeListener;
@@ -34,6 +35,7 @@ public class RMIServerImplement implements RMIServer {
         System.out.println("RMI SERVER READ CHAT");
         return textManager.sendMsg(str);
     }
+
 
     @Override
     public List<InputChat> getChat()  {
@@ -80,5 +82,28 @@ public class RMIServerImplement implements RMIServer {
         };
         textManager.addListener(utils.NEWUSER, listener);
     }
+
+    @Override
+    public void registerFlightsToClient(ClientCallBack client){
+        //add(client);
+        PropertyChangeListener listener = null;
+        PropertyChangeListener finalListener = listener;
+        listener = evt -> {
+            try {
+                client.updateFlights((flights) evt.getNewValue());
+            } catch (RemoteException e) {
+
+                textManager.removeListener(utils.NEWFLIGHT, finalListener);
+            }
+        };
+        textManager.addListener(utils.NEWFLIGHT, listener);
+    }
+
+    @Override
+    public List<flights> getflights() {
+        return textManager.getflights();
+    }
+
+
 
     }

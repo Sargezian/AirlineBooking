@@ -2,6 +2,7 @@ package server.model;
 
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
+import shared.transferobjects.flights;
 import shared.util.Subject;
 
 import java.sql.SQLException;
@@ -13,6 +14,8 @@ public interface TextManager extends Subject {
     List<InputChat> getChat();
     InputUser username(String txt);
     List<InputUser> getUser();
+
+    List<flights> getflights();
 
 }
 
