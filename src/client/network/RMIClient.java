@@ -31,8 +31,8 @@ public class RMIClient implements Client, ClientCallBack {
             UnicastRemoteObject.exportObject(this,0);
             Registry registry = LocateRegistry.getRegistry(utils.PORT_NR);
             server = (RMIServer) registry.lookup(utils.SERVER);
-            server.registerClient(this);
-            server.registerClient2(this);
+            server.registerChatToClient(this);
+            server.registerUserToClient(this);
         } catch (RemoteException | NotBoundException e) {
             e.printStackTrace();
         }
@@ -81,11 +81,6 @@ public class RMIClient implements Client, ClientCallBack {
         } catch (RemoteException e) {
             throw new RuntimeException("Kunne ikke få fat i server");
         }
-    }
-
-    @Override
-    public void updateFlights(flights entry3) throws RemoteException {
-        support.firePropertyChange(utils.NEWFLIGHT, null, entry3);
     }
 
     @Override

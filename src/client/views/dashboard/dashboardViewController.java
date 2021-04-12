@@ -3,13 +3,13 @@ package client.views.dashboard;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.views.ViewController;
+import client.views.myflightplan.myflightplanViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import shared.transferobjects.flights;
-
 
 public class dashboardViewController implements ViewController {
 
@@ -22,12 +22,13 @@ public class dashboardViewController implements ViewController {
 
     private ViewHandler vh;
     private dashboardViewModel dv;
+    private myflightplanViewModel vm;
 
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.vh = vh;
         dv = vmf.getdashboardViewModel();
-        dv.loadfligts();
+        dv.loadFlights();
         flightColumn.setCellValueFactory(new PropertyValueFactory<>("dummy"));
         seatColumn.setCellValueFactory(new PropertyValueFactory<>("seats"));
         tableView.setItems(dv.getflight());
@@ -39,7 +40,9 @@ public class dashboardViewController implements ViewController {
 
     public void onpush(ActionEvent actionEvent) {
         dv.setSelected(tableView.getSelectionModel().getSelectedItems());
-        dv.selected();
+        dv.removeSelected();
+        dv.addSelected();
+
 
     }
 

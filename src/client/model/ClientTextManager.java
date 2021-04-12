@@ -56,7 +56,6 @@ public class ClientTextManager implements ClientText {
         return client.getflights();
     }
 
-
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         support.addPropertyChangeListener(eventName, listener);

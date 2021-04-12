@@ -53,4 +53,5 @@ public class flights implements Serializable {
                 "dummy='" + dummy + '\'' +
                 '}';
     }
+
 }

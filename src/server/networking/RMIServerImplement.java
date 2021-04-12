@@ -14,6 +14,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RMIServerImplement implements RMIServer {
@@ -54,7 +55,7 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public void registerClient(ClientCallBack client) {
+    public void registerChatToClient(ClientCallBack client) {
         PropertyChangeListener listener = null;
         PropertyChangeListener finalListener = listener;
                 listener = evt -> {
@@ -69,7 +70,7 @@ public class RMIServerImplement implements RMIServer {
         }
 
     @Override
-    public void registerClient2(ClientCallBack client) {
+    public void registerUserToClient(ClientCallBack client) {
         PropertyChangeListener listener = null;
         PropertyChangeListener finalListener = listener;
         listener = evt -> {
@@ -84,26 +85,8 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public void registerFlightsToClient(ClientCallBack client){
-        //add(client);
-        PropertyChangeListener listener = null;
-        PropertyChangeListener finalListener = listener;
-        listener = evt -> {
-            try {
-                client.updateFlights((flights) evt.getNewValue());
-            } catch (RemoteException e) {
-
-                textManager.removeListener(utils.NEWFLIGHT, finalListener);
-            }
-        };
-        textManager.addListener(utils.NEWFLIGHT, listener);
-    }
-
-    @Override
     public List<flights> getflights() {
         return textManager.getflights();
     }
-
-
 
     }

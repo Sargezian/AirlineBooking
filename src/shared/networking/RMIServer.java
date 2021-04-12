@@ -14,10 +14,9 @@ public interface RMIServer extends Remote {
     List<InputChat> getChat() throws RemoteException;
     InputUser username(String txt) throws RemoteException;
     List<InputUser> getUser() throws RemoteException;
-    void registerClient(ClientCallBack client) throws RemoteException;
-    void registerClient2(ClientCallBack client) throws RemoteException;
 
-    void registerFlightsToClient(ClientCallBack client) throws RemoteException;
+    void registerChatToClient(ClientCallBack client) throws RemoteException;
+    void registerUserToClient(ClientCallBack client) throws RemoteException;
 
     List<flights> getflights() throws RemoteException;
 

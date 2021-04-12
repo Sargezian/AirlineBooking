@@ -11,8 +11,10 @@ public interface ClientCallBack extends Remote {
 
     void updateChat(InputChat entry) throws RemoteException;
     void updateUser(InputUser entry2) throws RemoteException;
-    void updateFlights(flights entry3) throws RemoteException;
-    //void remove(String f) throws RemoteException;;
+
+
+    //void updateFlights(flights entry3) throws RemoteException;
+
 
 
 
