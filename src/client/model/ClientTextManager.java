@@ -3,6 +3,7 @@ package client.model;
 import client.network.Client;
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
+import shared.transferobjects.flightlist;
 import shared.transferobjects.flights;
 import shared.util.utils;
 
@@ -54,6 +55,11 @@ public class ClientTextManager implements ClientText {
     @Override
     public List<flights> getflights() {
         return client.getflights();
+    }
+
+    @Override
+    public List<flightlist> getflightlist() {
+        return client.getflightlist();
     }
 
     @Override

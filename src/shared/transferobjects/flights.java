@@ -6,8 +6,8 @@ import java.io.Serializable;
 
 public class flights implements Serializable {
 
-    private SimpleStringProperty dummy;
-    private SimpleStringProperty seats;
+    public SimpleStringProperty dummy;
+    public SimpleStringProperty seats;
 
     public flights(String dummy, String seats) {
         this.dummy = new SimpleStringProperty(dummy);

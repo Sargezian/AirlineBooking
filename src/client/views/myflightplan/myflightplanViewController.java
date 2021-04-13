@@ -4,22 +4,25 @@ import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.views.ViewController;
 import client.views.dashboard.dashboardViewModel;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import shared.transferobjects.flightlist;
 import shared.transferobjects.flights;
+
 
 public class myflightplanViewController implements ViewController {
 
     @FXML
-    public TableView<flights> myflighttableview;
+    public TableView<flightlist> myflighttableview;
     @FXML
-    public TableColumn<String, flights> myflightColumn;
+    public TableColumn<String, flightlist> myflightColumn;
     @FXML
-    public TableColumn<String, flights> myseatsColumn;
+    public TableColumn<String, flightlist> myseatsColumn;
 
     @FXML
     private Label myName;
@@ -32,12 +35,10 @@ public class myflightplanViewController implements ViewController {
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.vh = vh;
         vm = vmf.getmyflightplanViewModel();
-        dv = vmf.getdashboardViewModel();
         vm.loadMyFlights();
-        myflightColumn.setCellValueFactory(new PropertyValueFactory<>("dummy"));
-        myseatsColumn.setCellValueFactory(new PropertyValueFactory<>("seats"));
-        myflighttableview.setItems(dv.getflight());
-
+        myflightColumn.setCellValueFactory(new PropertyValueFactory<>("pla"));
+        myseatsColumn.setCellValueFactory(new PropertyValueFactory<>("plb"));
+        myflighttableview.setItems(vm.getMy());
     }
 
     public void onBackDashboard(ActionEvent actionEvent) {

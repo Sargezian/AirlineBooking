@@ -2,6 +2,7 @@ package shared.networking;
 
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
+import shared.transferobjects.flightlist;
 import shared.transferobjects.flights;
 
 import java.rmi.Remote;
@@ -19,6 +20,7 @@ public interface RMIServer extends Remote {
     void registerUserToClient(ClientCallBack client) throws RemoteException;
 
     List<flights> getflights() throws RemoteException;
+    List<flightlist> getflightlist() throws RemoteException;
 
 
 

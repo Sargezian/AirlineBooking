@@ -3,7 +3,9 @@ package client.views.dashboard;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.views.ViewController;
+import client.views.myflightplan.myflightplanViewController;
 import client.views.myflightplan.myflightplanViewModel;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -22,7 +24,6 @@ public class dashboardViewController implements ViewController {
 
     private ViewHandler vh;
     private dashboardViewModel dv;
-    private myflightplanViewModel vm;
 
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
@@ -40,9 +41,8 @@ public class dashboardViewController implements ViewController {
 
     public void onpush(ActionEvent actionEvent) {
         dv.setSelected(tableView.getSelectionModel().getSelectedItems());
-        dv.removeSelected();
+      //  dv.removeSelected();
         dv.addSelected();
-
 
     }
 

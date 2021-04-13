@@ -9,12 +9,15 @@ import shared.util.utils;
 import java.beans.PropertyChangeEvent;
 import java.util.List;
 
+
 public class dashboardViewModel {
 
     private ClientText clientText;
     private ObservableList<shared.transferobjects.flights> flights;
-    private dashboardViewController dv;
     private ObservableList<shared.transferobjects.flights> selectedrows;
+    private ObservableList<shared.transferobjects.flightlist> my;
+
+    private dashboardViewController dv;
     private myflightplanViewModel vm;
 
     public dashboardViewModel(ClientText clientText) {
@@ -25,24 +28,20 @@ public class dashboardViewModel {
 
     public void setSelected(ObservableList<shared.transferobjects.flights> flights) {
         this.selectedrows = flights;
-
-        /*Object value = shared.transferobjects.flights.getSelectedValue();
-        System.out.println(value);*/
-        //System.out.println(flights.size());
-
     }
 
-    public void removeSelected() {
+   /* public void removeSelected() {
         flights.removeAll(selectedrows);
         //flights.addAll(selectedrows);
-        /*clientText.removeSelectedFlight();*/
-    }
+    }*/
 
-    public void addSelected() {
-       // vm.getMyflight().addAll(selectedrows);
-        /*clientText.removeSelectedFlight();*/
-    }
-
+    /*public void addSelected() {
+        for (int i = 0; i < my.size(); i++) {
+            //selectedrows.add(i, my.get(i));
+            //flights.removeAll(selectedrows);
+            flights.add(i, my.get(i));
+        }
+    }*/
 
     public void loadFlights() {
         List<shared.transferobjects.flights> flight = clientText.getflights();
@@ -54,7 +53,6 @@ public class dashboardViewModel {
                 new flights("airplane3", "1"),
                 new flights("airplane4", "1"),
                 new flights("airplane5","1"));
-
     }
 
     public void onNewInputflight(PropertyChangeEvent  evt) {

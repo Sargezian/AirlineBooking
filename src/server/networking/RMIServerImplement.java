@@ -5,6 +5,7 @@ import shared.networking.ClientCallBack;
 import shared.networking.RMIServer;
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
+import shared.transferobjects.flightlist;
 import shared.transferobjects.flights;
 import shared.util.utils;
 
@@ -49,6 +50,11 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
+    public List<flightlist> getflightlist() throws RemoteException {
+        return null;
+    }
+
+    @Override
     public List<InputUser> getUser()  {
         System.out.println("RMISERVER read user");
         return textManager.getUser();
@@ -89,4 +95,5 @@ public class RMIServerImplement implements RMIServer {
         return textManager.getflights();
     }
 
-    }
+
+}
