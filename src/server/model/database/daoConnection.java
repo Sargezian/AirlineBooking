@@ -27,7 +27,7 @@ public class daoConnection
     {
      return DriverManager.getConnection(
             "jdbc:postgresql://localhost:5432/postgres?currentSchema=sep2",
-            "postgres", "Sofuserenhund!");
+            "postgres", "42323087");
 
     }
   }
