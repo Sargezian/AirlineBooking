@@ -60,6 +60,7 @@ public class TextManagerImpl implements TextManager{
 
     @Override
     public List<passenger> getPassenger() {
+        System.out.println(dao.getPassenger());
         return new ArrayList<>(dao.getPassenger());
     }
 
@@ -71,6 +72,7 @@ public class TextManagerImpl implements TextManager{
 
     @Override
     public List<flights> getflights() {
+        System.out.println(dao.getflights());
         return new ArrayList<>(dao.getflights());
     }
 

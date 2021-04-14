@@ -93,6 +93,7 @@ public class RMIClient implements Client, ClientCallBack {
     @Override
     public List<passenger> getPassenger() {
         try {
+            System.out.println(server.getPassenger());
             return server.getPassenger();
         } catch (RemoteException e) {
             throw new RuntimeException("Kunne ikke få fat i server");

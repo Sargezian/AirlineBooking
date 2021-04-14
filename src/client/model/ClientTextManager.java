@@ -61,6 +61,7 @@ public class ClientTextManager implements ClientText {
 
     @Override
     public List<passenger> getPassenger() {
+        System.out.println(client.getPassenger());
         return client.getPassenger();
     }
 

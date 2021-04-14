@@ -20,7 +20,12 @@ public class dashboardViewController implements ViewController {
     public TableColumn<String, flights> flightNameColumn;
     @FXML
     public TableColumn<String, flights> departureColumn;
-
+    @FXML
+    public TableColumn <String, flights> arrivalColumn;
+    @FXML
+    public TableColumn <String, flights> fromColumn;
+    @FXML
+    public TableColumn <String, flights> toColumn;
 
     private ViewHandler vh;
     private dashboardViewModel dv;
@@ -33,6 +38,9 @@ public class dashboardViewController implements ViewController {
         flightIDColumn.setCellValueFactory(new PropertyValueFactory<>("flightID"));
         flightNameColumn.setCellValueFactory(new PropertyValueFactory<>("flightName"));
         departureColumn.setCellValueFactory(new PropertyValueFactory<>("departure"));
+        arrivalColumn.setCellValueFactory(new PropertyValueFactory<>("Arrival"));
+        fromColumn.setCellValueFactory(new PropertyValueFactory<>("From"));
+        toColumn.setCellValueFactory(new PropertyValueFactory<>("To"));
         tableView.setItems(dv.getflight());
     }
 

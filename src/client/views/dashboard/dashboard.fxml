@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.dashboard.dashboardViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="825.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.dashboard.dashboardViewController">
     <children>
         <VBox prefHeight="502.0" prefWidth="231.0" style="-fx-background-color: #4153F2;">
             <children>
@@ -65,11 +65,14 @@
                 </AnchorPane>
             </children>
         </VBox>
-        <TableView fx:id="tableView" layoutX="250.0" layoutY="14.0" prefHeight="344.0" prefWidth="455.0">
+        <TableView fx:id="tableView" layoutX="241.0" layoutY="8.0" prefHeight="344.0" prefWidth="566.0">
             <columns>
-            <TableColumn fx:id="flightIDColumn" prefWidth="136.0" text="FlightID" />
-                <TableColumn fx:id="flightNameColumn" prefWidth="147.0" text="FlightName" />
-                <TableColumn fx:id="departureColumn" prefWidth="171.0" text="Depature" />
+            <TableColumn fx:id="flightIDColumn" prefWidth="85.5999755859375" text="FlightID" />
+                <TableColumn fx:id="flightNameColumn" prefWidth="106.4000244140625" text="FlightName" />
+                <TableColumn fx:id="departureColumn" prefWidth="82.39993286132812" text="Departure" />
+            <TableColumn fx:id="arrivalColumn" prefWidth="91.20001220703125" text="Arrival" />
+            <TableColumn fx:id="fromColumn" prefWidth="108.0" text="From" />
+            <TableColumn fx:id="toColumn" prefWidth="90.40006103515623" text="To" />
             </columns>
         </TableView>
         <Button layoutX="323.0" layoutY="387.0" mnemonicParsing="false" onAction="#onpush" text="Order" />

@@ -203,7 +203,10 @@ public class daoImpl implements daoInterface  {
          String flightID = resultSet.getString("flightID");
          String flightName = resultSet.getString("flightName");
          String departure = resultSet.getString("departure");
-         flights flights = new flights(flightID, flightName, departure);
+         String arrival = resultSet.getString("arrival");
+         String from = resultSet.getString("from_");
+         String to = resultSet.getString("to_");
+         flights flights = new flights(flightID, flightName, departure, arrival, from, to);
          flightlist.add(flights);
        }
        return flightlist;
