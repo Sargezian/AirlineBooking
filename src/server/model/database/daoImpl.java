@@ -59,7 +59,7 @@ public class daoImpl implements daoInterface  {
     System.out.println("her begynder readchat");
     try {
       try (Connection connection =  daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("SELECT chat FROM InputChat");
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM InputChat");
         ResultSet resultSet = statement.executeQuery();
         ArrayList<InputChat> result = new ArrayList<>();
         while (resultSet.next()) {
@@ -136,7 +136,7 @@ public class daoImpl implements daoInterface  {
     System.out.println("Her begynder Update");
     try {
       try (Connection connection =  daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("UPDATE InputChat SET chat=? ");
+        PreparedStatement statement = connection.prepareStatement("UPDATE InputChat set chat=? ");
         statement.setString(1, inputchat.getInput());
         statement.executeUpdate();
 
@@ -150,7 +150,7 @@ public class daoImpl implements daoInterface  {
   public void update(InputUser inputuser) {
     try {
       try (Connection connection =  daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("UPDATE InputUser SET id=?,use_ =? ");
+        PreparedStatement statement = connection.prepareStatement("UPDATE InputUser SET id = ?,user_ =? ");
         statement.setInt(1, inputuser.getId());
         statement.setString(2, inputuser.getOutput());
         statement.executeUpdate();
