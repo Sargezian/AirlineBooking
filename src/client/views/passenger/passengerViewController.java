@@ -28,7 +28,7 @@ public class passengerViewController implements ViewController {
         pv = vmf.getPassengerViewModel();
         pv.loadPassenger();
         passengerIDColumn.setCellValueFactory(new PropertyValueFactory<>("passengerID"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("nameColumn"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         tableView.setItems(pv.getPassengers());
     }
 
