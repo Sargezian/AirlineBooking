@@ -59,6 +59,11 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
+    public List<passenger> getPassenger() {
+        return new ArrayList<>(dao.getPassenger());
+    }
+
+    @Override
     public List<InputChat> getChat() {
        //return dao.readChat();
        return new ArrayList<>(dao.readChat());

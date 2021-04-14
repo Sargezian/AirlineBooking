@@ -16,6 +16,8 @@ public interface Client extends Subject {
 
     List<seat> getSeat();
 
+    List<passenger> getPassenger();
+
     List<Myflightlist> getflightlist();
 
     void startClient();

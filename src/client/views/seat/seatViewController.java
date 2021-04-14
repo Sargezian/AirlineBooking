@@ -41,6 +41,7 @@ public class seatViewController implements ViewController {
 
     }
 
-   /* public void onNext(ActionEvent actionEvent) {
-    }*/
+    public void onNext(ActionEvent actionEvent) {
+        vh.openPassengerView();
+    }
 }

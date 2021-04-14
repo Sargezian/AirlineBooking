@@ -1,9 +1,6 @@
 package server.model.database;
 
-import shared.transferobjects.InputChat;
-import shared.transferobjects.InputUser;
-import shared.transferobjects.flights;
-import shared.transferobjects.seat;
+import shared.transferobjects.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -241,5 +238,30 @@ public class daoImpl implements daoInterface  {
     }
     return null;
   }
+
+  @Override
+  public List<passenger> getPassenger() {
+    try {
+
+      System.out.println("database connnection virker");
+      try (Connection connection = daoConnection.getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM passenger");
+        ResultSet resultSet = statement.executeQuery();
+
+        ArrayList<passenger> passengers = new ArrayList<>();
+        while (resultSet.next()) {
+          String passengerID = resultSet.getString("passengerID");
+          String name = resultSet.getString("name");
+          passenger passenger = new passenger(passengerID, name);
+          passengers.add(passenger);
+        }
+        return passengers;
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
 
 }

@@ -91,6 +91,15 @@ public class RMIClient implements Client, ClientCallBack {
     }
 
     @Override
+    public List<passenger> getPassenger() {
+        try {
+            return server.getPassenger();
+        } catch (RemoteException e) {
+            throw new RuntimeException("Kunne ikke få fat i server");
+        }
+    }
+
+    @Override
     public List<Myflightlist> getflightlist() {
         try {
             return server.getflightlist();

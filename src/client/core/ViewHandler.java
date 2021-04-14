@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class ViewHandler {
 
-    private Scene chatScene, loginScene, myflightplanScene, seatScene;
+    private Scene chatScene, loginScene, myflightplanScene, seatScene, passengerScene;
     private Stage stage;
     private ViewModelFactory vmf;
 
@@ -95,6 +95,22 @@ public class ViewHandler {
         stage.setScene(chatScene);
         stage.show();
     }
+
+    public void openPassengerView() {
+        if (passengerScene == null) {
+            try {
+                Parent root = loadFXML("../views/passenger/passenger.fxml");
+
+                stage.setTitle("passenger");
+                passengerScene = new Scene(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        stage.setScene(passengerScene);
+        stage.show();
+    }
+
 
     private Parent loadFXML(String path) throws IOException {
         FXMLLoader loader = new FXMLLoader();

@@ -14,7 +14,7 @@ public interface TextManager extends Subject {
     List<InputUser> getUser();
 
     List<seat> getSeat();
-
+    List<passenger> getPassenger();
     List<flights> getflights();
 
     List<Myflightlist> getflightlist();

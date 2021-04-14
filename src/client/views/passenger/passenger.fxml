@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.seat.seatViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.passenger.passengerViewController">
     <children>
         <VBox prefHeight="502.0" prefWidth="231.0" style="-fx-background-color: #4153F2;">
             <children>
@@ -62,12 +62,10 @@
         </VBox>
         <TableView fx:id="tableView" layoutX="250.0" layoutY="14.0" prefHeight="344.0" prefWidth="455.0">
             <columns>
-                <TableColumn fx:id="seatIDColumn" prefWidth="136.0" text="seatID" />
-                <TableColumn fx:id="seatNumberColumn" prefWidth="147.0" text="seatNumber" />
-                <TableColumn fx:id="classTypeColumn" prefWidth="171.0" text="classType" />
+                <TableColumn fx:id="passengerIDColumn" prefWidth="136.0" text="seatID" />
+                <TableColumn fx:id="nameColumn" prefWidth="147.0" text="seatNumber" />
             </columns>
         </TableView>
         <Button layoutX="323.0" layoutY="387.0" mnemonicParsing="false" onAction="#onBack" text="Back" />
-        <Button layoutX="464.0" layoutY="387.0" mnemonicParsing="false" onAction="#onNext" text="Next" />
     </children>
 </AnchorPane>

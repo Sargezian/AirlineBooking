@@ -15,6 +15,7 @@ public interface ClientText extends Subject {
     List<flights> getflights();
 
     List<seat> getSeat();
+    List<passenger> getPassenger();
 
     List<Myflightlist> getflightlist();
 }

@@ -13,8 +13,9 @@ public interface RMIServer extends Remote {
     InputUser username(String txt) throws RemoteException;
     List<InputUser> getUser() throws RemoteException;
     List<flights> getflights() throws RemoteException;
-
     List<seat> getSeat() throws RemoteException;
+    List<passenger> getPassenger() throws RemoteException;
+
 
     List<Myflightlist> getflightlist() throws RemoteException;
 

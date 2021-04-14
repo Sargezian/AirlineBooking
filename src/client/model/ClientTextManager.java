@@ -60,6 +60,11 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
+    public List<passenger> getPassenger() {
+        return client.getPassenger();
+    }
+
+    @Override
     public List<Myflightlist> getflightlist() {
         return client.getflightlist();
     }
