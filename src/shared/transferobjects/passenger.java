@@ -2,8 +2,7 @@ package shared.transferobjects;
 
 import java.io.Serializable;
 
-public class passenger implements Serializable
-{
+public class passenger implements Serializable {
 
     public String passengerID;
     public String name;
