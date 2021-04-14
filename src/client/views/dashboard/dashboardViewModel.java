@@ -13,12 +13,8 @@ import java.util.List;
 public class dashboardViewModel {
 
     private ClientText clientText;
-    private ObservableList<shared.transferobjects.flights> flights;
-    private ObservableList<shared.transferobjects.flights> selectedrows;
-    private ObservableList<shared.transferobjects.flights> my;
-
-    private dashboardViewController dv;
-    private myflightplanViewModel vm;
+    private ObservableList<flights> flights;
+    private ObservableList<flights> selectedrows;
 
     public dashboardViewModel(ClientText clientText) {
         this.clientText = clientText;
@@ -26,7 +22,7 @@ public class dashboardViewModel {
         // clientText.removeSelectedFlight(utils.REMOVEDFLIGHT, this::removeflight);
     }
 
-    public void setSelected(ObservableList<shared.transferobjects.flights> flights) {
+    public void setSelected(ObservableList<flights> flights) {
         this.selectedrows = flights;
     }
 
@@ -35,7 +31,6 @@ public class dashboardViewModel {
          flights.removeAll(selectedrows);
         //flights.addAll(selectedrows);
     }
-
 
 /*    public void addSelected() {
         for (int i = 0; i < my.size(); i++) {
@@ -48,8 +43,6 @@ public class dashboardViewModel {
     public void loadFlights() {
         List<flights> flight = clientText.getflights();
         flights = FXCollections.observableArrayList(flight);
-
-
     }
 
     public void onNewInputflight(PropertyChangeEvent  evt) {
@@ -60,7 +53,7 @@ public class dashboardViewModel {
         return flights;
     }
 
-    public ObservableList<shared.transferobjects.flights> getSelectedrows() {
+    public ObservableList<flights> getSelectedrows() {
         return selectedrows;
     }
 }

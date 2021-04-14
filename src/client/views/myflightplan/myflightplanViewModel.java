@@ -11,7 +11,6 @@ import java.util.List;
 
 public class myflightplanViewModel {
 
-    private dashboardViewModel dv;
     private ClientText clientText;
     private ObservableList<Myflightlist> my;
 

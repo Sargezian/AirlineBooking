@@ -7,7 +7,6 @@ import java.sql.SQLException;
 public class daoConnection
   {
 
-
     private static daoConnection instance;
 
     private daoConnection() {
@@ -24,13 +23,11 @@ public class daoConnection
 
     }
 
-
-
     public static Connection getConnection() throws SQLException
     {
      return DriverManager.getConnection(
             "jdbc:postgresql://localhost:5432/postgres?currentSchema=sep2",
-            "postgres", "42323087");
+            "postgres", "banat");
 
     }
   }

@@ -1,9 +1,6 @@
 package client.model;
 
-import shared.transferobjects.InputChat;
-import shared.transferobjects.InputUser;
-import shared.transferobjects.Myflightlist;
-import shared.transferobjects.flights;
+import shared.transferobjects.*;
 import shared.util.Subject;
 
 import java.util.List;
@@ -16,6 +13,8 @@ public interface ClientText extends Subject {
     List<InputUser> getUser();
 
     List<flights> getflights();
+
+    List<seat> getSeat();
 
     List<Myflightlist> getflightlist();
 }

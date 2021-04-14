@@ -3,10 +3,7 @@ package server.networking;
 import server.model.TextManager;
 import shared.networking.ClientCallBack;
 import shared.networking.RMIServer;
-import shared.transferobjects.InputChat;
-import shared.transferobjects.InputUser;
-import shared.transferobjects.Myflightlist;
-import shared.transferobjects.flights;
+import shared.transferobjects.*;
 import shared.util.utils;
 
 import java.beans.PropertyChangeListener;
@@ -92,6 +89,11 @@ public class RMIServerImplement implements RMIServer {
     @Override
     public List<flights> getflights() {
         return textManager.getflights();
+    }
+
+    @Override
+    public List<seat> getSeat() throws RemoteException {
+        return textManager.getSeat();
     }
 
 

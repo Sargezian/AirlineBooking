@@ -36,4 +36,9 @@ public class daoInterfaceTest
     InputUser u = dao.createUser("mike");
     assertEquals("mike",u.getOutput());
   }
+
+    @Test public void getSeat() throws SQLException {
+        dao.getSeat();
+    }
+
 }

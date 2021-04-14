@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.dashboard.dashboardViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.seat.seatViewController">
     <children>
         <VBox prefHeight="502.0" prefWidth="231.0" style="-fx-background-color: #4153F2;">
             <children>
@@ -21,11 +21,6 @@
                                 <Image url="@../../../Billeder/world.png" />
                             </image>
                         </ImageView>
-                        <Button alignment="BASELINE_LEFT" layoutX="62.0" layoutY="275.0" mnemonicParsing="false" onAction="#OnLogin" prefHeight="52.0" prefWidth="173.0" style="-fx-background-color: #4153F2;" text="Login" textFill="WHITE">
-                            <font>
-                                <Font name="Tahoma Bold" size="18.0" />
-                            </font>
-                        </Button>
                         <Button alignment="BASELINE_LEFT" layoutX="62.0" layoutY="177.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="173.0" style="-fx-background-color: #4153F2;" text="Flights" textFill="WHITE">
                             <font>
                                 <Font name="Tahoma Bold" size="18.0" />
@@ -67,12 +62,11 @@
         </VBox>
         <TableView fx:id="tableView" layoutX="250.0" layoutY="14.0" prefHeight="344.0" prefWidth="455.0">
             <columns>
-            <TableColumn fx:id="flightIDColumn" prefWidth="136.0" text="FlightID" />
-                <TableColumn fx:id="flightNameColumn" prefWidth="147.0" text="FlightName" />
-                <TableColumn fx:id="departureColumn" prefWidth="171.0" text="Depature" />
+                <TableColumn fx:id="seatIDColumn" prefWidth="136.0" text="seatID" />
+                <TableColumn fx:id="seatNumberColumn" prefWidth="147.0" text="seatNumber" />
+                <TableColumn fx:id="classTypeColumn" prefWidth="171.0" text="classType" />
             </columns>
         </TableView>
-        <Button layoutX="323.0" layoutY="387.0" mnemonicParsing="false" onAction="#onpush" text="Order" />
-      <Button layoutX="464.0" layoutY="387.0" mnemonicParsing="false" onAction="#onNext" text="Next" />
+        <Button layoutX="323.0" layoutY="387.0" mnemonicParsing="false" onAction="#onBack" text="Back" />
     </children>
 </AnchorPane>

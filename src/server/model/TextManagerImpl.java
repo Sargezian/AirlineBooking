@@ -2,10 +2,7 @@ package server.model;
 
 import server.model.database.daoImpl;
 import server.model.database.daoInterface;
-import shared.transferobjects.InputChat;
-import shared.transferobjects.InputUser;
-import shared.transferobjects.Myflightlist;
-import shared.transferobjects.flights;
+import shared.transferobjects.*;
 import shared.util.utils;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -19,6 +16,7 @@ public class TextManagerImpl implements TextManager{
     private List<InputUser> userNameList;
     private List<flights> flightList;
     private List<Myflightlist> myflight;
+
     private daoInterface dao;
 
     public TextManagerImpl() {
@@ -56,6 +54,11 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
+    public List<seat> getSeat() {
+        return new ArrayList<>(dao.getSeat());
+    }
+
+    @Override
     public List<InputChat> getChat() {
        //return dao.readChat();
        return new ArrayList<>(dao.readChat());
@@ -63,7 +66,6 @@ public class TextManagerImpl implements TextManager{
 
     @Override
     public List<flights> getflights() {
-        System.out.println(dao.getflights());
         return new ArrayList<>(dao.getflights());
     }
 

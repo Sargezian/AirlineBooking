@@ -1,10 +1,7 @@
 package client.model;
 
 import client.network.Client;
-import shared.transferobjects.InputChat;
-import shared.transferobjects.InputUser;
-import shared.transferobjects.Myflightlist;
-import shared.transferobjects.flights;
+import shared.transferobjects.*;
 import shared.util.utils;
 
 import java.beans.PropertyChangeEvent;
@@ -55,6 +52,11 @@ public class ClientTextManager implements ClientText {
     @Override
     public List<flights> getflights() {
         return client.getflights();
+    }
+
+    @Override
+    public List<seat> getSeat() {
+            return client.getSeat();
     }
 
     @Override

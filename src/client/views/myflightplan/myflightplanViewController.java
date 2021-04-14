@@ -28,7 +28,6 @@ public class myflightplanViewController implements ViewController {
 
     private myflightplanViewModel vm;
     private ViewHandler vh;
-    private dashboardViewModel dv;
 
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {

@@ -1,32 +1,38 @@
 package shared.transferobjects;
 
-import javafx.beans.property.SimpleStringProperty;
 
 import java.io.Serializable;
 
 public class flights implements Serializable {
 
-    public String dummy;
-    public String seats;
+    public String flightID;
+    public String flightName;
+    public String departure;
 
-    public flights(String dummy, String seats) {
-        this.dummy = dummy;
-        this.seats = seats;
+    public flights(String flightID, String flightName, String departure) {
+        this.flightID = flightID;
+        this.flightName = flightName;
+        this.departure = departure;
     }
 
-    public String getDummy() {
-        return dummy;
+    public String getFlightID() {
+        return flightID;
     }
 
-    public String getSeats() {
-        return seats;
+    public String getFlightName() {
+        return flightName;
+    }
+
+    public String getDeparture() {
+        return departure;
     }
 
     @Override
     public String toString() {
         return "flights{" +
-                "dummy='" + dummy + '\'' +
-                ", seats='" + seats + '\'' +
+                "flightID='" + flightID + '\'' +
+                ", flightName='" + flightName + '\'' +
+                ", depature='" + departure + '\'' +
                 '}';
     }
 }

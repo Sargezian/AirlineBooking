@@ -3,6 +3,7 @@ package server.model.database;
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
 import shared.transferobjects.flights;
+import shared.transferobjects.seat;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -14,6 +15,9 @@ public interface daoInterface
   InputUser createUser(String txt) ;
   List<InputUser> readUser();
   List<flights> getflights();
+
+  List<seat> getSeat();
+
 
   void update(InputChat inputchat) ;
   void update(InputUser inputuser) ;

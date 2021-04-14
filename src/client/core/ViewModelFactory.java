@@ -4,6 +4,7 @@ import client.views.Loginbox.loginViewModel;
 import client.views.chat.chatViewModel;
 import client.views.dashboard.dashboardViewModel;
 import client.views.myflightplan.myflightplanViewModel;
+import client.views.seat.seatViewModel;
 
 public class ViewModelFactory {
 
@@ -12,6 +13,7 @@ public class ViewModelFactory {
     private chatViewModel chatViewModel;
     private client.views.dashboard.dashboardViewModel dashboardViewModel;
     private client.views.myflightplan.myflightplanViewModel myflightplanViewModel;
+    private client.views.seat.seatViewModel seatViewModel;
 
     public ViewModelFactory(ModelFactory mf) {
         this.mf=mf;
@@ -35,10 +37,16 @@ public class ViewModelFactory {
                 myflightplanViewModel);
     }
 
-
     public dashboardViewModel getdashboardViewModel() {
         return (dashboardViewModel = dashboardViewModel == null ?
                 new dashboardViewModel(mf.getClientText()) :
                 dashboardViewModel);
     }
+
+    public client.views.seat.seatViewModel getseatViewModel() {
+        return (seatViewModel = seatViewModel == null ?
+                new seatViewModel(mf.getClientText()) :
+                seatViewModel);
+    }
+
 }

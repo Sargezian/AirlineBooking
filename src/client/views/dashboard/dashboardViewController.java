@@ -3,9 +3,6 @@ package client.views.dashboard;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.views.ViewController;
-import client.views.myflightplan.myflightplanViewController;
-import client.views.myflightplan.myflightplanViewModel;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -18,9 +15,12 @@ public class dashboardViewController implements ViewController {
     @FXML
     public TableView<flights> tableView;
     @FXML
-    public TableColumn<String, flights> flightColumn;
+    public TableColumn<String, flights> flightIDColumn;
     @FXML
-    public TableColumn<String, flights> seatColumn;
+    public TableColumn<String, flights> flightNameColumn;
+    @FXML
+    public TableColumn<String, flights> departureColumn;
+
 
     private ViewHandler vh;
     private dashboardViewModel dv;
@@ -30,8 +30,9 @@ public class dashboardViewController implements ViewController {
         this.vh = vh;
         dv = vmf.getdashboardViewModel();
         dv.loadFlights();
-        flightColumn.setCellValueFactory(new PropertyValueFactory<>("dummy"));
-        seatColumn.setCellValueFactory(new PropertyValueFactory<>("seats"));
+        flightIDColumn.setCellValueFactory(new PropertyValueFactory<>("flightID"));
+        flightNameColumn.setCellValueFactory(new PropertyValueFactory<>("flightName"));
+        departureColumn.setCellValueFactory(new PropertyValueFactory<>("departure"));
         tableView.setItems(dv.getflight());
     }
 
@@ -46,4 +47,7 @@ public class dashboardViewController implements ViewController {
 
     }
 
+    public void onNext(ActionEvent actionEvent) {
+       vh.openSeat();
+    }
 }

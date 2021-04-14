@@ -2,10 +2,7 @@ package client.network;
 
 import shared.networking.ClientCallBack;
 import shared.networking.RMIServer;
-import shared.transferobjects.InputChat;
-import shared.transferobjects.InputUser;
-import shared.transferobjects.Myflightlist;
-import shared.transferobjects.flights;
+import shared.transferobjects.*;
 import shared.util.utils;
 
 import java.beans.PropertyChangeListener;
@@ -79,6 +76,15 @@ public class RMIClient implements Client, ClientCallBack {
     public List<flights> getflights() {
         try {
             return server.getflights();
+        } catch (RemoteException e) {
+            throw new RuntimeException("Kunne ikke få fat i server");
+        }
+    }
+
+    @Override
+    public List<seat> getSeat() {
+        try {
+            return server.getSeat();
         } catch (RemoteException e) {
             throw new RuntimeException("Kunne ikke få fat i server");
         }

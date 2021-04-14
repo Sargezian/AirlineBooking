@@ -3,6 +3,7 @@ package server.model.database;
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
 import shared.transferobjects.flights;
+import shared.transferobjects.seat;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -191,35 +192,54 @@ public class daoImpl implements daoInterface  {
 
  /** --------------------------------------------------------------------------------------------------------------------**/
 
-  @Override
-  public List<flights> getflights() {
-   try{
+ @Override
+ public List<flights> getflights() {
+   try {
 
      System.out.println("databse connnection virker");
-     try(Connection connection = daoConnection.getConnection()){
+     try (Connection connection = daoConnection.getConnection()) {
        PreparedStatement statement = connection.prepareStatement("SELECT * FROM flights");
        ResultSet resultSet = statement.executeQuery();
 
-       ArrayList<flights> flightslist = new ArrayList<>();
+       ArrayList<flights> flightlist = new ArrayList<>();
        while (resultSet.next()) {
-         String flight = resultSet.getString("flightname");
-         String seats = resultSet.getString("seats");
-         flights flights = new flights(flight,seats);
-         flightslist.add(flights);
-
+         String flightID = resultSet.getString("flightID");
+         String flightName = resultSet.getString("flightName");
+         String departure = resultSet.getString("departure");
+         flights flights = new flights(flightID, flightName, departure);
+         flightlist.add(flights);
        }
-       return flightslist;
-
+       return flightlist;
      }
-
-
-
-
    } catch (Exception e) {
      e.printStackTrace();
    }
+   return null;
+ }
 
- return null;
+  @Override
+  public List<seat> getSeat() {
+    try {
+
+      System.out.println("database connnection virker");
+      try (Connection connection = daoConnection.getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM seat");
+        ResultSet resultSet = statement.executeQuery();
+
+        ArrayList<seat> seats = new ArrayList<>();
+        while (resultSet.next()) {
+          String seatID = resultSet.getString("seatID");
+          String seatNumber = resultSet.getString("seatNumber");
+          String classType = resultSet.getString("classType");
+          seat seat = new seat(seatID, seatNumber, classType);
+          seats.add(seat);
+        }
+        return seats;
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return null;
   }
 
 }
