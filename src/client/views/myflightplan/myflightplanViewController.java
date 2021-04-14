@@ -4,25 +4,24 @@ import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.views.ViewController;
 import client.views.dashboard.dashboardViewModel;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import shared.transferobjects.flightlist;
+import shared.transferobjects.Myflightlist;
 import shared.transferobjects.flights;
 
 
 public class myflightplanViewController implements ViewController {
 
     @FXML
-    public TableView<flightlist> myflighttableview;
+    public TableView<Myflightlist> myflighttableview;
     @FXML
-    public TableColumn<String, flightlist> myflightColumn;
+    public TableColumn<String, Myflightlist> myflightColumn;
     @FXML
-    public TableColumn<String, flightlist> myseatsColumn;
+    public TableColumn<String, Myflightlist> myseatsColumn;
 
     @FXML
     private Label myName;

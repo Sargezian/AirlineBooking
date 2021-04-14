@@ -2,6 +2,8 @@ package server.model.database;
 
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
+import shared.transferobjects.flights;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -128,6 +130,8 @@ public class daoImpl implements daoInterface  {
     return null;
   }
 
+
+
   public void update(InputChat inputchat) {
     System.out.println("Her begynder Update");
     try {
@@ -183,4 +187,39 @@ public class daoImpl implements daoInterface  {
       throwables.printStackTrace();
     }
   }
+
+
+ /** --------------------------------------------------------------------------------------------------------------------**/
+
+  @Override
+  public List<flights> getflights() {
+   try{
+
+     System.out.println("databse connnection virker");
+     try(Connection connection = daoConnection.getConnection()){
+       PreparedStatement statement = connection.prepareStatement("SELECT * FROM flights");
+       ResultSet resultSet = statement.executeQuery();
+
+       ArrayList<flights> flightslist = new ArrayList<>();
+       while (resultSet.next()) {
+         String flight = resultSet.getString("flightname");
+         String seats = resultSet.getString("seats");
+         flights flights = new flights(flight,seats);
+         flightslist.add(flights);
+
+       }
+       return flightslist;
+
+     }
+
+
+
+
+   } catch (Exception e) {
+     e.printStackTrace();
+   }
+
+ return null;
+  }
+
 }

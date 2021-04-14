@@ -2,11 +2,10 @@ package server.model;
 
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
-import shared.transferobjects.flightlist;
+import shared.transferobjects.Myflightlist;
 import shared.transferobjects.flights;
 import shared.util.Subject;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public interface TextManager extends Subject {
@@ -18,7 +17,7 @@ public interface TextManager extends Subject {
 
     List<flights> getflights();
 
-    List<flightlist> getflightlist();
+    List<Myflightlist> getflightlist();
 
 
 

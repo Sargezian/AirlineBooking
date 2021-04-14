@@ -2,7 +2,7 @@ package client.model;
 
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
-import shared.transferobjects.flightlist;
+import shared.transferobjects.Myflightlist;
 import shared.transferobjects.flights;
 import shared.util.Subject;
 
@@ -17,7 +17,7 @@ public interface ClientText extends Subject {
 
     List<flights> getflights();
 
-    List<flightlist> getflightlist();
+    List<Myflightlist> getflightlist();
 }
 
 

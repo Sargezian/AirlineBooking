@@ -29,7 +29,7 @@ public class daoInterfaceTest
   }
 
   @Test public void createUser() throws SQLException {
-     dao.createUser("tim");
+ dao.getflights();
   }
 
   @Test public void readUser() throws SQLException {

@@ -15,7 +15,7 @@ public class dashboardViewModel {
     private ClientText clientText;
     private ObservableList<shared.transferobjects.flights> flights;
     private ObservableList<shared.transferobjects.flights> selectedrows;
-    private ObservableList<shared.transferobjects.flightlist> my;
+    private ObservableList<shared.transferobjects.flights> my;
 
     private dashboardViewController dv;
     private myflightplanViewModel vm;
@@ -30,29 +30,26 @@ public class dashboardViewModel {
         this.selectedrows = flights;
     }
 
-   /* public void removeSelected() {
-        flights.removeAll(selectedrows);
+    public void removeSelected() {
+        //  System.out.println("minselect" + selectedrows);
+         flights.removeAll(selectedrows);
         //flights.addAll(selectedrows);
-    }*/
+    }
 
-    /*public void addSelected() {
+
+/*    public void addSelected() {
         for (int i = 0; i < my.size(); i++) {
             //selectedrows.add(i, my.get(i));
             //flights.removeAll(selectedrows);
             flights.add(i, my.get(i));
-        }
-    }*/
+        }*/
+    //}
 
     public void loadFlights() {
-        List<shared.transferobjects.flights> flight = clientText.getflights();
-        //flights = FXCollections.observableArrayList(flight);
+        List<flights> flight = clientText.getflights();
+        flights = FXCollections.observableArrayList(flight);
 
-        flights = FXCollections.observableArrayList(
-                new flights("airplane1", "1"),
-                new flights("airplane2", "1"),
-                new flights("airplane3", "1"),
-                new flights("airplane4", "1"),
-                new flights("airplane5","1"));
+
     }
 
     public void onNewInputflight(PropertyChangeEvent  evt) {

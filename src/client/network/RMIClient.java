@@ -4,7 +4,7 @@ import shared.networking.ClientCallBack;
 import shared.networking.RMIServer;
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
-import shared.transferobjects.flightlist;
+import shared.transferobjects.Myflightlist;
 import shared.transferobjects.flights;
 import shared.util.utils;
 
@@ -85,7 +85,7 @@ public class RMIClient implements Client, ClientCallBack {
     }
 
     @Override
-    public List<flightlist> getflightlist() {
+    public List<Myflightlist> getflightlist() {
         try {
             return server.getflightlist();
         } catch (RemoteException e) {

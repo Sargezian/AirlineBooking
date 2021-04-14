@@ -5,7 +5,7 @@ import shared.networking.ClientCallBack;
 import shared.networking.RMIServer;
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
-import shared.transferobjects.flightlist;
+import shared.transferobjects.Myflightlist;
 import shared.transferobjects.flights;
 import shared.util.utils;
 
@@ -15,7 +15,6 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RMIServerImplement implements RMIServer {
@@ -50,7 +49,7 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public List<flightlist> getflightlist() throws RemoteException {
+    public List<Myflightlist> getflightlist() throws RemoteException {
         return null;
     }
 
