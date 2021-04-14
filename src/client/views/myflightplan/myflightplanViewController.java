@@ -35,7 +35,7 @@ public class myflightplanViewController implements ViewController {
         this.vh = vh;
         vm = vmf.getmyflightplanViewModel();
         vm.loadMyFlights();
-        myflightColumn.setCellValueFactory(new PropertyValueFactory<>("pla"));
+        myflightColumn.setCellValueFactory(new PropertyValueFactory<>(""));
         myseatsColumn.setCellValueFactory(new PropertyValueFactory<>("plb"));
         myflighttableview.setItems(vm.getMy());
     }
