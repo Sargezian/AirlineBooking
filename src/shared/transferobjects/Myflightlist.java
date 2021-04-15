@@ -7,7 +7,7 @@ public class Myflightlist implements Serializable {
  private String ticketID;
  private String price;
  private passenger passenger;
- private flights flights;
+ public flights flights;
  private seat seat;
 
     public Myflightlist(String ticketID, String price, shared.transferobjects.passenger passenger, shared.transferobjects.flights flights, shared.transferobjects.seat seat) {
@@ -18,8 +18,24 @@ public class Myflightlist implements Serializable {
         this.seat = seat;
     }
 
+     public String getFlightId(){
 
-    public String getTicketID() {
+        return flights.flightID;
+
+     }
+
+
+     public String getclassType(){
+
+        return seat.classType;
+
+
+     }
+
+
+
+   public String getTicketID() {
+       System.out.println("ticket" + ticketID);
         return ticketID;
     }
 

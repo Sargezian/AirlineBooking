@@ -58,13 +58,13 @@ public class myflightplanViewController implements ViewController {
         this.vh = vh;
         vm = vmf.getmyflightplanViewModel();
         vm.loadMyFlights();
-        FlightIdColumn.setCellValueFactory(new PropertyValueFactory<>("flightId"));
+        FlightIdColumn.setCellValueFactory(new PropertyValueFactory<>("flightID"));
         FlightnameColumn.setCellValueFactory(new PropertyValueFactory<>("flightName"));
         DepartureColumn.setCellValueFactory(new PropertyValueFactory<>("departure"));
         ArrivalColumn.setCellValueFactory(new PropertyValueFactory<>("arrival"));
         FromColumn.setCellValueFactory(new PropertyValueFactory<>("from"));
         ToColumn.setCellValueFactory(new PropertyValueFactory<>("to"));
-        TicketIdColumn.setCellValueFactory(new PropertyValueFactory<>("ticketId"));
+        TicketIdColumn.setCellValueFactory(new PropertyValueFactory<>("ticketID"));
         PriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
         PassengerIdColumn.setCellValueFactory(new PropertyValueFactory<>("passengerId"));
         SeatIdColumn.setCellValueFactory(new PropertyValueFactory<>("SeatId"));

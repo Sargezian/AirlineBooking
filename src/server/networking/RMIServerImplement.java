@@ -47,7 +47,7 @@ public class RMIServerImplement implements RMIServer {
 
     @Override
     public List<Myflightlist> getflightlist() throws RemoteException {
-        return null;
+        return  textManager.getflightlist();
     }
 
     @Override
