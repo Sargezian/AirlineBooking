@@ -47,6 +47,7 @@ public class myflightplanViewController implements ViewController {
 
     @FXML
     public TableColumn<String,Myflightlist> ClasstypeColumn;
+
     @FXML
     private Label myName;
 
@@ -71,7 +72,7 @@ public class myflightplanViewController implements ViewController {
         NameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         seat.setCellValueFactory(new PropertyValueFactory<>("seatNumber"));
         ClasstypeColumn.setCellValueFactory(new PropertyValueFactory<>("ClassType"));
-        myflighttableview.setItems(vm.getMy());
+        myflighttableview.setItems((vm.getMy()));
     }
 
     public void onBackDashboard(ActionEvent actionEvent) {

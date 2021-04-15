@@ -270,7 +270,7 @@ public class daoImpl implements daoInterface  {
 
       System.out.println("database connnection virker");
       try (Connection connection = daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID join passenger p on mFT.passengerid = p.passengerid join seat s on s.seatid = mFT.seatid ");
+        PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID join passenger p on mFT.passengerid = p.passengerid join seat s on s.seatid = mFT.seatid where flights.flightID = '1' ");
         ResultSet resultSet = statement.executeQuery();
 
         ArrayList<Myflightlist> myflightlists = new ArrayList<>();

@@ -52,7 +52,6 @@ public class dashboardViewController implements ViewController {
         dv.setSelected(tableView.getSelectionModel().getSelectedItems());
         dv.removeSelected();
        // dv.addSelected();
-
     }
 
     public void onNext(ActionEvent actionEvent) {

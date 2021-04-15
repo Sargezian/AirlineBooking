@@ -63,6 +63,7 @@ public class chatViewModel {
     ObservableList<InputChat> getChats() {
         return chats;
     }
+
     ObservableList<InputUser> getUsers() {
         return users;
     }

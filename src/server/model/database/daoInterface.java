@@ -21,6 +21,8 @@ public interface daoInterface
   List<Myflightlist> ReadFlightList() ;
 
 
+
+  //admins metoder
   void update(InputChat inputchat) ;
   void update(InputUser inputuser) ;
   void remove(InputChat inputChat) ;

@@ -30,16 +30,16 @@ public class loginViewModel {
     }
 
     public void printNavn() {
-        String input = navn.getValue();
-        String trys = kode.getValue();
+        String navn = this.navn.getValue();
+        String kode = this.kode.getValue();
 
-        if (input != null && !"".equals(input) && trys != null && !"".equals(trys)) {
-            clientText.username(input);
+        if (navn != null && !"".equals(navn) && kode != null && !"".equals(kode)) {
+            clientText.username(navn);
             error.set("korrekt oprettet");
         } else {
             error.set("Feltet kan ikke være tomt");
         }
-        kode.set("");
+        this.kode.set("");
     }
 
 }

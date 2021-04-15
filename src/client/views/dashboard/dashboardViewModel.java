@@ -4,6 +4,7 @@ import client.model.ClientText;
 import client.views.myflightplan.myflightplanViewModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import shared.transferobjects.Myflightlist;
 import shared.transferobjects.flights;
 import shared.util.utils;
 import java.beans.PropertyChangeEvent;
