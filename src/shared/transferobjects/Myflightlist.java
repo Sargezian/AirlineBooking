@@ -7,7 +7,7 @@ public class Myflightlist implements Serializable {
  private String ticketID;
  private String price;
  private passenger passenger;
- public flights flights;
+ private flights flights;
  private seat seat;
 
     public Myflightlist(String ticketID, String price, shared.transferobjects.passenger passenger, shared.transferobjects.flights flights, shared.transferobjects.seat seat) {
@@ -18,30 +18,58 @@ public class Myflightlist implements Serializable {
         this.seat = seat;
     }
 
-     public String getFlightId(){
-
+    public String getFlightID(){
         return flights.flightID;
+    }
 
-     }
+    public String getFlightName(){
+        return flights.flightName;
+    }
 
+    public String getDeparture(){
+        return flights.departure;
+    }
 
-     public String getclassType(){
+    public String getArrival(){
+        return flights.arrival;
+    }
 
-        return seat.classType;
+    public String getTo(){
+        return flights.to;
+    }
 
+    public String getFrom(){
+        return flights.from;
+    }
 
-     }
-
-
-
-   public String getTicketID() {
-       System.out.println("ticket" + ticketID);
+    public String getTicketID() {
         return ticketID;
     }
 
     public String getPrice() {
         return price;
     }
+
+    public String getPassengerID() {
+        return passenger.passengerID;
+    }
+
+    public String getSeatID() {
+        return seat.seatID;
+    }
+
+    public String getName() {
+        return passenger.name;
+    }
+
+    public String getSeatNumber() {
+        return seat.seatNumber;
+    }
+
+    public String getClassType(){
+        return seat.classType;
+     }
+
 
     public shared.transferobjects.passenger getPassenger() {
         return passenger;
@@ -55,7 +83,6 @@ public class Myflightlist implements Serializable {
         return seat;
     }
 
-
     @Override
     public String toString() {
         return "Myflightlist{" +
@@ -66,6 +93,7 @@ public class Myflightlist implements Serializable {
                 ", seat=" + seat +
                 '}';
     }
+
 }
 
 

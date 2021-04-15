@@ -33,9 +33,6 @@ public class daoImpl implements daoInterface  {
           return daoInstance;
      }
 
-
-
-
   public InputChat createChar(String str) {
     System.out.println("Her starter create Chat");
     try {
