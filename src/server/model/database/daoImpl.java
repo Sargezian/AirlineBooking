@@ -273,7 +273,7 @@ public class daoImpl implements daoInterface  {
 
       System.out.println("database connnection virker");
       try (Connection connection = daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID");
+        PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID join passenger p on mFT.passengerid = p.passengerid join seat s on s.seatid = mFT.seatid ");
         ResultSet resultSet = statement.executeQuery();
 
         ArrayList<Myflightlist> myflightlists = new ArrayList<>();
@@ -288,7 +288,10 @@ public class daoImpl implements daoInterface  {
           String price = resultSet.getString("price");
           String passengerID = resultSet.getString("passengerid");
           String seatId = resultSet.getString("seatid");
-          Myflightlist myflightlist = new Myflightlist(ticketid,price,new passenger(passengerID,""),new flights(FlightId,Flightname,departure,arrival,from,to),new seat(seatId,"",""));
+          String passengerName = resultSet.getString("name");
+          String seatNumber = resultSet.getString("seatNumber");
+          String classtype = resultSet.getString("classType");
+          Myflightlist myflightlist = new Myflightlist(ticketid,price,new passenger(passengerID,passengerName),new flights(FlightId,Flightname,departure,arrival,from,to),new seat(seatId,seatNumber,classtype));
 
         myflightlists.add(myflightlist);
         }

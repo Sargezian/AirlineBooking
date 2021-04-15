@@ -80,7 +80,7 @@
             </AnchorPane>
          </children>
       </VBox>
-      <TableView fx:id="myflighttableview" layoutX="235.0" layoutY="2.0" prefHeight="966.0" prefWidth="1086.0">
+      <TableView fx:id="myflighttableview" layoutX="235.0" layoutY="2.0" prefHeight="1030.0" prefWidth="1278.0">
          <columns>
             <TableColumn fx:id="FlightIdColumn" prefWidth="60.0" text="FlightId" />
             <TableColumn fx:id="FlightnameColumn" prefWidth="108.0" text="Flightname" />
@@ -92,6 +92,9 @@
             <TableColumn fx:id="PriceColumn" prefWidth="93.0" text="Price" />
             <TableColumn fx:id="PassengerIdColumn" prefWidth="110.0" text="PassengerId" />
             <TableColumn fx:id="SeatIdColumn" prefWidth="114.0" text="SeatId" />
+            <TableColumn fx:id="NameColumn" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="seat" prefWidth="75.0" text="seatnumber" />
+            <TableColumn fx:id="ClasstypeColumn" prefWidth="75.0" text="Classtype" />
          </columns>
       </TableView>
    </children>
