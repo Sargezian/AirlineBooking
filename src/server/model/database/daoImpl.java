@@ -266,5 +266,65 @@ public class daoImpl implements daoInterface  {
     return null;
   }
 
+  @Override
+  public List<Myflightlist> ReadFlightList()  {
 
-}
+    try{
+
+      System.out.println("database connnection virker");
+      try (Connection connection = daoConnection.getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID");
+        ResultSet resultSet = statement.executeQuery();
+
+        ArrayList<Myflightlist> myflightlists = new ArrayList<>();
+        while (resultSet.next()) {
+          String FlightId = resultSet.getString("flightid");
+          String Flightname = resultSet.getString("flightname");
+          String departure = resultSet.getString("departure");
+          String arrival = resultSet.getString("arrival");
+          String from = resultSet.getString("from_");
+          String to = resultSet.getString("to_");
+          String ticketid = resultSet.getString("ticketid");
+          String price = resultSet.getString("price");
+          String passengerID = resultSet.getString("passengerid");
+          String seatId = resultSet.getString("seatid");
+          Myflightlist myflightlist = new Myflightlist(ticketid,price,new passenger(passengerID,""),new flights(FlightId,Flightname,departure,arrival,from,to),new seat(seatId,"",""));
+
+        myflightlists.add(myflightlist);
+        }
+        return myflightlists;
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return null;
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+
+

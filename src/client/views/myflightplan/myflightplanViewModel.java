@@ -21,7 +21,7 @@ public class myflightplanViewModel {
     public void loadMyFlights() {
         List<Myflightlist> flight = clientText.getflightlist();
 
-        //my = FXCollections.observableArrayList(flight);
+        my = FXCollections.observableArrayList(flight);
         //Collections.addAll(, selectedrows);
     }
 

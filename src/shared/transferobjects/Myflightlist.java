@@ -4,27 +4,54 @@ import java.io.Serializable;
 
 public class Myflightlist implements Serializable {
 
-    private String flight;
-    private String seats;
+ private String ticketID;
+ private String price;
+ private passenger passenger;
+ private flights flights;
+ private seat seat;
 
-    public Myflightlist(String flight, String seats) {
-        this.flight = flight;
-        this.seats = seats;
+    public Myflightlist(String ticketID, String price, shared.transferobjects.passenger passenger, shared.transferobjects.flights flights, shared.transferobjects.seat seat) {
+        this.ticketID = ticketID;
+        this.price = price;
+        this.passenger = passenger;
+        this.flights = flights;
+        this.seat = seat;
     }
 
-    public String getFlight() {
-        return flight;
+
+    public String getTicketID() {
+        return ticketID;
     }
 
-    public String getSeats() {
-        return seats;
+    public String getPrice() {
+        return price;
     }
+
+    public shared.transferobjects.passenger getPassenger() {
+        return passenger;
+    }
+
+    public shared.transferobjects.flights getFlights() {
+        return flights;
+    }
+
+    public shared.transferobjects.seat getSeat() {
+        return seat;
+    }
+
 
     @Override
     public String toString() {
-        return "flightlist{" +
-                "pla='" + flight + '\'' +
-                ", plb='" + seats + '\'' +
+        return "Myflightlist{" +
+                "ticketID='" + ticketID + '\'' +
+                ", price='" + price + '\'' +
+                ", passenger=" + passenger +
+                ", flights=" + flights +
+                ", seat=" + seat +
                 '}';
     }
 }
+
+
+
+

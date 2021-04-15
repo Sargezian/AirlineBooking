@@ -19,10 +19,25 @@ public class myflightplanViewController implements ViewController {
     @FXML
     public TableView<Myflightlist> myflighttableview;
     @FXML
-    public TableColumn<String, Myflightlist> myflightColumn;
+    public TableColumn<String,Myflightlist> FlightIdColumn;
     @FXML
-    public TableColumn<String, Myflightlist> myseatsColumn;
-
+    public TableColumn<String,Myflightlist> FlightnameColumn;
+    @FXML
+    public TableColumn<String,Myflightlist>  DepartureColumn;
+    @FXML
+    public TableColumn<String,Myflightlist>  ArrivalColumn;
+    @FXML
+    public TableColumn<String,Myflightlist>  FromColumn;
+    @FXML
+    public TableColumn<String,Myflightlist> ToColumn;
+    @FXML
+    public TableColumn<String,Myflightlist>  TicketIdColumn;
+    @FXML
+    public TableColumn<String,Myflightlist>  PriceColumn;
+    @FXML
+    public TableColumn<String,Myflightlist>  PassengerIdColumn;
+    @FXML
+    public TableColumn<String,Myflightlist>  SeatIdColumn;
     @FXML
     private Label myName;
 
@@ -34,8 +49,16 @@ public class myflightplanViewController implements ViewController {
         this.vh = vh;
         vm = vmf.getmyflightplanViewModel();
         vm.loadMyFlights();
-        myflightColumn.setCellValueFactory(new PropertyValueFactory<>(""));
-        myseatsColumn.setCellValueFactory(new PropertyValueFactory<>("plb"));
+        FlightIdColumn.setCellValueFactory(new PropertyValueFactory<>("flightId"));
+        FlightnameColumn.setCellValueFactory(new PropertyValueFactory<>("flightName"));
+        DepartureColumn.setCellValueFactory(new PropertyValueFactory<>("departure"));
+        ArrivalColumn.setCellValueFactory(new PropertyValueFactory<>("arrival"));
+        FromColumn.setCellValueFactory(new PropertyValueFactory<>("from"));
+        ToColumn.setCellValueFactory(new PropertyValueFactory<>("to"));
+        TicketIdColumn.setCellValueFactory(new PropertyValueFactory<>("ticketId"));
+        PriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+        PassengerIdColumn.setCellValueFactory(new PropertyValueFactory<>("passengerId"));
+        SeatIdColumn.setCellValueFactory(new PropertyValueFactory<>("SeatId"));
         myflighttableview.setItems(vm.getMy());
     }
 

@@ -57,5 +57,6 @@ public class dashboardViewController implements ViewController {
 
     public void onNext(ActionEvent actionEvent) {
        vh.openSeat();
+        System.out.println("next"+dv.getSelectedrows());
     }
 }

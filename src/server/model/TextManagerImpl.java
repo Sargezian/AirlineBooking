@@ -72,13 +72,13 @@ public class TextManagerImpl implements TextManager{
 
     @Override
     public List<flights> getflights() {
-        System.out.println(dao.getflights());
+        System.out.println(dao.ReadFlightList());
         return new ArrayList<>(dao.getflights());
     }
 
     @Override
     public List<Myflightlist> getflightlist() {
-        return new ArrayList<>(myflight);
+        return new ArrayList<>(dao.ReadFlightList());
     }
 
     @Override

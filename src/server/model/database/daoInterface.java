@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public interface daoInterface
 {
   InputChat createChar(String str);
@@ -17,6 +18,7 @@ public interface daoInterface
   List<seat> getSeat();
 
   List<passenger> getPassenger();
+  List<Myflightlist> ReadFlightList() ;
 
 
   void update(InputChat inputchat) ;
