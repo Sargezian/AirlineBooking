@@ -76,8 +76,8 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
-    public void finish() {
-          dao.getfinish();
+    public void finish(Myflightlist myflightlist) {
+          dao.getfinish(myflightlist);
     }
 
     @Override

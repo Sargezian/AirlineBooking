@@ -24,7 +24,7 @@ public interface TextManager extends Subject {
 */
     //---------------------------------------------------------------
 
-    void finish();
+    void finish(Myflightlist myflightlist);
 
     List<Myflightlist> getflightlist();
 

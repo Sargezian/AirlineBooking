@@ -87,8 +87,8 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public void finish() throws RemoteException {
-        textManager.finish();
+    public void finish(Myflightlist myflightlist) throws RemoteException {
+        textManager.finish(myflightlist);
     }
 
    /* @Override

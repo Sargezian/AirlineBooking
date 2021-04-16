@@ -302,27 +302,30 @@ public class daoImpl implements daoInterface  {
     }
 
   @Override
-  public void getfinish() {
+  public void getfinish( Myflightlist myflightlist) {
     try {
       try (Connection connection =  daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("UPDATE  set flightID=?, flightName=?, departure=?, arrival=?, from_=?, to_=? ");
+        PreparedStatement statement = connection.prepareStatement("UPDATE  myFlightTicket  set flightID = ? , ticketid = ? , price = ? from myflightticket inner join flights f on f.flightid = myflightticket.flightid  inner join passenger p on p.passengerid = myflightticket.passengerid inner join seat s on s.seatid = myflightticket.seatid where flightname = ? and departure = ? and arrival = ? and from_ = ? and to_ = ? and passengerid = ? and seatid = ? and name = ? and seatnumber = ? and classtype = ?  ");
 
-        statement.setString(1, flights.getFlightID());
-        statement.setString(2, flights.getFlightName());
-        statement.setString(3, flights.getDeparture());
-        statement.setString(4, flights.getArrival());
-        statement.setString(5, flights.getDeparture());
-        statement.setString(6, flights.getTo());
+        statement.setString(1, myflightlist.getFlightID());
+        statement.setString(2,  myflightlist.getTicketID());
+        statement.setString(3,  myflightlist.getPrice());
 
-        statement.setString(7, flights.getFlightID());
-        statement.setString(9, flights.getFlightID());
-        statement.setString(10, flights.getFlightID());
-        statement.setString(11, flights.getFlightID());
-        statement.setString(12, flights.getFlightID());
-        statement.setString(13, flights.getFlightID());
-        statement.setString(14, flights.getFlightID());
-        statement.setString(15, flights.getFlightID());
 
+       statement.setString(4, myflightlist.getFlightName());
+       statement.setString(5, myflightlist.getDeparture());
+       statement.setString(6, myflightlist.getArrival());
+       statement.setString(7, myflightlist.getFrom());
+       statement.setString(8, myflightlist.getTo());
+
+
+        statement.setString(9, myflightlist.getPassengerID());
+        statement.setString(10, myflightlist.getSeatID());
+        statement.setString(11, myflightlist.getName());
+
+
+        statement.setString(12, myflightlist.getSeatNumber());
+        statement.setString(13, myflightlist.getClassType());
 
 
 
