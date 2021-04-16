@@ -35,13 +35,13 @@ public class seatViewController implements ViewController {
         tableView.setItems(sv.getSeat());
     }
 
-
     public void onBack(ActionEvent actionEvent) {
         vh.openToDashView();
-
     }
 
     public void onNext(ActionEvent actionEvent) {
+        sv.getSeatInformation(tableView.getSelectionModel().getSelectedItem());
         vh.openPassengerView();
+
     }
 }

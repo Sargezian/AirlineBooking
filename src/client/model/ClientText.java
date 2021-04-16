@@ -11,13 +11,21 @@ public interface ClientText extends Subject {
     List<InputChat> getChat();
     InputUser username(String txt);
     List<InputUser> getUser();
-
     List<flights> getflights();
-
     List<seat> getSeat();
     List<passenger> getPassenger();
-
     List<Myflightlist> getflightlist();
+
+    //---------------------------------------------------------------
+ /*   void getUpdate(flights flights);
+
+    void UpdateSeats();*/
+
+    void finish();
+
+    //---------------------------------------------------------------
+
+
 }
 
 

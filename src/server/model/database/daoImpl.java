@@ -127,7 +127,7 @@ public class daoImpl implements daoInterface  {
 
 
 
-  public void update(InputChat inputchat) {
+  /*public void update(InputChat inputchat) {
     System.out.println("Her begynder Update");
     try {
       try (Connection connection =  daoConnection.getConnection()) {
@@ -181,7 +181,7 @@ public class daoImpl implements daoInterface  {
     } catch (SQLException throwables) {
       throwables.printStackTrace();
     }
-  }
+  }*/
 
 
  /** --------------------------------------------------------------------------------------------------------------------**/
@@ -192,7 +192,7 @@ public class daoImpl implements daoInterface  {
 
      System.out.println("databse connnection virker");
      try (Connection connection = daoConnection.getConnection()) {
-       PreparedStatement statement = connection.prepareStatement("SELECT * FROM flights");
+       PreparedStatement statement = connection.prepareStatement("SELECT * FROM flights ");
        ResultSet resultSet = statement.executeQuery();
 
        ArrayList<flights> flightlist = new ArrayList<>();
@@ -263,6 +263,7 @@ public class daoImpl implements daoInterface  {
     return null;
   }
 
+
   @Override
   public List<Myflightlist> ReadFlightList()  {
 
@@ -270,7 +271,7 @@ public class daoImpl implements daoInterface  {
 
       System.out.println("database connnection virker");
       try (Connection connection = daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID join passenger p on mFT.passengerid = p.passengerid join seat s on s.seatid = mFT.seatid where flights.flightID = '1' ");
+        PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID join passenger p on mFT.passengerid = p.passengerid join seat s on s.seatid = mFT.seatid ");
         ResultSet resultSet = statement.executeQuery();
 
         ArrayList<Myflightlist> myflightlists = new ArrayList<>();
@@ -298,33 +299,69 @@ public class daoImpl implements daoInterface  {
       e.printStackTrace();
     }
     return null;
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
+  @Override
+  public void getfinish() {
+    try {
+      try (Connection connection =  daoConnection.getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("UPDATE  set flightID=?, flightName=?, departure=?, arrival=?, from_=?, to_=? ");
+
+        statement.setString(1, flights.getFlightID());
+        statement.setString(2, flights.getFlightName());
+        statement.setString(3, flights.getDeparture());
+        statement.setString(4, flights.getArrival());
+        statement.setString(5, flights.getDeparture());
+        statement.setString(6, flights.getTo());
+
+        statement.setString(7, flights.getFlightID());
+        statement.setString(9, flights.getFlightID());
+        statement.setString(10, flights.getFlightID());
+        statement.setString(11, flights.getFlightID());
+        statement.setString(12, flights.getFlightID());
+        statement.setString(13, flights.getFlightID());
+        statement.setString(14, flights.getFlightID());
+        statement.setString(15, flights.getFlightID());
 
 
 
 
-
-
-
-
-
-
-
+        statement.executeUpdate();
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
 
   }
+
+
+  //---------------------------------------------------------------
+
+
+  /*public void getUpdate(flights flights){
+    System.out.println("Her begynder Update");
+    try {
+      try (Connection connection =  daoConnection.getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("UPDATE flights set flightID=?, flightName=?, departure=?, arrival=?, from_=?, to_=? ");
+        statement.setString(1, flights.getFlightID());
+        statement.setString(2, flights.getFlightName());
+        statement.setString(3, flights.getDeparture());
+        statement.setString(4, flights.getArrival());
+        statement.setString(5, flights.getDeparture());
+        statement.setString(6, flights.getTo());
+        statement.executeUpdate();
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+  }*/
+
+  //---------------------------------------------------------------
+
+
+
+
+
+}
 
 

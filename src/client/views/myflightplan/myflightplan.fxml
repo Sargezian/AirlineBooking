@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="970.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.myflightplan.myflightplanViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="970.0" prefWidth="1585.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.myflightplan.myflightplanViewController">
    <children>
       <VBox prefHeight="970.0" prefWidth="235.0" style="-fx-background-color: #4153F2;">
          <children>
@@ -80,21 +80,21 @@
             </AnchorPane>
          </children>
       </VBox>
-      <TableView fx:id="myflighttableview" layoutX="235.0" layoutY="2.0" prefHeight="1030.0" prefWidth="1278.0">
+      <TableView fx:id="myflighttableview" layoutX="235.0" layoutY="2.0" prefHeight="738.0" prefWidth="1331.0">
          <columns>
             <TableColumn fx:id="FlightIdColumn" prefWidth="60.0" text="FlightId" />
             <TableColumn fx:id="FlightnameColumn" prefWidth="108.0" text="Flightname" />
-            <TableColumn fx:id="DepartureColumn" prefWidth="155.0" text="Departure" />
-            <TableColumn fx:id="ArrivalColumn" prefWidth="119.0" text="Arrival" />
-            <TableColumn fx:id="FromColumn" prefWidth="102.0" text="From" />
-            <TableColumn fx:id="ToColumn" prefWidth="117.0" text="To" />
-            <TableColumn fx:id="TicketIdColumn" prefWidth="110.0" text="TicketId" />
-            <TableColumn fx:id="PriceColumn" prefWidth="93.0" text="Price" />
-            <TableColumn fx:id="PassengerIdColumn" prefWidth="110.0" text="PassengerId" />
-            <TableColumn fx:id="SeatIdColumn" prefWidth="114.0" text="SeatId" />
-            <TableColumn fx:id="NameColumn" prefWidth="75.0" text="Name" />
-            <TableColumn fx:id="seat" prefWidth="75.0" text="seatnumber" />
-            <TableColumn fx:id="ClasstypeColumn" prefWidth="75.0" text="Classtype" />
+            <TableColumn fx:id="DepartureColumn" prefWidth="139.3765869140625" text="Departure" />
+            <TableColumn fx:id="ArrivalColumn" prefWidth="134.6234130859375" text="Arrival" />
+            <TableColumn fx:id="FromColumn" prefWidth="85.33502197265625" text="From" />
+            <TableColumn fx:id="ToColumn" prefWidth="100.67010498046875" text="To" />
+            <TableColumn fx:id="TicketIdColumn" prefWidth="73.83636474609375" text="TicketId" />
+            <TableColumn fx:id="PriceColumn" prefWidth="98.4622802734375" text="Price" />
+            <TableColumn fx:id="PassengerIdColumn" prefWidth="84.54541015625" text="PassengerId" />
+            <TableColumn fx:id="SeatIdColumn" prefWidth="77.7972412109375" text="SeatId" />
+            <TableColumn fx:id="NameColumn" prefWidth="113.0882568359375" text="Name" />
+            <TableColumn fx:id="seat" prefWidth="103.0052490234375" text="seatnumber" />
+            <TableColumn fx:id="ClasstypeColumn" prefWidth="143.9947509765625" text="Classtype" />
          </columns>
       </TableView>
    </children>

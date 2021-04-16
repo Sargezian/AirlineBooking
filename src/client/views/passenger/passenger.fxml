@@ -62,10 +62,11 @@
         </VBox>
         <TableView fx:id="tableView" layoutX="250.0" layoutY="14.0" prefHeight="344.0" prefWidth="455.0">
             <columns>
-                <TableColumn fx:id="passengerIDColumn" prefWidth="136.0" text="seatID" />
-                <TableColumn fx:id="nameColumn" prefWidth="147.0" text="seatNumber" />
+                <TableColumn fx:id="passengerIDColumn" prefWidth="136.0" text="PassengerID" />
+                <TableColumn fx:id="nameColumn" prefWidth="147.0" text="Name" />
             </columns>
         </TableView>
         <Button layoutX="323.0" layoutY="387.0" mnemonicParsing="false" onAction="#onBack" text="Back" />
+      <Button layoutX="439.0" layoutY="387.0" mnemonicParsing="false" onAction="#onOrder" text="Order" />
     </children>
 </AnchorPane>

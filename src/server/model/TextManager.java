@@ -17,8 +17,16 @@ public interface TextManager extends Subject {
     List<passenger> getPassenger();
     List<flights> getflights();
 
-    List<Myflightlist> getflightlist();
 
+    //---------------------------------------------------------------
+   /* void getUpdate(flights flights);
+    void UpdateSeats();
+*/
+    //---------------------------------------------------------------
+
+    void finish();
+
+    List<Myflightlist> getflightlist();
 
 
 }

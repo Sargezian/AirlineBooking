@@ -18,13 +18,12 @@ public interface RMIServer extends Remote {
     List<Myflightlist> getflightlist() throws RemoteException;
 
 
-
-
-
     void registerChatToClient(ClientCallBack client) throws RemoteException;
     void registerUserToClient(ClientCallBack client) throws RemoteException;
 
+    void finish() throws RemoteException;
 
 
-
+/*    void getUpdate(flights flights);
+    void UpdateSeats();*/
 }

@@ -2,8 +2,6 @@ package server.model.database;
 
 import shared.transferobjects.*;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,13 +16,19 @@ public interface daoInterface
   List<seat> getSeat();
 
   List<passenger> getPassenger();
-  List<Myflightlist> ReadFlightList() ;
+  List<Myflightlist> ReadFlightList();
 
 
+/*  void getUpdate(flights flights);*/
+
+  void getfinish();
 
   //admins metoder
-  void update(InputChat inputchat) ;
-  void update(InputUser inputuser) ;
-  void remove(InputChat inputChat) ;
-  void remove(InputUser inputUser);
+ /* void update(InputChat inputchat);
+  void update(InputUser inputuser);
+  void remove(InputChat inputChat);
+  void remove(InputUser inputUser);*/
+
+
+
 }

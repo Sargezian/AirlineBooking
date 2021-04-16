@@ -36,6 +36,7 @@ public class RMIClient implements Client, ClientCallBack {
         }
     }
 
+
     @Override
     public InputChat sendMsg(String str) {
         try {
@@ -93,7 +94,6 @@ public class RMIClient implements Client, ClientCallBack {
     @Override
     public List<passenger> getPassenger() {
         try {
-            System.out.println(server.getPassenger());
             return server.getPassenger();
         } catch (RemoteException e) {
             throw new RuntimeException("Kunne ikke få fat i server");
@@ -108,6 +108,30 @@ public class RMIClient implements Client, ClientCallBack {
             throw new RuntimeException("Kunne ikke få fat i server");
         }
     }
+
+    @Override
+    public void finish() {
+
+        try {
+           server.finish();
+        } catch (RemoteException e) {
+            throw new RuntimeException("Kunne ikke få fat i server");
+        }
+
+    }
+
+    //---------------------------------------------------------------
+  /*  @Override
+    public void getUpdate(flights flights) {
+        server.getUpdate(flights);
+    }
+    */
+     /* @Override
+    public void UpdateSeats() {
+        server.UpdateSeats();
+    }*/
+    //---------------------------------------------------------------
+
 
     @Override
     public void updateChat(InputChat entry) throws RemoteException {

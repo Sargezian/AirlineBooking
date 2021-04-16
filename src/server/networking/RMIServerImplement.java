@@ -87,6 +87,18 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
+    public void finish() throws RemoteException {
+        textManager.finish();
+    }
+
+   /* @Override
+    public void UpdateSeats() {
+        textManager.UpdateSeats();
+    }*/
+
+
+
+    @Override
     public List<flights> getflights() {
         return textManager.getflights();
     }

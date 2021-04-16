@@ -61,7 +61,6 @@ public class ClientTextManager implements ClientText {
 
     @Override
     public List<passenger> getPassenger() {
-        System.out.println(client.getPassenger());
         return client.getPassenger();
     }
 
@@ -69,6 +68,31 @@ public class ClientTextManager implements ClientText {
     public List<Myflightlist> getflightlist() {
         return client.getflightlist();
     }
+
+    @Override
+    public void finish() {
+        flights flights = SaveInfo.getInstance().getFlights();
+        System.out.println("Gets SavedInfo from flights = " + SaveInfo.getInstance().getFlights());
+
+        seat seat = SaveInfo.getInstance().getSeat();
+        System.out.println("Gets SavedInfor from seats = " + SaveInfo.getInstance().getSeat());
+
+        passenger passenger = SaveInfo.getInstance().getPassenger();
+        System.out.println("Gets SavedInfo from passenger = " + SaveInfo.getInstance().getPassenger());
+
+    }
+
+    //---------------------------------------------------------------
+    /*@Override
+    public void getUpdate(flights flights) {
+         client.getUpdate(flights);
+    }
+
+    @Override
+    public void UpdateSeats() {
+        client.UpdateSeats();
+    }*/
+    //---------------------------------------------------------------
 
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {

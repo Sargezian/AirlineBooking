@@ -1,15 +1,13 @@
 package client.views.dashboard;
 
 import client.model.ClientText;
-import client.views.myflightplan.myflightplanViewModel;
+import client.model.SaveInfo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import shared.transferobjects.Myflightlist;
 import shared.transferobjects.flights;
 import shared.util.utils;
 import java.beans.PropertyChangeEvent;
 import java.util.List;
-
 
 public class dashboardViewModel {
 
@@ -57,4 +55,10 @@ public class dashboardViewModel {
     public ObservableList<flights> getSelectedrows() {
         return selectedrows;
     }
+
+    public void getFlightInformation(flights flights) {
+        SaveInfo.getInstance().setFlights(flights);
+        System.out.println("Save flightInformation  = " + SaveInfo.getInstance());
+    }
+
 }

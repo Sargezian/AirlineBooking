@@ -1,6 +1,7 @@
 package client.views.seat;
 
 import client.model.ClientText;
+import client.model.SaveInfo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import shared.transferobjects.seat;
@@ -26,6 +27,8 @@ public class seatViewModel {
         return seats;
     }
 
-
-
+    public void getSeatInformation(seat seat) {
+        SaveInfo.getInstance().setSeat(seat);
+        System.out.println("Save SeatInformation = " + SaveInfo.getInstance());
+    }
 }

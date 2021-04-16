@@ -34,6 +34,14 @@ public class passengerViewController implements ViewController {
 
     public void onBack(ActionEvent actionEvent) {
         vh.openSeat();
+
     }
+
+    public void onOrder(ActionEvent actionEvent) {
+        pv.getPassengerInformation(tableView.getSelectionModel().getSelectedItem());
+        pv.finish();
+
+    }
+
 
 }
