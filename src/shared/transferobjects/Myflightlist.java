@@ -10,7 +10,7 @@ public class Myflightlist implements Serializable {
  private flights flights;
  private seat seat;
 
-    public Myflightlist(String ticketID, String price, shared.transferobjects.passenger passenger, shared.transferobjects.flights flights, shared.transferobjects.seat seat) {
+    public Myflightlist(String ticketID, String price, passenger passenger, flights flights, seat seat) {
         this.ticketID = ticketID;
         this.price = price;
         this.passenger = passenger;

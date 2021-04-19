@@ -21,7 +21,7 @@ public interface ClientText extends Subject {
 
     void UpdateSeats();*/
 
-    void finish();
+    void finish(Myflightlist myflightlist);
 
     //---------------------------------------------------------------
 

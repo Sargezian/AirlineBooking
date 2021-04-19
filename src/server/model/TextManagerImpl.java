@@ -60,7 +60,6 @@ public class TextManagerImpl implements TextManager{
 
     @Override
     public List<passenger> getPassenger() {
-        System.out.println(dao.getPassenger());
         return new ArrayList<>(dao.getPassenger());
     }
 
@@ -77,7 +76,13 @@ public class TextManagerImpl implements TextManager{
 
     @Override
     public void finish(Myflightlist myflightlist) {
-          dao.getfinish(myflightlist);
+       // System.out.println("TextManagerImpl = " +  dao.getfinish());
+
+       // Myflightlist myt = new Myflightlist(myflightlist.getTicketID(),myflightlist.getPrice(),new passenger(myflightlist.getPassengerID(),myflightlist.getName()),new flights(myflightlist.getFlightName(),myflightlist.getFlightName(),myflightlist.getDeparture(),myflightlist.getArrival(),myflightlist.getFrom(),myflightlist.getTo()),new seat(myflightlist.getSeatID(),myflightlist.getSeatNumber(),myflightlist.getClassType()));
+
+        dao.getfinish(myflightlist);
+
+       // support.firePropertyChange(, null, myt);
     }
 
     @Override

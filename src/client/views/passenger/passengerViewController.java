@@ -8,7 +8,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import shared.transferobjects.Myflightlist;
+import shared.transferobjects.flights;
 import shared.transferobjects.passenger;
+import shared.transferobjects.seat;
 
 public class passengerViewController implements ViewController {
 
@@ -21,6 +24,8 @@ public class passengerViewController implements ViewController {
 
     private ViewHandler vh;
     private passengerViewModel pv;
+    private Myflightlist myflightlist;
+
 
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
@@ -39,7 +44,7 @@ public class passengerViewController implements ViewController {
 
     public void onOrder(ActionEvent actionEvent) {
         pv.getPassengerInformation(tableView.getSelectionModel().getSelectedItem());
-        pv.finish();
+        pv.finish(myflightlist);
 
     }
 

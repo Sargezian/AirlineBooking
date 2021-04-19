@@ -113,7 +113,7 @@ public class RMIClient implements Client, ClientCallBack {
     public void finish(Myflightlist myflightlist) {
 
         try {
-           server.finish(myflightlist);
+          server.finish(myflightlist);
         } catch (RemoteException e) {
             throw new RuntimeException("Kunne ikke få fat i server");
         }

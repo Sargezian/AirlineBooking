@@ -7,6 +7,7 @@ import shared.util.utils;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ClientTextManager implements ClientText {
@@ -70,29 +71,24 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
-    public void finish() {
-        flights flights = SaveInfo.getInstance().getFlights();
+    public void finish(Myflightlist myflightlist) {
+
+        flights ft = SaveInfo.getInstance().getFlights();
         System.out.println("Gets SavedInfo from flights = " + SaveInfo.getInstance().getFlights());
 
-        seat seat = SaveInfo.getInstance().getSeat();
-        System.out.println("Gets SavedInfor from seats = " + SaveInfo.getInstance().getSeat());
+        seat st = SaveInfo.getInstance().getSeat();
+        System.out.println("Gets SavedInfo from seats = " + SaveInfo.getInstance().getSeat());
 
-        passenger passenger = SaveInfo.getInstance().getPassenger();
+        passenger pg = SaveInfo.getInstance().getPassenger();
         System.out.println("Gets SavedInfo from passenger = " + SaveInfo.getInstance().getPassenger());
 
+
+
+
+        client.finish(myflightlist);
+
     }
 
-    //---------------------------------------------------------------
-    /*@Override
-    public void getUpdate(flights flights) {
-         client.getUpdate(flights);
-    }
-
-    @Override
-    public void UpdateSeats() {
-        client.UpdateSeats();
-    }*/
-    //---------------------------------------------------------------
 
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {

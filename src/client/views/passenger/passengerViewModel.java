@@ -5,7 +5,10 @@ import client.model.SaveInfo;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import shared.transferobjects.Myflightlist;
+import shared.transferobjects.flights;
 import shared.transferobjects.passenger;
+import shared.transferobjects.seat;
 
 import java.util.List;
 
@@ -32,8 +35,8 @@ public class passengerViewModel {
         System.out.println("Save PassengerInformation = " + SaveInfo.getInstance() );
     }
 
-    public void finish() {
-        clientText.finish();
+    public void finish(Myflightlist myflightlist) {
+        clientText.finish(myflightlist);
     }
 
 }

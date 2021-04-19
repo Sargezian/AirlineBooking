@@ -34,7 +34,6 @@ public class daoImpl implements daoInterface  {
      }
 
   public InputChat createChar(String str) {
-    System.out.println("Her starter create Chat");
     try {
       try (Connection connection = daoConnection.getConnection()) {
         PreparedStatement statement = connection.prepareStatement("INSERT INTO InputChat(chat) VALUES (?) ");
@@ -45,13 +44,10 @@ public class daoImpl implements daoInterface  {
     } catch (SQLException throwables) {
       throwables.printStackTrace();
     }
-    System.out.println("Her slutter Create Chat");
     return null;
   }
 
-
   public List<InputChat> readChat() {
-    System.out.println("her begynder readchat");
     try {
       try (Connection connection =  daoConnection.getConnection()) {
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM InputChat");
@@ -63,19 +59,16 @@ public class daoImpl implements daoInterface  {
           result.add(inputChat);
 
         }
-        System.out.println(result.size() + " readchat size ");
         return result;
       }
     } catch (SQLException throwables) {
       throwables.printStackTrace();
     }
-    System.out.println("her slutter readchat");
     return null;
   }
 
 
   public InputUser createUser(String txt) {
-    System.out.println("Her begynder createUser");
     try {
       try (Connection connection =  daoConnection.getConnection()) {
         PreparedStatement statement = connection.prepareStatement("INSERT INTO InputUser(user_) VALUES (?) ", PreparedStatement.RETURN_GENERATED_KEYS);
@@ -95,13 +88,11 @@ public class daoImpl implements daoInterface  {
     } catch (SQLException throwables) {
       throwables.printStackTrace();
     }
-    System.out.println("Her slutter create User");
     return null;
   }
 
 
   public List<InputUser> readUser() {
-    System.out.println("Her begynder readUser");
     try {
       try (Connection connection =  daoConnection.getConnection()) {
 
@@ -121,67 +112,8 @@ public class daoImpl implements daoInterface  {
     } catch (SQLException throwables) {
       throwables.printStackTrace();
     }
-    System.out.println("Her Slutter read user ");
     return null;
   }
-
-
-
-  /*public void update(InputChat inputchat) {
-    System.out.println("Her begynder Update");
-    try {
-      try (Connection connection =  daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("UPDATE InputChat set chat=? ");
-        statement.setString(1, inputchat.getInput());
-        statement.executeUpdate();
-
-      }
-    } catch (SQLException throwables) {
-      throwables.printStackTrace();
-    }
-  }
-
-
-  public void update(InputUser inputuser) {
-    try {
-      try (Connection connection =  daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("UPDATE InputUser SET id = ?,user_ =? ");
-        statement.setInt(1, inputuser.getId());
-        statement.setString(2, inputuser.getOutput());
-        statement.executeUpdate();
-      }
-    } catch (SQLException throwables) {
-      throwables.printStackTrace();
-    }
-
-  }
-
-
-  public void remove(InputChat inputChat) {
-    try {
-      try (Connection connection =  daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("DELETE  FROM InputChat ");
-        statement.executeUpdate();
-
-
-      }
-    } catch (SQLException throwables) {
-      throwables.printStackTrace();
-    }
-  }
-
-
-  public void remove(InputUser inputUser) {
-    try {
-      try (Connection connection =  daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("DELETE  FROM InputUser");
-        statement.executeUpdate();
-
-      }
-    } catch (SQLException throwables) {
-      throwables.printStackTrace();
-    }
-  }*/
 
 
  /** --------------------------------------------------------------------------------------------------------------------**/
@@ -190,7 +122,6 @@ public class daoImpl implements daoInterface  {
  public List<flights> getflights() {
    try {
 
-     System.out.println("databse connnection virker");
      try (Connection connection = daoConnection.getConnection()) {
        PreparedStatement statement = connection.prepareStatement("SELECT * FROM flights ");
        ResultSet resultSet = statement.executeQuery();
@@ -218,7 +149,6 @@ public class daoImpl implements daoInterface  {
   public List<seat> getSeat() {
     try {
 
-      System.out.println("database connnection virker");
       try (Connection connection = daoConnection.getConnection()) {
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM seat");
         ResultSet resultSet = statement.executeQuery();
@@ -243,7 +173,6 @@ public class daoImpl implements daoInterface  {
   public List<passenger> getPassenger() {
     try {
 
-      System.out.println("database connnection virker");
       try (Connection connection = daoConnection.getConnection()) {
         PreparedStatement statement = connection.prepareStatement("SELECT * FROM passenger");
         ResultSet resultSet = statement.executeQuery();
@@ -263,15 +192,13 @@ public class daoImpl implements daoInterface  {
     return null;
   }
 
-
   @Override
   public List<Myflightlist> ReadFlightList()  {
 
     try{
 
-      System.out.println("database connnection virker");
       try (Connection connection = daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID join passenger p on mFT.passengerid = p.passengerid join seat s on s.seatid = mFT.seatid ");
+        PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID join passenger p on mFT.passengerid = p.passengerid join seat s on s.seatid = mFT.seatid where ticketID = 1 ");
         ResultSet resultSet = statement.executeQuery();
 
         ArrayList<Myflightlist> myflightlists = new ArrayList<>();
@@ -302,69 +229,21 @@ public class daoImpl implements daoInterface  {
     }
 
   @Override
-  public void getfinish( Myflightlist myflightlist) {
+  public void getfinish(Myflightlist myflightlist) {
     try {
       try (Connection connection =  daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("UPDATE  myFlightTicket  set flightID = ? , ticketid = ? , price = ? from myflightticket inner join flights f on f.flightid = myflightticket.flightid  inner join passenger p on p.passengerid = myflightticket.passengerid inner join seat s on s.seatid = myflightticket.seatid where flightname = ? and departure = ? and arrival = ? and from_ = ? and to_ = ? and passengerid = ? and seatid = ? and name = ? and seatnumber = ? and classtype = ?  ");
+        PreparedStatement statement = connection.prepareStatement(" UPDATE myFlightTicket SET flightID = ?, seatID = ?, passengerID = ? ");
 
-        statement.setString(1, myflightlist.getFlightID());
-        statement.setString(2,  myflightlist.getTicketID());
-        statement.setString(3,  myflightlist.getPrice());
-
-
-       statement.setString(4, myflightlist.getFlightName());
-       statement.setString(5, myflightlist.getDeparture());
-       statement.setString(6, myflightlist.getArrival());
-       statement.setString(7, myflightlist.getFrom());
-       statement.setString(8, myflightlist.getTo());
-
-
-        statement.setString(9, myflightlist.getPassengerID());
-        statement.setString(10, myflightlist.getSeatID());
-        statement.setString(11, myflightlist.getName());
-
-
-        statement.setString(12, myflightlist.getSeatNumber());
-        statement.setString(13, myflightlist.getClassType());
-
-
+        statement.setString(1, myflightlist.getFlights().getFlightID());
+        statement.setString(2, myflightlist.getSeat().getSeatID());
+        statement.setString(3, myflightlist.getPassenger().getPassengerID());
 
         statement.executeUpdate();
       }
     } catch (SQLException throwables) {
       throwables.printStackTrace();
     }
-
   }
-
-
-  //---------------------------------------------------------------
-
-
-  /*public void getUpdate(flights flights){
-    System.out.println("Her begynder Update");
-    try {
-      try (Connection connection =  daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("UPDATE flights set flightID=?, flightName=?, departure=?, arrival=?, from_=?, to_=? ");
-        statement.setString(1, flights.getFlightID());
-        statement.setString(2, flights.getFlightName());
-        statement.setString(3, flights.getDeparture());
-        statement.setString(4, flights.getArrival());
-        statement.setString(5, flights.getDeparture());
-        statement.setString(6, flights.getTo());
-        statement.executeUpdate();
-      }
-    } catch (SQLException throwables) {
-      throwables.printStackTrace();
-    }
-  }*/
-
-  //---------------------------------------------------------------
-
-
-
-
-
 }
 
 
