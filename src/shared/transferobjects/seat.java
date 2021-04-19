@@ -4,17 +4,17 @@ import java.io.Serializable;
 
 public class seat implements Serializable {
 
-    public String seatID;
+    public int seatID;
     public String seatNumber;
     public String classType;
 
-    public seat(String seatID, String seatNumber, String classType) {
+    public seat(int seatID, String seatNumber, String classType) {
         this.seatID = seatID;
         this.seatNumber = seatNumber;
         this.classType = classType;
     }
 
-    public String getSeatID() {
+    public int getSeatID() {
         return seatID;
     }
 

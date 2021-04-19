@@ -10,24 +10,28 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import shared.transferobjects.flights;
 
+import java.sql.Timestamp;
+
 public class dashboardViewController implements ViewController {
 
     @FXML
     public TableView<flights> tableView;
     @FXML
-    public TableColumn<String, flights> flightIDColumn;
+    public TableColumn<Integer, flights> flightIDColumn;
     @FXML
     public TableColumn<String, flights> flightNameColumn;
     @FXML
-    public TableColumn<String, flights> departureColumn;
+    public TableColumn<Timestamp, flights> departureColumn;
     @FXML
-    public TableColumn <String, flights> arrivalColumn;
+    public TableColumn <Timestamp, flights> arrivalColumn;
     @FXML
     public TableColumn <String, flights> fromColumn;
     @FXML
     public TableColumn <String, flights> toColumn;
+    @FXML
+  public TableColumn<String, flights> planeType;
 
-    private ViewHandler vh;
+  private ViewHandler vh;
     private dashboardViewModel dv;
 
     @Override
@@ -37,6 +41,7 @@ public class dashboardViewController implements ViewController {
         dv.loadFlights();
         flightIDColumn.setCellValueFactory(new PropertyValueFactory<>("flightID"));
         flightNameColumn.setCellValueFactory(new PropertyValueFactory<>("flightName"));
+        planeType.setCellValueFactory(new PropertyValueFactory<>("planeType"));
         departureColumn.setCellValueFactory(new PropertyValueFactory<>("departure"));
         arrivalColumn.setCellValueFactory(new PropertyValueFactory<>("Arrival"));
         fromColumn.setCellValueFactory(new PropertyValueFactory<>("From"));

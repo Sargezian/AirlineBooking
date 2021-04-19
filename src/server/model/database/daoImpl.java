@@ -128,14 +128,15 @@ public class daoImpl implements daoInterface  {
 
        ArrayList<flights> flightlist = new ArrayList<>();
        while (resultSet.next()) {
-         String flightID = resultSet.getString("flightID");
+         int flightID = resultSet.getInt("flightID");
          String flightName = resultSet.getString("flightName");
-         String departure = resultSet.getString("departure");
-         String arrival = resultSet.getString("arrival");
+         String planeType = resultSet.getString("planeType");
+         Timestamp departure = resultSet.getTimestamp("departure");
+         Timestamp arrival = resultSet.getTimestamp("arrival");
          String from = resultSet.getString("from_");
          String to = resultSet.getString("to_");
-         String price = resultSet.getString("price");
-         flights flights = new flights(flightID, flightName, departure, arrival, from, to,price);
+         int price = resultSet.getInt("price");
+         flights flights = new flights(flightID, flightName,planeType, departure, arrival, from, to,price);
          flightlist.add(flights);
        }
        return flightlist;
@@ -156,7 +157,7 @@ public class daoImpl implements daoInterface  {
 
         ArrayList<seat> seats = new ArrayList<>();
         while (resultSet.next()) {
-          String seatID = resultSet.getString("seatID");
+          int seatID = resultSet.getInt("seatID");
           String seatNumber = resultSet.getString("seatNumber");
           String classType = resultSet.getString("classType");
           seat seat = new seat(seatID, seatNumber, classType);
@@ -180,7 +181,7 @@ public class daoImpl implements daoInterface  {
 
         ArrayList<passenger> passengers = new ArrayList<>();
         while (resultSet.next()) {
-          String passengerID = resultSet.getString("passengerID");
+          int passengerID = resultSet.getInt("passengerID");
           String name = resultSet.getString("name");
           passenger passenger = new passenger(passengerID, name);
           passengers.add(passenger);
@@ -204,20 +205,21 @@ public class daoImpl implements daoInterface  {
 
         ArrayList<Myflightlist> myflightlists = new ArrayList<>();
         while (resultSet.next()) {
-          String FlightId = resultSet.getString("flightid");
+          int FlightId = resultSet.getInt("flightid");
           String Flightname = resultSet.getString("flightname");
-          String departure = resultSet.getString("departure");
-          String arrival = resultSet.getString("arrival");
+          String planeType = resultSet.getString("planeType");
+          Timestamp departure = resultSet.getTimestamp("departure");
+          Timestamp arrival = resultSet.getTimestamp("arrival");
           String from = resultSet.getString("from_");
           String to = resultSet.getString("to_");
-          String ticketid = resultSet.getString("ticketid");
-          String price = resultSet.getString("price");
-          String passengerID = resultSet.getString("passengerid");
-          String seatId = resultSet.getString("seatid");
+          int ticketid = resultSet.getInt("ticketid");
+          int price = resultSet.getInt("price");
+          int passengerID = resultSet.getInt("passengerid");
+          int seatId = resultSet.getInt("seatid");
           String passengerName = resultSet.getString("name");
           String seatNumber = resultSet.getString("seatNumber");
           String classtype = resultSet.getString("classType");
-          Myflightlist myflightlist = new Myflightlist(ticketid,price,new passenger(passengerID,passengerName),new flights(FlightId,Flightname,departure,arrival,from,to,price),new seat(seatId,seatNumber,classtype));
+          Myflightlist myflightlist = new Myflightlist(ticketid,price,new passenger(passengerID,passengerName),new flights(FlightId,Flightname,planeType,departure,arrival,from,to,price),new seat(seatId,seatNumber,classtype));
 
         myflightlists.add(myflightlist);
         }
@@ -237,10 +239,10 @@ public class daoImpl implements daoInterface  {
 
         System.out.println( "database connection til createticket");
 
-        statement.setInt(1, Integer.parseInt(myflightlist.getFlights().getFlightID()));
-        statement.setInt(2, Integer.parseInt(myflightlist.getPassenger().getPassengerID()));
-        statement.setInt(3, Integer.parseInt(myflightlist.getSeat().getSeatID()));
-        statement.setString(4, myflightlist.getPrice());
+        statement.setInt(1, myflightlist.getFlights().getFlightID());
+        statement.setInt(2, myflightlist.getPassenger().getPassengerID());
+        statement.setInt(3, myflightlist.getSeat().getSeatID());
+        statement.setInt(4, myflightlist.getPrice());
 
         statement.executeUpdate();
       }

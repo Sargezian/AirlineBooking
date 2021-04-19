@@ -2,18 +2,23 @@ package shared.transferobjects;
 
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 public class flights implements Serializable {
 
-    public String flightID;
+    public int flightID;
     public String flightName;
-    public String departure;
-    public String arrival;
+    public String planeType;
+    public Timestamp departure;
+    public Timestamp arrival;
     public String from;
     public String to;
-    public String price;
+    public int price;
 
-    public flights(String flightID, String flightName, String departure, String arrival, String from, String to, String price) {
+    public flights(int flightID, String flightName,  String planeType, Timestamp departure,
+        Timestamp arrival, String from, String to, int price)
+    {
         this.flightID = flightID;
         this.flightName = flightName;
         this.departure = departure;
@@ -21,25 +26,30 @@ public class flights implements Serializable {
         this.from = from;
         this.to = to;
         this.price = price;
+        this.planeType = planeType;
     }
 
-    public String getPrice() {
-        return price;
+    public String getPlaneType()
+    {
+        return planeType;
     }
 
-    public String getFlightID() {
+    public int getFlightID()
+    {
         return flightID;
     }
 
-    public String getFlightName() {
+    public String getFlightName()
+    {
         return flightName;
     }
 
-    public String getDeparture() {
+    public Timestamp getDeparture()
+    {
         return departure;
     }
 
-    public String getArrival()
+    public Timestamp getArrival()
     {
         return arrival;
     }
@@ -54,11 +64,16 @@ public class flights implements Serializable {
         return to;
     }
 
+    public int getPrice()
+    {
+        return price;
+    }
+
     @Override public String toString()
     {
-        return "flights{" + "flightID='" + flightID + '\'' + ", flightName='"
-            + flightName + '\'' + ", departure='" + departure + '\''
-            + ", arrival='" + arrival + '\'' + ", from='" + from + '\''
-            + ", to='" + to + '\'' + '}';
+        return "flights{" + "flightID=" + flightID + ", flightName='"
+            + flightName + '\'' + ", departure=" + departure + ", arrival="
+            + arrival + ", from='" + from + '\'' + ", to='" + to + '\''
+            + ", price=" + price + '}';
     }
 }

@@ -4,15 +4,15 @@ import java.io.Serializable;
 
 public class passenger implements Serializable {
 
-    public String passengerID;
+    public int passengerID;
     public String name;
 
-    public passenger(String passengerID, String name) {
+    public passenger(int passengerID, String name) {
         this.passengerID = passengerID;
         this.name = name;
     }
 
-    public String getPassengerID() {
+    public int getPassengerID() {
         return passengerID;
     }
 

@@ -1,16 +1,18 @@
 package shared.transferobjects;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Myflightlist implements Serializable {
 
- private String ticketID;
- private String price;
+ private int ticketID;
+ private int price;
  private passenger passenger;
  private flights flights;
  private seat seat;
 
-    public Myflightlist(String ticketID, String price, passenger passenger, flights flights, seat seat) {
+    public Myflightlist(int ticketID, int price, passenger passenger, flights flights, seat seat) {
         this.ticketID = ticketID;
         this.price = price;
         this.passenger = passenger;
@@ -18,7 +20,7 @@ public class Myflightlist implements Serializable {
         this.seat = seat;
     }
 
-    public String getFlightID(){
+    public int getFlightID(){
         return flights.flightID;
     }
 
@@ -26,11 +28,15 @@ public class Myflightlist implements Serializable {
         return flights.flightName;
     }
 
-    public String getDeparture(){
+    public String getPlaneType(){
+      return flights.planeType;
+    }
+
+    public Timestamp getDeparture(){
         return flights.departure;
     }
 
-    public String getArrival(){
+    public Timestamp getArrival(){
         return flights.arrival;
     }
 
@@ -42,19 +48,19 @@ public class Myflightlist implements Serializable {
         return flights.from;
     }
 
-    public String getTicketID() {
+    public int getTicketID() {
         return ticketID;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public String getPassengerID() {
+    public int getPassengerID() {
         return passenger.passengerID;
     }
 
-    public String getSeatID() {
+    public int getSeatID() {
         return seat.seatID;
     }
 

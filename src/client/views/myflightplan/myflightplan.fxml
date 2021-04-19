@@ -84,6 +84,7 @@
          <columns>
             <TableColumn fx:id="FlightIdColumn" prefWidth="60.0" text="FlightId" />
             <TableColumn fx:id="FlightnameColumn" prefWidth="108.0" text="Flightname" />
+            <TableColumn fx:id="PlanetypeColumn" prefWidth="155.0" text="Planetype" />
             <TableColumn fx:id="DepartureColumn" prefWidth="155.0" text="Departure" />
             <TableColumn fx:id="ArrivalColumn" prefWidth="119.0" text="Arrival" />
             <TableColumn fx:id="FromColumn" prefWidth="102.0" text="From" />

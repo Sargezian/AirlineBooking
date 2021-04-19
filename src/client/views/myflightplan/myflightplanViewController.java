@@ -13,31 +13,34 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import shared.transferobjects.Myflightlist;
 import shared.transferobjects.flights;
 
+import java.sql.Timestamp;
 
 public class myflightplanViewController implements ViewController {
 
     @FXML
     public TableView<Myflightlist> myflighttableview;
     @FXML
-    public TableColumn<String,Myflightlist> FlightIdColumn;
+    public TableColumn<Integer,Myflightlist> FlightIdColumn;
     @FXML
     public TableColumn<String,Myflightlist> FlightnameColumn;
     @FXML
-    public TableColumn<String,Myflightlist>  DepartureColumn;
+    public TableColumn<String, Myflightlist> PlanetypeColumn;
     @FXML
-    public TableColumn<String,Myflightlist>  ArrivalColumn;
+    public TableColumn<Timestamp,Myflightlist>  DepartureColumn;
+    @FXML
+    public TableColumn<Timestamp,Myflightlist>  ArrivalColumn;
     @FXML
     public TableColumn<String,Myflightlist>  FromColumn;
     @FXML
     public TableColumn<String,Myflightlist> ToColumn;
     @FXML
-    public TableColumn<String,Myflightlist>  TicketIdColumn;
+    public TableColumn<Integer,Myflightlist>  TicketIdColumn;
     @FXML
-    public TableColumn<String,Myflightlist>  PriceColumn;
+    public TableColumn<Integer,Myflightlist>  PriceColumn;
     @FXML
-    public TableColumn<String,Myflightlist>  PassengerIdColumn;
+    public TableColumn<Integer,Myflightlist>  PassengerIdColumn;
     @FXML
-    public TableColumn<String,Myflightlist>  SeatIdColumn;
+    public TableColumn<Integer,Myflightlist>  SeatIdColumn;
 
     @FXML
     public TableColumn<String,Myflightlist> NameColumn;
@@ -61,6 +64,7 @@ public class myflightplanViewController implements ViewController {
         vm.loadMyFlights();
         FlightIdColumn.setCellValueFactory(new PropertyValueFactory<>("flightID"));
         FlightnameColumn.setCellValueFactory(new PropertyValueFactory<>("flightName"));
+        PlanetypeColumn.setCellValueFactory(new PropertyValueFactory<>("planeType"));
         DepartureColumn.setCellValueFactory(new PropertyValueFactory<>("departure"));
         ArrivalColumn.setCellValueFactory(new PropertyValueFactory<>("arrival"));
         FromColumn.setCellValueFactory(new PropertyValueFactory<>("from"));

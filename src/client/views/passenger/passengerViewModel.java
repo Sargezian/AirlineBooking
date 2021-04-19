@@ -48,7 +48,7 @@ public class passengerViewModel {
         passenger pg = SaveInfo.getInstance().getPassenger();
         System.out.println("Gets SavedInfo from passenger = " + SaveInfo.getInstance().getPassenger());
 
-        Myflightlist myflightlist1 = new Myflightlist(null, ft.price, pg,ft,st);
+        Myflightlist myflightlist1 = new Myflightlist(1, ft.price, pg,ft,st);
         clientText.createTicket(myflightlist1);
     }
 
