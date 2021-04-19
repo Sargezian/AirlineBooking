@@ -59,14 +59,20 @@ public class ClientTextManager implements ClientText {
             return client.getSeat();
     }
 
-    @Override
+    /*@Override
     public List<passenger> getPassenger() {
         return client.getPassenger();
     }
-
+*/
     @Override
     public List<Myflightlist> getflightlist() {
         return client.getflightlist();
+    }
+
+    @Override public passenger passernger(String FirstName, String LastName,
+        String TelNumber)
+    {
+        return client.passernger(FirstName, LastName, TelNumber);
     }
 
     @Override

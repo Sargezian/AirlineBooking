@@ -64,9 +64,16 @@ public class Myflightlist implements Serializable {
         return seat.seatID;
     }
 
-    public String getName() {
-        return passenger.name;
+    public String getFirstName() {
+        return passenger.FirstName;
     }
+
+    public String getLastName(){
+      return passenger.LastName;
+    }
+  public String getTelNumber(){
+    return passenger.TelNumber;
+  }
 
     public String getSeatNumber() {
         return seat.seatNumber;

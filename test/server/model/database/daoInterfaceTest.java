@@ -18,8 +18,9 @@ public class daoInterfaceTest
   @Test
   public void createChar() throws SQLException
   {
-    dao.createChar("hej wdet er fint");
-      dao.createChar("hej wdet er fint");
+    //dao.createChar("hej wdet er fint");
+    //dao.createChar("hej wdet er fint");
+    dao.CreatePassengers("BOB","BOBO","123");
   }
 
   @Test public void readChat() throws SQLException {

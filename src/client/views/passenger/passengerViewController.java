@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import shared.transferobjects.Myflightlist;
 import shared.transferobjects.flights;
@@ -14,15 +15,15 @@ import shared.transferobjects.passenger;
 import shared.transferobjects.seat;
 
 public class passengerViewController implements ViewController {
+    @FXML
+    public TextField FirstName;
+    @FXML
+    public TextField LastName;
+    @FXML
+    public TextField TelNumber;
 
-    @FXML
-    public TableView<passenger> tableView;
-    @FXML
-    public TableColumn<String, passenger> passengerIDColumn;
-    @FXML
-    public TableColumn<String, passenger> nameColumn;
 
-    private ViewHandler vh;
+  private ViewHandler vh;
     private passengerViewModel pv;
     private Myflightlist myflightlist;
 
@@ -31,10 +32,14 @@ public class passengerViewController implements ViewController {
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.vh = vh;
         pv = vmf.getPassengerViewModel();
-        pv.loadPassenger();
-        passengerIDColumn.setCellValueFactory(new PropertyValueFactory<>("passengerID"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        tableView.setItems(pv.getPassengers());
+      FirstName.textProperty().bindBidirectional(pv.firstNameProperty());
+      LastName.textProperty().bindBidirectional(pv.lastNameProperty());
+      TelNumber.textProperty().bindBidirectional(pv.telNumberProperty());
+        /*pv.loadPassenger();
+        *//*passengerIDColumn.setCellValueFactory(new PropertyValueFactory<>("passengerID"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));*//*
+
+        tableView.setItems(pv.getPassengers());*/
     }
 
     public void onBack(ActionEvent actionEvent) {
@@ -43,7 +48,8 @@ public class passengerViewController implements ViewController {
     }
 
     public void onOrder(ActionEvent actionEvent) {
-        pv.getPassengerInformation(tableView.getSelectionModel().getSelectedItem());
+        pv.getPassengerInformation();
+      System.out.println();
         pv.finish();
 
     }

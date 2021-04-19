@@ -2,6 +2,8 @@ package client.views.passenger;
 
 import client.model.ClientText;
 import client.model.SaveInfo;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import shared.transferobjects.Myflightlist;
@@ -14,30 +16,33 @@ import java.util.List;
 public class passengerViewModel {
 
     private ClientText clientText;
-    private ObservableList<passenger> passengers;
+    private StringProperty FirstName;
+    private StringProperty LastName;
+    private StringProperty TelNumber;
+
+
 
     public passengerViewModel(ClientText clientText) {
         this.clientText = clientText;
+        FirstName = new SimpleStringProperty();
+        LastName = new SimpleStringProperty();
+        TelNumber = new SimpleStringProperty();
     }
 
-    public void loadPassenger(){
-        List<passenger> passenger = clientText.getPassenger();
-        passengers = FXCollections.observableArrayList(passenger);
-    }
 
-    public ObservableList<passenger> getPassengers() {
-        return passengers;
-    }
+    public void getPassengerInformation() {
 
-    public void getPassengerInformation(passenger passenger) {
+        String FirstName = this.FirstName.getValue();
+        String LastName = this.LastName.getValue();
+        String TelNumber = this.TelNumber.getValue();
 
-
-        SaveInfo.getInstance().setPassenger(passenger);
+        SaveInfo.getInstance().setPassenger(clientText.passernger(FirstName,LastName,TelNumber));
         System.out.println("Save PassengerInformation = " + SaveInfo.getInstance() );
     }
 
-    public void finish() {
 
+
+    public void finish() {
 
         flights ft = SaveInfo.getInstance().getFlights();
         System.out.println("Gets SavedInfo from flights = " + SaveInfo.getInstance().getFlights());
@@ -50,6 +55,38 @@ public class passengerViewModel {
 
         Myflightlist myflightlist1 = new Myflightlist(1, ft.price, pg,ft,st);
         clientText.createTicket(myflightlist1);
+    }
+
+
+
+    public String getFirstName()
+    {
+        return FirstName.get();
+    }
+
+    public StringProperty firstNameProperty()
+    {
+        return FirstName;
+    }
+
+    public String getLastName()
+    {
+        return LastName.get();
+    }
+
+    public StringProperty lastNameProperty()
+    {
+        return LastName;
+    }
+
+    public String getTelNumber()
+    {
+        return TelNumber.get();
+    }
+
+    public StringProperty telNumberProperty()
+    {
+        return TelNumber;
     }
 
 }

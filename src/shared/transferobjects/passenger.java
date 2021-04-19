@@ -2,29 +2,50 @@ package shared.transferobjects;
 
 import java.io.Serializable;
 
-public class passenger implements Serializable {
-
+public class passenger implements Serializable
+{
     public int passengerID;
-    public String name;
+    public String FirstName, LastName,TelNumber;
 
-    public passenger(int passengerID, String name) {
+    public passenger(int passengerID, String telNumber, String firstName,
+        String lastName ){
         this.passengerID = passengerID;
-        this.name = name;
+        TelNumber = telNumber;
+        FirstName = firstName;
+        LastName = lastName;
+    }
+    public passenger( String telNumber, String firstName,
+        String lastName)
+    {
+        TelNumber = telNumber;
+        FirstName = firstName;
+        LastName = lastName;
     }
 
-    public int getPassengerID() {
+    public int getPassengerID()
+    {
         return passengerID;
     }
 
-    public String getName() {
-        return name;
+    public String getTelNumber()
+    {
+        return TelNumber;
     }
 
-    @Override
-    public String toString() {
-        return "passenger{" +
-                "passengerID='" + passengerID + '\'' +
-                ", name='" + name + '\'' +
-                '}';
+    public String getFirstName()
+    {
+        return FirstName;
+    }
+
+    public String getLastName()
+    {
+        return LastName;
+    }
+
+    @Override public String toString()
+    {
+        return "passenger{" + "passengerID=" + passengerID + ", FirstName='"
+            + FirstName + '\'' + ", LastName='" + LastName + '\''
+            + ", TelNumber='" + TelNumber + '\'' + '}';
     }
 }

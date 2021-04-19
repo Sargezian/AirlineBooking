@@ -13,8 +13,10 @@ public interface Client extends Subject {
     List<InputUser> getUser();
     List<flights> getflights();
     List<seat> getSeat();
-    List<passenger> getPassenger();
+    //List<passenger> getPassenger();
     List<Myflightlist> getflightlist();
+    passenger passernger(String FirstName, String LastName, String TelNumber);
+
 
     //---------------------------------------------------------------
   /*  void getUpdate(flights flights);

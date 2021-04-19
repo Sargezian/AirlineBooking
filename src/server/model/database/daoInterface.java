@@ -15,8 +15,9 @@ public interface daoInterface
 
   List<seat> getSeat();
 
-  List<passenger> getPassenger();
+  //List<passenger> getPassenger();
   List<Myflightlist> ReadFlightList();
+  passenger CreatePassengers(String Firstname, String LastName, String TelNumber);
 
 
 /*  void getUpdate(flights flights);*/

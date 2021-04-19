@@ -171,7 +171,7 @@ public class daoImpl implements daoInterface  {
     return null;
   }
 
-  @Override
+ /* @Override
   public List<passenger> getPassenger() {
     try {
 
@@ -182,8 +182,8 @@ public class daoImpl implements daoInterface  {
         ArrayList<passenger> passengers = new ArrayList<>();
         while (resultSet.next()) {
           int passengerID = resultSet.getInt("passengerID");
-          String name = resultSet.getString("name");
-          passenger passenger = new passenger(passengerID, name);
+          String FirstName = resultSet.getString("name");
+          passenger passenger = new passenger(passengerID,Tel);
           passengers.add(passenger);
         }
         return passengers;
@@ -192,7 +192,33 @@ public class daoImpl implements daoInterface  {
       e.printStackTrace();
     }
     return null;
+  }*/
+
+  public passenger CreatePassengers(String FirstName, String LastName, String TelNumber) {
+    try {
+      try (Connection connection =  daoConnection.getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO passenger(FirstName,LastName,TelNumber) VALUES (?,?,?) ", PreparedStatement.RETURN_GENERATED_KEYS);
+        statement.setString(1, FirstName);
+        statement.setString(2, LastName);
+        statement.setString(3, TelNumber);
+        statement.executeUpdate();
+        ResultSet key = statement.getGeneratedKeys();
+
+          if (key.next()) {
+
+            return new passenger(key.getInt(1),TelNumber,FirstName,LastName );
+        } else {
+
+          throw new SQLException("Her bliver det testet på at lave en ny passenger");
+
+        }
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+    return null;
   }
+
 
   @Override
   public List<Myflightlist> ReadFlightList()  {
@@ -216,10 +242,12 @@ public class daoImpl implements daoInterface  {
           int price = resultSet.getInt("price");
           int passengerID = resultSet.getInt("passengerid");
           int seatId = resultSet.getInt("seatid");
-          String passengerName = resultSet.getString("name");
+          String FirstName = resultSet.getString("FirstName");
+          String LastName = resultSet.getString("LastName");
+          String TelNumber = resultSet.getString("TelNumber");
           String seatNumber = resultSet.getString("seatNumber");
           String classtype = resultSet.getString("classType");
-          Myflightlist myflightlist = new Myflightlist(ticketid,price,new passenger(passengerID,passengerName),new flights(FlightId,Flightname,planeType,departure,arrival,from,to,price),new seat(seatId,seatNumber,classtype));
+          Myflightlist myflightlist = new Myflightlist(ticketid,price,new passenger(passengerID,TelNumber,FirstName,LastName),new flights(FlightId,Flightname,planeType,departure,arrival,from,to,price),new seat(seatId,seatNumber,classtype));
 
         myflightlists.add(myflightlist);
         }

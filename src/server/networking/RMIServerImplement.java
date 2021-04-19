@@ -50,6 +50,12 @@ public class RMIServerImplement implements RMIServer {
         return textManager.getflightlist();
     }
 
+    @Override public passenger passernger(String FirstName, String LastName,
+        String TelNumber)
+    {
+        return textManager.passernger(FirstName, LastName, TelNumber);
+    }
+
     @Override
     public List<InputUser> getUser()  {
         System.out.println("RMISERVER read user");
@@ -108,10 +114,12 @@ public class RMIServerImplement implements RMIServer {
         return textManager.getSeat();
     }
 
+/*
     @Override
     public List<passenger> getPassenger() throws RemoteException {
         return textManager.getPassenger();
     }
+*/
 
 
 }

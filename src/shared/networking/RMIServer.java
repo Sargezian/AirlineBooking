@@ -14,8 +14,9 @@ public interface RMIServer extends Remote {
     List<InputUser> getUser() throws RemoteException;
     List<flights> getflights() throws RemoteException;
     List<seat> getSeat() throws RemoteException;
-    List<passenger> getPassenger() throws RemoteException;
+   // List<passenger> getPassenger() throws RemoteException;
     List<Myflightlist> getflightlist() throws RemoteException;
+    passenger passernger(String FirstName, String LastName, String TelNumber) throws RemoteException;
 
 
     void registerChatToClient(ClientCallBack client) throws RemoteException;
