@@ -7,7 +7,6 @@ import shared.util.utils;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ClientTextManager implements ClientText {
@@ -71,21 +70,13 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
-    public void finish(Myflightlist myflightlist) {
-
-        flights ft = SaveInfo.getInstance().getFlights();
-        System.out.println("Gets SavedInfo from flights = " + SaveInfo.getInstance().getFlights());
-
-        seat st = SaveInfo.getInstance().getSeat();
-        System.out.println("Gets SavedInfo from seats = " + SaveInfo.getInstance().getSeat());
-
-        passenger pg = SaveInfo.getInstance().getPassenger();
-        System.out.println("Gets SavedInfo from passenger = " + SaveInfo.getInstance().getPassenger());
+    public void createTicket(Myflightlist myflightlist) {
 
 
 
 
-        client.finish(myflightlist);
+
+        client.createTicket(myflightlist);
 
     }
 

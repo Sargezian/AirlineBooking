@@ -11,14 +11,20 @@ public class flights implements Serializable {
     public String arrival;
     public String from;
     public String to;
+    public String price;
 
-    public flights(String flightID, String flightName, String departure, String arrival, String from, String to) {
+    public flights(String flightID, String flightName, String departure, String arrival, String from, String to, String price) {
         this.flightID = flightID;
         this.flightName = flightName;
         this.departure = departure;
         this.arrival = arrival;
         this.from = from;
         this.to = to;
+        this.price = price;
+    }
+
+    public String getPrice() {
+        return price;
     }
 
     public String getFlightID() {

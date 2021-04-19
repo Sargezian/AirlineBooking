@@ -21,7 +21,9 @@ public interface daoInterface
 
 /*  void getUpdate(flights flights);*/
 
-  void getfinish(Myflightlist myflightlist);
+  void createTicket(Myflightlist myflightlist);
+
+
 
   //admins metoder
  /* void update(InputChat inputchat);

@@ -25,7 +25,7 @@ public interface TextManager extends Subject {
 */
     //---------------------------------------------------------------
 
-    void finish(Myflightlist myflightlist);
+    void createTicket(Myflightlist myflightlist);
 
     List<Myflightlist> getflightlist();
 

@@ -134,7 +134,8 @@ public class daoImpl implements daoInterface  {
          String arrival = resultSet.getString("arrival");
          String from = resultSet.getString("from_");
          String to = resultSet.getString("to_");
-         flights flights = new flights(flightID, flightName, departure, arrival, from, to);
+         String price = resultSet.getString("price");
+         flights flights = new flights(flightID, flightName, departure, arrival, from, to,price);
          flightlist.add(flights);
        }
        return flightlist;
@@ -198,7 +199,7 @@ public class daoImpl implements daoInterface  {
     try{
 
       try (Connection connection = daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID join passenger p on mFT.passengerid = p.passengerid join seat s on s.seatid = mFT.seatid where ticketID = 1 ");
+        PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID join passenger p on mFT.passengerid = p.passengerid join seat s on s.seatid = mFT.seatid  ");
         ResultSet resultSet = statement.executeQuery();
 
         ArrayList<Myflightlist> myflightlists = new ArrayList<>();
@@ -216,7 +217,7 @@ public class daoImpl implements daoInterface  {
           String passengerName = resultSet.getString("name");
           String seatNumber = resultSet.getString("seatNumber");
           String classtype = resultSet.getString("classType");
-          Myflightlist myflightlist = new Myflightlist(ticketid,price,new passenger(passengerID,passengerName),new flights(FlightId,Flightname,departure,arrival,from,to),new seat(seatId,seatNumber,classtype));
+          Myflightlist myflightlist = new Myflightlist(ticketid,price,new passenger(passengerID,passengerName),new flights(FlightId,Flightname,departure,arrival,from,to,price),new seat(seatId,seatNumber,classtype));
 
         myflightlists.add(myflightlist);
         }
@@ -229,14 +230,17 @@ public class daoImpl implements daoInterface  {
     }
 
   @Override
-  public void getfinish(Myflightlist myflightlist) {
+  public void createTicket(Myflightlist myflightlist) {
     try {
       try (Connection connection =  daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement(" UPDATE myFlightTicket SET flightID = ?, seatID = ?, passengerID = ? ");
+        PreparedStatement statement = connection.prepareStatement(" insert into myFlightTicket(flightID, passengerID, seatID,price) VALUES (?,?,?,?)");
 
-        statement.setString(1, myflightlist.getFlights().getFlightID());
-        statement.setString(2, myflightlist.getSeat().getSeatID());
-        statement.setString(3, myflightlist.getPassenger().getPassengerID());
+        System.out.println( "database connection til createticket");
+
+        statement.setInt(1, Integer.parseInt(myflightlist.getFlights().getFlightID()));
+        statement.setInt(2, Integer.parseInt(myflightlist.getPassenger().getPassengerID()));
+        statement.setInt(3, Integer.parseInt(myflightlist.getSeat().getSeatID()));
+        statement.setString(4, myflightlist.getPrice());
 
         statement.executeUpdate();
       }

@@ -110,10 +110,10 @@ public class RMIClient implements Client, ClientCallBack {
     }
 
     @Override
-    public void finish(Myflightlist myflightlist) {
+    public void createTicket(Myflightlist myflightlist) {
 
         try {
-          server.finish(myflightlist);
+          server.createTicket(myflightlist);
         } catch (RemoteException e) {
             throw new RuntimeException("Kunne ikke få fat i server");
         }

@@ -44,7 +44,7 @@ public class passengerViewController implements ViewController {
 
     public void onOrder(ActionEvent actionEvent) {
         pv.getPassengerInformation(tableView.getSelectionModel().getSelectedItem());
-        pv.finish(myflightlist);
+        pv.finish();
 
     }
 

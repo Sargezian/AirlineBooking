@@ -20,7 +20,7 @@ public interface Client extends Subject {
   /*  void getUpdate(flights flights);
     void UpdateSeats();*/
     //---------------------------------------------------------------
-    void finish(Myflightlist myflightlist);
+    void createTicket(Myflightlist myflightlist);
 
 
     void startClient();
