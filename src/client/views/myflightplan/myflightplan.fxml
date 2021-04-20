@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="970.0" prefWidth="1320.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.myflightplan.myflightplanViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="970.0" prefWidth="1320.0" style="-fx-background-color: e0e3fd;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.myflightplan.myflightplanViewController">
    <children>
       <VBox prefHeight="970.0" prefWidth="235.0" style="-fx-background-color: #4153F2;">
          <children>
@@ -80,23 +81,29 @@
             </AnchorPane>
          </children>
       </VBox>
-      <TableView fx:id="myflighttableview" layoutX="235.0" layoutY="13.0" prefHeight="1019.0" prefWidth="1525.0">
+      <TableView fx:id="myflighttableview" layoutX="250.0" layoutY="167.0" prefHeight="366.0" prefWidth="1050.0">
          <columns>
-            <TableColumn fx:id="FlightIdColumn" prefWidth="60.0" text="FlightId" />
-            <TableColumn fx:id="FlightnameColumn" prefWidth="108.0" text="Flightname" />
-            <TableColumn fx:id="PlanetypeColumn" prefWidth="155.0" text="Planetype" />
-            <TableColumn fx:id="DepartureColumn" prefWidth="155.0" text="Departure" />
-            <TableColumn fx:id="ArrivalColumn" prefWidth="119.0" text="Arrival" />
-            <TableColumn fx:id="FromColumn" prefWidth="102.0" text="From" />
-            <TableColumn fx:id="ToColumn" prefWidth="117.0" text="To" />
-            <TableColumn fx:id="TicketIdColumn" prefWidth="110.0" text="TicketId" />
-            <TableColumn fx:id="PriceColumn" prefWidth="93.0" text="Price" />
-            <TableColumn fx:id="PassengerIdColumn" prefWidth="120.0" text="PassengerId" />
-            <TableColumn fx:id="SeatIdColumn" prefWidth="104.0" text="SeatId" />
-            <TableColumn fx:id="NameColumn" prefWidth="98.0" text="Name" />
-            <TableColumn fx:id="seat" prefWidth="95.0" text="seatnumber" />
-            <TableColumn fx:id="ClasstypeColumn" prefWidth="88.0" text="Classtype" />
+            <TableColumn fx:id="FlightIdColumn" prefWidth="46.0" text="FlightId" />
+            <TableColumn fx:id="FlightnameColumn" prefWidth="56.0" text="Flightname" />
+            <TableColumn fx:id="PlanetypeColumn" prefWidth="72.0" text="Planetype" />
+            <TableColumn fx:id="DepartureColumn" prefWidth="83.0" text="Departure" />
+            <TableColumn fx:id="ArrivalColumn" prefWidth="62.0" text="Arrival" />
+            <TableColumn fx:id="FromColumn" prefWidth="61.0" text="From" />
+            <TableColumn fx:id="ToColumn" prefWidth="67.0" text="To" />
+            <TableColumn fx:id="TicketIdColumn" prefWidth="90.0" text="TicketId" />
+            <TableColumn fx:id="PriceColumn" prefWidth="51.0" text="Price" />
+            <TableColumn fx:id="PassengerIdColumn" prefWidth="72.0" text="PassengerId" />
+            <TableColumn fx:id="SeatIdColumn" prefWidth="71.0" text="SeatId" />
+            <TableColumn fx:id="NameColumn" prefWidth="65.0" text="Name" />
+            <TableColumn fx:id="seat" prefWidth="79.0" text="seatnumber" />
+            <TableColumn fx:id="ClasstypeColumn" prefWidth="112.0" text="Classtype" />
          </columns>
       </TableView>
+      <Label layoutX="250.0" layoutY="59.0" prefHeight="43.0" prefWidth="215.0" text="Ticket">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Separator layoutX="250.0" layoutY="119.0" prefHeight="0.0" prefWidth="1050.0" style="-fx-background-color: black;" />
    </children>
 </AnchorPane>

@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -10,11 +7,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.seat.seatViewController">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="958.0" style="-fx-background-color: e0e3fd;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.seat.seatViewController">
     <children>
-        <VBox prefHeight="502.0" prefWidth="231.0" style="-fx-background-color: #4153F2;">
+        <VBox prefHeight="615.0" prefWidth="235.0" style="-fx-background-color: #4153F2;">
             <children>
-                <AnchorPane prefHeight="504.0" prefWidth="231.0">
+                <AnchorPane prefHeight="569.0" prefWidth="235.0">
                     <children>
                         <ImageView fitHeight="88.0" fitWidth="179.0" layoutX="82.0" layoutY="7.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -56,18 +55,30 @@
                                 <Font name="Tahoma Bold" size="20.0" />
                             </font>
                         </Label>
+                        <Button alignment="BASELINE_LEFT" layoutX="71.0" layoutY="276.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="173.0" style="-fx-background-color: #4153F2;" text="Login" textFill="WHITE">
+                            <font>
+                                <Font name="Tahoma Bold" size="18.0" />
+                            </font>
+                        </Button>
                     </children>
                 </AnchorPane>
             </children>
         </VBox>
-        <TableView fx:id="tableView" layoutX="250.0" layoutY="14.0" prefHeight="344.0" prefWidth="455.0">
+        <TableView fx:id="tableView" layoutX="281.0" layoutY="127.0" prefHeight="340.0" prefWidth="663.0">
             <columns>
-                <TableColumn fx:id="seatIDColumn" prefWidth="136.0" text="seatID" />
-                <TableColumn fx:id="seatNumberColumn" prefWidth="147.0" text="seatNumber" />
-                <TableColumn fx:id="classTypeColumn" prefWidth="171.0" text="classType" />
+                <TableColumn fx:id="seatIDColumn" prefWidth="218.0" text="seatID" />
+                <TableColumn fx:id="seatNumberColumn" prefWidth="221.0" text="seatNumber" />
+                <TableColumn fx:id="classTypeColumn" prefWidth="189.0" text="classType" />
             </columns>
         </TableView>
-        <Button layoutX="323.0" layoutY="387.0" mnemonicParsing="false" onAction="#onBack" text="Back" />
-        <Button layoutX="464.0" layoutY="387.0" mnemonicParsing="false" onAction="#onNext" text="Next" />
+        <Button layoutX="444.0" layoutY="522.0" mnemonicParsing="false" onAction="#onBack" prefHeight="34.0" prefWidth="98.0" text="Back" />
+        <Button layoutX="647.0" layoutY="522.0" mnemonicParsing="false" onAction="#onNext" prefHeight="34.0" prefWidth="88.0" text="Next" />
+        <Label layoutX="284.0" layoutY="41.0" prefHeight="52.0" prefWidth="391.0" text="Seat ">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        <Separator layoutX="281.0" layoutY="93.0" prefHeight="2.0" prefWidth="663.0" style="-fx-background-color: black;" />
     </children>
 </AnchorPane>
+
