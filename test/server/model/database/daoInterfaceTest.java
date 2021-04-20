@@ -11,18 +11,20 @@ public class daoInterfaceTest
   private daoInterface dao;
   private InputChatDao inputChatDao;
   private InputUserDao inputUserDao;
+  private InputChatDao daoq;
 
 @BeforeEach
  public void createDao() throws SQLException {
   dao = daoImpl.getInstance();
+  daoq = (InputChatDao) InputChatImpl.getInstance();
   }
 
   @Test
   public void createChar() throws SQLException
   {
-    //dao.createChar("hej wdet er fint");
-    //dao.createChar("hej wdet er fint");
-    dao.CreatePassengers("BOB","BOBO","123");
+    daoq.createChar("hej wdet er fint");
+    //daoq.createChar("hej wdet er fint");
+    //dao.CreatePassengers("BOB","BOBO","123");
   }
 
   @Test public void readChat() throws SQLException {

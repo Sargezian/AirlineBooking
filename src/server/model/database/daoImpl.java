@@ -171,7 +171,109 @@ public class daoImpl implements daoInterface  {
     } catch (SQLException throwables) {
       throwables.printStackTrace();
     }
+
   }
+
+  public InputUser createUser(String txt) {
+    try {
+      try (Connection connection =  daoConnection.getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO InputUser(user_) VALUES (?) ", PreparedStatement.RETURN_GENERATED_KEYS);
+        statement.setString(1, txt);
+        statement.executeUpdate();
+        ResultSet key = statement.getGeneratedKeys();
+
+        if (key.next()) {
+
+          return new InputUser(key.getInt(1), txt);
+        } else {
+
+          throw new SQLException("hej med dig");
+
+        }
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+    return null;
+  }
+
+
+  public List<InputUser> readUser() {
+    try {
+      try (Connection connection =  daoConnection.getConnection()) {
+
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM InputUser ");
+
+        ResultSet resultSet = statement.executeQuery();
+        ArrayList<InputUser> result = new ArrayList<>();
+        while (resultSet.next()) {
+          String txt = resultSet.getString("user_");
+          int id = resultSet.getInt("id");
+          InputUser inputUser = new InputUser(id, txt);
+          result.add(inputUser);
+
+        }
+        return result;
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+    return null;
+  }
+
+  public InputChat createChar(String str) {
+    try {
+      try (Connection connection = daoConnection.getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO InputChat(chat) VALUES (?) ");
+        statement.setString(1, str);
+        statement.executeUpdate();
+        return new InputChat(str);
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+    return null;
+  }
+
+  public List<InputChat> readChat() {
+    try {
+      try (Connection connection =  daoConnection.getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM InputChat");
+        ResultSet resultSet = statement.executeQuery();
+        ArrayList<InputChat> result = new ArrayList<>();
+        while (resultSet.next()) {
+          String str = resultSet.getString("chat");
+          InputChat inputChat = new InputChat(str);
+          result.add(inputChat);
+
+        }
+        return result;
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+    return null;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 

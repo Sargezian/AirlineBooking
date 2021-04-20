@@ -2,14 +2,37 @@ package server.model.database;
 
 import shared.transferobjects.InputChat;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class InputChatImpl {
+
+    private static InputChatImpl daoInstance;
+    private daoConnection daoconnection;
+
+
+    private InputChatImpl() {
+        try {
+            DriverManager.registerDriver(new org.postgresql.Driver());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        daoconnection = daoConnection.getInstance();
+    }
+
+    public static synchronized InputChatImpl getInstance(){
+
+        if (daoInstance == null){
+
+            daoInstance = new InputChatImpl();
+
+        }
+
+        return daoInstance;
+    }
+
+
 
     public InputChat createChar(String str) {
         try {

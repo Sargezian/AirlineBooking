@@ -18,6 +18,15 @@ public interface daoInterface
   passenger CreatePassengers(String Firstname, String LastName, String TelNumber);
 
 
+  InputChat createChar(String str);
+  List<InputChat> readChat();
+
+
+  InputUser createUser(String txt) ;
+  List<InputUser> readUser();
+
+
+
 
 
 

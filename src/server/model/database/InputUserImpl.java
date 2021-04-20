@@ -2,14 +2,37 @@ package server.model.database;
 
 import shared.transferobjects.InputUser;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class InputUserImpl implements InputUserDao {
+
+
+    private static InputUserImpl daoInstance;
+    private daoConnection daoconnection;
+
+
+    private InputUserImpl() {
+        try {
+            DriverManager.registerDriver(new org.postgresql.Driver());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        daoconnection = daoConnection.getInstance();
+    }
+
+    public static synchronized InputUserImpl getInstance(){
+
+        if (daoInstance == null){
+
+            daoInstance = new InputUserImpl();
+
+        }
+
+        return daoInstance;
+    }
+
 
 
     public InputUser createUser(String txt) {
