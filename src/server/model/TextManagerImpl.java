@@ -1,5 +1,7 @@
 package server.model;
 
+import server.model.database.InputChatDao;
+import server.model.database.InputUserDao;
 import server.model.database.daoImpl;
 import server.model.database.daoInterface;
 import shared.transferobjects.*;
@@ -15,10 +17,13 @@ public class TextManagerImpl implements TextManager{
     private List<InputChat> chatListe;
     private List<InputUser> userNameList;
     private List<flights> flightList;
-    private List<Myflightlist> myflight;
+    private List<myFlightTicket> myflight;
     private List<passenger> passengersList;
 
     private daoInterface dao;
+    private InputUserDao inputUserDao;
+    private InputChatDao inputChatDao;
+
 
     public TextManagerImpl() {
         support = new PropertyChangeSupport(this);
@@ -33,7 +38,7 @@ public class TextManagerImpl implements TextManager{
     @Override
     public InputUser username(String txt) {
         InputUser inputUser = new InputUser(txt);
-        userNameList.add(dao.createUser(txt));
+        userNameList.add(inputUserDao.createUser(txt));
         support.firePropertyChange(utils.NEWUSER, null, inputUser);
         System.out.println("support.getPropertyChangeListeners().length:" + support.getPropertyChangeListeners().length);
         return inputUser;
@@ -43,7 +48,7 @@ public class TextManagerImpl implements TextManager{
     public InputChat sendMsg(String str) {
         InputChat inputChat = new InputChat(str);
         // dao.createChar(str);
-        chatListe.add(dao.createChar(str));//Denne skal laves om til at den gemmer i databasen
+        chatListe.add(inputChatDao.createChar(str));//Denne skal laves om til at den gemmer i databasen
         support.firePropertyChange(utils.NEWCHAT, null, inputChat);
         System.out.println("support.getPropertyChangeListeners().length:" + support.getPropertyChangeListeners().length);
         return inputChat;
@@ -52,7 +57,7 @@ public class TextManagerImpl implements TextManager{
     @Override
     public List<InputUser> getUser() {
         // return dao.readUser();
-        return new ArrayList<>(dao.readUser());
+        return new ArrayList<>(inputUserDao.readUser());
     }
 
     @Override
@@ -68,7 +73,7 @@ public class TextManagerImpl implements TextManager{
     @Override
     public List<InputChat> getChat() {
        //return dao.readChat();
-       return new ArrayList<>(dao.readChat());
+       return new ArrayList<>(inputChatDao.readChat());
     }
 
     @Override
@@ -88,8 +93,8 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
-    public void createTicket(Myflightlist myflightlist) {
-        dao.createTicket(myflightlist);
+    public void createTicket(myFlightTicket myFlightTicket) {
+        dao.createTicket(myFlightTicket);
        // System.out.println("TextManagerImpl = " +  dao.getfinish());
 
        // Myflightlist myt = new Myflightlist(myflightlist.getTicketID(),myflightlist.getPrice(),new passenger(myflightlist.getPassengerID(),myflightlist.getName()),new flights(myflightlist.getFlightName(),myflightlist.getFlightName(),myflightlist.getDeparture(),myflightlist.getArrival(),myflightlist.getFrom(),myflightlist.getTo()),new seat(myflightlist.getSeatID(),myflightlist.getSeatNumber(),myflightlist.getClassType()));
@@ -100,7 +105,7 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
-    public List<Myflightlist> getflightlist() {
+    public List<myFlightTicket> getflightlist() {
         return new ArrayList<>(dao.ReadFlightList());
     }
 

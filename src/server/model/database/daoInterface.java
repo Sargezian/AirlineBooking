@@ -7,30 +7,21 @@ import java.util.List;
 
 public interface daoInterface
 {
-  InputChat createChar(String str);
-  List<InputChat> readChat();
-  InputUser createUser(String txt) ;
-  List<InputUser> readUser();
+
+  List<myFlightTicket> ReadFlightList();
+
+  void createTicket(myFlightTicket myFlightTicket);
+
+
   List<flights> getflights();
-
   List<seat> getSeat();
-
-  //List<passenger> getPassenger();
-  List<Myflightlist> ReadFlightList();
   passenger CreatePassengers(String Firstname, String LastName, String TelNumber);
 
 
-/*  void getUpdate(flights flights);*/
-
-  void createTicket(Myflightlist myflightlist);
 
 
 
-  //admins metoder
- /* void update(InputChat inputchat);
-  void update(InputUser inputuser);
-  void remove(InputChat inputChat);
-  void remove(InputUser inputUser);*/
+
 
 
 

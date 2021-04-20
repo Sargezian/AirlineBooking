@@ -9,7 +9,6 @@ import shared.transferobjects.*;
 import shared.util.utils;
 
 import java.beans.PropertyChangeEvent;
-import java.util.List;
 
 public class passengerViewModel {
 
@@ -19,11 +18,6 @@ public class passengerViewModel {
     private StringProperty TelNumber;
 
 
-
-
-
-
-
     public passengerViewModel(ClientText clientText) {
         this.clientText = clientText;
         FirstName = new SimpleStringProperty();
@@ -31,11 +25,7 @@ public class passengerViewModel {
         TelNumber = new SimpleStringProperty();
         clientText.addListener(utils.NEWPASSENGER, this::onNewPassenger);
 
-
     }
-
-
-
 
     public void getPassengerInformation() {
 
@@ -43,13 +33,9 @@ public class passengerViewModel {
         String LastName = this.LastName.getValue();
         String TelNumber = this.TelNumber.getValue();
 
-
-
-
         SaveInfo.getInstance().setPassenger(clientText.passernger(FirstName,LastName,TelNumber));
         System.out.println("Save PassengerInformation = " + SaveInfo.getInstance() );
     }
-
 
 
     public void finish() {
@@ -63,16 +49,14 @@ public class passengerViewModel {
         passenger pg = SaveInfo.getInstance().getPassenger();
         System.out.println("Gets SavedInfo from passenger = " + SaveInfo.getInstance().getPassenger());
 
-        Myflightlist myflightlist1 = new Myflightlist(1, ft.price, pg,ft,st);
-        clientText.createTicket(myflightlist1);
+        myFlightTicket myFlightTicket1 = new myFlightTicket(1, ft.price, pg,ft,st);
+        clientText.createTicket(myFlightTicket1);
     }
 
     public void onNewPassenger(PropertyChangeEvent evt) {
         getPassengerInformation();
 
     }
-
-
 
 
     public String getFirstName()
@@ -104,8 +88,6 @@ public class passengerViewModel {
     {
         return TelNumber;
     }
-
-
 
 
 

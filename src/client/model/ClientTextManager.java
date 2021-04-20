@@ -27,7 +27,6 @@ public class ClientTextManager implements ClientText {
         support.firePropertyChange(evt);
     }
 
-
     private void onNewInputChat(PropertyChangeEvent evt) {
         support.firePropertyChange(evt);
     }
@@ -72,7 +71,7 @@ public class ClientTextManager implements ClientText {
     }
 */
     @Override
-    public List<Myflightlist> getflightlist() {
+    public List<myFlightTicket> getflightlist() {
         return client.getflightlist();
     }
 
@@ -83,13 +82,13 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
-    public void createTicket(Myflightlist myflightlist) {
+    public void createTicket(myFlightTicket myFlightTicket) {
 
 
 
 
 
-        client.createTicket(myflightlist);
+        client.createTicket(myFlightTicket);
 
     }
 

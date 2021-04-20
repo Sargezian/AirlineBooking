@@ -9,22 +9,23 @@ public interface ClientText extends Subject {
 
     InputChat sendMsg(String text);
     List<InputChat> getChat();
+
     InputUser username(String txt);
     List<InputUser> getUser();
+
     List<flights> getflights();
     List<seat> getSeat();
-   // List<passenger> getPassenger();
-    List<Myflightlist> getflightlist();
     passenger passernger(String FirstName, String LastName, String TelNumber);
 
-    //---------------------------------------------------------------
- /*   void getUpdate(flights flights);
+    List<myFlightTicket> getflightlist();
+    void createTicket(myFlightTicket myFlightTicket);
 
-    void UpdateSeats();*/
 
-    void createTicket(Myflightlist myflightlist);
 
-    //---------------------------------------------------------------
+
+
+
+
 
 
 }

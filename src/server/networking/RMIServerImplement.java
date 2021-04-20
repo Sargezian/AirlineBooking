@@ -46,7 +46,7 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public List<Myflightlist> getflightlist() throws RemoteException {
+    public List<myFlightTicket> getflightlist() throws RemoteException {
         return textManager.getflightlist();
     }
 
@@ -110,8 +110,8 @@ public class RMIServerImplement implements RMIServer {
 
 
     @Override
-    public void createTicket(Myflightlist myflightlist) throws RemoteException {
-        textManager.createTicket(myflightlist);
+    public void createTicket(myFlightTicket myFlightTicket) throws RemoteException {
+        textManager.createTicket(myFlightTicket);
     }
 
    /* @Override

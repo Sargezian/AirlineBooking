@@ -44,6 +44,11 @@ public class dashboardViewModel {
         flights = FXCollections.observableArrayList(flight);
     }
 
+    public void getFlightInformation(flights flights) {
+        SaveInfo.getInstance().setFlights(flights);
+        System.out.println("Save flightInformation  = " + SaveInfo.getInstance());
+    }
+
     public void onNewInputflight(PropertyChangeEvent  evt) {
         flights.add((flights) evt.getNewValue());
     }
@@ -56,9 +61,5 @@ public class dashboardViewModel {
         return selectedrows;
     }
 
-    public void getFlightInformation(flights flights) {
-        SaveInfo.getInstance().setFlights(flights);
-        System.out.println("Save flightInformation  = " + SaveInfo.getInstance());
-    }
 
 }

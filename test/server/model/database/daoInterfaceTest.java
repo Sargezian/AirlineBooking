@@ -9,6 +9,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class daoInterfaceTest
 {
   private daoInterface dao;
+  private InputChatDao inputChatDao;
+  private InputUserDao inputUserDao;
 
 @BeforeEach
  public void createDao() throws SQLException {
@@ -25,7 +27,7 @@ public class daoInterfaceTest
 
   @Test public void readChat() throws SQLException {
     //dao.readChat();
-    InputChat c =  dao.createChar("ww");
+    InputChat c =  inputChatDao.createChar("ww");
     assertEquals("ww",c.getInput());
   }
 
@@ -34,7 +36,7 @@ public class daoInterfaceTest
   }
 
   @Test public void readUser() throws SQLException {
-    InputUser u = dao.createUser("mike");
+    InputUser u = inputUserDao.createUser("mike");
     assertEquals("mike",u.getOutput());
   }
 

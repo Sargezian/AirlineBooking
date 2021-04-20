@@ -3,54 +3,49 @@ package client.views.myflightplan;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.views.ViewController;
-import client.views.dashboard.dashboardViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import shared.transferobjects.Myflightlist;
-import shared.transferobjects.flights;
+import shared.transferobjects.myFlightTicket;
 
 import java.sql.Timestamp;
 
 public class myflightplanViewController implements ViewController {
 
     @FXML
-    public TableView<Myflightlist> myflighttableview;
+    public TableView<myFlightTicket> myflighttableview;
     @FXML
-    public TableColumn<Integer,Myflightlist> FlightIdColumn;
+    public TableColumn<Integer, myFlightTicket> FlightIdColumn;
     @FXML
-    public TableColumn<String,Myflightlist> FlightnameColumn;
+    public TableColumn<String, myFlightTicket> FlightnameColumn;
     @FXML
-    public TableColumn<String, Myflightlist> PlanetypeColumn;
+    public TableColumn<String, myFlightTicket> PlanetypeColumn;
     @FXML
-    public TableColumn<Timestamp,Myflightlist>  DepartureColumn;
+    public TableColumn<Timestamp, myFlightTicket>  DepartureColumn;
     @FXML
-    public TableColumn<Timestamp,Myflightlist>  ArrivalColumn;
+    public TableColumn<Timestamp, myFlightTicket>  ArrivalColumn;
     @FXML
-    public TableColumn<String,Myflightlist>  FromColumn;
+    public TableColumn<String, myFlightTicket>  FromColumn;
     @FXML
-    public TableColumn<String,Myflightlist> ToColumn;
+    public TableColumn<String, myFlightTicket> ToColumn;
     @FXML
-    public TableColumn<Integer,Myflightlist>  TicketIdColumn;
+    public TableColumn<Integer, myFlightTicket>  TicketIdColumn;
     @FXML
-    public TableColumn<Integer,Myflightlist>  PriceColumn;
+    public TableColumn<Integer, myFlightTicket>  PriceColumn;
     @FXML
-    public TableColumn<Integer,Myflightlist>  PassengerIdColumn;
+    public TableColumn<Integer, myFlightTicket>  PassengerIdColumn;
     @FXML
-    public TableColumn<Integer,Myflightlist>  SeatIdColumn;
+    public TableColumn<Integer, myFlightTicket>  SeatIdColumn;
 
     @FXML
-    public TableColumn<String,Myflightlist> NameColumn;
-
+    public TableColumn<String, myFlightTicket> NameColumn;
     @FXML
-    public TableColumn<String,Myflightlist> seat;
-
+    public TableColumn<String, myFlightTicket> seat;
     @FXML
-    public TableColumn<String,Myflightlist> ClasstypeColumn;
-
+    public TableColumn<String, myFlightTicket> ClasstypeColumn;
     @FXML
     private Label myName;
 

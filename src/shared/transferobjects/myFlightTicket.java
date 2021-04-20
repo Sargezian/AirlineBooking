@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-public class Myflightlist implements Serializable {
+public class myFlightTicket implements Serializable {
 
  private int ticketID;
  private int price;
@@ -12,7 +12,7 @@ public class Myflightlist implements Serializable {
  private flights flights;
  private seat seat;
 
-    public Myflightlist(int ticketID, int price, passenger passenger, flights flights, seat seat) {
+    public myFlightTicket(int ticketID, int price, passenger passenger, flights flights, seat seat) {
         this.ticketID = ticketID;
         this.price = price;
         this.passenger = passenger;

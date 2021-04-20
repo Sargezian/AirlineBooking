@@ -6,7 +6,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class daoImpl implements daoInterface  {
 
   private static daoImpl daoInstance;
@@ -32,88 +31,6 @@ public class daoImpl implements daoInterface  {
 
           return daoInstance;
      }
-
-  public InputChat createChar(String str) {
-    try {
-      try (Connection connection = daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO InputChat(chat) VALUES (?) ");
-        statement.setString(1, str);
-        statement.executeUpdate();
-        return new InputChat(str);
-      }
-    } catch (SQLException throwables) {
-      throwables.printStackTrace();
-    }
-    return null;
-  }
-
-  public List<InputChat> readChat() {
-    try {
-      try (Connection connection =  daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("SELECT * FROM InputChat");
-        ResultSet resultSet = statement.executeQuery();
-        ArrayList<InputChat> result = new ArrayList<>();
-        while (resultSet.next()) {
-          String str = resultSet.getString("chat");
-          InputChat inputChat = new InputChat(str);
-          result.add(inputChat);
-
-        }
-        return result;
-      }
-    } catch (SQLException throwables) {
-      throwables.printStackTrace();
-    }
-    return null;
-  }
-
-
-  public InputUser createUser(String txt) {
-    try {
-      try (Connection connection =  daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO InputUser(user_) VALUES (?) ", PreparedStatement.RETURN_GENERATED_KEYS);
-        statement.setString(1, txt);
-        statement.executeUpdate();
-        ResultSet key = statement.getGeneratedKeys();
-
-        if (key.next()) {
-
-          return new InputUser(key.getInt(1), txt);
-        } else {
-
-          throw new SQLException("hej med dig");
-
-        }
-      }
-    } catch (SQLException throwables) {
-      throwables.printStackTrace();
-    }
-    return null;
-  }
-
-
-  public List<InputUser> readUser() {
-    try {
-      try (Connection connection =  daoConnection.getConnection()) {
-
-        PreparedStatement statement = connection.prepareStatement("SELECT * FROM InputUser ");
-
-        ResultSet resultSet = statement.executeQuery();
-        ArrayList<InputUser> result = new ArrayList<>();
-        while (resultSet.next()) {
-          String txt = resultSet.getString("user_");
-          int id = resultSet.getInt("id");
-          InputUser inputUser = new InputUser(id, txt);
-          result.add(inputUser);
-
-        }
-        return result;
-      }
-    } catch (SQLException throwables) {
-      throwables.printStackTrace();
-    }
-    return null;
-  }
 
 
  /** --------------------------------------------------------------------------------------------------------------------**/
@@ -171,29 +88,6 @@ public class daoImpl implements daoInterface  {
     return null;
   }
 
- /* @Override
-  public List<passenger> getPassenger() {
-    try {
-
-      try (Connection connection = daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("SELECT * FROM passenger");
-        ResultSet resultSet = statement.executeQuery();
-
-        ArrayList<passenger> passengers = new ArrayList<>();
-        while (resultSet.next()) {
-          int passengerID = resultSet.getInt("passengerID");
-          String FirstName = resultSet.getString("name");
-          passenger passenger = new passenger(passengerID,Tel);
-          passengers.add(passenger);
-        }
-        return passengers;
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-    return null;
-  }*/
-
   public passenger CreatePassengers(String FirstName, String LastName, String TelNumber) {
     try {
       try (Connection connection =  daoConnection.getConnection()) {
@@ -221,7 +115,7 @@ public class daoImpl implements daoInterface  {
 
 
   @Override
-  public List<Myflightlist> ReadFlightList()  {
+  public List<myFlightTicket> ReadFlightList()  {
 
     try{
 
@@ -229,7 +123,7 @@ public class daoImpl implements daoInterface  {
         PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID join passenger p on mFT.passengerid = p.passengerid join seat s on s.seatid = mFT.seatid  ");
         ResultSet resultSet = statement.executeQuery();
 
-        ArrayList<Myflightlist> myflightlists = new ArrayList<>();
+        ArrayList<myFlightTicket> myFlightTickets = new ArrayList<>();
         while (resultSet.next()) {
           int FlightId = resultSet.getInt("flightid");
           String Flightname = resultSet.getString("flightname");
@@ -247,11 +141,11 @@ public class daoImpl implements daoInterface  {
           String TelNumber = resultSet.getString("TelNumber");
           String seatNumber = resultSet.getString("seatNumber");
           String classtype = resultSet.getString("classType");
-          Myflightlist myflightlist = new Myflightlist(ticketid,price,new passenger(passengerID,TelNumber,FirstName,LastName),new flights(FlightId,Flightname,planeType,departure,arrival,from,to,price),new seat(seatId,seatNumber,classtype));
+          myFlightTicket myFlightTicket = new myFlightTicket(ticketid,price,new passenger(passengerID,TelNumber,FirstName,LastName),new flights(FlightId,Flightname,planeType,departure,arrival,from,to,price),new seat(seatId,seatNumber,classtype));
 
-        myflightlists.add(myflightlist);
+        myFlightTickets.add(myFlightTicket);
         }
-        return myflightlists;
+        return myFlightTickets;
       }
     } catch (Exception e) {
       e.printStackTrace();
@@ -260,17 +154,17 @@ public class daoImpl implements daoInterface  {
     }
 
   @Override
-  public void createTicket(Myflightlist myflightlist) {
+  public void createTicket(myFlightTicket myFlightTicket) {
     try {
       try (Connection connection =  daoConnection.getConnection()) {
         PreparedStatement statement = connection.prepareStatement(" insert into myFlightTicket(flightID, passengerID, seatID,price) VALUES (?,?,?,?)");
 
         System.out.println( "database connection til createticket");
 
-        statement.setInt(1, myflightlist.getFlights().getFlightID());
-        statement.setInt(2, myflightlist.getPassenger().getPassengerID());
-        statement.setInt(3, myflightlist.getSeat().getSeatID());
-        statement.setInt(4, myflightlist.getPrice());
+        statement.setInt(1, myFlightTicket.getFlights().getFlightID());
+        statement.setInt(2, myFlightTicket.getPassenger().getPassengerID());
+        statement.setInt(3, myFlightTicket.getSeat().getSeatID());
+        statement.setInt(4, myFlightTicket.getPrice());
 
         statement.executeUpdate();
       }

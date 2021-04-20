@@ -29,9 +29,9 @@ public class dashboardViewController implements ViewController {
     @FXML
     public TableColumn <String, flights> toColumn;
     @FXML
-  public TableColumn<String, flights> planeType;
+    public TableColumn<String, flights> planeType;
 
-  private ViewHandler vh;
+    private ViewHandler vh;
     private dashboardViewModel dv;
 
     @Override

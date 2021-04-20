@@ -122,7 +122,7 @@ public class RMIClient implements Client, ClientCallBack
         }
     }*/
 
-  @Override public List<Myflightlist> getflightlist()
+  @Override public List<myFlightTicket> getflightlist()
   {
     try
     {
@@ -147,12 +147,12 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
-  @Override public void createTicket(Myflightlist myflightlist)
+  @Override public void createTicket(myFlightTicket myFlightTicket)
   {
 
     try
     {
-      server.createTicket(myflightlist);
+      server.createTicket(myFlightTicket);
     }
     catch (RemoteException e)
     {
