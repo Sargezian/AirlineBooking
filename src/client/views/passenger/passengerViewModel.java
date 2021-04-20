@@ -2,15 +2,13 @@ package client.views.passenger;
 
 import client.model.ClientText;
 import client.model.SaveInfo;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import shared.transferobjects.Myflightlist;
-import shared.transferobjects.flights;
-import shared.transferobjects.passenger;
-import shared.transferobjects.seat;
+import shared.transferobjects.*;
+import shared.util.utils;
 
+import java.beans.PropertyChangeEvent;
 import java.util.List;
 
 public class passengerViewModel {
@@ -22,12 +20,21 @@ public class passengerViewModel {
 
 
 
+
+
+
+
     public passengerViewModel(ClientText clientText) {
         this.clientText = clientText;
         FirstName = new SimpleStringProperty();
         LastName = new SimpleStringProperty();
         TelNumber = new SimpleStringProperty();
+        clientText.addListener(utils.NEWPASSENGER, this::onNewPassenger);
+
+
     }
+
+
 
 
     public void getPassengerInformation() {
@@ -35,6 +42,9 @@ public class passengerViewModel {
         String FirstName = this.FirstName.getValue();
         String LastName = this.LastName.getValue();
         String TelNumber = this.TelNumber.getValue();
+
+
+
 
         SaveInfo.getInstance().setPassenger(clientText.passernger(FirstName,LastName,TelNumber));
         System.out.println("Save PassengerInformation = " + SaveInfo.getInstance() );
@@ -56,6 +66,12 @@ public class passengerViewModel {
         Myflightlist myflightlist1 = new Myflightlist(1, ft.price, pg,ft,st);
         clientText.createTicket(myflightlist1);
     }
+
+    public void onNewPassenger(PropertyChangeEvent evt) {
+        getPassengerInformation();
+
+    }
+
 
 
 
@@ -88,5 +104,9 @@ public class passengerViewModel {
     {
         return TelNumber;
     }
+
+
+
+
 
 }

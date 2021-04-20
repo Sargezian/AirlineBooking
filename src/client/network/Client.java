@@ -3,6 +3,7 @@ package client.network;
 import shared.transferobjects.*;
 import shared.util.Subject;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
 public interface Client extends Subject {

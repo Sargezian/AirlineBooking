@@ -19,7 +19,14 @@ public class ClientTextManager implements ClientText {
         client.startClient();
         client.addListener(utils.NEWCHAT, this::onNewInputChat);
         client.addListener(utils.NEWUSER, this::onNewInputUser);
+        client.addListener(utils.NEWPASSENGER, this::onNewPassenger);
+
     }
+
+    private void onNewPassenger(PropertyChangeEvent evt) {
+        support.firePropertyChange(evt);
+    }
+
 
     private void onNewInputChat(PropertyChangeEvent evt) {
         support.firePropertyChange(evt);

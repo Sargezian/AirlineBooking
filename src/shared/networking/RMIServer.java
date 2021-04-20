@@ -16,11 +16,12 @@ public interface RMIServer extends Remote {
     List<seat> getSeat() throws RemoteException;
    // List<passenger> getPassenger() throws RemoteException;
     List<Myflightlist> getflightlist() throws RemoteException;
-    passenger passernger(String FirstName, String LastName, String TelNumber) throws RemoteException;
+    passenger passernger(String FirstName, String LastName, String TelNumber)  throws RemoteException;
 
 
     void registerChatToClient(ClientCallBack client) throws RemoteException;
     void registerUserToClient(ClientCallBack client) throws RemoteException;
+    void registerPassengerToClient(ClientCallBack client) throws  RemoteException;
 
     void createTicket(Myflightlist myflightlist) throws RemoteException;
 

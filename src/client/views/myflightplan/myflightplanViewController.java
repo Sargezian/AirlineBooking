@@ -73,7 +73,7 @@ public class myflightplanViewController implements ViewController {
         PriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
         PassengerIdColumn.setCellValueFactory(new PropertyValueFactory<>("passengerID"));
         SeatIdColumn.setCellValueFactory(new PropertyValueFactory<>("SeatID"));
-        NameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        NameColumn.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
         seat.setCellValueFactory(new PropertyValueFactory<>("seatNumber"));
         ClasstypeColumn.setCellValueFactory(new PropertyValueFactory<>("ClassType"));
         myflighttableview.setItems((vm.getMy()));

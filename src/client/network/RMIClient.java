@@ -185,6 +185,11 @@ public class RMIClient implements Client, ClientCallBack
 
   }
 
+  @Override
+  public void updatePassenger(passenger passenger) throws RemoteException {
+    support.firePropertyChange(utils.NEWPASSENGER, null, passenger);
+  }
+
   @Override public void addListener(String eventName,
       PropertyChangeListener listener)
   {
