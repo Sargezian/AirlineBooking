@@ -15,7 +15,8 @@ public interface ClientText extends Subject {
 
     List<flights> getflights();
     List<seat> getSeat();
-    passenger passernger(String FirstName, String LastName, String TelNumber);
+    passenger passernger(String FirstName, String LastName, String TelNumber,String email);
+
 
     List<myFlightTicket> getflightlist();
     void createTicket(myFlightTicket myFlightTicket);

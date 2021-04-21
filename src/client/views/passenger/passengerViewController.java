@@ -18,6 +18,8 @@ public class passengerViewController implements ViewController {
     public TextField LastName;
     @FXML
     public TextField TelNumber;
+    @FXML
+    public TextField Email;
 
     private ViewHandler vh;
     private passengerViewModel pv;
@@ -30,6 +32,7 @@ public class passengerViewController implements ViewController {
         FirstName.textProperty().bindBidirectional(pv.firstNameProperty());
         LastName.textProperty().bindBidirectional(pv.lastNameProperty());
         TelNumber.textProperty().bindBidirectional(pv.telNumberProperty());
+        Email.textProperty().bindBidirectional(pv.emailProperty());
         /*pv.loadPassenger();
         *//*passengerIDColumn.setCellValueFactory(new PropertyValueFactory<>("passengerID"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));*//*
@@ -49,5 +52,6 @@ public class passengerViewController implements ViewController {
 
 
     public void OnLogin(ActionEvent actionEvent) {
+        vh.openLoginView();
     }
 }

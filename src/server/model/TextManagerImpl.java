@@ -79,10 +79,10 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override public passenger passernger(String FirstName, String LastName,
-        String TelNumber)
+        String TelNumber,String email)
     {
         passenger passenger;
-        passenger = dao.CreatePassengers(FirstName, LastName, TelNumber);
+        passenger = dao.CreatePassengers(FirstName, LastName, TelNumber,email);
         passengersList.add(passenger);
        support.firePropertyChange(utils.NEWPASSENGER, null, passenger);
         System.out.println("Passenger id er : " +passenger);

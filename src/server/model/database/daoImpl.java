@@ -88,19 +88,21 @@ public class daoImpl implements daoInterface  {
     return null;
   }
 
-  public passenger CreatePassengers(String FirstName, String LastName, String TelNumber) {
+  @Override
+  public passenger CreatePassengers(String FirstName, String LastName, String TelNumber,String Email) {
     try {
       try (Connection connection =  daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO passenger(FirstName,LastName,TelNumber) VALUES (?,?,?) ", PreparedStatement.RETURN_GENERATED_KEYS);
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO passenger(FirstName,LastName,TelNumber,email) VALUES (?,?,?,?) ", PreparedStatement.RETURN_GENERATED_KEYS);
         statement.setString(1, FirstName);
         statement.setString(2, LastName);
         statement.setString(3, TelNumber);
+        statement.setString(4,Email);
         statement.executeUpdate();
         ResultSet key = statement.getGeneratedKeys();
 
           if (key.next()) {
 
-            return new passenger(key.getInt(1),TelNumber,FirstName,LastName );
+            return new passenger(key.getInt(1),TelNumber,FirstName,LastName,Email );
         } else {
 
           throw new SQLException("Her bliver det testet på at lave en ny passenger");
@@ -139,9 +141,10 @@ public class daoImpl implements daoInterface  {
           String FirstName = resultSet.getString("FirstName");
           String LastName = resultSet.getString("LastName");
           String TelNumber = resultSet.getString("TelNumber");
+          String email = resultSet.getString("email");
           String seatNumber = resultSet.getString("seatNumber");
           String classtype = resultSet.getString("classType");
-          myFlightTicket myFlightTicket = new myFlightTicket(ticketid,price,new passenger(passengerID,TelNumber,FirstName,LastName),new flights(FlightId,Flightname,planeType,departure,arrival,from,to,price),new seat(seatId,seatNumber,classtype));
+          myFlightTicket myFlightTicket = new myFlightTicket(ticketid,price,new passenger(passengerID,TelNumber,FirstName,LastName,email),new flights(FlightId,Flightname,planeType,departure,arrival,from,to,price),new seat(seatId,seatNumber,classtype));
 
         myFlightTickets.add(myFlightTicket);
         }

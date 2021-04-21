@@ -75,6 +75,10 @@ public class myFlightTicket implements Serializable {
     return passenger.TelNumber;
   }
 
+  public String getEmail(){
+        return passenger.Email;
+  }
+
     public String getSeatNumber() {
         return seat.seatNumber;
     }

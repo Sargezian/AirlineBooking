@@ -76,9 +76,9 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override public passenger passernger(String FirstName, String LastName,
-        String TelNumber)
+        String TelNumber, String email)
     {
-        return client.passernger(FirstName, LastName, TelNumber);
+        return client.passernger(FirstName, LastName, TelNumber,email);
     }
 
     @Override

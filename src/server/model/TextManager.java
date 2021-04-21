@@ -15,7 +15,7 @@ public interface TextManager extends Subject {
 
     List<seat> getSeat();
     List<flights> getflights();
-    passenger passernger(String FirstName, String LastName, String TelNumber);
+    passenger passernger(String FirstName, String LastName, String TelNumber,String email);
 
     List<myFlightTicket> getflightlist();
     void createTicket(myFlightTicket myFlightTicket);

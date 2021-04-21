@@ -6,20 +6,27 @@ public class passenger implements Serializable
 {
     public int passengerID;
     public String FirstName, LastName,TelNumber;
+    public String Email;
 
-    public passenger(int passengerID, String telNumber, String firstName,
-        String lastName ){
+    public passenger(int passengerID, String firstName, String lastName, String telNumber, String email) {
         this.passengerID = passengerID;
-        TelNumber = telNumber;
         FirstName = firstName;
         LastName = lastName;
+        TelNumber = telNumber;
+        Email = email;
     }
-    public passenger( String telNumber, String firstName,
-        String lastName)
-    {
-        TelNumber = telNumber;
+
+
+    public passenger(String firstName, String lastName, String telNumber, String email) {
         FirstName = firstName;
         LastName = lastName;
+        TelNumber = telNumber;
+        Email = email;
+    }
+
+
+    public String getEmail() {
+        return Email;
     }
 
     public int getPassengerID()
@@ -42,10 +49,14 @@ public class passenger implements Serializable
         return LastName;
     }
 
-    @Override public String toString()
-    {
-        return "passenger{" + "passengerID=" + passengerID + ", FirstName='"
-            + FirstName + '\'' + ", LastName='" + LastName + '\''
-            + ", TelNumber='" + TelNumber + '\'' + '}';
+    @Override
+    public String toString() {
+        return "passenger{" +
+                "passengerID=" + passengerID +
+                ", FirstName='" + FirstName + '\'' +
+                ", LastName='" + LastName + '\'' +
+                ", TelNumber='" + TelNumber + '\'' +
+                ", Email='" + Email + '\'' +
+                '}';
     }
 }

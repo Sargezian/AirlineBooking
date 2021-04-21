@@ -51,9 +51,9 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override public passenger passernger(String FirstName, String LastName,
-        String TelNumber)
+        String TelNumber,String email)
     {
-        return textManager.passernger(FirstName, LastName, TelNumber);
+        return textManager.passernger(FirstName, LastName, TelNumber,email);
     }
 
     @Override

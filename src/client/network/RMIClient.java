@@ -135,11 +135,11 @@ public class RMIClient implements Client, ClientCallBack
   }
 
   @Override public passenger passernger(String FirstName, String LastName,
-      String TelNumber)
+      String TelNumber,String email)
   {
     try
     {
-      return server.passernger(FirstName, LastName, TelNumber);
+      return server.passernger(FirstName, LastName, TelNumber,email);
     }
     catch (RemoteException e)
     {

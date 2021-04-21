@@ -46,6 +46,9 @@ public class myflightplanViewController implements ViewController {
     public TableColumn<String, myFlightTicket> seat;
     @FXML
     public TableColumn<String, myFlightTicket> ClasstypeColumn;
+    public TableColumn<String,myFlightTicket> LastNameCoulmn;
+    public TableColumn<String,myFlightTicket> teleNumberColumn;
+    public TableColumn<String,myFlightTicket> EmailCoulmn;
     @FXML
     private Label myName;
 
@@ -71,6 +74,9 @@ public class myflightplanViewController implements ViewController {
         NameColumn.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
         seat.setCellValueFactory(new PropertyValueFactory<>("seatNumber"));
         ClasstypeColumn.setCellValueFactory(new PropertyValueFactory<>("ClassType"));
+        LastNameCoulmn.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        teleNumberColumn.setCellValueFactory(new PropertyValueFactory<>("TelNumber"));
+        EmailCoulmn.setCellValueFactory(new PropertyValueFactory<>("Email"));
         myflighttableview.setItems((vm.getMy()));
     }
 

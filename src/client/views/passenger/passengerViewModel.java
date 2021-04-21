@@ -16,6 +16,7 @@ public class passengerViewModel {
     private StringProperty FirstName;
     private StringProperty LastName;
     private StringProperty TelNumber;
+    private StringProperty Email;
 
 
     public passengerViewModel(ClientText clientText) {
@@ -23,6 +24,7 @@ public class passengerViewModel {
         FirstName = new SimpleStringProperty();
         LastName = new SimpleStringProperty();
         TelNumber = new SimpleStringProperty();
+        Email = new SimpleStringProperty();
         clientText.addListener(utils.NEWPASSENGER, this::onNewPassenger);
 
     }
@@ -32,8 +34,9 @@ public class passengerViewModel {
         String FirstName = this.FirstName.getValue();
         String LastName = this.LastName.getValue();
         String TelNumber = this.TelNumber.getValue();
+        String Email = this.Email.getValue();
 
-        SaveInfo.getInstance().setPassenger(clientText.passernger(FirstName,LastName,TelNumber));
+        SaveInfo.getInstance().setPassenger(clientText.passernger(FirstName,LastName,TelNumber,Email));
         System.out.println("Save PassengerInformation = " + SaveInfo.getInstance() );
     }
 
@@ -58,6 +61,13 @@ public class passengerViewModel {
 
     }
 
+    public String getEmail() {
+        return Email.get();
+    }
+
+    public StringProperty emailProperty() {
+        return Email;
+    }
 
     public String getFirstName()
     {

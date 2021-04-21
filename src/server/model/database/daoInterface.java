@@ -15,7 +15,7 @@ public interface daoInterface
 
   List<flights> getflights();
   List<seat> getSeat();
-  passenger CreatePassengers(String Firstname, String LastName, String TelNumber);
+  passenger CreatePassengers(String Firstname, String LastName, String TelNumber,String Email);
 
 
   InputChat createChar(String str);

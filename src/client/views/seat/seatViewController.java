@@ -44,4 +44,8 @@ public class seatViewController implements ViewController {
         vh.openPassengerView();
 
     }
+
+    public void openLogin(ActionEvent actionEvent) {
+        vh.openLoginView();
+    }
 }
