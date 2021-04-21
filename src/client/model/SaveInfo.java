@@ -1,7 +1,7 @@
 package client.model;
 
 import shared.transferobjects.flights;
-import shared.transferobjects.passenger;
+import shared.transferobjects.Passenger;
 import shared.transferobjects.seat;
 
 import java.util.concurrent.locks.Lock;
@@ -13,7 +13,7 @@ public class SaveInfo {
     private static Lock lock = new ReentrantLock();
     private flights flights;
     private seat seat;
-    private passenger passenger;
+    private Passenger passenger;
 
     public static SaveInfo getInstance() {
 
@@ -43,11 +43,11 @@ public class SaveInfo {
         this.seat = seat;
     }
 
-    public passenger getPassenger() {
+    public Passenger getPassenger() {
         return passenger;
     }
 
-    public void setPassenger(passenger passenger) {
+    public void setPassenger(Passenger passenger) {
         this.passenger = passenger;
     }
 

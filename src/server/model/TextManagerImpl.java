@@ -15,7 +15,7 @@ public class TextManagerImpl implements TextManager{
     private List<InputUser> userNameList;
     private List<flights> flightList;
     private List<myFlightTicket> myflight;
-    private List<passenger> passengersList;
+    private List<Passenger> passengersList;
 
     private daoInterface dao;
 
@@ -78,15 +78,20 @@ public class TextManagerImpl implements TextManager{
         return new ArrayList<>(dao.getflights());
     }
 
-    @Override public passenger passernger(String FirstName, String LastName,
-        String TelNumber,String email)
+    @Override public Passenger passernger(String FirstName, String LastName,
+                                          String TelNumber, String email)
     {
-        passenger passenger;
+        Passenger passenger;
         passenger = dao.CreatePassengers(FirstName, LastName, TelNumber,email);
         passengersList.add(passenger);
        support.firePropertyChange(utils.NEWPASSENGER, null, passenger);
         System.out.println("Passenger id er : " +passenger);
         return passenger;
+    }
+
+    @Override
+    public Passenger getpassenger(int passengerID) {
+        return dao.Readpassenger(passengerID);
     }
 
     @Override

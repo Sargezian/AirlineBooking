@@ -34,6 +34,8 @@ public class RMIClient implements Client, ClientCallBack
       server = (RMIServer) registry.lookup(utils.SERVER);
       server.registerChatToClient(this);
       server.registerUserToClient(this);
+      server.registerPassengerToClient(this);
+
     }
     catch (RemoteException | NotBoundException e)
     {
@@ -134,8 +136,8 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
-  @Override public passenger passernger(String FirstName, String LastName,
-      String TelNumber,String email)
+  @Override public Passenger passernger(String FirstName, String LastName,
+                                        String TelNumber, String email)
   {
     try
     {
@@ -145,6 +147,19 @@ public class RMIClient implements Client, ClientCallBack
     {
       throw new RuntimeException("Kunne ikke få fat i server");
     }
+  }
+
+  @Override
+  public Passenger getpassenger(int passengerID) {
+    try
+    {
+       return server.getpassenger(passengerID);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+
   }
 
   @Override public void createTicket(myFlightTicket myFlightTicket)
@@ -186,8 +201,9 @@ public class RMIClient implements Client, ClientCallBack
   }
 
   @Override
-  public void updatePassenger(passenger passenger) throws RemoteException {
+  public void updatePassenger(Passenger passenger) throws RemoteException {
     support.firePropertyChange(utils.NEWPASSENGER, null, passenger);
+    System.out.println("update passenger");
   }
 
   @Override public void addListener(String eventName,

@@ -25,6 +25,7 @@ public class ClientTextManager implements ClientText {
 
     private void onNewPassenger(PropertyChangeEvent evt) {
         support.firePropertyChange(evt);
+        System.out.println("on new passeenger");
     }
 
     private void onNewInputChat(PropertyChangeEvent evt) {
@@ -75,19 +76,20 @@ public class ClientTextManager implements ClientText {
         return client.getflightlist();
     }
 
-    @Override public passenger passernger(String FirstName, String LastName,
-        String TelNumber, String email)
+    @Override public Passenger Createpassernger(String FirstName, String LastName,
+                                                String TelNumber, String email)
     {
         return client.passernger(FirstName, LastName, TelNumber,email);
     }
 
     @Override
+    public Passenger getpassenger(int passengerID) {
+        return client.getpassenger(passengerID);
+
+    }
+
+    @Override
     public void createTicket(myFlightTicket myFlightTicket) {
-
-
-
-
-
         client.createTicket(myFlightTicket);
 
     }

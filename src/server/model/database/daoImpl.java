@@ -89,7 +89,7 @@ public class daoImpl implements daoInterface  {
   }
 
   @Override
-  public passenger CreatePassengers(String FirstName, String LastName, String TelNumber,String Email) {
+  public Passenger CreatePassengers(String FirstName, String LastName, String TelNumber, String Email) {
     try {
       try (Connection connection =  daoConnection.getConnection()) {
         PreparedStatement statement = connection.prepareStatement("INSERT INTO passenger(FirstName,LastName,TelNumber,email) VALUES (?,?,?,?) ", PreparedStatement.RETURN_GENERATED_KEYS);
@@ -102,11 +102,36 @@ public class daoImpl implements daoInterface  {
 
           if (key.next()) {
 
-            return new passenger(key.getInt(1),TelNumber,FirstName,LastName,Email );
+            return new Passenger(key.getInt(1),TelNumber,FirstName,LastName,Email );
         } else {
 
           throw new SQLException("Her bliver det testet på at lave en ny passenger");
 
+        }
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+    return null;
+  }
+
+  @Override
+  public Passenger Readpassenger(int passengerID) {
+    try {
+      try (Connection connection =  daoConnection.getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM passenger where passengerid = ?");
+        statement.setInt(1,passengerID);
+        ResultSet resultSet = statement.executeQuery();
+
+
+        if (resultSet.next()) {
+          String FirstName = resultSet.getString("FirstName");
+          String LastName = resultSet.getString("LastName");
+          String TelNumber = resultSet.getString("TelNumber");
+          String email = resultSet.getString("email");
+          Passenger passenger = new Passenger(passengerID,FirstName,LastName,TelNumber,email);
+
+          return passenger;
         }
       }
     } catch (SQLException throwables) {
@@ -144,7 +169,7 @@ public class daoImpl implements daoInterface  {
           String email = resultSet.getString("email");
           String seatNumber = resultSet.getString("seatNumber");
           String classtype = resultSet.getString("classType");
-          myFlightTicket myFlightTicket = new myFlightTicket(ticketid,price,new passenger(passengerID,TelNumber,FirstName,LastName,email),new flights(FlightId,Flightname,planeType,departure,arrival,from,to,price),new seat(seatId,seatNumber,classtype));
+          myFlightTicket myFlightTicket = new myFlightTicket(ticketid,price,new Passenger(passengerID,TelNumber,FirstName,LastName,email),new flights(FlightId,Flightname,planeType,departure,arrival,from,to,price),new seat(seatId,seatNumber,classtype));
 
         myFlightTickets.add(myFlightTicket);
         }

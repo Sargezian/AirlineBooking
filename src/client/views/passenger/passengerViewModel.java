@@ -3,8 +3,6 @@ package client.views.passenger;
 import client.model.ClientText;
 import client.model.SaveInfo;
 import javafx.beans.property.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import shared.transferobjects.*;
 import shared.util.utils;
 
@@ -35,8 +33,9 @@ public class passengerViewModel {
         String LastName = this.LastName.getValue();
         String TelNumber = this.TelNumber.getValue();
         String Email = this.Email.getValue();
+        Passenger pg = SaveInfo.getInstance().getPassenger();
 
-        SaveInfo.getInstance().setPassenger(clientText.passernger(FirstName,LastName,TelNumber,Email));
+        SaveInfo.getInstance().setPassenger(clientText.getpassenger(pg.passengerID));
         System.out.println("Save PassengerInformation = " + SaveInfo.getInstance() );
     }
 
@@ -49,7 +48,7 @@ public class passengerViewModel {
         seat st = SaveInfo.getInstance().getSeat();
         System.out.println("Gets SavedInfo from seats = " + SaveInfo.getInstance().getSeat());
 
-        passenger pg = SaveInfo.getInstance().getPassenger();
+        Passenger pg = SaveInfo.getInstance().getPassenger();
         System.out.println("Gets SavedInfo from passenger = " + SaveInfo.getInstance().getPassenger());
 
         myFlightTicket myFlightTicket1 = new myFlightTicket(1, ft.price, pg,ft,st);
@@ -58,6 +57,7 @@ public class passengerViewModel {
 
     public void onNewPassenger(PropertyChangeEvent evt) {
         getPassengerInformation();
+        System.out.println("viewmodel on new passenger");
 
     }
 

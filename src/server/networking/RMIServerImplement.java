@@ -50,10 +50,15 @@ public class RMIServerImplement implements RMIServer {
         return textManager.getflightlist();
     }
 
-    @Override public passenger passernger(String FirstName, String LastName,
-        String TelNumber,String email)
+    @Override public Passenger passernger(String FirstName, String LastName,
+                                          String TelNumber, String email)
     {
         return textManager.passernger(FirstName, LastName, TelNumber,email);
+    }
+
+    @Override
+    public Passenger getpassenger(int passengerID) throws RemoteException {
+        return textManager.getpassenger(passengerID);
     }
 
     @Override
@@ -98,7 +103,8 @@ public class RMIServerImplement implements RMIServer {
         PropertyChangeListener finalListener = listener;
         listener = evt -> {
             try {
-                client.updatePassenger((passenger) evt.getNewValue());
+                System.out.println("register passenger to client ");
+                client.updatePassenger((Passenger) evt.getNewValue());
             } catch (RemoteException e) {
 
                 textManager.removeListener(utils.NEWPASSENGER, finalListener);

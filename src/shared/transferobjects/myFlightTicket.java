@@ -1,18 +1,17 @@
 package shared.transferobjects;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.sql.Timestamp;
 
 public class myFlightTicket implements Serializable {
 
  private int ticketID;
  private int price;
- private passenger passenger;
+ private Passenger passenger;
  private flights flights;
  private seat seat;
 
-    public myFlightTicket(int ticketID, int price, passenger passenger, flights flights, seat seat) {
+    public myFlightTicket(int ticketID, int price, Passenger passenger, flights flights, seat seat) {
         this.ticketID = ticketID;
         this.price = price;
         this.passenger = passenger;
@@ -88,7 +87,7 @@ public class myFlightTicket implements Serializable {
      }
 
 
-    public shared.transferobjects.passenger getPassenger() {
+    public Passenger getPassenger() {
         return passenger;
     }
 

@@ -2,13 +2,13 @@ package shared.transferobjects;
 
 import java.io.Serializable;
 
-public class passenger implements Serializable
+public class Passenger implements Serializable
 {
     public int passengerID;
     public String FirstName, LastName,TelNumber;
     public String Email;
 
-    public passenger(int passengerID, String firstName, String lastName, String telNumber, String email) {
+    public Passenger(int passengerID, String firstName, String lastName, String telNumber, String email) {
         this.passengerID = passengerID;
         FirstName = firstName;
         LastName = lastName;
@@ -17,7 +17,7 @@ public class passenger implements Serializable
     }
 
 
-    public passenger(String firstName, String lastName, String telNumber, String email) {
+    public Passenger(String firstName, String lastName, String telNumber, String email) {
         FirstName = firstName;
         LastName = lastName;
         TelNumber = telNumber;
