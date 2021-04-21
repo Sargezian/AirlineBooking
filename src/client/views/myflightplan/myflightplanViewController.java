@@ -107,4 +107,6 @@ public class myflightplanViewController implements ViewController {
     public void onChat(ActionEvent actionEvent) {
         vh.openToChatView();
     }
+
+
 }

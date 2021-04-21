@@ -15,12 +15,18 @@ public class ClientTextManager implements ClientText {
     private Client client;
 
     public ClientTextManager(Client client) {
+        System.out.println("client textmanager");
         this.client = client;
         client.startClient();
         client.addListener(utils.NEWCHAT, this::onNewInputChat);
         client.addListener(utils.NEWUSER, this::onNewInputUser);
         client.addListener(utils.NEWPASSENGER, this::onNewPassenger);
+        client.addListener(utils.NEWTICKET, this::onNewTicket);
 
+    }
+
+    private void onNewTicket(PropertyChangeEvent propertyChangeEvent) {
+        support.firePropertyChange(propertyChangeEvent);
     }
 
     private void onNewPassenger(PropertyChangeEvent evt) {

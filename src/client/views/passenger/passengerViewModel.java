@@ -17,33 +17,36 @@ public class passengerViewModel {
     private StringProperty Email;
 
 
+
     public passengerViewModel(ClientText clientText) {
         this.clientText = clientText;
         FirstName = new SimpleStringProperty();
         LastName = new SimpleStringProperty();
         TelNumber = new SimpleStringProperty();
         Email = new SimpleStringProperty();
-        clientText.addListener(utils.NEWPASSENGER, this::onNewPassenger);
+
 
     }
 
-    public void getPassengerInformation(int passenger) {
+    public void getPassengerInformation(int passsenger) {
 
         String FirstName = this.FirstName.getValue();
         String LastName = this.LastName.getValue();
         String TelNumber = this.TelNumber.getValue();
         String Email = this.Email.getValue();
 
+        SaveInfo.getInstance().setPassenger(clientText.Createpassernger(FirstName,LastName,TelNumber,Email));
 
-        SaveInfo.getInstance().setPassenger(clientText.getpassenger(passenger));
-        System.out.println("Save PassengerInformation = " + SaveInfo.getInstance() );
+
+
+
     }
 
 
-//    public Passenger getpass(){
-//
-//        return clientText.getpassenger(passenger);
-//    }
+    public Passenger getpass(int passenger){
+
+       return clientText.getpassenger(passenger);
+   }
 
 
     public void finish() {
@@ -62,7 +65,7 @@ public class passengerViewModel {
     }
 
     public void onNewPassenger(PropertyChangeEvent evt) {
-        getPassengerInformation(1);
+       // getPassengerInformation(1);
         System.out.println("viewmodel on new passenger");
 
     }

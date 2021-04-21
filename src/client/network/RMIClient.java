@@ -35,6 +35,7 @@ public class RMIClient implements Client, ClientCallBack
       server.registerChatToClient(this);
       server.registerUserToClient(this);
       server.registerPassengerToClient(this);
+      server.registerTicketToClient(this);
 
     }
     catch (RemoteException | NotBoundException e)
@@ -204,6 +205,12 @@ public class RMIClient implements Client, ClientCallBack
   public void updatePassenger(Passenger passenger) throws RemoteException {
     support.firePropertyChange(utils.NEWPASSENGER, null, passenger);
     System.out.println("update passenger");
+  }
+
+  @Override
+  public void updateTicket(myFlightTicket myflightticket) throws RemoteException {
+    support.firePropertyChange(utils.NEWTICKET, null, myflightticket);
+
   }
 
   @Override public void addListener(String eventName,

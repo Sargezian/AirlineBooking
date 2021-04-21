@@ -114,6 +114,23 @@ public class RMIServerImplement implements RMIServer {
 
     }
 
+    @Override
+    public void registerTicketToClient(ClientCallBack client) throws RemoteException {
+        PropertyChangeListener listener = null;
+        PropertyChangeListener finalListener = listener;
+        listener = evt -> {
+            try {
+                System.out.println("register passenger to client ");
+                client.updateTicket((myFlightTicket) evt.getNewValue());
+            } catch (RemoteException e) {
+
+                textManager.removeListener(utils.NEWTICKET, finalListener);
+            }
+        };
+        textManager.addListener(utils.NEWTICKET, listener);
+
+    }
+
 
     @Override
     public void createTicket(myFlightTicket myFlightTicket) throws RemoteException {
