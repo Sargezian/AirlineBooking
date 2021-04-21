@@ -18,6 +18,20 @@ public class myflightplanViewController implements ViewController {
     @FXML
     public TableView<myFlightTicket> myflighttableview;
     @FXML
+    public TableView<myFlightTicket> flighttableview;
+    @FXML
+    public TableView<myFlightTicket> TicketTableview;
+    @FXML
+    public TableView<myFlightTicket> PassengerTableview;
+    @FXML
+    public TableView<myFlightTicket> DateTableview;
+
+    @FXML
+    public TableView<myFlightTicket> SeatTableview;
+
+
+
+    @FXML
     public TableColumn<Integer, myFlightTicket> FlightIdColumn;
     @FXML
     public TableColumn<String, myFlightTicket> FlightnameColumn;
@@ -49,6 +63,8 @@ public class myflightplanViewController implements ViewController {
     public TableColumn<String,myFlightTicket> LastNameCoulmn;
     public TableColumn<String,myFlightTicket> teleNumberColumn;
     public TableColumn<String,myFlightTicket> EmailCoulmn;
+
+
     @FXML
     private Label myName;
 
@@ -77,7 +93,11 @@ public class myflightplanViewController implements ViewController {
         LastNameCoulmn.setCellValueFactory(new PropertyValueFactory<>("LastName"));
         teleNumberColumn.setCellValueFactory(new PropertyValueFactory<>("TelNumber"));
         EmailCoulmn.setCellValueFactory(new PropertyValueFactory<>("Email"));
-        myflighttableview.setItems((vm.getMy()));
+        SeatTableview.setItems((vm.getMy()));
+        flighttableview.setItems((vm.getMy()));
+        DateTableview.setItems((vm.getMy()));
+        TicketTableview.setItems((vm.getMy()));
+        PassengerTableview.setItems((vm.getMy()));
     }
 
     public void onBackDashboard(ActionEvent actionEvent) {

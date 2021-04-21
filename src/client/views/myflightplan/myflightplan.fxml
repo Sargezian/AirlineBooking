@@ -81,25 +81,11 @@
             </AnchorPane>
          </children>
       </VBox>
-      <TableView fx:id="myflighttableview" layoutX="239.0" layoutY="160.0" prefHeight="612.0" prefWidth="1218.0">
+      <TableView fx:id="SeatTableview" layoutX="286.0" layoutY="496.0" prefHeight="209.0" prefWidth="274.0">
          <columns>
-            <TableColumn fx:id="FlightIdColumn" prefWidth="60.0" text="FlightId" />
-            <TableColumn fx:id="FlightnameColumn" prefWidth="71.0" text="Flightname" />
-            <TableColumn fx:id="PlanetypeColumn" prefWidth="67.0" text="Planetype" />
-            <TableColumn fx:id="DepartureColumn" prefWidth="73.0" text="Departure" />
-            <TableColumn fx:id="ArrivalColumn" prefWidth="68.0" text="Arrival" />
-            <TableColumn fx:id="FromColumn" prefWidth="64.0" text="From" />
-            <TableColumn fx:id="ToColumn" prefWidth="57.0" text="To" />
-            <TableColumn fx:id="TicketIdColumn" prefWidth="77.0" text="TicketId" />
-            <TableColumn fx:id="PriceColumn" prefWidth="59.0" text="Price" />
-            <TableColumn fx:id="PassengerIdColumn" prefWidth="76.0" text="PassengerId" />
             <TableColumn fx:id="SeatIdColumn" prefWidth="81.0" text="SeatId" />
-            <TableColumn fx:id="NameColumn" prefWidth="59.0" text="Name" />
             <TableColumn fx:id="seat" prefWidth="76.0" text="seatnumber" />
             <TableColumn fx:id="ClasstypeColumn" prefWidth="114.0" text="Classtype" />
-            <TableColumn fx:id="LastNameCoulmn" prefWidth="74.0" text="Lastname" />
-            <TableColumn fx:id="teleNumberColumn" prefWidth="73.0" text="telenumber" />
-            <TableColumn fx:id="EmailCoulmn" prefWidth="68.0" text="Email" />
          </columns>
       </TableView>
       <Label layoutX="250.0" layoutY="59.0" prefHeight="43.0" prefWidth="215.0" text="Ticket">
@@ -108,5 +94,35 @@
          </font>
       </Label>
       <Separator layoutX="250.0" layoutY="119.0" prefHeight="0.0" prefWidth="1201.0" style="-fx-background-color: black;" />
+      <TableView fx:id="flighttableview" layoutX="286.0" layoutY="188.0" prefHeight="200.0" prefWidth="268.0">
+        <columns>
+            <TableColumn fx:id="FlightIdColumn" prefWidth="60.0" text="FlightId" />
+            <TableColumn fx:id="FlightnameColumn" prefWidth="107.0" text="Flightname" />
+            <TableColumn fx:id="PlanetypeColumn" prefWidth="100.0" text="Planetype" />
+        </columns>
+      </TableView>
+      <TableView fx:id="DateTableview" layoutX="810.0" layoutY="188.0" prefHeight="200.0" prefWidth="328.0">
+         <columns>
+            <TableColumn fx:id="DepartureColumn" prefWidth="73.0" text="Departure" />
+            <TableColumn fx:id="ArrivalColumn" prefWidth="91.0" text="Arrival" />
+            <TableColumn fx:id="FromColumn" prefWidth="72.0" text="From" />
+            <TableColumn fx:id="ToColumn" prefWidth="91.0" text="To" />
+         </columns>
+      </TableView>
+      <TableView fx:id="TicketTableview" layoutX="801.0" layoutY="651.0" prefHeight="209.0" prefWidth="135.0">
+         <columns>
+            <TableColumn fx:id="TicketIdColumn" prefWidth="77.0" text="TicketId" />
+            <TableColumn fx:id="PriceColumn" prefWidth="59.0" text="Price" />
+         </columns>
+      </TableView>
+      <TableView fx:id="PassengerTableview" layoutX="1022.0" layoutY="601.0" prefHeight="170.0" prefWidth="345.0">
+         <columns>
+            <TableColumn fx:id="PassengerIdColumn" prefWidth="76.0" text="PassengerId" />
+            <TableColumn fx:id="NameColumn" prefWidth="59.0" text="Name" />
+            <TableColumn fx:id="LastNameCoulmn" prefWidth="74.0" text="Lastname" />
+            <TableColumn fx:id="teleNumberColumn" prefWidth="73.0" text="telenumber" />
+            <TableColumn fx:id="EmailCoulmn" prefWidth="68.0" text="Email" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>
