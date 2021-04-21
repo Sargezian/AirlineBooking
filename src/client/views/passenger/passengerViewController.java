@@ -44,7 +44,7 @@ public class passengerViewController implements ViewController {
     }
 
     public void onOrder(ActionEvent actionEvent) {
-        pv.getPassengerInformation();
+        pv.getPassengerInformation(1);
       System.out.println();
         pv.finish();
 
