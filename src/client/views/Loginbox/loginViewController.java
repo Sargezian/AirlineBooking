@@ -30,7 +30,7 @@ public class loginViewController implements ViewController {
 
     public void onLogButton() {
         viewModel.printNavn();
-        vh.openToMyFlightPlan();
+        vh.openPaymentView();
 
     }
 

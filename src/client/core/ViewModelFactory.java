@@ -1,6 +1,7 @@
 package client.core;
 
 import client.views.Loginbox.loginViewModel;
+import client.views.Payment.paymentViewModel;
 import client.views.chat.chatViewModel;
 import client.views.dashboard.dashboardViewModel;
 import client.views.myflightplan.myflightplanViewModel;
@@ -10,18 +11,19 @@ import client.views.seat.seatViewModel;
 public class ViewModelFactory {
 
     private final ModelFactory mf;
-    private client.views.Loginbox.loginViewModel loginViewModel;
+    private loginViewModel loginViewModel;
     private chatViewModel chatViewModel;
-    private client.views.dashboard.dashboardViewModel dashboardViewModel;
-    private client.views.myflightplan.myflightplanViewModel myflightplanViewModel;
-    private client.views.seat.seatViewModel seatViewModel;
-    private client.views.passenger.passengerViewModel passengerViewModel;
+    private dashboardViewModel dashboardViewModel;
+    private myflightplanViewModel myflightplanViewModel;
+    private seatViewModel seatViewModel;
+    private passengerViewModel passengerViewModel;
+    private client.views.Payment.paymentViewModel paymentViewModel;
 
     public ViewModelFactory(ModelFactory mf) {
         this.mf=mf;
     }
 
-    public client.views.Loginbox.loginViewModel getloginViewModel() {
+    public loginViewModel getloginViewModel() {
         if (loginViewModel == null)
             loginViewModel = new loginViewModel(mf.getClientText());
         return loginViewModel;
@@ -45,16 +47,23 @@ public class ViewModelFactory {
                 dashboardViewModel);
     }
 
-    public client.views.seat.seatViewModel getseatViewModel() {
+    public seatViewModel getseatViewModel() {
         return (seatViewModel = seatViewModel == null ?
                 new seatViewModel(mf.getClientText()) :
                 seatViewModel);
     }
 
-    public client.views.passenger.passengerViewModel getPassengerViewModel() {
+    public passengerViewModel getPassengerViewModel() {
         return (passengerViewModel = passengerViewModel == null ?
                 new passengerViewModel(mf.getClientText()) :
                 passengerViewModel);
     }
+
+    public paymentViewModel getPaymentViewModel() {
+        return (paymentViewModel = paymentViewModel == null ?
+                new paymentViewModel(mf.getClientText()) :
+                paymentViewModel);
+    }
+
 
 }
