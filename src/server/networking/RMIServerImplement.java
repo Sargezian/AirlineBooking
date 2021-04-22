@@ -56,10 +56,6 @@ public class RMIServerImplement implements RMIServer {
         return textManager.passernger(FirstName, LastName, TelNumber,email);
     }
 
-    @Override
-    public Passenger getpassenger(int passengerID) throws RemoteException {
-        return textManager.getpassenger(passengerID);
-    }
 
     @Override
     public List<InputUser> getUser()  {
@@ -97,22 +93,6 @@ public class RMIServerImplement implements RMIServer {
         textManager.addListener(utils.NEWUSER, listener);
     }
 
-    @Override
-    public void registerPassengerToClient(ClientCallBack client)  {
-        PropertyChangeListener listener = null;
-        PropertyChangeListener finalListener = listener;
-        listener = evt -> {
-            try {
-                System.out.println("register passenger to client ");
-                client.updatePassenger((Passenger) evt.getNewValue());
-            } catch (RemoteException e) {
-
-                textManager.removeListener(utils.NEWPASSENGER, finalListener);
-            }
-        };
-        textManager.addListener(utils.NEWPASSENGER, listener);
-
-    }
 
     @Override
     public void registerTicketToClient(ClientCallBack client) throws RemoteException {
@@ -131,18 +111,10 @@ public class RMIServerImplement implements RMIServer {
 
     }
 
-
     @Override
     public void createTicket(myFlightTicket myFlightTicket) throws RemoteException {
         textManager.createTicket(myFlightTicket);
     }
-
-   /* @Override
-    public void UpdateSeats() {
-        textManager.UpdateSeats();
-    }*/
-
-
 
     @Override
     public List<flights> getflights() {
@@ -153,13 +125,6 @@ public class RMIServerImplement implements RMIServer {
     public List<seat> getSeat() throws RemoteException {
         return textManager.getSeat();
     }
-
-/*
-    @Override
-    public List<passenger> getPassenger() throws RemoteException {
-        return textManager.getPassenger();
-    }
-*/
 
 
 }

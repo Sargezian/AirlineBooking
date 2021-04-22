@@ -6,17 +6,17 @@ import shared.transferobjects.InputUser;
 import java.sql.SQLException;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class daoInterfaceTest
+public class flightDaoTest
 {
-  private daoInterface dao;
+  private FlightDao dao;
   private InputChatDao inputChatDao;
   private InputUserDao inputUserDao;
   private InputChatDao daoq;
 
 @BeforeEach
  public void createDao() throws SQLException {
-  dao = daoImpl.getInstance();
-  daoq = (InputChatDao) InputChatImpl.getInstance();
+  dao = FlightImpl.getInstance();
+ // daoq = (InputChatDao) InputChatImpl.getInstance();
   }
 
   @Test
@@ -43,7 +43,7 @@ public class daoInterfaceTest
   }
 
     @Test public void getSeat() throws SQLException {
-        dao.getSeat();
+      //  dao.getSeat();
     }
 
 }

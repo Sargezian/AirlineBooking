@@ -6,8 +6,6 @@ import javafx.beans.property.*;
 import shared.transferobjects.*;
 import shared.util.utils;
 
-import java.beans.PropertyChangeEvent;
-
 public class passengerViewModel {
 
     private ClientText clientText;
@@ -24,29 +22,16 @@ public class passengerViewModel {
         LastName = new SimpleStringProperty();
         TelNumber = new SimpleStringProperty();
         Email = new SimpleStringProperty();
-
-
     }
 
-    public void getPassengerInformation(int passsenger) {
+    public void getPassengerInformation() {
 
         String FirstName = this.FirstName.getValue();
         String LastName = this.LastName.getValue();
         String TelNumber = this.TelNumber.getValue();
         String Email = this.Email.getValue();
-
         SaveInfo.getInstance().setPassenger(clientText.Createpassernger(FirstName,LastName,TelNumber,Email));
-
-
-
-
     }
-
-
-    public Passenger getpass(int passenger){
-
-       return clientText.getpassenger(passenger);
-   }
 
 
     public void finish() {
@@ -62,12 +47,6 @@ public class passengerViewModel {
 
         myFlightTicket myFlightTicket1 = new myFlightTicket(1, ft.price, pg,ft,st);
         clientText.createTicket(myFlightTicket1);
-    }
-
-    public void onNewPassenger(PropertyChangeEvent evt) {
-       // getPassengerInformation(1);
-        System.out.println("viewmodel on new passenger");
-
     }
 
     public String getEmail() {

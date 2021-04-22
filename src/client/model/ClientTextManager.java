@@ -20,18 +20,12 @@ public class ClientTextManager implements ClientText {
         client.startClient();
         client.addListener(utils.NEWCHAT, this::onNewInputChat);
         client.addListener(utils.NEWUSER, this::onNewInputUser);
-        client.addListener(utils.NEWPASSENGER, this::onNewPassenger);
         client.addListener(utils.NEWTICKET, this::onNewTicket);
 
     }
 
     private void onNewTicket(PropertyChangeEvent propertyChangeEvent) {
         support.firePropertyChange(propertyChangeEvent);
-    }
-
-    private void onNewPassenger(PropertyChangeEvent evt) {
-        support.firePropertyChange(evt);
-        System.out.println("on new passeenger");
     }
 
     private void onNewInputChat(PropertyChangeEvent evt) {
@@ -72,11 +66,7 @@ public class ClientTextManager implements ClientText {
             return client.getSeat();
     }
 
-    /*@Override
-    public List<passenger> getPassenger() {
-        return client.getPassenger();
-    }
-*/
+
     @Override
     public List<myFlightTicket> getflightlist() {
         return client.getflightlist();
@@ -88,18 +78,12 @@ public class ClientTextManager implements ClientText {
         return client.passernger(FirstName, LastName, TelNumber,email);
     }
 
-    @Override
-    public Passenger getpassenger(int passengerID) {
-        return client.getpassenger(passengerID);
-
-    }
 
     @Override
     public void createTicket(myFlightTicket myFlightTicket) {
         client.createTicket(myFlightTicket);
 
     }
-
 
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {

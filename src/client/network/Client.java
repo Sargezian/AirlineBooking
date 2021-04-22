@@ -16,7 +16,6 @@ public interface Client extends Subject {
     List<flights> getflights();
     List<seat> getSeat();
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email);
-    Passenger getpassenger(int passengerID);
 
 
     List<myFlightTicket> getflightlist();

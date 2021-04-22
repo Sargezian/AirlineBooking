@@ -16,18 +16,11 @@ import java.sql.Timestamp;
 public class myflightplanViewController implements ViewController {
 
     @FXML
-    public TableView<myFlightTicket> myflighttableview;
-    @FXML
     public TableView<myFlightTicket> flighttableview;
     @FXML
     public TableView<myFlightTicket> TicketTableview;
     @FXML
     public TableView<myFlightTicket> PassengerTableview;
-    @FXML
-    public TableView<myFlightTicket> DateTableview;
-
-    @FXML
-    public TableView<myFlightTicket> SeatTableview;
 
 
 
@@ -93,11 +86,9 @@ public class myflightplanViewController implements ViewController {
         LastNameCoulmn.setCellValueFactory(new PropertyValueFactory<>("LastName"));
         teleNumberColumn.setCellValueFactory(new PropertyValueFactory<>("TelNumber"));
         EmailCoulmn.setCellValueFactory(new PropertyValueFactory<>("Email"));
-        SeatTableview.setItems((vm.getMy()));
-        flighttableview.setItems((vm.getMy()));
-        DateTableview.setItems((vm.getMy()));
-        TicketTableview.setItems((vm.getMy()));
-        PassengerTableview.setItems((vm.getMy()));
+        flighttableview.setItems((vm.getMyFlightTickets()));
+        TicketTableview.setItems((vm.getMyFlightTickets()));
+        PassengerTableview.setItems((vm.getMyFlightTickets()));
     }
 
     public void onBackDashboard(ActionEvent actionEvent) {

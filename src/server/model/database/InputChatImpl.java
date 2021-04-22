@@ -6,20 +6,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InputChatImpl {
+public class InputChatImpl implements InputChatDao {
 
     private static InputChatImpl daoInstance;
     private daoConnection daoconnection;
-
-
-    private InputChatImpl() {
-        try {
-            DriverManager.registerDriver(new org.postgresql.Driver());
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        daoconnection = daoConnection.getInstance();
-    }
 
     public static synchronized InputChatImpl getInstance(){
 
@@ -32,6 +22,15 @@ public class InputChatImpl {
         return daoInstance;
     }
 
+
+    private InputChatImpl() {
+        try {
+            DriverManager.registerDriver(new org.postgresql.Driver());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        daoconnection = daoConnection.getInstance();
+    }
 
 
     public InputChat createChar(String str) {

@@ -34,7 +34,6 @@ public class RMIClient implements Client, ClientCallBack
       server = (RMIServer) registry.lookup(utils.SERVER);
       server.registerChatToClient(this);
       server.registerUserToClient(this);
-      server.registerPassengerToClient(this);
       server.registerTicketToClient(this);
 
     }
@@ -116,14 +115,6 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
-   /* @Override
-    public List<passenger> getPassenger() {
-        try {
-            return server.getPassenger();
-        } catch (RemoteException e) {
-            throw new RuntimeException("Kunne ikke få fat i server");
-        }
-    }*/
 
   @Override public List<myFlightTicket> getflightlist()
   {
@@ -150,18 +141,6 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
-  @Override
-  public Passenger getpassenger(int passengerID) {
-    try
-    {
-       return server.getpassenger(passengerID);
-    }
-    catch (RemoteException e)
-    {
-      throw new RuntimeException("Kunne ikke få fat i server");
-    }
-
-  }
 
   @Override public void createTicket(myFlightTicket myFlightTicket)
   {
@@ -177,18 +156,6 @@ public class RMIClient implements Client, ClientCallBack
 
   }
 
-  //---------------------------------------------------------------
-  /*  @Override
-    public void getUpdate(flights flights) {
-        server.getUpdate(flights);
-    }
-    */
-     /* @Override
-    public void UpdateSeats() {
-        server.UpdateSeats();
-    }*/
-  //---------------------------------------------------------------
-
   @Override public void updateChat(InputChat entry) throws RemoteException
   {
     support.firePropertyChange(utils.NEWCHAT, null, entry);
@@ -201,11 +168,6 @@ public class RMIClient implements Client, ClientCallBack
 
   }
 
-  @Override
-  public void updatePassenger(Passenger passenger) throws RemoteException {
-    support.firePropertyChange(utils.NEWPASSENGER, null, passenger);
-    System.out.println("update passenger");
-  }
 
   @Override
   public void updateTicket(myFlightTicket myflightticket) throws RemoteException {

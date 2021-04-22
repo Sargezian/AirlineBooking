@@ -13,29 +13,33 @@ public class TextManagerImpl implements TextManager{
     private PropertyChangeSupport support;
     private List<InputChat> chatListe;
     private List<InputUser> userNameList;
-    private List<flights> flightList;
-    private List<myFlightTicket> myflight;
     private List<Passenger> passengersList;
 
-    private daoInterface dao;
-
-
+    private FlightDao dao;
+    private InputChatDao inputChatDao;
+    private InputUserDao inputUserDao;
+    private MyFlightTicketDao myFlightTicketDao;
+    private PassengerDao passengerDao;
+    private SeatDao seatDao;
 
     public TextManagerImpl() {
         support = new PropertyChangeSupport(this);
         chatListe = new ArrayList<>();
         userNameList = new ArrayList<>();
-        flightList = new ArrayList<>();
-        myflight = new ArrayList<>();
         passengersList = new ArrayList<>();
-        dao = daoImpl.getInstance();
+        dao = FlightImpl.getInstance();
+        inputChatDao = InputChatImpl.getInstance();
+        inputUserDao = InputUserImpl.getInstance();
+        myFlightTicketDao = MyFlightTicketImpl.getInstance();
+        passengerDao = PassengerImpl.getInstance();
+        seatDao = SeatImpl.getInstance();
 
     }
 
     @Override
     public InputUser username(String txt) {
         InputUser inputUser = new InputUser(txt);
-        userNameList.add(dao.createUser(txt));
+        userNameList.add(inputUserDao.createUser(txt));
         support.firePropertyChange(utils.NEWUSER, null, inputUser);
         System.out.println("support.getPropertyChangeListeners().length:" + support.getPropertyChangeListeners().length);
         return inputUser;
@@ -44,8 +48,7 @@ public class TextManagerImpl implements TextManager{
     @Override
     public InputChat sendMsg(String str) {
         InputChat inputChat = new InputChat(str);
-        // dao.createChar(str);
-        chatListe.add(dao.createChar(str));//Denne skal laves om til at den gemmer i databasen
+        chatListe.add(inputChatDao.createChar(str));
         support.firePropertyChange(utils.NEWCHAT, null, inputChat);
         System.out.println("support.getPropertyChangeListeners().length:" + support.getPropertyChangeListeners().length);
         return inputChat;
@@ -53,24 +56,17 @@ public class TextManagerImpl implements TextManager{
 
     @Override
     public List<InputUser> getUser() {
-        // return dao.readUser();
-        return new ArrayList<>(dao.readUser());
+        return new ArrayList<>(inputUserDao.readUser());
     }
 
     @Override
     public List<seat> getSeat() {
-        return new ArrayList<>(dao.getSeat());
+        return new ArrayList<>(seatDao.getSeat());
     }
-
-    /*@Override
-    public List<passenger> getPassenger() {
-        return new ArrayList<>(dao.getPassenger());
-    }*/
 
     @Override
     public List<InputChat> getChat() {
-       //return dao.readChat();
-       return new ArrayList<>(dao.readChat());
+       return new ArrayList<>(inputChatDao.readChat());
     }
 
     @Override
@@ -82,50 +78,24 @@ public class TextManagerImpl implements TextManager{
                                           String TelNumber, String email)
     {
         Passenger passenger;
-        passenger = dao.CreatePassengers(FirstName, LastName, TelNumber,email);
+        passenger = passengerDao.CreatePassengers(FirstName, LastName, TelNumber,email);
         passengersList.add(passenger);
-       support.firePropertyChange(utils.NEWPASSENGER, null, passenger);
         System.out.println("Passenger id er : " +passenger);
         return passenger;
     }
 
-    @Override
-    public Passenger getpassenger(int passengerID) {
-        return dao.Readpassenger(passengerID);
-    }
 
     @Override
     public void createTicket(myFlightTicket myFlightTicket) {
-        dao.createTicket(myFlightTicket);
+        myFlightTicketDao.createTicket(myFlightTicket);
         support.firePropertyChange(utils.NEWTICKET, null, myFlightTicket);
 
-       // System.out.println("TextManagerImpl = " +  dao.getfinish());
-
-       // Myflightlist myt = new Myflightlist(myflightlist.getTicketID(),myflightlist.getPrice(),new passenger(myflightlist.getPassengerID(),myflightlist.getName()),new flights(myflightlist.getFlightName(),myflightlist.getFlightName(),myflightlist.getDeparture(),myflightlist.getArrival(),myflightlist.getFrom(),myflightlist.getTo()),new seat(myflightlist.getSeatID(),myflightlist.getSeatNumber(),myflightlist.getClassType()));
-
-        //dao.getfinish(myflightlist);
-
-       // support.firePropertyChange(, null, myt);
     }
 
     @Override
     public List<myFlightTicket> getflightlist() {
-        return new ArrayList<>(dao.ReadFlightList());
+        return new ArrayList<>(myFlightTicketDao.ReadFlightList());
     }
-
-
-    //---------------------------------------------------------------
-/*    @Override
-    public void getUpdate(flights flights) {
-        dao.getUpdate(flights);
-    }
-    */
-    /* @Override
-    public UpdateSeats() {
-        return dao.getUpdate();
-    }
-*/
-    //---------------------------------------------------------------
 
 
     @Override
