@@ -22,7 +22,6 @@ public class InputChatImpl implements InputChatDao {
         return daoInstance;
     }
 
-
     private InputChatImpl() {
         try {
             DriverManager.registerDriver(new org.postgresql.Driver());

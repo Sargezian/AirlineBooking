@@ -8,18 +8,18 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import shared.transferobjects.seat;
+import shared.transferobjects.Seat;
 
 public class seatViewController implements ViewController {
 
     @FXML
-    public TableView<seat> tableView;
+    public TableView<Seat> tableView;
     @FXML
-    public TableColumn<String, seat> seatIDColumn;
+    public TableColumn<String, Seat> seatIDColumn;
     @FXML
-    public TableColumn<String, seat> seatNumberColumn;
+    public TableColumn<String, Seat> seatNumberColumn;
     @FXML
-    public TableColumn<String, seat> classTypeColumn;
+    public TableColumn<String, Seat> classTypeColumn;
 
     private seatViewModel sv;
     private ViewHandler vh;

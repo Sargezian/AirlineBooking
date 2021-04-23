@@ -42,8 +42,7 @@ public class flightDaoTest
     assertEquals("mike",u.getOutput());
   }
 
-    @Test public void getSeat() throws SQLException {
+  @Test public void getSeat() throws SQLException {
       //  dao.getSeat();
     }
-
 }

@@ -1,12 +1,15 @@
 package server.model.database;
 
-import shared.transferobjects.seat;
+import shared.transferobjects.Seat;
 
 import java.util.List;
 
 public interface SeatDao {
 
-    List<seat> getSeat();
+    List<Seat> getSeat();
+
+
+    //Seat CreateSeat(String seatNumber, String classType);
 
 
 }

@@ -12,6 +12,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.Date;
 import java.util.List;
 
 public class RMIServerImplement implements RMIServer {
@@ -55,6 +56,16 @@ public class RMIServerImplement implements RMIServer {
     {
         return textManager.passernger(FirstName, LastName, TelNumber,email);
     }
+
+    @Override
+    public Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) {
+        return textManager.payment(cardholderName, cardNumber, CVV, expirationDate);
+    }
+
+    /*@Override
+    public List<myFlightTicket> ReadPriceSUM() throws RemoteException  {
+        return textManager.ReadPriceSUM();
+    }*/
 
 
     @Override
@@ -122,9 +133,14 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public List<seat> getSeat() throws RemoteException {
+    public List<Seat> getSeat() throws RemoteException {
         return textManager.getSeat();
     }
 
+   /* @Override
+    public Seat seat(String seatNumber, String classType) throws RemoteException {
+        return textManager.seat(seatNumber,classType);
+    }
+*/
 
 }

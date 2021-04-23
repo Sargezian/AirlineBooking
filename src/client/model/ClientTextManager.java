@@ -7,6 +7,7 @@ import shared.util.utils;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.sql.Date;
 import java.util.List;
 
 public class ClientTextManager implements ClientText {
@@ -62,10 +63,14 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
-    public List<seat> getSeat() {
+    public List<Seat> getSeat() {
             return client.getSeat();
     }
 
+   /* @Override
+    public Seat seat(String seatNumber, String classType) {
+        return client.seat(seatNumber,classType);
+    }*/
 
     @Override
     public List<myFlightTicket> getflightlist() {
@@ -77,6 +82,15 @@ public class ClientTextManager implements ClientText {
     {
         return client.passernger(FirstName, LastName, TelNumber,email);
     }
+
+    @Override
+    public Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) {
+        return client.payment(cardholderName,cardNumber,CVV,expirationDate);
+    }
+    /*@Override
+    public List<myFlightTicket> ReadPriceSUM() {
+        return client.ReadPriceSUM();
+    }*/
 
 
     @Override

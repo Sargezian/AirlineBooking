@@ -4,7 +4,6 @@ import client.model.ClientText;
 import client.model.SaveInfo;
 import javafx.beans.property.*;
 import shared.transferobjects.*;
-import shared.util.utils;
 
 public class passengerViewModel {
 
@@ -39,7 +38,7 @@ public class passengerViewModel {
         flights ft = SaveInfo.getInstance().getFlights();
         System.out.println("Gets SavedInfo from flights = " + SaveInfo.getInstance().getFlights());
 
-        seat st = SaveInfo.getInstance().getSeat();
+        Seat st = SaveInfo.getInstance().getSeat();
         System.out.println("Gets SavedInfo from seats = " + SaveInfo.getInstance().getSeat());
 
         Passenger pg = SaveInfo.getInstance().getPassenger();

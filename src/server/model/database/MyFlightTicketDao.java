@@ -7,6 +7,8 @@ import java.util.List;
 public interface MyFlightTicketDao {
 
     List<myFlightTicket> ReadFlightList();
+    //List<myFlightTicket> ReadPriceSUM();
+
     void createTicket(myFlightTicket myFlightTicket);
 
 }

@@ -30,11 +30,18 @@ public class myflightplanViewModel {
         //Collections.addAll(, selectedrows);
     }
 
+   /* public void loadPriceSUM() {
+        List<myFlightTicket> pricelist = clientText.ReadPriceSUM();
+        myFlightTickets = FXCollections.observableArrayList(pricelist);
+
+    }*/
+
+
+
     public ObservableList<myFlightTicket> getMyFlightTickets() {
         System.out.println("myFlightTickets = " + myFlightTickets);
         return myFlightTickets;
     }
-
 
     public void onNewTicket(PropertyChangeEvent evt) {
         // getPassengerInformation(1);

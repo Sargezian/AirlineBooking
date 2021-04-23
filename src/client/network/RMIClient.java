@@ -12,6 +12,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.Date;
 import java.util.List;
 
 public class RMIClient implements Client, ClientCallBack
@@ -103,7 +104,7 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
-  @Override public List<seat> getSeat()
+  @Override public List<Seat> getSeat()
   {
     try
     {
@@ -114,6 +115,18 @@ public class RMIClient implements Client, ClientCallBack
       throw new RuntimeException("Kunne ikke få fat i server");
     }
   }
+
+  /*@Override
+  public Seat seat(String seatNumber, String classType) {
+    try
+    {
+      return server.seat(seatNumber,classType);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }*/
 
 
   @Override public List<myFlightTicket> getflightlist()
@@ -141,6 +154,29 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
+  @Override
+  public Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) {
+    try
+    {
+      return server.payment(cardholderName,cardNumber,CVV,expirationDate);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  /*@Override
+  public List<myFlightTicket> ReadPriceSUM() {
+    try
+    {
+      return server.ReadPriceSUM();
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }*/
 
   @Override public void createTicket(myFlightTicket myFlightTicket)
   {

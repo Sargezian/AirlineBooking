@@ -3,7 +3,7 @@ package server.model.database;
 import shared.transferobjects.Passenger;
 import shared.transferobjects.flights;
 import shared.transferobjects.myFlightTicket;
-import shared.transferobjects.seat;
+import shared.transferobjects.Seat;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -21,6 +21,33 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
         return daoInstance;
     }
 
+/*
+
+    @Override
+    public List<myFlightTicket> ReadPriceSUM() {
+        try{
+
+            try (Connection connection = daoConnection.getConnection()) {
+                PreparedStatement statement = connection.prepareStatement("select SUM(price) from myFlightTicket ");
+                ResultSet resultSet = statement.executeQuery();
+
+                ArrayList<myFlightTicket> PriceSUM = new ArrayList<>();
+                while (resultSet.next()) {
+
+                    int price = resultSet.getInt("price");
+
+                    myFlightTicket Ticket = new myFlightTicket(price);
+
+                    PriceSUM.add(Ticket);
+                }
+                return PriceSUM;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+*/
 
 
     @Override
@@ -51,7 +78,7 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
                     String email = resultSet.getString("email");
                     String seatNumber = resultSet.getString("seatNumber");
                     String classtype = resultSet.getString("classType");
-                    myFlightTicket myFlightTicket = new myFlightTicket(ticketid,price,new Passenger(passengerID,TelNumber,FirstName,LastName,email),new flights(FlightId,Flightname,planeType,departure,arrival,from,to,price),new seat(seatId,seatNumber,classtype));
+                    myFlightTicket myFlightTicket = new myFlightTicket(ticketid,price,new Passenger(passengerID,TelNumber,FirstName,LastName,email),new flights(FlightId,Flightname,planeType,departure,arrival,from,to,price),new Seat(seatId,seatNumber,classtype));
 
                     myFlightTickets.add(myFlightTicket);
                 }

@@ -5,6 +5,7 @@ import shared.transferobjects.*;
 import shared.util.utils;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +15,8 @@ public class TextManagerImpl implements TextManager{
     private List<InputChat> chatListe;
     private List<InputUser> userNameList;
     private List<Passenger> passengersList;
+    private List<Seat> seatsList;
+    private List<Payment> paymentList;
 
     private FlightDao dao;
     private InputChatDao inputChatDao;
@@ -21,18 +24,22 @@ public class TextManagerImpl implements TextManager{
     private MyFlightTicketDao myFlightTicketDao;
     private PassengerDao passengerDao;
     private SeatDao seatDao;
+    private PaymentDao paymentDao;
 
     public TextManagerImpl() {
         support = new PropertyChangeSupport(this);
         chatListe = new ArrayList<>();
         userNameList = new ArrayList<>();
         passengersList = new ArrayList<>();
+        seatsList = new ArrayList<>();
+        paymentList = new ArrayList<>();
         dao = FlightImpl.getInstance();
         inputChatDao = InputChatImpl.getInstance();
         inputUserDao = InputUserImpl.getInstance();
         myFlightTicketDao = MyFlightTicketImpl.getInstance();
         passengerDao = PassengerImpl.getInstance();
         seatDao = SeatImpl.getInstance();
+        paymentDao = PaymentImpl.getInstance();
 
     }
 
@@ -60,9 +67,17 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
-    public List<seat> getSeat() {
+    public List<Seat> getSeat() {
         return new ArrayList<>(seatDao.getSeat());
     }
+
+    /*@Override
+    public Seat seat(String seatNumber, String classType) {
+        Seat seat;
+        seat = seatDao.CreateSeat(seatNumber,classType);
+        seatsList.add(seat);
+        return seat;
+    }*/
 
     @Override
     public List<InputChat> getChat() {
@@ -74,9 +89,7 @@ public class TextManagerImpl implements TextManager{
         return new ArrayList<>(dao.getflights());
     }
 
-    @Override public Passenger passernger(String FirstName, String LastName,
-                                          String TelNumber, String email)
-    {
+    @Override public Passenger passernger(String FirstName, String LastName, String TelNumber, String email) {
         Passenger passenger;
         passenger = passengerDao.CreatePassengers(FirstName, LastName, TelNumber,email);
         passengersList.add(passenger);
@@ -84,6 +97,10 @@ public class TextManagerImpl implements TextManager{
         return passenger;
     }
 
+   /* @Override
+    public List<myFlightTicket> ReadPriceSUM() {
+        return  new ArrayList<>(myFlightTicketDao.ReadPriceSUM());
+    }*/
 
     @Override
     public void createTicket(myFlightTicket myFlightTicket) {
@@ -95,6 +112,15 @@ public class TextManagerImpl implements TextManager{
     @Override
     public List<myFlightTicket> getflightlist() {
         return new ArrayList<>(myFlightTicketDao.ReadFlightList());
+    }
+
+    @Override
+    public Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) {
+        Payment payment;
+        payment = paymentDao.CreatePayment(cardholderName, cardNumber, CVV, expirationDate);
+        paymentList.add(payment);
+        return payment;
+
     }
 
 

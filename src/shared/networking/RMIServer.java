@@ -4,6 +4,7 @@ import shared.transferobjects.*;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.sql.Date;
 import java.util.List;
 
 public interface RMIServer extends Remote {
@@ -15,10 +16,17 @@ public interface RMIServer extends Remote {
     List<InputUser> getUser() throws RemoteException;
 
     List<flights> getflights() throws RemoteException;
-    List<seat> getSeat() throws RemoteException;
+
+    List<Seat> getSeat() throws RemoteException;
+    //Seat seat(String seatNumber, String classType) throws RemoteException;
+
 
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email) throws RemoteException;
+    Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) throws RemoteException;
 
+
+
+    //List<myFlightTicket> ReadPriceSUM() throws RemoteException;
     List<myFlightTicket> getflightlist() throws RemoteException;
 
     void registerChatToClient(ClientCallBack client) throws RemoteException;

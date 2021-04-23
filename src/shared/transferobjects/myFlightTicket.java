@@ -9,14 +9,18 @@ public class myFlightTicket implements Serializable {
  private int price;
  private Passenger passenger;
  private flights flights;
- private seat seat;
+ private Seat seat;
 
-    public myFlightTicket(int ticketID, int price, Passenger passenger, flights flights, seat seat) {
+    public myFlightTicket(int ticketID, int price, Passenger passenger, flights flights, Seat seat) {
         this.ticketID = ticketID;
         this.price = price;
         this.passenger = passenger;
         this.flights = flights;
         this.seat = seat;
+    }
+
+    public myFlightTicket(int price) {
+        this.price = price;
     }
 
     public int getFlightID(){
@@ -95,7 +99,7 @@ public class myFlightTicket implements Serializable {
         return flights;
     }
 
-    public shared.transferobjects.seat getSeat() {
+    public Seat getSeat() {
         return seat;
     }
 

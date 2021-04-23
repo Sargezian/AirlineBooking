@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1173.0" style="-fx-background-color: e0e3fd;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.myflightplan.myflightplanViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1212.0" style="-fx-background-color: e0e3fd;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.myflightplan.myflightplanViewController">
    <children>
       <VBox prefHeight="785.0" prefWidth="235.0" style="-fx-background-color: #4153F2;">
          <children>
@@ -101,7 +101,7 @@
             <TableColumn fx:id="SeatIdColumn" prefWidth="75.0" text="Column X" />
         </columns>
       </TableView>
-      <TableView fx:id="TicketTableview" layoutX="744.0" layoutY="511.0" prefHeight="209.0" prefWidth="303.0">
+      <TableView fx:id="TicketTableview" layoutX="674.0" layoutY="511.0" prefHeight="209.0" prefWidth="303.0">
          <columns>
             <TableColumn fx:id="TicketIdColumn" prefWidth="164.7822265625" text="TicketId" />
             <TableColumn fx:id="PriceColumn" prefWidth="138.2177734375" text="Price" />
@@ -126,7 +126,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="744.0" layoutY="473.0" prefHeight="13.0" prefWidth="303.0" text="Price">
+      <Label layoutX="688.0" layoutY="469.0" prefHeight="13.0" prefWidth="303.0" text="Price">
          <font>
             <Font size="20.0" />
          </font>

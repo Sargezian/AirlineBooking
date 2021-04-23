@@ -20,6 +20,8 @@ public class FlightImpl implements FlightDao {
     daoconnection = daoConnection.getInstance();
   }
 
+
+
      public static synchronized FlightImpl getInstance(){
 
           if (daoInstance == null){
@@ -40,9 +42,13 @@ public class FlightImpl implements FlightDao {
        while (resultSet.next()) {
          int flightID = resultSet.getInt("flightID");
          String flightName = resultSet.getString("flightName");
+
+         //ny table her.
          String planeType = resultSet.getString("planeType");
          Timestamp departure = resultSet.getTimestamp("departure");
          Timestamp arrival = resultSet.getTimestamp("arrival");
+         //
+
          String from = resultSet.getString("from_");
          String to = resultSet.getString("to_");
          int price = resultSet.getInt("price");

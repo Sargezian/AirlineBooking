@@ -21,6 +21,8 @@ public class myflightplanViewController implements ViewController {
     public TableView<myFlightTicket> TicketTableview;
     @FXML
     public TableView<myFlightTicket> PassengerTableview;
+   /* @FXML
+    public TableView<myFlightTicket> PriceTableview;*/
 
 
 
@@ -56,6 +58,7 @@ public class myflightplanViewController implements ViewController {
     public TableColumn<String,myFlightTicket> LastNameCoulmn;
     public TableColumn<String,myFlightTicket> teleNumberColumn;
     public TableColumn<String,myFlightTicket> EmailCoulmn;
+   /* public TableColumn<String,myFlightTicket> PriceSumColumn;*/
 
 
     @FXML
@@ -69,6 +72,7 @@ public class myflightplanViewController implements ViewController {
         this.vh = vh;
         vm = vmf.getmyflightplanViewModel();
         vm.loadMyFlights();
+        //vm.loadPriceSUM();
         FlightIdColumn.setCellValueFactory(new PropertyValueFactory<>("flightID"));
         FlightnameColumn.setCellValueFactory(new PropertyValueFactory<>("flightName"));
         PlanetypeColumn.setCellValueFactory(new PropertyValueFactory<>("planeType"));
@@ -86,9 +90,11 @@ public class myflightplanViewController implements ViewController {
         LastNameCoulmn.setCellValueFactory(new PropertyValueFactory<>("LastName"));
         teleNumberColumn.setCellValueFactory(new PropertyValueFactory<>("TelNumber"));
         EmailCoulmn.setCellValueFactory(new PropertyValueFactory<>("Email"));
-        flighttableview.setItems((vm.getMyFlightTickets()));
-        TicketTableview.setItems((vm.getMyFlightTickets()));
-        PassengerTableview.setItems((vm.getMyFlightTickets()));
+      //  PriceSumColumn.setCellValueFactory(new PropertyValueFactory<>("PriceSum"));
+        flighttableview.setItems(vm.getMyFlightTickets());
+        TicketTableview.setItems(vm.getMyFlightTickets());
+        PassengerTableview.setItems(vm.getMyFlightTickets());
+       // PriceTableview.setItems(vm.getMyFlightTickets());
     }
 
     public void onBackDashboard(ActionEvent actionEvent) {

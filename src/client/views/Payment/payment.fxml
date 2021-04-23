@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="407.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.Payment.paymentViewController">
    <children>
       <AnchorPane prefHeight="408.0" prefWidth="375.0" style="-fx-background-color: #4153F2;">
@@ -26,24 +25,26 @@
                   <Insets left="20.0" />
                </padding>
             </Label>
-            <TextField layoutX="45.0" layoutY="102.0" prefHeight="27.0" prefWidth="246.0" promptText="Cardholder Name :" style="-fx-background-color: #4153F2;" />
+            <TextField fx:id="CardholderName" layoutX="45.0" layoutY="102.0" prefHeight="27.0" prefWidth="246.0" promptText="Cardholder Name :" style="-fx-background-color: #4153F2;" />
             <Separator layoutX="53.0" layoutY="145.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="13.0" prefWidth="239.0" />
-            <TextField layoutX="45.0" layoutY="170.0" prefHeight="27.0" prefWidth="246.0" promptText="Card Number :" style="-fx-background-color: #4153F2;" />
+            <TextField fx:id="CardNumber" layoutX="45.0" layoutY="170.0" prefHeight="27.0" prefWidth="246.0" promptText="Card Number :" style="-fx-background-color: #4153F2;" />
             <Separator layoutX="53.0" layoutY="207.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="13.0" prefWidth="239.0" />
-            <TextField layoutX="45.0" layoutY="231.0" prefHeight="27.0" prefWidth="78.0" promptText="CVV" style="-fx-background-color: #4153F2;" />
+            <TextField fx:id="CVV" layoutX="45.0" layoutY="231.0" prefHeight="27.0" prefWidth="78.0" promptText="CVV" style="-fx-background-color: #4153F2;" />
             <Separator layoutX="53.0" layoutY="264.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="13.0" prefWidth="47.0" />
             <Button layoutX="176.0" layoutY="317.0" mnemonicParsing="false" onAction="#OnCheckOut" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: ffd44d;" text="CHECK OUT --&gt;" />
-            <ImageView fitHeight="47.0" fitWidth="95.0" layoutX="238.0" layoutY="241.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="47.0" fitWidth="95.0" layoutX="296.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../Billeder/paypal.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="82.0" fitWidth="78.0" layoutX="137.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="82.0" fitWidth="78.0" layoutX="203.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../Billeder/visa.png" />
                </image>
             </ImageView>
-            <Label layoutX="53.0" layoutY="317.0" prefHeight="35.0" prefWidth="89.0" text="PRICE" textFill="WHITE" />
+            <Label fx:id="Price" layoutX="53.0" layoutY="317.0" prefHeight="35.0" prefWidth="89.0" text="PRICE" textFill="WHITE" />
+            <TextField fx:id="ExpirationDate" layoutX="129.0" layoutY="231.0" prefHeight="27.0" prefWidth="165.0" promptText="Expiration Date: " style="-fx-background-color: #4153F2;" />
+            <Separator layoutX="138.0" layoutY="264.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="13.0" prefWidth="158.0" />
          </children>
       </AnchorPane>
    </children>
