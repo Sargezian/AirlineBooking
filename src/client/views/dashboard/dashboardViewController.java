@@ -14,22 +14,14 @@ import java.sql.Timestamp;
 
 public class dashboardViewController implements ViewController {
 
-    @FXML
-    public TableView<flights> tableView;
-    @FXML
-    public TableColumn<Integer, flights> flightIDColumn;
-    @FXML
-    public TableColumn<String, flights> flightNameColumn;
-    @FXML
-    public TableColumn<Timestamp, flights> departureColumn;
-    @FXML
-    public TableColumn <Timestamp, flights> arrivalColumn;
-    @FXML
-    public TableColumn <String, flights> fromColumn;
-    @FXML
-    public TableColumn <String, flights> toColumn;
-    @FXML
-    public TableColumn<String, flights> planeType;
+    @FXML public TableView<flights> tableView;
+    @FXML public TableColumn<Integer, flights> flightIDColumn;
+    @FXML public TableColumn<String, flights> flightNameColumn;
+    @FXML public TableColumn<Timestamp, flights> departureColumn;
+    @FXML public TableColumn <Timestamp, flights> arrivalColumn;
+    @FXML public TableColumn <String, flights> fromColumn;
+    @FXML public TableColumn <String, flights> toColumn;
+    @FXML public TableColumn<String, flights> planeType;
 
     private ViewHandler vh;
     private dashboardViewModel dv;

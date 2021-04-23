@@ -48,7 +48,7 @@ public class InputUserImpl implements InputUserDao {
                     return new InputUser(key.getInt(1), txt);
                 } else {
 
-                    throw new SQLException("hej med dig");
+                    throw new SQLException("Login test");
 
                 }
             }

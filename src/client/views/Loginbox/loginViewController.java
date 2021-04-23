@@ -10,12 +10,9 @@ import javafx.scene.control.TextField;
 
 public class loginViewController implements ViewController {
 
-    @FXML
-    private TextField navn;
-    @FXML
-    private TextField kode;
-    @FXML
-    private Label error;
+    @FXML private TextField navn;
+    @FXML private TextField kode;
+    @FXML private Label error;
 
     private loginViewModel viewModel;
     private ViewHandler vh;
@@ -36,6 +33,9 @@ public class loginViewController implements ViewController {
 
     public void onkald(ActionEvent actionEvent) {
         System.exit(1);
+    }
+
+    public void OnSignIn(ActionEvent actionEvent) {
     }
 }
 

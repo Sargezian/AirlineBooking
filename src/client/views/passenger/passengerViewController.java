@@ -12,14 +12,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import shared.transferobjects.myFlightTicket;
 
 public class passengerViewController implements ViewController {
-    @FXML
-    public TextField FirstName;
-    @FXML
-    public TextField LastName;
-    @FXML
-    public TextField TelNumber;
-    @FXML
-    public TextField Email;
+
+    @FXML public TextField FirstName;
+    @FXML public TextField LastName;
+    @FXML public TextField TelNumber;
+    @FXML public TextField Email;
 
     private ViewHandler vh;
     private passengerViewModel pv;

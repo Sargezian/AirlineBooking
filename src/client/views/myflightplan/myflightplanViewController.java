@@ -15,51 +15,30 @@ import java.sql.Timestamp;
 
 public class myflightplanViewController implements ViewController {
 
-    @FXML
-    public TableView<myFlightTicket> flighttableview;
-    @FXML
-    public TableView<myFlightTicket> TicketTableview;
-    @FXML
-    public TableView<myFlightTicket> PassengerTableview;
+    @FXML public TableView<myFlightTicket> flighttableview;
+    @FXML public TableView<myFlightTicket> TicketTableview;
+    @FXML public TableView<myFlightTicket> PassengerTableview;
    /* @FXML
     public TableView<myFlightTicket> PriceTableview;*/
 
-
-
-    @FXML
-    public TableColumn<Integer, myFlightTicket> FlightIdColumn;
-    @FXML
-    public TableColumn<String, myFlightTicket> FlightnameColumn;
-    @FXML
-    public TableColumn<String, myFlightTicket> PlanetypeColumn;
-    @FXML
-    public TableColumn<Timestamp, myFlightTicket>  DepartureColumn;
-    @FXML
-    public TableColumn<Timestamp, myFlightTicket>  ArrivalColumn;
-    @FXML
-    public TableColumn<String, myFlightTicket>  FromColumn;
-    @FXML
-    public TableColumn<String, myFlightTicket> ToColumn;
-    @FXML
-    public TableColumn<Integer, myFlightTicket>  TicketIdColumn;
-    @FXML
-    public TableColumn<Integer, myFlightTicket>  PriceColumn;
-    @FXML
-    public TableColumn<Integer, myFlightTicket>  PassengerIdColumn;
-    @FXML
-    public TableColumn<Integer, myFlightTicket>  SeatIdColumn;
-
-    @FXML
-    public TableColumn<String, myFlightTicket> NameColumn;
-    @FXML
-    public TableColumn<String, myFlightTicket> seat;
-    @FXML
-    public TableColumn<String, myFlightTicket> ClasstypeColumn;
-    public TableColumn<String,myFlightTicket> LastNameCoulmn;
-    public TableColumn<String,myFlightTicket> teleNumberColumn;
-    public TableColumn<String,myFlightTicket> EmailCoulmn;
-   /* public TableColumn<String,myFlightTicket> PriceSumColumn;*/
-
+    @FXML public TableColumn<Integer, myFlightTicket> FlightIdColumn;
+    @FXML public TableColumn<String, myFlightTicket> FlightnameColumn;
+    @FXML public TableColumn<String, myFlightTicket> PlanetypeColumn;
+    @FXML public TableColumn<Timestamp, myFlightTicket>  DepartureColumn;
+    @FXML public TableColumn<Timestamp, myFlightTicket>  ArrivalColumn;
+    @FXML public TableColumn<String, myFlightTicket>  FromColumn;
+    @FXML public TableColumn<String, myFlightTicket> ToColumn;
+    @FXML public TableColumn<Integer, myFlightTicket>  TicketIdColumn;
+    @FXML public TableColumn<Integer, myFlightTicket>  PriceColumn;
+    @FXML public TableColumn<Integer, myFlightTicket>  PassengerIdColumn;
+    @FXML public TableColumn<Integer, myFlightTicket>  SeatIdColumn;
+    @FXML public TableColumn<String, myFlightTicket> NameColumn;
+    @FXML public TableColumn<String, myFlightTicket> seat;
+    @FXML public TableColumn<String, myFlightTicket> ClasstypeColumn;
+    @FXML public TableColumn<String,myFlightTicket> LastNameCoulmn;
+    @FXML public TableColumn<String,myFlightTicket> teleNumberColumn;
+    @FXML public TableColumn<String,myFlightTicket> EmailCoulmn;
+   /*@FXML public TableColumn<String,myFlightTicket> PriceSumColumn;*/
 
     @FXML
     private Label myName;

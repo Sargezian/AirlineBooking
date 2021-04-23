@@ -14,17 +14,11 @@ import shared.transferobjects.InputUser;
 
 public class chatViewController implements ViewController {
 
-    @FXML
-    private TableView<InputChat> tableView;
-    @FXML
-    private TableView<InputUser> tableView1;
-    @FXML
-    private TextField requestField;
-
-    @FXML
-    public TableColumn<String, InputChat> inputColumn;
-    @FXML
-    public TableColumn<String, InputChat> chatcolumn;
+    @FXML private TableView<InputChat> tableView;
+    @FXML private TableView<InputUser> tableView1;
+    @FXML private TextField requestField;
+    @FXML public TableColumn<String, InputChat> inputColumn;
+    @FXML public TableColumn<String, InputChat> chatcolumn;
 
     private chatViewModel vm;
     private loginViewModel lv;
