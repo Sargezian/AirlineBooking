@@ -6,7 +6,7 @@ import shared.transferobjects.InputUser;
 import java.sql.SQLException;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class flightDaoTest
+public class  flightDaoTest
 {
   private FlightDao dao;
   private InputChatDao inputChatDao;
