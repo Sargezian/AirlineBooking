@@ -6,33 +6,11 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="958.0" style="-fx-background-color: e0e3fd;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.seat.seatViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="597.0" prefWidth="729.0" style="-fx-background-color: e0e3fd;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.seat.seatViewController">
     <children>
-        <VBox layoutX="683.0" prefHeight="615.0" prefWidth="276.0" style="-fx-background-color: #4153F2;">
-            <children>
-                <AnchorPane prefHeight="130.0" prefWidth="276.0">
-                    <children>
-                        <Label alignment="CENTER" layoutX="46.0" layoutY="52.0" prefHeight="52.0" prefWidth="184.0" text="SHOPPING CART" textFill="WHITE">
-                            <font>
-                                <Font name="Tahoma Bold" size="20.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </AnchorPane>
-            <TableView prefHeight="321.0" prefWidth="276.0">
-              <columns>
-                <TableColumn prefWidth="75.0" text="FLIGHTID" />
-                <TableColumn prefWidth="52.0" text="TO" />
-                  <TableColumn prefWidth="69.0" text="FROM" />
-                  <TableColumn prefWidth="79.0" text="PRICE" />
-              </columns>
-            </TableView>
-            </children>
-        </VBox>
-        <TableView fx:id="tableView" layoutX="28.0" layoutY="122.0" prefHeight="337.0" prefWidth="562.0">
+        <TableView fx:id="tableView" layoutX="28.0" layoutY="122.0" prefHeight="345.0" prefWidth="567.0">
             <columns>
                 <TableColumn fx:id="seatIDColumn" prefWidth="186.0" text="seatID" />
                 <TableColumn fx:id="seatNumberColumn" prefWidth="165.0" text="seatNumber" />
@@ -46,6 +24,6 @@
                 <Font name="System Bold" size="24.0" />
             </font>
         </Label>
-        <Separator layoutX="37.0" layoutY="91.0" prefHeight="0.0" prefWidth="550.0" style="-fx-background-color: black;" />
+        <Separator layoutX="37.0" layoutY="91.0" prefHeight="5.0" prefWidth="560.0" style="-fx-background-color: black;" />
     </children>
 </AnchorPane>

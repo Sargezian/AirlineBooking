@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface InputUserDao {
 
-    InputUser createUser(String txt) ;
+    InputUser createUser(String user, String password) ;
     List<InputUser> readUser();
 
 

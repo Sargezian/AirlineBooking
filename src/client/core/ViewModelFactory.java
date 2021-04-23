@@ -3,6 +3,7 @@ package client.core;
 import client.views.Loginbox.loginViewModel;
 import client.views.Payment.paymentViewModel;
 import client.views.chat.chatViewModel;
+import client.views.createUser.createUserViewModel;
 import client.views.dashboard.dashboardViewModel;
 import client.views.myflightplan.myflightplanViewModel;
 import client.views.passenger.passengerViewModel;
@@ -17,7 +18,8 @@ public class ViewModelFactory {
     private myflightplanViewModel myflightplanViewModel;
     private seatViewModel seatViewModel;
     private passengerViewModel passengerViewModel;
-    private client.views.Payment.paymentViewModel paymentViewModel;
+    private paymentViewModel paymentViewModel;
+    private createUserViewModel createUserViewModel;
 
     public ViewModelFactory(ModelFactory mf) {
         this.mf=mf;
@@ -65,5 +67,10 @@ public class ViewModelFactory {
                 paymentViewModel);
     }
 
+    public createUserViewModel getcreateUserViewModel() {
+        return (createUserViewModel = paymentViewModel == null ?
+                new createUserViewModel(mf.getClientText()) :
+                createUserViewModel);
+    }
 
 }

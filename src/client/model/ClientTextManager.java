@@ -48,8 +48,8 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
-    public InputUser username(String txt) {
-        return client.username(txt);
+    public InputUser username(String user, String password) {
+        return client.username(user, password);
     }
 
     @Override

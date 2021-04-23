@@ -34,7 +34,7 @@ public class loginViewModel {
         String kode = this.kode.getValue();
 
         if (navn != null && !"".equals(navn) && kode != null && !"".equals(kode)) {
-            clientText.username(navn);
+            clientText.username(navn, kode);
             error.set("korrekt oprettet");
         } else {
             error.set("Feltet kan ikke være tomt");

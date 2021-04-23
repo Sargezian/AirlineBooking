@@ -68,11 +68,11 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
-  @Override public InputUser username(String txt)
+  @Override public InputUser username(String user, String password)
   {
     try
     {
-      return server.username(txt);
+      return server.username(user, password);
     }
     catch (RemoteException e)
     {

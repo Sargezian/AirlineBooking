@@ -38,7 +38,7 @@ public class  flightDaoTest
   }
 
   @Test public void readUser() throws SQLException {
-    InputUser u = inputUserDao.createUser("mike");
+    InputUser u = inputUserDao.createUser("mike", "124");
     assertEquals("mike",u.getOutput());
   }
 

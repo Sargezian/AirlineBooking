@@ -34,18 +34,18 @@ public class InputUserImpl implements InputUserDao {
     }
 
 
-
-    public InputUser createUser(String txt) {
+    public InputUser createUser(String user, String password) {
         try {
             try (Connection connection =  daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("INSERT INTO InputUser(user_) VALUES (?) ", PreparedStatement.RETURN_GENERATED_KEYS);
-                statement.setString(1, txt);
+                PreparedStatement statement = connection.prepareStatement("INSERT INTO InputUser(user_, password_) VALUES (?,?) ", PreparedStatement.RETURN_GENERATED_KEYS);
+                statement.setString(1, user);
+                statement.setString(2, password);
                 statement.executeUpdate();
                 ResultSet key = statement.getGeneratedKeys();
 
                 if (key.next()) {
 
-                    return new InputUser(key.getInt(1), txt);
+                    return new InputUser(key.getInt(1), user, password);
                 } else {
 
                     throw new SQLException("Login test");
@@ -68,9 +68,9 @@ public class InputUserImpl implements InputUserDao {
                 ResultSet resultSet = statement.executeQuery();
                 ArrayList<InputUser> result = new ArrayList<>();
                 while (resultSet.next()) {
-                    String txt = resultSet.getString("user_");
+                    String user = resultSet.getString("user_");
                     int id = resultSet.getInt("id");
-                    InputUser inputUser = new InputUser(id, txt);
+                    InputUser inputUser = new InputUser(id, user);
                     result.add(inputUser);
 
                 }

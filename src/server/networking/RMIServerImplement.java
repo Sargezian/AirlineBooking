@@ -42,8 +42,8 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public InputUser username(String txt)  {
-        return textManager.username(txt);
+    public InputUser username(String user, String password)  {
+        return textManager.username(user, password);
     }
 
     @Override

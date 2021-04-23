@@ -4,24 +4,44 @@ import java.io.Serializable;
 
 public class InputUser implements Serializable {
 
-    private String output;
+    public int id;
+    public String user;
+    public String password;
 
-    private int id;
-
-    public InputUser(int id, String output) {
-        this.output = output;
+    public InputUser(int id, String user, String password) {
         this.id = id;
+        this.user = user;
+        this.password = password;
     }
 
-    public InputUser(String output) {
-        this.output = output;
+    public InputUser(int id, String user) {
+        this.id = id;
+        this.user = user;
+    }
+
+    public InputUser(String user, String password) {
+        this.user = user;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public String getOutput() {
-        return output;
+        return user;
     }
 
     public int getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "InputUser{" +
+                "user='" + user + '\'' +
+                ", password='" + password + '\'' +
+                ", id=" + id +
+                '}';
     }
 }

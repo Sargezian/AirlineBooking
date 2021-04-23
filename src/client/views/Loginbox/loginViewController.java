@@ -36,6 +36,7 @@ public class loginViewController implements ViewController {
     }
 
     public void OnSignIn(ActionEvent actionEvent) {
+        vh.openCreateUserView();
     }
 }
 

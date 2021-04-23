@@ -11,7 +11,7 @@ public interface ClientText extends Subject {
     InputChat sendMsg(String text);
     List<InputChat> getChat();
 
-    InputUser username(String txt);
+    InputUser username(String user, String password);
     List<InputUser> getUser();
 
     List<flights> getflights();
