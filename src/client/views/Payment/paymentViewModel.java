@@ -27,6 +27,7 @@ public class paymentViewModel {
         CardNumber = new SimpleStringProperty();
         CVV = new SimpleStringProperty();
         ExpirationDate = new SimpleStringProperty();
+
         FirstName = new SimpleStringProperty();
         LastName = new SimpleStringProperty();
         Email = new SimpleStringProperty();
@@ -34,17 +35,20 @@ public class paymentViewModel {
 
     }
 
-    public void getPassengerInfomation() {
+    public void SetPassengerInfomation() {
 
-        Passenger pg = clientText.ReadPassenger(FirstName, LastName, Phone, Email);
+        Passenger pg = SaveInfo.getInstance().getPassenger();
+        clientText.ReadPassenger(pg.FirstName, pg.LastName, pg.TelNumber, pg.Email);
 
-        String FirstName = this.FirstName.setValue(FirstName);
-        String LastName = this.LastName.setValue(LastName);
-        String Phone = this.Phone.setValue(Phone);
-        String Email = this.Email.setValue(Email);
+        FirstName.setValue(pg.FirstName);
+        LastName.setValue(pg.LastName);
+        Phone.setValue(pg.TelNumber);
+        Email.setValue(pg.Email);
 
+        //TODO LAV LISTE
 
     }
+
 
 
     public void getPaymentInformation() {

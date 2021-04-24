@@ -32,7 +32,7 @@ public class PassengerImpl implements PassengerDao {
 
                 if (key.next()) {
 
-                    return new Passenger(key.getInt(1), TelNumber, FirstName, LastName, Email);
+                    return new Passenger(key.getInt(1), FirstName, LastName, TelNumber, Email);
                 } else {
 
                     throw new SQLException("Her bliver det testet på at lave en ny passenger");

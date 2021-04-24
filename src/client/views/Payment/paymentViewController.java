@@ -33,13 +33,16 @@ public class paymentViewController implements ViewController {
         CardNumber.textProperty().bindBidirectional(pv.cardNumberProperty());
         CVV.textProperty().bindBidirectional(pv.CVVProperty());
         ExpirationDate.textProperty().bindBidirectional(pv.expirationDateProperty());
+        getFirstName.textProperty().bind(pv.firstNameProperty());
+        getLastName.textProperty().bind(pv.lastNameProperty());
+        getEmail.textProperty().bind(pv.emailProperty());
+        getPhone.textProperty().bind(pv.phoneProperty());
+        pv.SetPassengerInfomation();
     }
-
 
     public void OnCheckOut(ActionEvent actionEvent) {
         pv.getPaymentInformation();
         vh.openToMyFlightPlan();
 
     }
-
 }
