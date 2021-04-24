@@ -13,6 +13,7 @@ public interface ClientCallBack extends Remote {
     void updateChat(InputChat entry) throws RemoteException;
     void updateUser(InputUser entry2) throws RemoteException;
     void updateTicket(myFlightTicket myflightticket) throws RemoteException;
+    //void updatePassenger(Passenger passenger) throws RemoteException;
 
 
 }

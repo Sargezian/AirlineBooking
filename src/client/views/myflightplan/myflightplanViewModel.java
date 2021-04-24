@@ -15,7 +15,6 @@ public class myflightplanViewModel {
     private ObservableList<myFlightTicket> myFlightTickets;
 
 
-
     public myflightplanViewModel(ClientText clientText) {
         System.out.println("myFlight view model");
         this.clientText = clientText;
@@ -49,10 +48,8 @@ public class myflightplanViewModel {
         System.out.println("viewmodel on new passenger" + getflightlist.size());
         myFlightTickets.addAll(getflightlist);
 
-
-
     }
 
-
+// TODO: 25/04/2021 email og passenger name skal laves her
 
 }

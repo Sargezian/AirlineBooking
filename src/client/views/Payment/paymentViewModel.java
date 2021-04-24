@@ -5,7 +5,9 @@ import client.model.SaveInfo;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import shared.transferobjects.Passenger;
+import shared.util.utils;
 
+import java.beans.PropertyChangeEvent;
 import java.sql.Date;
 
 public class paymentViewModel {
@@ -23,6 +25,11 @@ public class paymentViewModel {
 
     public paymentViewModel(ClientText clientText) {
         this.clientText = clientText;
+        clientText.addListener(utils.NEWTICKET, this::onNewTicket);
+
+        //clientText.addListener(utils.NEWTICKET, this::onNewTicket);
+
+
         CardholderName = new SimpleStringProperty();
         CardNumber = new SimpleStringProperty();
         CVV = new SimpleStringProperty();
@@ -32,6 +39,11 @@ public class paymentViewModel {
         LastName = new SimpleStringProperty();
         Email = new SimpleStringProperty();
         Phone = new SimpleStringProperty();
+    }
+
+    private void onNewTicket(PropertyChangeEvent propertyChangeEvent) {
+
+        SetPassengerInfomation();
 
     }
 
@@ -48,7 +60,6 @@ public class paymentViewModel {
         //TODO LAV LISTE
 
     }
-
 
 
     public void getPaymentInformation() {

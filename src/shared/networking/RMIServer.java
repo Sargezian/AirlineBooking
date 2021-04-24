@@ -37,6 +37,9 @@ public interface RMIServer extends Remote {
     void createTicket(myFlightTicket myFlightTicket) throws RemoteException;
     void registerTicketToClient(ClientCallBack client) throws  RemoteException;
 
+    void registerpassengerToClient(ClientCallBack client) throws  RemoteException;
+
+
 
 
 }

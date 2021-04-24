@@ -19,6 +19,7 @@ public class myFlightTicket implements Serializable {
         this.seat = seat;
     }
 
+
     public myFlightTicket(int price) {
         this.price = price;
     }

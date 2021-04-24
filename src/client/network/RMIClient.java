@@ -36,6 +36,7 @@ public class RMIClient implements Client, ClientCallBack
       server.registerChatToClient(this);
       server.registerUserToClient(this);
       server.registerTicketToClient(this);
+      //server.registerpassengerToClient(this);
 
     }
     catch (RemoteException | NotBoundException e)
@@ -223,6 +224,8 @@ public class RMIClient implements Client, ClientCallBack
     support.firePropertyChange(utils.NEWTICKET, null, myflightticket);
 
   }
+
+
 
   @Override public void addListener(String eventName,
       PropertyChangeListener listener)

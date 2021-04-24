@@ -87,5 +87,6 @@ public class passengerViewModel {
     }
 
 
+    // TODO: 25/04/2021 Indkøbskurven skal virke her ved hjælp af join og bedre design skal laves 
 
 }

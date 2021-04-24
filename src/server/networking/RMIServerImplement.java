@@ -117,7 +117,7 @@ public class RMIServerImplement implements RMIServer {
         PropertyChangeListener finalListener = listener;
         listener = evt -> {
             try {
-                System.out.println("register passenger to client ");
+                System.out.println("register ticket to client ");
                 client.updateTicket((myFlightTicket) evt.getNewValue());
             } catch (RemoteException e) {
 
@@ -125,6 +125,23 @@ public class RMIServerImplement implements RMIServer {
             }
         };
         textManager.addListener(utils.NEWTICKET, listener);
+
+    }
+
+    @Override
+    public void registerpassengerToClient(ClientCallBack client) throws RemoteException {
+        PropertyChangeListener listener = null;
+        PropertyChangeListener finalListener = listener;
+        listener = evt -> {
+            try {
+                System.out.println("register passenger to client ");
+                client.updateTicket((myFlightTicket) evt.getNewValue());
+            } catch (RemoteException e) {
+
+                textManager.removeListener(utils.NEWPASSENGER, finalListener);
+            }
+        };
+        textManager.addListener(utils.NEWPASSENGER, listener);
 
     }
 
