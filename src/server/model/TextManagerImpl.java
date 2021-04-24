@@ -97,6 +97,13 @@ public class TextManagerImpl implements TextManager{
         return passenger;
     }
 
+    @Override
+    public Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email) {
+        return passengerDao.ReadPassenger(Firstname,LastName,TelNumber,Email);
+    }
+
+
+
    /* @Override
     public List<myFlightTicket> ReadPriceSUM() {
         return  new ArrayList<>(myFlightTicketDao.ReadPriceSUM());

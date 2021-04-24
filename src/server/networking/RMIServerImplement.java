@@ -58,6 +58,12 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
+    public Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email) throws RemoteException {
+        return textManager.ReadPassenger(Firstname,LastName,TelNumber,Email);
+    }
+
+
+    @Override
     public Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) {
         return textManager.payment(cardholderName, cardNumber, CVV, expirationDate);
     }

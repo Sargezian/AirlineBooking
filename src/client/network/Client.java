@@ -20,6 +20,9 @@ public interface Client extends Subject {
     //Seat seat(String seatNumber, String classType);
 
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email);
+    Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);
+
+
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate);
 
 

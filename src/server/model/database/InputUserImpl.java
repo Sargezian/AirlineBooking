@@ -33,7 +33,6 @@ public class InputUserImpl implements InputUserDao {
         return daoInstance;
     }
 
-
     public InputUser createUser(String user, String password) {
         try {
             try (Connection connection =  daoConnection.getConnection()) {

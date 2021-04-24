@@ -6,4 +6,6 @@ public interface PassengerDao {
 
     Passenger CreatePassengers(String Firstname, String LastName, String TelNumber, String Email);
 
+    Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);
+
 }

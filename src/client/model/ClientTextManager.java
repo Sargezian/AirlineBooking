@@ -84,6 +84,12 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
+    public Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email) {
+        return client.ReadPassenger(Firstname,LastName,TelNumber,Email);
+    }
+
+
+    @Override
     public Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) {
         return client.payment(cardholderName,cardNumber,CVV,expirationDate);
     }

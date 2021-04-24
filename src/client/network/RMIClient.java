@@ -155,6 +155,19 @@ public class RMIClient implements Client, ClientCallBack
   }
 
   @Override
+  public Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email) {
+    try
+    {
+      return server.passernger(Firstname, LastName, TelNumber,Email);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+
+  @Override
   public Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) {
     try
     {

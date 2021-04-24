@@ -14,11 +14,13 @@ public class paymentViewController implements ViewController {
     @FXML public TextField CardNumber;
     @FXML public TextField CVV;
     @FXML public TextField ExpirationDate;
-    @FXML public Label getPrice;
+
     @FXML public Label getFirstName;
     @FXML public Label getLastName;
     @FXML public Label getEmail;
     @FXML public Label getPhone;
+
+    @FXML public Label getPrice;
 
     private ViewHandler vh;
     private paymentViewModel pv;

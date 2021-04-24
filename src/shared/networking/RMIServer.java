@@ -22,6 +22,9 @@ public interface RMIServer extends Remote {
 
 
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email) throws RemoteException;
+    Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email) throws RemoteException;
+
+
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) throws RemoteException;
 
 
