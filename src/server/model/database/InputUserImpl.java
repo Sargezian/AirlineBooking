@@ -36,7 +36,7 @@ public class InputUserImpl implements InputUserDao {
     public InputUser createUser(String user, String password) {
         try {
             try (Connection connection =  daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("INSERT INTO InputUser(user_, password_) VALUES (?,?) ", PreparedStatement.RETURN_GENERATED_KEYS);
+                PreparedStatement statement = connection.prepareStatement("INSERT INTO InputUser(user_, password) VALUES (?,?) ", PreparedStatement.RETURN_GENERATED_KEYS);
                 statement.setString(1, user);
                 statement.setString(2, password);
                 statement.executeUpdate();
@@ -57,6 +57,7 @@ public class InputUserImpl implements InputUserDao {
         return null;
     }
 
+    @Override
     public List<InputUser> readUser() {
         try {
             try (Connection connection =  daoConnection.getConnection()) {
@@ -78,6 +79,32 @@ public class InputUserImpl implements InputUserDao {
             throwables.printStackTrace();
         }
         return null;
+    }
+
+
+    public boolean ValidateUser(String user, String password)  {
+        try {
+            try (Connection connection =  daoConnection.getConnection()) {
+
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM InputUser WHERE user_ = ? AND password = ? ");
+                statement.setString(1,user);
+                statement.setString(2,password);
+                ResultSet resultSet = statement.executeQuery();
+
+                if (resultSet.next()) {
+                    return true;
+                }
+
+                else{
+
+                    return false;
+                }
+
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
     }
 
 

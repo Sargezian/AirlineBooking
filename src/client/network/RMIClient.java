@@ -117,6 +117,18 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
+  @Override
+  public boolean ValidateUser(String user, String password) {
+    try
+    {
+      return server.ValidateUser(user,password);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
   /*@Override
   public Seat seat(String seatNumber, String classType) {
     try

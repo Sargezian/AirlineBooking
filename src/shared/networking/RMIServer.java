@@ -18,6 +18,8 @@ public interface RMIServer extends Remote {
     List<flights> getflights() throws RemoteException;
 
     List<Seat> getSeat() throws RemoteException;
+
+    boolean ValidateUser(String user, String password) throws RemoteException ;
     //Seat seat(String seatNumber, String classType) throws RemoteException;
 
 

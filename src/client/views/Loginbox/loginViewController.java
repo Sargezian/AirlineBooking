@@ -20,10 +20,16 @@ public class loginViewController implements ViewController {
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.vh = vh;
         this.viewModel = vmf.getloginViewModel();
+        navn.textProperty().bindBidirectional(viewModel.navnProperty());
+        kode.textProperty().bindBidirectional(viewModel.kodeProperty());
+        error.textProperty().bind(viewModel.errorProperty());
+
     }
 
     public void onLogButton() {
-        vh.openPaymentView();
+        if (viewModel.validateLoginInfo() == true){
+            vh.openPaymentView();
+        }
 
     }
 

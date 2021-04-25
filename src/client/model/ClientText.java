@@ -12,11 +12,15 @@ public interface ClientText extends Subject {
     List<InputChat> getChat();
 
     InputUser username(String user, String password);
+
+    boolean ValidateUser(String user, String password) ;
     List<InputUser> getUser();
 
     List<flights> getflights();
 
     List<Seat> getSeat();
+
+
 
     //Seat seat(String seatNumber, String classType);
 

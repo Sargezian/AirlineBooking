@@ -53,6 +53,11 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
+    public boolean ValidateUser(String user, String password) {
+        return client.ValidateUser(user,password);
+    }
+
+    @Override
     public List<InputUser> getUser() {
        return client.getUser();
     }

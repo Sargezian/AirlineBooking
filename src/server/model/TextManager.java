@@ -11,12 +11,12 @@ public interface TextManager extends Subject {
     InputChat sendMsg(String str);
     List<InputChat> getChat();
 
-    InputUser username(String user, String password);
+    InputUser CreateUser(String user, String password);
     List<InputUser> getUser();
 
     List<Seat> getSeat();
     //Seat seat(String seatNumber, String classType);
-
+    boolean ValidateUser(String user, String password) ;
 
     List<flights> getflights();
 

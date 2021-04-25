@@ -17,6 +17,7 @@ public interface Client extends Subject {
     List<flights> getflights();
 
     List<Seat> getSeat();
+    boolean ValidateUser(String user, String password) ;
     //Seat seat(String seatNumber, String classType);
 
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email);

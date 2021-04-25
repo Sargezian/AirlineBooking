@@ -42,7 +42,7 @@ public class RMIServerImplement implements RMIServer {
 
     @Override
     public InputUser username(String user, String password)  {
-        return textManager.username(user, password);
+        return textManager.CreateUser(user, password);
     }
 
     @Override
@@ -141,6 +141,11 @@ public class RMIServerImplement implements RMIServer {
     @Override
     public List<Seat> getSeat() throws RemoteException {
         return textManager.getSeat();
+    }
+
+    @Override
+    public boolean ValidateUser(String user, String password) throws RemoteException {
+        return textManager.ValidateUser(user,password);
     }
 
    /* @Override

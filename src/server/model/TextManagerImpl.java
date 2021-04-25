@@ -43,13 +43,15 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
-    public InputUser username(String user, String password) {
+    public InputUser CreateUser(String user, String password) {
         InputUser inputUser = new InputUser(user, password);
         userNameList.add(inputUserDao.createUser(user,password));
         support.firePropertyChange(utils.NEWUSER, null, inputUser);
         System.out.println("support.getPropertyChangeListeners().length:" + support.getPropertyChangeListeners().length);
         return inputUser;
     }
+
+
 
     @Override
     public InputChat sendMsg(String str) {
@@ -68,6 +70,11 @@ public class TextManagerImpl implements TextManager{
     @Override
     public List<Seat> getSeat() {
         return new ArrayList<>(seatDao.getSeat());
+    }
+
+    @Override
+    public boolean ValidateUser(String user, String password) {
+        return inputUserDao.ValidateUser(user,password);
     }
 
     /*@Override
