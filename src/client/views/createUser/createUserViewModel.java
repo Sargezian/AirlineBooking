@@ -7,6 +7,8 @@ import client.views.ViewController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.beans.PropertyChangeListener;
+
 public class createUserViewModel  {
 
    private ClientText clientText;
@@ -58,6 +60,52 @@ public class createUserViewModel  {
     public StringProperty errorProperty() {
         return Error;
     }
+
+
+
+
+    /*public void addListener(String name, PropertyChangeListener listener) {
+        support.addPropertyChangeListener(name, listener);
+    }*/
+
+
+
+    /*@Override
+    public void createUser(String username, String pw, String pwAgain) {
+        String result = attemptCreateUser(username, pw, pwAgain);
+
+        if("OK".equals(result)) {
+            // adding the new user
+            users.add(new User(username, pw));
+        }
+
+        support.firePropertyChange("CreateUserResult", "", result);
+    }
+
+    */
+
+
+   /* private String attemptCreateUser(String username, String pw, String pwAgain) {
+        if(username == null) {
+            return "Username cannot be empty";
+        }
+        if(username.contains("#")) {
+            return "Username cannot contain #";
+        }
+        if(username.length() < 4) {
+            return "Username must contain more than 3 characters";
+        }
+        if(username.length() > 14) {
+            return "Username must contain less than 15 characters";
+        }
+        if(findUser(username) != null) {
+            return "Username already exists";
+        }
+
+        // checking the passwords
+        return validatePasswords(pw, pwAgain); // returning result of checking passwords
+    }*/
+
 
 
 // TODO: 25/04/2021 = CREATE USER INSERT INTO SKAL VÆRE HER ISTEDET FOR LOGIN VIEWET

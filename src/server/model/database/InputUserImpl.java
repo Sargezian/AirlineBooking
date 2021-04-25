@@ -57,7 +57,6 @@ public class InputUserImpl implements InputUserDao {
         return null;
     }
 
-
     public List<InputUser> readUser() {
         try {
             try (Connection connection =  daoConnection.getConnection()) {
