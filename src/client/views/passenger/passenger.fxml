@@ -3,69 +3,114 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="789.0" style="-fx-background-color: e0e3fd;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.passenger.passengerViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1052.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.passenger.passengerViewController">
     <children>
-        <VBox layoutX="472.0" prefHeight="484.0" prefWidth="323.0" style="-fx-background-color: #4153F2;">
-            <children>
-                <AnchorPane prefHeight="331.0" prefWidth="282.0" style="-fx-background-color: e0e3fde0e3fd;" styleClass="e0e3fde0e3fd">
-                    <children>
-                        <Label alignment="CENTER" layoutX="24.0" layoutY="35.0" prefHeight="52.0" prefWidth="184.0" text="SHOPPING CART" textFill="WHITE">
-                            <font>
-                                <Font name="Tahoma Bold" size="20.0" />
-                            </font>
-                        </Label>
-                  <TableView layoutX="16.0" layoutY="96.0" prefHeight="280.0" prefWidth="298.0">
-                    <columns>
-                      <TableColumn prefWidth="66.0" text="FLIGHTID" />
-                      <TableColumn prefWidth="55.0" text="FROM" />
-                        <TableColumn prefWidth="58.0" text="TO" />
-                        <TableColumn prefWidth="58.0" text="SEAT" />
-                        <TableColumn prefWidth="58.0" text="PRICE" />
-                    </columns>
-                  </TableView>
-                    </children>
-                </AnchorPane>
-                  <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#OnLogin" prefHeight="61.0" prefWidth="168.0" style="-fx-background-color: #4153F2;" text="Login" textFill="WHITE">
-                      <font>
-                          <Font name="Tahoma Bold" size="18.0" />
-                      </font>
-                  </Button>
-            </children>
-        </VBox>
-        <Button layoutX="87.0" layoutY="360.0" mnemonicParsing="false" onAction="#onBack" prefHeight="37.0" prefWidth="88.0" text="Back" />
-        <Button layoutX="255.0" layoutY="360.0" mnemonicParsing="false" onAction="#onOrder" prefHeight="37.0" prefWidth="105.0" text="Order" />
-        <Label layoutX="43.0" layoutY="135.0" prefHeight="18.0" prefWidth="88.0" text="Firstname:">
+      <Line endX="35.0" layoutX="197.0" layoutY="98.0" startX="-100.0" stroke="#0088ff" style="-fx-blend-mode: #37a1ff;" />
+        <Button layoutX="87.0" layoutY="487.0" mnemonicParsing="false" onAction="#onBack" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Back" textFill="WHITE" />
+        <Button layoutX="308.0" layoutY="487.0" mnemonicParsing="false" onAction="#onOrder" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Order" textFill="WHITE" />
+        <Label layoutX="74.0" layoutY="274.0" prefHeight="22.0" prefWidth="200.0" text="First Name:">
             <font>
                 <Font size="17.0" />
             </font></Label>
-        <TextField fx:id="FirstName" layoutX="131.0" layoutY="133.0" prefHeight="9.0" prefWidth="272.0" />
-        <TextField fx:id="LastName" layoutX="131.0" layoutY="188.0" prefHeight="27.0" prefWidth="272.0" />
-        <TextField fx:id="Email" layoutX="131.0" layoutY="239.0" prefHeight="27.0" prefWidth="272.0" />
-        <Label layoutX="43.0" layoutY="241.0" prefHeight="22.0" prefWidth="88.0" text="Email:">
+        <TextField fx:id="FirstName" layoutX="74.0" layoutY="306.0" prefHeight="27.0" prefWidth="200.0" promptText="Firstname" style="-fx-background-color: white;" />
+        <TextField fx:id="LastName" layoutX="308.0" layoutY="306.0" prefHeight="27.0" prefWidth="200.0" promptText="Lastname" style="-fx-background-color: white;" />
+        <TextField fx:id="Email" layoutX="74.0" layoutY="401.0" prefHeight="27.0" prefWidth="228.0" promptText="Email" style="-fx-background-color: white;" />
+        <Label layoutX="75.0" layoutY="368.0" prefHeight="22.0" prefWidth="200.0" text="Email:">
             <font>
                 <Font size="17.0" />
             </font></Label>
-        <Label layoutX="43.0" layoutY="187.0" prefHeight="22.0" prefWidth="88.0" text="Lastname:">
+        <Label layoutX="308.0" layoutY="274.0" prefHeight="22.0" prefWidth="200.0" text="Last Name:">
             <font>
                 <Font size="17.0" />
             </font></Label>
-        <Label cacheShape="false" layoutX="43.0" layoutY="35.0" prefHeight="35.0" prefWidth="342.0" text="Passenger Registration">
+        <Label cacheShape="false" layoutX="74.0" layoutY="187.0" prefHeight="35.0" prefWidth="342.0" text="Passenger Details">
             <font>
-                <Font name="System Bold" size="24.0" />
+                <Font name="Tahoma Bold" size="24.0" />
             </font></Label>
-        <Separator layoutX="43.0" layoutY="86.0" prefHeight="1.0" prefWidth="359.0" style="-fx-background-color: black;" />
-        <Label layoutX="43.0" layoutY="288.0" prefHeight="22.0" prefWidth="88.0" text="Phone:">
+        <Label layoutX="308.0" layoutY="368.0" prefHeight="22.0" prefWidth="200.0" text="Phone Number:">
             <font>
                 <Font size="17.0" />
             </font>
         </Label>
-        <TextField fx:id="TelNumber" layoutX="131.0" layoutY="286.0" prefHeight="27.0" prefWidth="272.0" />
+        <TextField fx:id="TelNumber" layoutX="317.0" layoutY="401.0" prefHeight="27.0" prefWidth="200.0" promptText="Phone" style="-fx-background-color: white;" />
+            <Label alignment="CENTER" layoutX="642.0" layoutY="46.0" prefHeight="52.0" prefWidth="184.0" text="Shopping Cart">
+                <font>
+                    <Font name="Tahoma Bold" size="20.0" />
+                </font>
+            </Label>
+      <Separator layoutX="75.0" layoutY="353.0" prefHeight="3.0" prefWidth="200.0" />
+      <Separator layoutX="308.0" layoutY="352.0" prefWidth="200.0" />
+      <Separator layoutX="74.0" layoutY="440.0" prefWidth="200.0" />
+      <Separator layoutX="308.0" layoutY="442.0" prefHeight="3.0" prefWidth="200.0" />
+      <Separator layoutX="579.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="644.0" prefWidth="6.0" />
+      <Separator layoutX="582.0" layoutY="352.0" prefHeight="3.0" prefWidth="459.0" />
+      <Label layoutX="661.0" layoutY="406.0" text="Subtotal:" />
+      <Label layoutX="658.0" layoutY="455.0" text="Seatprice:" />
+      <Label layoutX="661.0" layoutY="496.0" text="Food:" />
+      <Label layoutX="660.0" layoutY="541.0" text="Total">
+         <font>
+            <Font name="Tahoma Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="Subtotal" layoutX="864.0" layoutY="406.0" text="100kr" />
+      <Label fx:id="seatPrice" layoutX="867.0" layoutY="455.0" text="50kr" />
+      <Label fx:id="FoodPrice" layoutX="867.0" layoutY="496.0" text="50kr" />
+      <Label fx:id="TotalPrice" layoutX="867.0" layoutY="541.0" text="200kr">
+         <font>
+            <Font name="Tahoma Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="664.0" layoutY="157.0" text="FLIGHT">
+         <font>
+            <Font name="Tahoma Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="FlightName" layoutX="671.0" layoutY="196.0" text="Label" />
+      <Label fx:id="From" layoutX="797.0" layoutY="196.0" text="Label" />
+      <Label fx:id="to" layoutX="911.0" layoutY="196.0" text="Label" />
+      <Label fx:id="seat" layoutX="671.0" layoutY="275.0" text="Label" />
+      <Label fx:id="ClassType" layoutX="797.0" layoutY="275.0" text="Label" />
+      <Label fx:id="Food" layoutX="912.0" layoutY="277.0" text="Label" />
+      <Label layoutX="787.0" layoutY="158.0" text="FROM">
+         <font>
+            <Font name="Tahoma Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="907.0" layoutY="158.0" text="TO">
+         <font>
+            <Font name="Tahoma Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="906.0" layoutY="242.0" text="FOOD">
+         <font>
+            <Font name="Tahoma Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="787.0" layoutY="242.0" text="CLASS">
+         <font>
+            <Font name="Tahoma Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="666.0" layoutY="242.0" text="SEAT">
+         <font>
+            <Font name="Tahoma Bold" size="13.0" />
+         </font>
+      </Label>
+      <Circle fill="WHITE" layoutX="494.0" layoutY="98.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#37a1ff" layoutX="372.0" layoutY="98.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#37a1ff" layoutX="233.0" layoutY="98.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="#37a1ff" layoutX="96.0" layoutY="98.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="35.0" layoutX="334.0" layoutY="98.0" startX="-100.0" stroke="#0088ff" style="-fx-blend-mode: #37a1ff;" />
+      <Line endX="83.0" endY="-6.0" layoutX="402.0" layoutY="104.0" startX="-21.0" startY="-6.0" />
+      <Label layoutX="82.0" layoutY="117.0" text="Flight" />
+      <Label layoutX="479.0" layoutY="119.0" text="Payment" />
+      <Label layoutX="355.0" layoutY="119.0" text="Passenger" />
+      <Label layoutX="209.0" layoutY="119.0" text="Seat" />
     </children>
 </AnchorPane>

@@ -13,8 +13,6 @@ public class passengerViewModel {
     private StringProperty TelNumber;
     private StringProperty Email;
 
-
-
     public passengerViewModel(ClientText clientText) {
         this.clientText = clientText;
         FirstName = new SimpleStringProperty();

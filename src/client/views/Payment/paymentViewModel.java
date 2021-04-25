@@ -27,9 +27,6 @@ public class paymentViewModel {
         this.clientText = clientText;
         clientText.addListener(utils.NEWTICKET, this::onNewTicket);
 
-        //clientText.addListener(utils.NEWTICKET, this::onNewTicket);
-
-
         CardholderName = new SimpleStringProperty();
         CardNumber = new SimpleStringProperty();
         CVV = new SimpleStringProperty();
@@ -61,7 +58,6 @@ public class paymentViewModel {
 
     }
 
-
     public void getPaymentInformation() {
         String CardholderName = this.CardholderName.getValue();
         String CardNumber = this.CardNumber.getValue();
@@ -69,7 +65,6 @@ public class paymentViewModel {
         String ExpirationDate = this.ExpirationDate.getValue();
         clientText.payment(CardholderName,CardNumber,CVV,ExpirationDate);
     }
-
 
     public String getFirstName() {
         return FirstName.get();
@@ -134,4 +129,7 @@ public class paymentViewModel {
     public StringProperty expirationDateProperty() {
         return ExpirationDate;
     }
+
+
+
 }

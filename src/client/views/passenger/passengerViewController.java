@@ -5,22 +5,33 @@ import client.core.ViewModelFactory;
 import client.views.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
-import shared.transferobjects.myFlightTicket;
 
 public class passengerViewController implements ViewController {
 
+    //passenger information
     @FXML public TextField FirstName;
     @FXML public TextField LastName;
     @FXML public TextField TelNumber;
     @FXML public TextField Email;
 
+    //shopping cart
+    @FXML public Label FlightName;
+    @FXML public Label From;
+    @FXML public Label to;
+    @FXML public Label seat;
+    @FXML public Label ClassType;
+    @FXML public Label Food;
+
+    //price information
+    @FXML public Label Subtotal;
+    @FXML public Label seatPrice;
+    @FXML public Label FoodPrice;
+    @FXML public Label TotalPrice;
+
     private ViewHandler vh;
     private passengerViewModel pv;
-    private myFlightTicket myFlightTicket;
 
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
@@ -42,13 +53,9 @@ public class passengerViewController implements ViewController {
 
     public void onOrder(ActionEvent actionEvent) {
         pv.getPassengerInformation();
-      System.out.println();
         pv.finish();
-
-    }
-
-
-    public void OnLogin(ActionEvent actionEvent) {
         vh.openLoginView();
     }
+
+
 }

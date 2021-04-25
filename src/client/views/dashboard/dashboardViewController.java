@@ -23,6 +23,8 @@ public class dashboardViewController implements ViewController {
     @FXML public TableColumn <String, flights> toColumn;
     @FXML public TableColumn<String, flights> planeType;
 
+    // TODO: 25/04/2021 læg price
+
     private ViewHandler vh;
     private dashboardViewModel dv;
 

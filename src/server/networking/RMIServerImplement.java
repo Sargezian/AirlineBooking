@@ -12,7 +12,6 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.sql.Date;
 import java.util.List;
 
 public class RMIServerImplement implements RMIServer {
@@ -128,22 +127,6 @@ public class RMIServerImplement implements RMIServer {
 
     }
 
-    @Override
-    public void registerpassengerToClient(ClientCallBack client) throws RemoteException {
-        PropertyChangeListener listener = null;
-        PropertyChangeListener finalListener = listener;
-        listener = evt -> {
-            try {
-                System.out.println("register passenger to client ");
-                client.updateTicket((myFlightTicket) evt.getNewValue());
-            } catch (RemoteException e) {
-
-                textManager.removeListener(utils.NEWPASSENGER, finalListener);
-            }
-        };
-        textManager.addListener(utils.NEWPASSENGER, listener);
-
-    }
 
     @Override
     public void createTicket(myFlightTicket myFlightTicket) throws RemoteException {

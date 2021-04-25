@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="454.0" prefWidth="587.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.createUser.createUserViewController">
    <children>
       <AnchorPane layoutY="-14.0" prefHeight="572.0" prefWidth="676.0" style="-fx-background-color: white;">
@@ -31,12 +30,13 @@
                   <Image url="@../../../Billeder/—Pngtree—vector%20avatar%20icon_4013749.png" />
                </image>
             </ImageView>
-            <Button cacheShape="false" layoutX="364.0" layoutY="363.0" mnemonicParsing="false" onAction="#onCreateLogin" prefHeight="35.0" prefWidth="153.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Create" textFill="WHITE" />
+            <Button cacheShape="false" layoutX="363.0" layoutY="381.0" mnemonicParsing="false" onAction="#onCreateLogin" prefHeight="35.0" prefWidth="153.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Create" textFill="WHITE" />
             <TextField fx:id="CreateUser" layoutX="204.0" layoutY="212.0" prefHeight="27.0" prefWidth="293.0" promptText="Username" style="-fx-background-color: white;" />
             <Separator layoutX="208.0" layoutY="251.0" prefHeight="3.0" prefWidth="293.0" />
             <PasswordField fx:id="CreatePassword" layoutX="204.0" layoutY="286.0" prefHeight="27.0" prefWidth="293.0" promptText="Password" style="-fx-background-color: white;" />
             <Separator layoutX="208.0" layoutY="323.0" prefHeight="3.0" prefWidth="293.0" />
-            <Button cacheShape="false" layoutX="179.0" layoutY="363.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="35.0" prefWidth="153.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Cancel" textFill="WHITE" />
+            <Button cacheShape="false" layoutX="179.0" layoutY="381.0" mnemonicParsing="false" onAction="#onCancel" prefHeight="35.0" prefWidth="153.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Cancel" textFill="WHITE" />
+            <Label fx:id="Error" layoutX="208.0" layoutY="342.0" text="Error" />
          </children>
       </AnchorPane>
    </children>
