@@ -41,10 +41,15 @@ public class passengerViewController implements ViewController {
         LastName.textProperty().bindBidirectional(pv.lastNameProperty());
         TelNumber.textProperty().bindBidirectional(pv.telNumberProperty());
         Email.textProperty().bindBidirectional(pv.emailProperty());
-        /*pv.loadPassenger();
-        *//*passengerIDColumn.setCellValueFactory(new PropertyValueFactory<>("passengerID"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));*//*
-        tableView.setItems(pv.getPassengers());*/
+        FlightName.textProperty().bind(pv.flightNameProperty());
+        From.textProperty().bind(pv.fromProperty());
+        to.textProperty().bind(pv.toProperty());
+        seat.textProperty().bind(pv.seatProperty());
+        ClassType.textProperty().bind(pv.classTypeProperty());
+        pv.SetShoppingCart();
+
+
+
     }
 
     public void onBack(ActionEvent actionEvent) {

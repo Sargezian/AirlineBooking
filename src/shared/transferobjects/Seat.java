@@ -14,6 +14,12 @@ public class Seat implements Serializable {
         this.classType = classType;
     }
 
+    public Seat(String seatNumber, String classType) {
+
+        this.seatNumber = seatNumber;
+        this.classType = classType;
+    }
+
     public int getSeatID() {
         return seatID;
     }

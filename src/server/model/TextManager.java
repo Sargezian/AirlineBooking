@@ -18,7 +18,9 @@ public interface TextManager extends Subject {
     //Seat seat(String seatNumber, String classType);
     boolean ValidateUser(String user, String password) ;
 
+
     List<flights> getflights();
+    List<flights> readByName(String searchString);
 
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email);
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);
@@ -32,6 +34,18 @@ public interface TextManager extends Subject {
 
 
     void createTicket(myFlightTicket myFlightTicket);
+
+
+    flights readFlightsFromShoppingCart(String flightName, String from, String to);
+    Seat readSeatFromShoppingCart(String seatNumber,String classType);
+
+
+
+
+
+
+
+
 
 
 }

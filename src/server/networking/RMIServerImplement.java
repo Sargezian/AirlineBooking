@@ -50,6 +50,16 @@ public class RMIServerImplement implements RMIServer {
         return textManager.getflightlist();
     }
 
+    @Override
+    public flights readFlightsFromShoppingCart(String flightName, String from, String to) throws RemoteException {
+        return textManager.readFlightsFromShoppingCart(flightName,from,to);
+    }
+
+    @Override
+    public Seat readSeatFromShoppingCart(String seatNumber, String classType) throws RemoteException {
+        return textManager.readSeatFromShoppingCart(seatNumber,classType);
+    }
+
     @Override public Passenger passernger(String FirstName, String LastName,
                                           String TelNumber, String email)
     {
@@ -127,6 +137,23 @@ public class RMIServerImplement implements RMIServer {
 
     }
 
+    @Override
+    public void registerFlightToClient(ClientCallBack client) throws RemoteException {
+        PropertyChangeListener listener = null;
+        PropertyChangeListener finalListener = listener;
+        listener = evt -> {
+            try {
+                System.out.println("register ticket to client ");
+                client.updateFlight((flights) evt.getNewValue());
+            } catch (RemoteException e) {
+
+                textManager.removeListener(utils.NEWFLIGHT, finalListener);
+            }
+        };
+        textManager.addListener(utils.NEWFLIGHT, listener);
+
+    }
+
 
     @Override
     public void createTicket(myFlightTicket myFlightTicket) throws RemoteException {
@@ -136,6 +163,11 @@ public class RMIServerImplement implements RMIServer {
     @Override
     public List<flights> getflights() {
         return textManager.getflights();
+    }
+
+    @Override
+    public List<flights> readByName(String searchString) throws RemoteException {
+        return textManager.readByName(searchString);
     }
 
     @Override

@@ -3,7 +3,12 @@ package client.views.passenger;
 import client.model.ClientText;
 import client.model.SaveInfo;
 import javafx.beans.property.*;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import shared.transferobjects.*;
+import shared.util.utils;
+
+import java.beans.PropertyChangeEvent;
 
 public class passengerViewModel {
 
@@ -13,13 +18,68 @@ public class passengerViewModel {
     private StringProperty TelNumber;
     private StringProperty Email;
 
+
+    private StringProperty FlightName;
+    private StringProperty From;
+    private StringProperty to;
+
+
+    private StringProperty seat;
+    private StringProperty ClassType;
+    private StringProperty Food;
+
+
+
     public passengerViewModel(ClientText clientText) {
         this.clientText = clientText;
         FirstName = new SimpleStringProperty();
         LastName = new SimpleStringProperty();
         TelNumber = new SimpleStringProperty();
         Email = new SimpleStringProperty();
+        FlightName = new SimpleStringProperty();
+        From = new SimpleStringProperty();
+        to = new SimpleStringProperty();
+        seat = new SimpleStringProperty();
+        ClassType = new SimpleStringProperty();
+        Food = new SimpleStringProperty();
+        clientText.addListener(utils.NEWTICKET, this::onNewTicket);
     }
+
+    private void onNewTicket(PropertyChangeEvent event) {
+         SetShoppingCart();
+
+    }
+
+
+    public void SetShoppingCart() {
+
+        flights flights = SaveInfo.getInstance().getFlights();
+        Seat seat = SaveInfo.getInstance().getSeat();
+
+
+        clientText.readFlightsFromShoppingCart(flights.flightName,flights.from,flights.to);
+        clientText.readSeatFromShoppingCart(seat.seatNumber,seat.classType);
+
+        FlightName.setValue(flights.flightName);
+        From.setValue(flights.from);
+        to.setValue(flights.to);
+
+        this.seat.setValue(seat.seatNumber);
+        ClassType.setValue(seat.classType);
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     public void getPassengerInformation() {
 
@@ -44,6 +104,54 @@ public class passengerViewModel {
 
         myFlightTicket myFlightTicket1 = new myFlightTicket(1, ft.price, pg,ft,st);
         clientText.createTicket(myFlightTicket1);
+    }
+
+    public String getFlightName() {
+        return FlightName.get();
+    }
+
+    public StringProperty flightNameProperty() {
+        return FlightName;
+    }
+
+    public String getFrom() {
+        return From.get();
+    }
+
+    public StringProperty fromProperty() {
+        return From;
+    }
+
+    public String getTo() {
+        return to.get();
+    }
+
+    public StringProperty toProperty() {
+        return to;
+    }
+
+    public String getSeat() {
+        return seat.get();
+    }
+
+    public StringProperty seatProperty() {
+        return seat;
+    }
+
+    public String getClassType() {
+        return ClassType.get();
+    }
+
+    public StringProperty classTypeProperty() {
+        return ClassType;
+    }
+
+    public String getFood() {
+        return Food.get();
+    }
+
+    public StringProperty foodProperty() {
+        return Food;
     }
 
     public String getEmail() {

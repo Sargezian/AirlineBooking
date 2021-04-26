@@ -68,6 +68,11 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
+    public List<flights> readByName(String searchString) {
+        return client.readByName(searchString);
+    }
+
+    @Override
     public List<Seat> getSeat() {
             return client.getSeat();
     }
@@ -97,6 +102,16 @@ public class ClientTextManager implements ClientText {
     @Override
     public Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) {
         return client.payment(cardholderName,cardNumber,CVV,expirationDate);
+    }
+
+    @Override
+    public flights readFlightsFromShoppingCart(String flightName, String from, String to) {
+        return client.readFlightsFromShoppingCart(flightName,from,to);
+    }
+
+    @Override
+    public Seat readSeatFromShoppingCart(String seatNumber, String classType) {
+        return client.readSeatFromShoppingCart(seatNumber,classType);
     }
     /*@Override
     public List<myFlightTicket> ReadPriceSUM() {

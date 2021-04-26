@@ -34,11 +34,22 @@ public class loginViewController implements ViewController {
     }
 
     public void onkald(ActionEvent actionEvent) {
-        System.exit(1);
+      //  System.exit(1);
+        vh.openPassengerView();
     }
 
     public void OnSignIn(ActionEvent actionEvent) {
         vh.openCreateUserView();
     }
+
+
+    // TODO: 26-04-2021          login skal skelne mellem dashbord og payment
+
+
+
+
+
+
+
 }
 

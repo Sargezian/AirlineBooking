@@ -17,6 +17,7 @@ public interface ClientText extends Subject {
     List<InputUser> getUser();
 
     List<flights> getflights();
+    List<flights> readByName(String searchString);
 
     List<Seat> getSeat();
 
@@ -30,6 +31,12 @@ public interface ClientText extends Subject {
 
 
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate);
+
+
+
+    flights readFlightsFromShoppingCart(String flightName, String from, String to);
+    Seat readSeatFromShoppingCart(String seatNumber,String classType);
+
 
 
 

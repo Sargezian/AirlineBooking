@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import shared.transferobjects.flights;
 
@@ -22,6 +23,7 @@ public class dashboardViewController implements ViewController {
     @FXML public TableColumn <String, flights> fromColumn;
     @FXML public TableColumn <String, flights> toColumn;
     @FXML public TableColumn<String, flights> planeType;
+   @FXML public TextField SearchField;
 
     // TODO: 25/04/2021 læg price
 
@@ -41,6 +43,9 @@ public class dashboardViewController implements ViewController {
         fromColumn.setCellValueFactory(new PropertyValueFactory<>("From"));
         toColumn.setCellValueFactory(new PropertyValueFactory<>("To"));
         tableView.setItems(dv.getflight());
+        SearchField.textProperty().bindBidirectional(dv.searchProperty());
+
+
     }
 
     public void OnLogin(ActionEvent actionEvent) {
@@ -57,5 +62,9 @@ public class dashboardViewController implements ViewController {
         dv.getFlightInformation(tableView.getSelectionModel().getSelectedItem());
         vh.openSeat();
 
+    }
+
+    public void sew(ActionEvent actionEvent) {
+         dv.se();
     }
 }

@@ -63,6 +63,44 @@ public class FlightImpl implements FlightDao {
    return null;
  }
 
+  @Override
+  public List<flights> readByName(String searchString) {
+    try {
+
+      try (Connection connection = daoConnection.getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM flights WHERE flightName LIKE ? ");
+        statement.setString(1,"%" + searchString +"%");
+        ResultSet resultSet = statement.executeQuery();
+
+        ArrayList<flights> flightlist = new ArrayList<>();
+        while (resultSet.next()) {
+          int flightID = resultSet.getInt("flightID");
+          String flightName = resultSet.getString("flightName");
+          String planeType = resultSet.getString("planeType");
+
+
+          Timestamp departure = resultSet.getTimestamp("departure");
+          Timestamp arrival = resultSet.getTimestamp("arrival");
+
+
+
+          String from = resultSet.getString("from_");
+          String to = resultSet.getString("to_");
+          int price = resultSet.getInt("price");
+
+
+
+          flights flights = new flights(flightID, flightName,planeType, departure, arrival, from, to,price);
+          flightlist.add(flights);
+        }
+        return flightlist;
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
 }
 
 
