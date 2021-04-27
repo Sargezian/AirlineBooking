@@ -10,4 +10,6 @@ public interface FlightDao
 
   List<flights> getflights();
 
+  List<flights> readByName(String searchString);
+
 }

@@ -13,12 +13,17 @@ public interface ClientText extends Subject {
     List<InputChat> getChat();
 
     InputUser username(String user, String password);
+
+    boolean ValidateUser(String user, String password) ;
     List<InputUser> getUser();
 
     List<flights> getflights();
+    List<flights> readByName(String searchString);
 
     List<Seat> getSeat();
     Seat getSeatId(String seatID);
+
+
 
     //Seat seat(String seatNumber, String classType);
 
@@ -31,8 +36,14 @@ public interface ClientText extends Subject {
 
 
 
+    flights readFlightsFromShoppingCart(String flightName, String from, String to);
+    Seat readSeatFromShoppingCart(String seatNumber,String classType);
+
+
+
+
     /* List<myFlightTicket> ReadPriceSUM();*/
-    List<myFlightTicket> getflightlist();
+    List<myFlightTicket> getflightlist(int passengerID);
     void createTicket(myFlightTicket myFlightTicket);
 
 

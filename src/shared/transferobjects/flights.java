@@ -29,6 +29,15 @@ public class flights implements Serializable {
         this.planeType = planeType;
     }
 
+    public flights(String flightName, String from, String to) {
+        this.flightName = flightName;
+        this.from = from;
+        this.to = to;
+
+
+    }
+
+
     public String getPlaneType()
     {
         return planeType;

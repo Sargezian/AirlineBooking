@@ -36,6 +36,7 @@ public class RMIClient implements Client, ClientCallBack
       server.registerChatToClient(this);
       server.registerUserToClient(this);
       server.registerTicketToClient(this);
+      server.registerFlightToClient(this);
       //server.registerpassengerToClient(this);
 
     }
@@ -105,6 +106,18 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
+  @Override
+  public List<flights> readByName(String searchString) {
+    try
+    {
+      return server.readByName(searchString);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
   @Override public List<Seat> getSeat()
   {
     try
@@ -117,11 +130,11 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
-  @Override public Seat getSeatId(String seatID)
-  {
+  @Override
+  public boolean ValidateUser(String user, String password) {
     try
     {
-      return server.getSeatId(seatID);
+      return server.ValidateUser(user,password);
     }
     catch (RemoteException e)
     {
@@ -142,11 +155,11 @@ public class RMIClient implements Client, ClientCallBack
   }*/
 
 
-  @Override public List<myFlightTicket> getflightlist()
+  @Override public List<myFlightTicket> getflightlist(int passengerID)
   {
     try
     {
-      return server.getflightlist();
+      return server.getflightlist(passengerID);
     }
     catch (RemoteException e)
     {
@@ -218,6 +231,30 @@ public class RMIClient implements Client, ClientCallBack
 
   }
 
+  @Override
+  public flights readFlightsFromShoppingCart(String flightName, String from, String to) {
+    try
+    {
+      return server.readFlightsFromShoppingCart(flightName,from,to);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  @Override
+  public Seat readSeatFromShoppingCart(String seatNumber, String classType) {
+    try
+    {
+      return server.readSeatFromShoppingCart(seatNumber,classType);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
   @Override public void updateChat(InputChat entry) throws RemoteException
   {
     support.firePropertyChange(utils.NEWCHAT, null, entry);
@@ -237,6 +274,11 @@ public class RMIClient implements Client, ClientCallBack
 
   }
 
+  @Override
+  public void updateFlight(flights flights) throws RemoteException {
+    support.firePropertyChange(utils.NEWFLIGHT,null, flights);
+
+  }
 
 
   @Override public void addListener(String eventName,

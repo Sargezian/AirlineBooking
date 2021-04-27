@@ -51,12 +51,13 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
 
 
     @Override
-    public List<myFlightTicket> ReadFlightList()  {
+    public List<myFlightTicket> ReadFlightList(int passengerID)  {
 
         try{
 
             try (Connection connection = daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID join passenger p on mFT.passengerid = p.passengerid join seat s on s.seatid = mFT.seatid  ");
+                PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID join passenger p on mFT.passengerid = p.passengerid join seat s on s.seatid = mFT.seatid where p.passengerID = ?  ");
+                statement.setInt(1,passengerID);
                 ResultSet resultSet = statement.executeQuery();
 
                 ArrayList<myFlightTicket> myFlightTickets = new ArrayList<>();
@@ -70,8 +71,7 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
                     String to = resultSet.getString("to_");
                     int ticketid = resultSet.getInt("ticketid");
                     int price = resultSet.getInt("price");
-                    int passengerID = resultSet.getInt("passengerid");
-                    String seatId = resultSet.getString("seatid");
+                    int seatId = resultSet.getInt("seatid");
                     String FirstName = resultSet.getString("FirstName");
                     String LastName = resultSet.getString("LastName");
                     String TelNumber = resultSet.getString("TelNumber");
@@ -100,7 +100,7 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
 
                 statement.setInt(1, myFlightTicket.getFlights().getFlightID());
                 statement.setInt(2, myFlightTicket.getPassenger().getPassengerID());
-                statement.setString(3, myFlightTicket.getSeat().getSeatID());
+                statement.setInt(3, myFlightTicket.getSeat().getSeatID());
                 statement.setInt(4, myFlightTicket.getPrice());
 
                 statement.executeUpdate();

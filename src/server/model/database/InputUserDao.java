@@ -9,7 +9,7 @@ public interface InputUserDao {
     InputUser createUser(String user, String password) ;
     List<InputUser> readUser();
 
-    InputUser ValidateUser(String user, String password) ;
+   boolean ValidateUser(String user, String password) ;
 
 
 }

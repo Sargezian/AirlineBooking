@@ -24,6 +24,7 @@ public class TextManagerImpl implements TextManager{
     private PassengerDao passengerDao;
     private SeatDao seatDao;
     private PaymentDao paymentDao;
+    private ShoppingCartDao shoppingCartDao;
 
     public TextManagerImpl() {
         support = new PropertyChangeSupport(this);
@@ -39,17 +40,20 @@ public class TextManagerImpl implements TextManager{
         passengerDao = PassengerImpl.getInstance();
         seatDao = SeatImpl.getInstance();
         paymentDao = PaymentImpl.getInstance();
+        shoppingCartDao = ShoppingCartImpl.getInstance();
 
     }
 
     @Override
-    public InputUser username(String user, String password) {
+    public InputUser CreateUser(String user, String password) {
         InputUser inputUser = new InputUser(user, password);
         userNameList.add(inputUserDao.createUser(user,password));
         support.firePropertyChange(utils.NEWUSER, null, inputUser);
         System.out.println("support.getPropertyChangeListeners().length:" + support.getPropertyChangeListeners().length);
         return inputUser;
     }
+
+
 
     @Override
     public InputChat sendMsg(String str) {
@@ -70,9 +74,9 @@ public class TextManagerImpl implements TextManager{
         return new ArrayList<>(seatDao.getSeat());
     }
 
-    @Override public Seat getSeatId(String seatID)
-    {
-        return seatDao.getSeatId(seatID);
+    @Override
+    public boolean ValidateUser(String user, String password) {
+        return inputUserDao.ValidateUser(user,password);
     }
 
     /*@Override
@@ -90,7 +94,13 @@ public class TextManagerImpl implements TextManager{
 
     @Override
     public List<flights> getflights() {
+
         return new ArrayList<>(dao.getflights());
+    }
+
+    @Override
+    public List<flights> readByName(String searchString) {
+        return dao.readByName(searchString);
     }
 
     @Override public Passenger passernger(String FirstName, String LastName, String TelNumber, String email) {
@@ -120,11 +130,20 @@ public class TextManagerImpl implements TextManager{
 
     }
 
+    @Override
+    public flights readFlightsFromShoppingCart(String flightName, String from, String to) {
+        return shoppingCartDao.readFlightsFromShoppingCart(flightName,from,to);
+    }
+
+    @Override
+    public Seat readSeatFromShoppingCart(String seatNumber, String classType) {
+        return shoppingCartDao.readSeatFromShoppingCart(seatNumber,classType);
+    }
 
 
     @Override
-    public List<myFlightTicket> getflightlist() {
-        return new ArrayList<>(myFlightTicketDao.ReadFlightList());
+    public List<myFlightTicket> getflightlist(int passengerID) {
+        return new ArrayList<>(myFlightTicketDao.ReadFlightList(passengerID));
     }
 
     @Override
