@@ -117,6 +117,18 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
+  @Override public Seat getSeatId(String seatID)
+  {
+    try
+    {
+      return server.getSeatId(seatID);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
   /*@Override
   public Seat seat(String seatNumber, String classType) {
     try

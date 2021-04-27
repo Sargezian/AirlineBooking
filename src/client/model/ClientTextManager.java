@@ -67,6 +67,12 @@ public class ClientTextManager implements ClientText {
             return client.getSeat();
     }
 
+    @Override public Seat getSeatId(String seatID)
+    {
+        System.out.println("Her er vi i getseat" + client.getSeatId(seatID));
+        return client.getSeatId(seatID);
+    }
+
    /* @Override
     public Seat seat(String seatNumber, String classType) {
         return client.seat(seatNumber,classType);

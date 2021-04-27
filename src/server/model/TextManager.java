@@ -16,7 +16,7 @@ public interface TextManager extends Subject {
 
     List<Seat> getSeat();
     //Seat seat(String seatNumber, String classType);
-
+    Seat getSeatId(String seatID);
 
     List<flights> getflights();
 

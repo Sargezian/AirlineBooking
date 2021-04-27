@@ -3,6 +3,7 @@ package client.model;
 import shared.transferobjects.*;
 import shared.util.Subject;
 
+import java.rmi.RemoteException;
 import java.sql.Date;
 import java.util.List;
 
@@ -17,6 +18,7 @@ public interface ClientText extends Subject {
     List<flights> getflights();
 
     List<Seat> getSeat();
+    Seat getSeatId(String seatID);
 
     //Seat seat(String seatNumber, String classType);
 

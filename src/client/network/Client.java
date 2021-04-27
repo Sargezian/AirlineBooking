@@ -18,6 +18,7 @@ public interface Client extends Subject {
 
     List<Seat> getSeat();
     //Seat seat(String seatNumber, String classType);
+    Seat getSeatId(String seatID);
 
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email);
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);

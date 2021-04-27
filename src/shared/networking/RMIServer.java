@@ -19,6 +19,7 @@ public interface RMIServer extends Remote {
 
     List<Seat> getSeat() throws RemoteException;
     //Seat seat(String seatNumber, String classType) throws RemoteException;
+    Seat getSeatId(String seatID) throws RemoteException;
 
 
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email) throws RemoteException;

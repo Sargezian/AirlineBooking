@@ -64,7 +64,7 @@ public class myFlightTicket implements Serializable {
         return passenger.passengerID;
     }
 
-    public int getSeatID() {
+    public String getSeatID() {
         return seat.seatID;
     }
 

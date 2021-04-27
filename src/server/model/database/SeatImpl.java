@@ -1,5 +1,6 @@
 package server.model.database;
 
+import shared.transferobjects.Passenger;
 import shared.transferobjects.Seat;
 
 import java.sql.Connection;
@@ -31,9 +32,10 @@ public class SeatImpl implements SeatDao {
 
                 ArrayList<Seat> Seats = new ArrayList<>();
                 while (resultSet.next()) {
-                    int seatID = resultSet.getInt("seatID");
+                    String seatID = resultSet.getString("seatID");
                     String seatNumber = resultSet.getString("seatNumber");
                     String classType = resultSet.getString("classType");
+                    //Linje 38 skal måske kun have seat ID
                     Seat seat = new Seat(seatID, seatNumber, classType);
                     Seats.add(seat);
                 }
@@ -45,6 +47,33 @@ public class SeatImpl implements SeatDao {
         return null;
     }
 
+
+
+
+    public Seat getSeatId(String seatID) {
+        try {
+            try (Connection connection = daoConnection.getConnection()) {
+                PreparedStatement statement = connection.prepareStatement("INSERT INTO Seat(seatID) VALUES (?) ");
+                statement.setString(1, seatID);
+                statement.executeUpdate();
+                ResultSet key = statement.getGeneratedKeys();
+
+                if (key.next()) {
+
+                    return new Seat(seatID);
+                } else {
+
+                    throw new SQLException("Her bliver det testet på at lave en ny seat");
+
+                }
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+
+}
    /* @Override
     public Seat CreateSeat(String seatNumber, String classType) {
         try {
@@ -71,4 +100,4 @@ public class SeatImpl implements SeatDao {
     }*/
 
 
-}
+

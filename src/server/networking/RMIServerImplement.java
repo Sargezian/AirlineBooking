@@ -143,6 +143,11 @@ public class RMIServerImplement implements RMIServer {
         return textManager.getSeat();
     }
 
+    @Override public Seat getSeatId(String seatID) throws RemoteException
+    {
+        return textManager.getSeatId(seatID);
+    }
+
    /* @Override
     public Seat seat(String seatNumber, String classType) throws RemoteException {
         return textManager.seat(seatNumber,classType);

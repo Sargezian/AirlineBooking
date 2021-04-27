@@ -70,6 +70,11 @@ public class TextManagerImpl implements TextManager{
         return new ArrayList<>(seatDao.getSeat());
     }
 
+    @Override public Seat getSeatId(String seatID)
+    {
+        return seatDao.getSeatId(seatID);
+    }
+
     /*@Override
     public Seat seat(String seatNumber, String classType) {
         Seat seat;

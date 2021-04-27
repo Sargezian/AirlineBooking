@@ -4,18 +4,38 @@ import client.model.ClientText;
 import client.model.SaveInfo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import shared.transferobjects.Seat;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class seatViewModel {
 
     private ClientText clientText;
     private ObservableList<Seat> Seats;
+    private ArrayList<Pane> selectedPane = new ArrayList<>();
+
+
 
     public seatViewModel(ClientText clientText) {
         this.clientText = clientText;
         //SaveInfo.getInstance().setSeat(clientText.seat(seatNumber,classType));
+    }
+
+
+
+    public void SetSeatId(MouseEvent mouseEvent)
+    {
+        Pane pane = (Pane) mouseEvent.getSource();
+        selectedPane = new ArrayList<>();
+        String id = (pane.idProperty().get());
+        pane.setStyle("-fx-background-color:red;");
+        System.out.println(id);
+
+        SaveInfo.getInstance().setSeat(clientText.getSeatId(id));
+        System.out.println("Dette er seat id " + clientText.getSeatId(id));
     }
 
     public void loadSeat() {
@@ -27,6 +47,9 @@ public class seatViewModel {
     public ObservableList<Seat> getSeat() {
         return Seats;
     }
+
+
+
 
     public void getSeatInformation(Seat seat) {
         SaveInfo.getInstance().setSeat(seat);

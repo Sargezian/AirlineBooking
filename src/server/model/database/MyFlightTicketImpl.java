@@ -71,7 +71,7 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
                     int ticketid = resultSet.getInt("ticketid");
                     int price = resultSet.getInt("price");
                     int passengerID = resultSet.getInt("passengerid");
-                    int seatId = resultSet.getInt("seatid");
+                    String seatId = resultSet.getString("seatid");
                     String FirstName = resultSet.getString("FirstName");
                     String LastName = resultSet.getString("LastName");
                     String TelNumber = resultSet.getString("TelNumber");
@@ -100,7 +100,7 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
 
                 statement.setInt(1, myFlightTicket.getFlights().getFlightID());
                 statement.setInt(2, myFlightTicket.getPassenger().getPassengerID());
-                statement.setInt(3, myFlightTicket.getSeat().getSeatID());
+                statement.setString(3, myFlightTicket.getSeat().getSeatID());
                 statement.setInt(4, myFlightTicket.getPrice());
 
                 statement.executeUpdate();
