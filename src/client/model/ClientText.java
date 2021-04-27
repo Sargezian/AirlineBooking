@@ -21,7 +21,7 @@ public interface ClientText extends Subject {
     List<flights> readByName(String searchString);
 
     List<Seat> getSeat();
-    Seat getSeatId(String seatID);
+    Seat getSeatId(String seatID,String seatNumber, String classType);
 
 
 

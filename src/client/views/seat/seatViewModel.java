@@ -34,8 +34,8 @@ public class seatViewModel {
         pane.setStyle("-fx-background-color:red;");
         System.out.println(id);
 
-        SaveInfo.getInstance().setSeat(clientText.getSeatId(id));
-        System.out.println("Dette er seat id " + clientText.getSeatId(id));
+        SaveInfo.getInstance().setSeat(clientText.getSeatId(id,"Hej","Economy class"));
+
     }
 
     public void loadSeat() {

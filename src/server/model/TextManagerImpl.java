@@ -74,6 +74,12 @@ public class TextManagerImpl implements TextManager{
         return new ArrayList<>(seatDao.getSeat());
     }
 
+    @Override public Seat getSeatID(String seatID, String seatNumber,
+        String classType)
+    {
+       return seatDao.getSeatId(seatID,seatNumber,classType);
+    }
+
     @Override
     public boolean ValidateUser(String user, String password) {
         return inputUserDao.ValidateUser(user,password);

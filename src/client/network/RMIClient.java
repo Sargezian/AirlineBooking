@@ -142,17 +142,17 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
-  /*@Override
-  public Seat seat(String seatNumber, String classType) {
+  @Override
+  public Seat getSeatId(String seatID,String seatNumber, String classType) {
     try
     {
-      return server.seat(seatNumber,classType);
+      return server.getSeatId(seatID,seatNumber,classType);
     }
     catch (RemoteException e)
     {
       throw new RuntimeException("Kunne ikke få fat i server");
     }
-  }*/
+  }
 
 
   @Override public List<myFlightTicket> getflightlist(int passengerID)

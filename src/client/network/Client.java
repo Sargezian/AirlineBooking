@@ -20,7 +20,7 @@ public interface Client extends Subject {
     List<Seat> getSeat();
     boolean ValidateUser(String user, String password) ;
     //Seat seat(String seatNumber, String classType);
-    Seat getSeatId(String seatID);
+    Seat getSeatId(String seatID,String seatNumber, String classType);
 
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email);
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);

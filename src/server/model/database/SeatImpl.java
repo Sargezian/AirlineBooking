@@ -49,18 +49,19 @@ public class SeatImpl implements SeatDao {
 
 
 
-
-    public Seat getSeatId(String seatID) {
+    public Seat getSeatId(String seatID, String seatNumber, String classType) {
         try {
             try (Connection connection = daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("INSERT INTO Seat(seatID) VALUES (?) ");
+                PreparedStatement statement = connection.prepareStatement("INSERT INTO Seat(seatID, seatNumber,classType ) VALUES (?,?,?) ");
                 statement.setString(1, seatID);
+                statement.setString(2,seatNumber);
+                statement.setString(3, classType);
                 statement.executeUpdate();
                 ResultSet key = statement.getGeneratedKeys();
 
                 if (key.next()) {
 
-                    return new Seat(seatID);
+                    return new Seat(seatID, seatNumber,classType);
                 } else {
 
                     throw new SQLException("Her bliver det testet på at lave en ny seat");

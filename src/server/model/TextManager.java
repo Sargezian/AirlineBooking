@@ -15,7 +15,7 @@ public interface TextManager extends Subject {
     List<InputUser> getUser();
 
     List<Seat> getSeat();
-    //Seat seat(String seatNumber, String classType);
+    Seat getSeatID(String seatID,String seatNumber, String classType);
     boolean ValidateUser(String user, String password) ;
 
 
