@@ -29,7 +29,7 @@ public interface Client extends Subject {
 
 
     //List<myFlightTicket> ReadPriceSUM();
-    List<myFlightTicket> getflightlist();
+    List<myFlightTicket> getflightlist(int passengerID);
     void createTicket(myFlightTicket myFlightTicket);
 
     flights readFlightsFromShoppingCart(String flightName, String from, String to);

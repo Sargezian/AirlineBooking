@@ -142,8 +142,8 @@ public class TextManagerImpl implements TextManager{
 
 
     @Override
-    public List<myFlightTicket> getflightlist() {
-        return new ArrayList<>(myFlightTicketDao.ReadFlightList());
+    public List<myFlightTicket> getflightlist(int passengerID) {
+        return new ArrayList<>(myFlightTicketDao.ReadFlightList(passengerID));
     }
 
     @Override

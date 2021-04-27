@@ -1,8 +1,10 @@
 package client.views.myflightplan;
 
 import client.model.ClientText;
+import client.model.SaveInfo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import shared.transferobjects.Passenger;
 import shared.transferobjects.myFlightTicket;
 import shared.util.utils;
 
@@ -14,7 +16,6 @@ public class myflightplanViewModel {
     private ClientText clientText;
     private ObservableList<myFlightTicket> myFlightTickets;
 
-
     public myflightplanViewModel(ClientText clientText) {
         System.out.println("myFlight view model");
         this.clientText = clientText;
@@ -23,7 +24,11 @@ public class myflightplanViewModel {
     }
 
     public void loadMyFlights() {
-        List<myFlightTicket> flight = clientText.getflightlist();
+
+        Passenger pg = SaveInfo.getInstance().getPassenger();
+
+        List<myFlightTicket> flight = clientText.getflightlist(pg.getPassengerID());
+
         myFlightTickets = FXCollections.observableArrayList(flight);
         System.out.println("loadlflights = " + flight);
         //Collections.addAll(, selectedrows);
@@ -35,7 +40,6 @@ public class myflightplanViewModel {
 
     }*/
 
-
     public ObservableList<myFlightTicket> getMyFlightTickets() {
         System.out.println("myFlightTickets = " + myFlightTickets);
         return myFlightTickets;
@@ -44,7 +48,9 @@ public class myflightplanViewModel {
     public void onNewTicket(PropertyChangeEvent evt) {
         // getPassengerInformation(1);
         myFlightTickets.clear();
-        List<myFlightTicket> getflightlist = clientText.getflightlist();
+        Passenger pg = SaveInfo.getInstance().getPassenger();
+
+        List<myFlightTicket> getflightlist = clientText.getflightlist(pg.getPassengerID());
         System.out.println("viewmodel on new passenger" + getflightlist.size());
         myFlightTickets.addAll(getflightlist);
 

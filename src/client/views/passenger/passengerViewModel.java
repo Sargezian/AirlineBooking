@@ -2,9 +2,8 @@ package client.views.passenger;
 
 import client.model.ClientText;
 import client.model.SaveInfo;
+import javafx.application.Platform;
 import javafx.beans.property.*;
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import shared.transferobjects.*;
 import shared.util.utils;
 
@@ -18,13 +17,11 @@ public class passengerViewModel {
     private StringProperty TelNumber;
     private StringProperty Email;
 
-
     private StringProperty FlightName;
     private StringProperty From;
     private StringProperty to;
 
-
-    private StringProperty seat;
+    private StringProperty seatProperty;
     private StringProperty ClassType;
     private StringProperty Food;
 
@@ -39,7 +36,7 @@ public class passengerViewModel {
         FlightName = new SimpleStringProperty();
         From = new SimpleStringProperty();
         to = new SimpleStringProperty();
-        seat = new SimpleStringProperty();
+        seatProperty = new SimpleStringProperty();
         ClassType = new SimpleStringProperty();
         Food = new SimpleStringProperty();
         clientText.addListener(utils.NEWTICKET, this::onNewTicket);
@@ -50,36 +47,26 @@ public class passengerViewModel {
 
     }
 
-
     public void SetShoppingCart() {
 
         flights flights = SaveInfo.getInstance().getFlights();
         Seat seat = SaveInfo.getInstance().getSeat();
 
-
         clientText.readFlightsFromShoppingCart(flights.flightName,flights.from,flights.to);
         clientText.readSeatFromShoppingCart(seat.seatNumber,seat.classType);
 
-        FlightName.setValue(flights.flightName);
-        From.setValue(flights.from);
-        to.setValue(flights.to);
-
-        this.seat.setValue(seat.seatNumber);
-        ClassType.setValue(seat.classType);
-
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                FlightName.setValue(flights.flightName);
+                From.setValue(flights.from);
+                to.setValue(flights.to);
+                seatProperty.setValue(seat.seatNumber);
+                ClassType.setValue(seat.classType);
+            }
+        });
 
     }
-
-
-
-
-
-
-
-
-
-
-
 
     public void getPassengerInformation() {
 
@@ -130,12 +117,12 @@ public class passengerViewModel {
         return to;
     }
 
-    public String getSeat() {
-        return seat.get();
+    public String getSeatProperty() {
+        return seatProperty.get();
     }
 
-    public StringProperty seatProperty() {
-        return seat;
+    public StringProperty seatPropertyProperty() {
+        return seatProperty;
     }
 
     public String getClassType() {

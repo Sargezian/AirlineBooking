@@ -41,7 +41,7 @@ public interface ClientText extends Subject {
 
 
     /* List<myFlightTicket> ReadPriceSUM();*/
-    List<myFlightTicket> getflightlist();
+    List<myFlightTicket> getflightlist(int passengerID);
     void createTicket(myFlightTicket myFlightTicket);
 
 

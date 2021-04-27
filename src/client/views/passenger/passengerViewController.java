@@ -44,7 +44,7 @@ public class passengerViewController implements ViewController {
         FlightName.textProperty().bind(pv.flightNameProperty());
         From.textProperty().bind(pv.fromProperty());
         to.textProperty().bind(pv.toProperty());
-        seat.textProperty().bind(pv.seatProperty());
+        seat.textProperty().bind(pv.seatPropertyProperty());
         ClassType.textProperty().bind(pv.classTypeProperty());
         pv.SetShoppingCart();
 

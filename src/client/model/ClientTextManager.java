@@ -83,8 +83,8 @@ public class ClientTextManager implements ClientText {
     }*/
 
     @Override
-    public List<myFlightTicket> getflightlist() {
-        return client.getflightlist();
+    public List<myFlightTicket> getflightlist(int passengerID) {
+        return client.getflightlist(passengerID);
     }
 
     @Override public Passenger Createpassernger(String FirstName, String LastName,
