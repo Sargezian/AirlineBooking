@@ -15,7 +15,6 @@ public class seatViewModel {
 
     private ClientText clientText;
     private ObservableList<Seat> Seats;
-    private ArrayList<Pane> selectedPane = new ArrayList<>();
 
 
 
@@ -26,7 +25,7 @@ public class seatViewModel {
 
 
 
-    public void SetSeatId(MouseEvent mouseEvent)
+   /* public void SetSeatId(MouseEvent mouseEvent)
     {
         Pane pane = (Pane) mouseEvent.getSource();
         selectedPane = new ArrayList<>();
@@ -36,7 +35,7 @@ public class seatViewModel {
 
         SaveInfo.getInstance().setSeat(clientText.getSeatId(id,"Hej","Economy class"));
 
-    }
+    }*/
 
     public void loadSeat() {
         List<Seat> seat = clientText.getSeat();
