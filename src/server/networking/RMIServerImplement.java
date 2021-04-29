@@ -180,6 +180,12 @@ public class RMIServerImplement implements RMIServer {
         return textManager.ValidateUser(user,password);
     }
 
+    @Override public Seat getSeatId(String seatID, String seatNumber,
+        String classType) throws RemoteException
+    {
+        return textManager.getSeatID(seatID,seatNumber,classType);
+    }
+
    /* @Override
     public Seat seat(String seatNumber, String classType) throws RemoteException {
         return textManager.seat(seatNumber,classType);

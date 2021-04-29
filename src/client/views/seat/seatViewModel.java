@@ -15,7 +15,6 @@ public class seatViewModel {
 
     private ClientText clientText;
     private ObservableList<Seat> Seats;
-    private ArrayList<Pane> selectedPane = new ArrayList<>();
 
 
 
@@ -32,7 +31,7 @@ public class seatViewModel {
 
 
 
-    public void SetSeatId(MouseEvent mouseEvent)
+   /* public void SetSeatId(MouseEvent mouseEvent)
     {
         Pane pane = (Pane) mouseEvent.getSource();
         selectedPane = new ArrayList<>();
@@ -40,9 +39,9 @@ public class seatViewModel {
         pane.setStyle("-fx-background-color:red;");
         System.out.println(id);
 
-        SaveInfo.getInstance().setSeat(clientText.getSeatId(id));
-        System.out.println("Dette er seat id " + clientText.getSeatId(id));
-    }
+        SaveInfo.getInstance().setSeat(clientText.getSeatId(id,"Hej","Economy class"));
+
+    }*/
 
     /*public void loadSeat() {
         List<Seat> seat = clientText.getSeat();

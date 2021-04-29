@@ -22,7 +22,7 @@ public interface RMIServer extends Remote {
 
     boolean ValidateUser(String user, String password) throws RemoteException ;
     //Seat seat(String seatNumber, String classType) throws RemoteException;
-    Seat getSeatId(String seatID) throws RemoteException;
+    Seat getSeatId(String seatID, String seatNumber, String classType) throws RemoteException;
 
 
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email) throws RemoteException;
