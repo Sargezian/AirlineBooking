@@ -13,22 +13,4 @@ public interface ShoppingCartDao {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

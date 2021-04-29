@@ -56,6 +56,8 @@ public class paymentViewModel {
 
         //TODO LAV LISTE
 
+
+
     }
 
     public void getPaymentInformation() {

@@ -24,6 +24,12 @@ public class seatViewModel {
         //SaveInfo.getInstance().setSeat(clientText.seat(seatNumber,classType));
     }
 
+/*
+    public void loadSeat() {
+        List<Pane> panes = clientText.
+
+    }*/
+
 
 
     public void SetSeatId(MouseEvent mouseEvent)
@@ -38,7 +44,7 @@ public class seatViewModel {
         System.out.println("Dette er seat id " + clientText.getSeatId(id));
     }
 
-    public void loadSeat() {
+    /*public void loadSeat() {
         List<Seat> seat = clientText.getSeat();
         Seats = FXCollections.observableArrayList(seat);
         //Collections.addAll(, selectedrows);
@@ -46,13 +52,11 @@ public class seatViewModel {
 
     public ObservableList<Seat> getSeat() {
         return Seats;
-    }
+    }*/
 
 
-
-
-    public void getSeatInformation(Seat seat) {
+    /*public void getSeatInformation(Seat seat) {
         SaveInfo.getInstance().setSeat(seat);
         System.out.println("Save SeatInformation = " + SaveInfo.getInstance());
-    }
+    }*/
 }

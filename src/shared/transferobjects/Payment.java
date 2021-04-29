@@ -18,7 +18,6 @@ public class Payment implements Serializable {
         this.CardNumber = cardNumber;
         this.CVV = CVV;
         this.ExpirationDate = expirationDate;
-
     }
 
     public Payment( myFlightTicket myFlightTicket) {

@@ -26,7 +26,6 @@ public class passengerViewModel {
     private StringProperty Food;
 
 
-
     public passengerViewModel(ClientText clientText) {
         this.clientText = clientText;
         FirstName = new SimpleStringProperty();
@@ -42,10 +41,11 @@ public class passengerViewModel {
         clientText.addListener(utils.NEWTICKET, this::onNewTicket);
     }
 
+
     private void onNewTicket(PropertyChangeEvent event) {
          SetShoppingCart();
-
     }
+
 
     public void SetShoppingCart() {
 
