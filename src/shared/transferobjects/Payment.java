@@ -10,7 +10,7 @@ public class Payment implements Serializable {
 
     public int PaymentID;
     public String CardholderName, CardNumber, CVV, ExpirationDate;
-    private myFlightTicket myFlightTicket;
+    private flights flights;
 
     public Payment(int paymentID, String cardholderName, String cardNumber, String CVV, String expirationDate) {
         this.PaymentID = paymentID;
@@ -20,12 +20,12 @@ public class Payment implements Serializable {
         this.ExpirationDate = expirationDate;
     }
 
-    public Payment( myFlightTicket myFlightTicket) {
-        this.myFlightTicket = myFlightTicket;
+    public Payment(flights flights) {
+        this.flights = flights;
     }
 
     public int getPrice(){
-        return myFlightTicket.getPrice();
+        return flights.price;
     }
 
     public int getPaymentID() {
@@ -56,7 +56,7 @@ public class Payment implements Serializable {
                 ", CardNumber='" + CardNumber + '\'' +
                 ", CVV='" + CVV + '\'' +
                 ", ExpirationDate='" + ExpirationDate + '\'' +
-                ", myFlightTicket=" + myFlightTicket +
+                ", flights=" + flights +
                 '}';
     }
 }

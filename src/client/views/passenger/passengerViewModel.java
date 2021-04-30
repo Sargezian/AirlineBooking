@@ -18,12 +18,12 @@ public class passengerViewModel {
     private StringProperty Email;
 
     private StringProperty FlightName;
-    private StringProperty From;
-    private StringProperty to;
+    private StringProperty departure;
+    private StringProperty arrival;
 
     private StringProperty seatProperty;
     private StringProperty ClassType;
-    private StringProperty Food;
+
 
 
     public passengerViewModel(ClientText clientText) {
@@ -33,12 +33,12 @@ public class passengerViewModel {
         TelNumber = new SimpleStringProperty();
         Email = new SimpleStringProperty();
         FlightName = new SimpleStringProperty();
-        From = new SimpleStringProperty();
-        to = new SimpleStringProperty();
+        departure = new SimpleStringProperty();
+        arrival = new SimpleStringProperty();
         seatProperty = new SimpleStringProperty();
         ClassType = new SimpleStringProperty();
-        Food = new SimpleStringProperty();
-        clientText.addListener(utils.NEWTICKET, this::onNewTicket);
+
+       clientText.addListener(utils.NEWTICKET, this::onNewTicket);
     }
 
 
@@ -52,15 +52,15 @@ public class passengerViewModel {
         flights flights = SaveInfo.getInstance().getFlights();
         Seat seat = SaveInfo.getInstance().getSeat();
 
-        clientText.readFlightsFromShoppingCart(flights.flightName,flights.from,flights.to);
+        clientText.readFlightsFromShoppingCart(flights.flightName,flights.getDepartures(),flights.getArrivals());
         clientText.readSeatFromShoppingCart(seat.seatNumber,seat.classType);
 
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 FlightName.setValue(flights.flightName);
-                From.setValue(flights.from);
-                to.setValue(flights.to);
+                departure.setValue(flights.getDepartures());
+                arrival.setValue(flights.getArrivals());
                 seatProperty.setValue(seat.seatNumber);
                 ClassType.setValue(seat.classType);
             }
@@ -78,7 +78,7 @@ public class passengerViewModel {
     }
 
 
-    public void finish() {
+   public void finish() {
 
         flights ft = SaveInfo.getInstance().getFlights();
         System.out.println("Gets SavedInfo from flights = " + SaveInfo.getInstance().getFlights());
@@ -89,7 +89,7 @@ public class passengerViewModel {
         Passenger pg = SaveInfo.getInstance().getPassenger();
         System.out.println("Gets SavedInfo from passenger = " + SaveInfo.getInstance().getPassenger());
 
-        myFlightTicket myFlightTicket1 = new myFlightTicket(1, ft.price, pg,ft,st);
+        myFlightTicket myFlightTicket1 = new myFlightTicket(1,pg,ft,st);
         clientText.createTicket(myFlightTicket1);
     }
 
@@ -101,20 +101,20 @@ public class passengerViewModel {
         return FlightName;
     }
 
-    public String getFrom() {
-        return From.get();
+    public String getDeparture() {
+        return departure.get();
     }
 
-    public StringProperty fromProperty() {
-        return From;
+    public StringProperty departureProperty() {
+        return departure;
     }
 
-    public String getTo() {
-        return to.get();
+    public String getArrival() {
+        return arrival.get();
     }
 
-    public StringProperty toProperty() {
-        return to;
+    public StringProperty arrivalProperty() {
+        return arrival;
     }
 
     public String getSeatProperty() {
@@ -133,13 +133,7 @@ public class passengerViewModel {
         return ClassType;
     }
 
-    public String getFood() {
-        return Food.get();
-    }
 
-    public StringProperty foodProperty() {
-        return Food;
-    }
 
     public String getEmail() {
         return Email.get();

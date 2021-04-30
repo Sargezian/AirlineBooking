@@ -23,6 +23,13 @@ public class flights implements Serializable {
         this.price = price;
     }
 
+    public flights(String flightName, String departures, String arrivals) {
+        this.flightName = flightName;
+        this.departure = departure;
+        this.arrival = arrival;
+
+    }
+
     public int getDepartureID() {
         return departure.departureID;
     }
@@ -78,5 +85,18 @@ public class flights implements Serializable {
 
     public int getPrice() {
         return price;
+    }
+
+
+    @Override
+    public String toString() {
+        return "flights{" +
+                "flightID=" + flightID +
+                ", flightName='" + flightName + '\'' +
+                ", departure=" + departure +
+                ", arrival=" + arrival +
+                ", planeType=" + planeType +
+                ", price=" + price +
+                '}';
     }
 }

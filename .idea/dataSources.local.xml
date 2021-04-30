@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="postgres@localhost" uuid="97acaf90-9f5b-43c7-87f7-6120c6727483">
+    <data-source name="postgres@localhost" uuid="9f202230-8523-4035-af73-acff583a5b90">
       <database-info product="PostgreSQL" version="13.2" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.5" dbms="POSTGRES" exact-version="13.2" exact-driver-version="42.2">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
@@ -15,10 +15,7 @@
               <node kind="schema" qname="@" />
             </node>
             <node kind="database" qname="postgres">
-              <node kind="schema">
-                <name qname="sep2" />
-                <name qname="flightlist" />
-              </node>
+              <node kind="schema" qname="sep2" />
             </node>
           </node>
         </introspection-scope>

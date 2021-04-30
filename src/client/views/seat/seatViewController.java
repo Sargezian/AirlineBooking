@@ -40,8 +40,8 @@ private ArrayList<Seat> seatArrayList;
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
 
-        this.vh = vh;
-        sv = vmf.getseatViewModel();
+       this.vh = vh;
+       sv = vmf.getseatViewModel();
         sv.loadSeat();
         seatIDColumn.setCellValueFactory(new PropertyValueFactory<>("seatID"));
         seatNumberColumn.setCellValueFactory(new PropertyValueFactory<>("seatNumber"));
@@ -71,7 +71,7 @@ private ArrayList<Seat> seatArrayList;
     }
 
     public void onNext(ActionEvent actionEvent) {
-        sv.getSeatInformation(tableView.getSelectionModel().getSelectedItem());
+     sv.getSeatInformation(tableView.getSelectionModel().getSelectedItem());
         vh.openPassengerView();
 
     }
@@ -82,7 +82,7 @@ private ArrayList<Seat> seatArrayList;
 
     public void Setcolor(MouseEvent mouseEvent)
     {
-        sv.SetSeatId(mouseEvent);
+        //sv.SetSeatId(mouseEvent);
     }
 
 }

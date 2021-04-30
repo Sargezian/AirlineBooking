@@ -32,7 +32,7 @@ public class SeatImpl implements SeatDao {
 
                 ArrayList<Seat> Seats = new ArrayList<>();
                 while (resultSet.next()) {
-                    String seatID = resultSet.getString("seatID");
+                    int seatID = resultSet.getInt("seatID");
                     String seatNumber = resultSet.getString("seatNumber");
                     String classType = resultSet.getString("classType");
                     //Linje 38 skal måske kun have seat ID
@@ -49,11 +49,11 @@ public class SeatImpl implements SeatDao {
 
 
 
-    public Seat getSeatId(String seatID, String seatNumber, String classType) {
+    public Seat getSeatId(int seatID, String seatNumber, String classType) {
         try {
             try (Connection connection = daoConnection.getConnection()) {
                 PreparedStatement statement = connection.prepareStatement("INSERT INTO Seat(seatID, seatNumber,classType ) VALUES (?,?,?) ");
-                statement.setString(1, seatID);
+                statement.setInt(1, seatID);
                 statement.setString(2,seatNumber);
                 statement.setString(3, classType);
                 statement.executeUpdate();

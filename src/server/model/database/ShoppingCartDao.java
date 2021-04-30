@@ -7,7 +7,7 @@ import shared.transferobjects.myFlightTicket;
 public interface ShoppingCartDao {
 
 
-    flights readFlightsFromShoppingCart(String flightName, String from, String to);
+    flights readFlightsFromShoppingCart(String flightName, String departures, String arrivals);
     Seat readSeatFromShoppingCart(String seatNumber,String classType);
 
 

@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -12,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="835.0" prefWidth="1322.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.myflightplan.myflightplanViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="791.0" prefWidth="1312.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.myflightplan.myflightplanViewController">
    <children>
       <VBox prefHeight="785.0" prefWidth="235.0" style="-fx-background-color: #4153F2;">
          <children>
@@ -88,24 +87,22 @@
          </font>
       </Label>
       <Separator layoutX="281.0" layoutY="119.0" prefHeight="0.0" prefWidth="814.0" style="-fx-background-color: black;" />
-      <TableView fx:id="flighttableview" layoutX="291.0" layoutY="223.0" prefHeight="229.0" prefWidth="870.0">
+      <TableView fx:id="flighttableview" layoutX="291.0" layoutY="202.0" prefHeight="250.0" prefWidth="947.0">
         <columns>
-            <TableColumn fx:id="FlightIdColumn" prefWidth="81.0" style="-fx-background-color: white;" text="FlightID" />
-            <TableColumn fx:id="FlightnameColumn" prefWidth="86.0" style="-fx-background-color: white;" text="Flightname" />
-            <TableColumn fx:id="PlanetypeColumn" prefWidth="100.0" style="-fx-background-color: white;" text="Planetype" />
-            <TableColumn fx:id="DepartureColumn" prefWidth="73.0" style="-fx-background-color: white;" text="Departure" />
-            <TableColumn fx:id="ArrivalColumn" prefWidth="91.0" style="-fx-background-color: white;" text="Arrival" />
-            <TableColumn fx:id="FromColumn" prefWidth="72.0" text="From" />
-            <TableColumn fx:id="ToColumn" prefWidth="91.0" text="To" />
-            <TableColumn fx:id="seat" prefWidth="76.0" text="seatnumber" />
-            <TableColumn fx:id="ClasstypeColumn" prefWidth="121.0" text="Classtype" />
-            <TableColumn fx:id="SeatIdColumn" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="FlightIdColumn" prefWidth="81.0" text="FlightID" />
+            <TableColumn fx:id="FlightnameColumn" prefWidth="86.0" text="Flightname" />
+            <TableColumn fx:id="PlanetypeColumn" prefWidth="100.0" text="Planetype" />
+            <TableColumn fx:id="DepartureColumn" prefWidth="79.0" text="Departure" />
+            <TableColumn fx:id="DepartureDateColumn" prefWidth="108.0" text="DepartureDate" />
+            <TableColumn fx:id="ArrivalColumn" prefWidth="109.0" text="Arrival" />
+            <TableColumn fx:id="ArrivalDateColumn" prefWidth="104.0" text="ArrivalDate" />
+            <TableColumn fx:id="seat" prefWidth="114.0" text="Seatnumber" />
+            <TableColumn fx:id="ClasstypeColumn" prefWidth="165.0" text="Classtype" />
         </columns>
       </TableView>
-      <TableView fx:id="TicketTableview" layoutX="674.0" layoutY="511.0" prefHeight="209.0" prefWidth="303.0">
+      <TableView fx:id="TicketTableview" layoutX="674.0" layoutY="511.0" prefHeight="209.0" prefWidth="268.0">
          <columns>
-            <TableColumn fx:id="TicketIdColumn" prefWidth="164.7822265625" text="TicketId" />
-            <TableColumn fx:id="PriceColumn" prefWidth="138.2177734375" text="Price" />
+            <TableColumn fx:id="TicketIdColumn" prefWidth="286.0" text="TicketId" />
          </columns>
       </TableView>
       <TableView fx:id="PassengerTableview" layoutX="286.0" layoutY="511.0" prefHeight="209.0" prefWidth="345.0">

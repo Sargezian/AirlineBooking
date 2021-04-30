@@ -9,18 +9,14 @@ public class myFlightTicket implements Serializable {
  public Passenger passenger;
  public flights flights;
  public Seat seat;
- public PlaneType planeType;
- public Depature depature;
- public Arrival arrival;
 
-    public myFlightTicket(int ticketID, Passenger passenger, flights flights, Seat seat, PlaneType planeType, Depature depature, Arrival arrival) {
+
+    public myFlightTicket(int ticketID, Passenger passenger, flights flights, Seat seat) {
         this.ticketID = ticketID;
         this.passenger = passenger;
         this.flights = flights;
         this.seat = seat;
-        this.planeType = planeType;
-        this.depature = depature;
-        this.arrival = arrival;
+
     }
 
     public int getTicketID() {
@@ -58,44 +54,21 @@ public class myFlightTicket implements Serializable {
     }
 
     // TODO: 29/04/2021 Departue
-
-    public Depature getDepature() {
-        return depature;
-    }
-
-    public Depature getDeparture() {
-        return depature;
-    }
-
-    public int getDepartureID() {
-        return depature.departureID;
-    }
-
-    public String getDepartures() {
-        return depature.departure;
-    }
+      public String getDeparture(){
+        return flights.getDepartures();
+      }
 
     public Timestamp getDepartureDate() {
-        return depature.departureDate;
+        return flights.getDepartureDate();
     }
-
-    // TODO: 29/04/2021 Arrival
-
-    public Arrival getArrival() {
-        return arrival;
-    }
-
-    public int getArrivalID() {
-        return arrival.arrivalID;
-    }
-
     public String getArrivals() {
-        return arrival.arrival;
+        return flights.getArrivals();
     }
 
     public Timestamp getArrivalDate() {
-        return arrival.arrivalDate;
+        return flights.getArrivalDate();
     }
+
 
     // TODO: 29/04/2021  Flight
 
@@ -134,17 +107,15 @@ public class myFlightTicket implements Serializable {
 
     // TODO: 29/04/2021 PlaneType
 
-    public PlaneType getPlaneType() {
-        return planeType;
-    }
-
     public int getPlaneId() {
-        return planeType.planeId;
+        return flights.getPlaneId();
     }
 
     public String getPlaneTypes() {
-        return planeType.planeType;
+        return flights.getPlaneTypes();
     }
+
+
 
 
 }

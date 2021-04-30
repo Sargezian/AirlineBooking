@@ -74,8 +74,8 @@ public class TextManagerImpl implements TextManager{
         return new ArrayList<>(seatDao.getSeat());
     }
 
-    @Override public Seat getSeatID(String seatID, String seatNumber,
-        String classType)
+    @Override public Seat getSeatID(int seatID, String seatNumber,
+                                    String classType)
     {
        return seatDao.getSeatId(seatID,seatNumber,classType);
     }
@@ -137,8 +137,8 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
-    public flights readFlightsFromShoppingCart(String flightName, String from, String to) {
-        return shoppingCartDao.readFlightsFromShoppingCart(flightName,from,to);
+    public flights readFlightsFromShoppingCart(String flightName, String departure, String arrival) {
+        return shoppingCartDao.readFlightsFromShoppingCart(flightName, departure, arrival);
     }
 
     @Override

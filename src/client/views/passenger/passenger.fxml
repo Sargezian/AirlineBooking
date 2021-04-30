@@ -72,8 +72,8 @@
          </font>
       </Label>
       <Label fx:id="FlightName" layoutX="671.0" layoutY="196.0" text="Label" />
-      <Label fx:id="From" layoutX="797.0" layoutY="196.0" text="Label" />
-      <Label fx:id="to" layoutX="911.0" layoutY="196.0" text="Label" />
+      <Label fx:id="departure" layoutX="797.0" layoutY="196.0" text="Label" />
+      <Label fx:id="arrival" layoutX="911.0" layoutY="196.0" text="Label" />
       <Label fx:id="seat" layoutX="671.0" layoutY="275.0" text="Label" />
       <Label fx:id="ClassType" layoutX="797.0" layoutY="275.0" text="Label" />
       <Label fx:id="Food" layoutX="912.0" layoutY="277.0" text="Label" />

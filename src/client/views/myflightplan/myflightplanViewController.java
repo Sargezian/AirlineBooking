@@ -23,22 +23,28 @@ public class myflightplanViewController implements ViewController {
 
     @FXML public TableColumn<Integer, myFlightTicket> FlightIdColumn;
     @FXML public TableColumn<String, myFlightTicket> FlightnameColumn;
+
+
     @FXML public TableColumn<String, myFlightTicket> PlanetypeColumn;
-    @FXML public TableColumn<Timestamp, myFlightTicket>  DepartureColumn;
-    @FXML public TableColumn<Timestamp, myFlightTicket>  ArrivalColumn;
-    @FXML public TableColumn<String, myFlightTicket>  FromColumn;
-    @FXML public TableColumn<String, myFlightTicket> ToColumn;
+
+
+    @FXML public TableColumn<String, myFlightTicket>  DepartureColumn;
+    @FXML public TableColumn<Timestamp,myFlightTicket> DepartureDateColumn;
+
+    @FXML public TableColumn<String, myFlightTicket>  ArrivalColumn;
+    @FXML public TableColumn<Timestamp,myFlightTicket> ArrivalDateColumn;
     @FXML public TableColumn<Integer, myFlightTicket>  TicketIdColumn;
-    @FXML public TableColumn<Integer, myFlightTicket>  PriceColumn;
+
     @FXML public TableColumn<Integer, myFlightTicket>  PassengerIdColumn;
-    @FXML public TableColumn<Integer, myFlightTicket>  SeatIdColumn;
+
     @FXML public TableColumn<String, myFlightTicket> NameColumn;
     @FXML public TableColumn<String, myFlightTicket> seat;
     @FXML public TableColumn<String, myFlightTicket> ClasstypeColumn;
     @FXML public TableColumn<String,myFlightTicket> LastNameCoulmn;
     @FXML public TableColumn<String,myFlightTicket> teleNumberColumn;
     @FXML public TableColumn<String,myFlightTicket> EmailCoulmn;
-   /*@FXML public TableColumn<String,myFlightTicket> PriceSumColumn;*/
+
+    /*@FXML public TableColumn<String,myFlightTicket> PriceSumColumn;*/
 
     @FXML
     private Label myName;
@@ -54,15 +60,14 @@ public class myflightplanViewController implements ViewController {
         //vm.loadPriceSUM();
         FlightIdColumn.setCellValueFactory(new PropertyValueFactory<>("flightID"));
         FlightnameColumn.setCellValueFactory(new PropertyValueFactory<>("flightName"));
-        PlanetypeColumn.setCellValueFactory(new PropertyValueFactory<>("planeType"));
-        DepartureColumn.setCellValueFactory(new PropertyValueFactory<>("departure"));
-        ArrivalColumn.setCellValueFactory(new PropertyValueFactory<>("arrival"));
-        FromColumn.setCellValueFactory(new PropertyValueFactory<>("from"));
-        ToColumn.setCellValueFactory(new PropertyValueFactory<>("to"));
+        PlanetypeColumn.setCellValueFactory(new PropertyValueFactory<>("planeTypes"));
+        DepartureColumn.setCellValueFactory(new PropertyValueFactory<>("Departure"));
+        ArrivalColumn.setCellValueFactory(new PropertyValueFactory<>("Arrivals"));
+        DepartureDateColumn.setCellValueFactory(new PropertyValueFactory<>("DepartureDate"));
+        ArrivalDateColumn.setCellValueFactory(new PropertyValueFactory<>("ArrivalDate"));
         TicketIdColumn.setCellValueFactory(new PropertyValueFactory<>("ticketID"));
-        PriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
         PassengerIdColumn.setCellValueFactory(new PropertyValueFactory<>("passengerID"));
-        SeatIdColumn.setCellValueFactory(new PropertyValueFactory<>("SeatID"));
         NameColumn.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
         seat.setCellValueFactory(new PropertyValueFactory<>("seatNumber"));
         ClasstypeColumn.setCellValueFactory(new PropertyValueFactory<>("ClassType"));

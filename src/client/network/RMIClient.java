@@ -12,7 +12,6 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.sql.Date;
 import java.util.List;
 
 public class RMIClient implements Client, ClientCallBack
@@ -143,7 +142,7 @@ public class RMIClient implements Client, ClientCallBack
   }
 
   @Override
-  public Seat getSeatId(String seatID,String seatNumber, String classType) {
+  public Seat getSeatId(int seatID, String seatNumber, String classType) {
     try
     {
       return server.getSeatId(seatID,seatNumber,classType);
@@ -232,10 +231,10 @@ public class RMIClient implements Client, ClientCallBack
   }
 
   @Override
-  public flights readFlightsFromShoppingCart(String flightName, String from, String to) {
+  public flights readFlightsFromShoppingCart(String flightName, String departure, String arrival) {
     try
     {
-      return server.readFlightsFromShoppingCart(flightName,from,to);
+      return server.readFlightsFromShoppingCart(flightName, departure, arrival);
     }
     catch (RemoteException e)
     {

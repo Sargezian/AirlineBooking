@@ -51,8 +51,8 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public flights readFlightsFromShoppingCart(String flightName, String from, String to) throws RemoteException {
-        return textManager.readFlightsFromShoppingCart(flightName,from,to);
+    public flights readFlightsFromShoppingCart(String flightName, String departure, String arrival) throws RemoteException {
+        return textManager.readFlightsFromShoppingCart(flightName, departure, arrival);
     }
 
     @Override
@@ -180,8 +180,8 @@ public class RMIServerImplement implements RMIServer {
         return textManager.ValidateUser(user,password);
     }
 
-    @Override public Seat getSeatId(String seatID, String seatNumber,
-        String classType) throws RemoteException
+    @Override public Seat getSeatId(int seatID, String seatNumber,
+                                    String classType) throws RemoteException
     {
         return textManager.getSeatID(seatID,seatNumber,classType);
     }

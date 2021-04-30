@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="597.0" prefWidth="729.0" style="-fx-background-color: e0e3fd;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.seat.seatViewController">
     <children>
-        <TableView fx:id="tableView" layoutX="28.0" layoutY="122.0" prefHeight="45.0" prefWidth="567.0">
+        <TableView fx:id="tableView" layoutX="28.0" layoutY="122.0" prefHeight="144.0" prefWidth="603.0">
             <columns>
                 <TableColumn fx:id="seatIDColumn" prefWidth="186.0" text="seatID" />
                 <TableColumn fx:id="seatNumberColumn" prefWidth="165.0" text="seatNumber" />
@@ -26,7 +21,7 @@
             </font>
         </Label>
         <Separator layoutX="37.0" layoutY="91.0" prefHeight="5.0" prefWidth="560.0" style="-fx-background-color: black;" />
-      <AnchorPane layoutX="63.0" layoutY="205.0" prefHeight="200.0" prefWidth="427.0" style="-fx-background-color: lightblue;">
+      <AnchorPane layoutX="82.0" layoutY="274.0" prefHeight="200.0" prefWidth="427.0" style="-fx-background-color: lightblue;">
          <children>
             <Pane fx:id="i1" layoutX="15.0" layoutY="17.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
             <Pane fx:id="i2" layoutX="15.0" layoutY="39.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />

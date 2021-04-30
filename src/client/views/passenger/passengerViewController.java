@@ -18,8 +18,8 @@ public class passengerViewController implements ViewController {
 
     //shopping cart
     @FXML public Label FlightName;
-    @FXML public Label From;
-    @FXML public Label to;
+    @FXML public Label departure;
+    @FXML public Label arrival;
     @FXML public Label seat;
     @FXML public Label ClassType;
     @FXML public Label Food;
@@ -42,11 +42,11 @@ public class passengerViewController implements ViewController {
         TelNumber.textProperty().bindBidirectional(pv.telNumberProperty());
         Email.textProperty().bindBidirectional(pv.emailProperty());
         FlightName.textProperty().bind(pv.flightNameProperty());
-        From.textProperty().bind(pv.fromProperty());
-        to.textProperty().bind(pv.toProperty());
+        departure.textProperty().bind(pv.departureProperty());
+        arrival.textProperty().bind(pv.arrivalProperty());
         seat.textProperty().bind(pv.seatPropertyProperty());
         ClassType.textProperty().bind(pv.classTypeProperty());
-        pv.SetShoppingCart();
+         pv.SetShoppingCart();
 
 
 

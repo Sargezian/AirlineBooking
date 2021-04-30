@@ -18,12 +18,21 @@ public class dashboardViewController implements ViewController {
     @FXML public TableView<flights> tableView;
     @FXML public TableColumn<Integer, flights> flightIDColumn;
     @FXML public TableColumn<String, flights> flightNameColumn;
-    @FXML public TableColumn<Timestamp, flights> departureColumn;
-    @FXML public TableColumn <Timestamp, flights> arrivalColumn;
-    @FXML public TableColumn <String, flights> fromColumn;
-    @FXML public TableColumn <String, flights> toColumn;
+
+
+    @FXML public TableColumn<String, flights> departureColumn;
+    @FXML public TableColumn<Timestamp,flights> DepartureDateColumn;
+
     @FXML public TableColumn<String, flights> planeType;
-   @FXML public TextField SearchField;
+
+
+    @FXML public TableColumn<Timestamp,flights> ArrivalDateColumn;
+    @FXML public TableColumn <String,flights>ArrivalColumn;
+
+    @FXML public TableColumn<Integer,flights> priceColumn;
+
+
+    @FXML public TextField SearchField;
 
     // TODO: 25/04/2021 læg price
 
@@ -35,13 +44,21 @@ public class dashboardViewController implements ViewController {
         this.vh = vh;
         dv = vmf.getdashboardViewModel();
         dv.loadFlights();
+
         flightIDColumn.setCellValueFactory(new PropertyValueFactory<>("flightID"));
         flightNameColumn.setCellValueFactory(new PropertyValueFactory<>("flightName"));
-        planeType.setCellValueFactory(new PropertyValueFactory<>("planeType"));
-        departureColumn.setCellValueFactory(new PropertyValueFactory<>("departure"));
-        arrivalColumn.setCellValueFactory(new PropertyValueFactory<>("Arrival"));
-        fromColumn.setCellValueFactory(new PropertyValueFactory<>("From"));
-        toColumn.setCellValueFactory(new PropertyValueFactory<>("To"));
+
+        planeType.setCellValueFactory(new PropertyValueFactory<>("PlaneTypes"));
+
+        departureColumn.setCellValueFactory(new PropertyValueFactory<>("Departures"));
+        DepartureDateColumn.setCellValueFactory(new PropertyValueFactory<>("DepartureDate"));
+
+
+        ArrivalColumn.setCellValueFactory(new PropertyValueFactory<>("Arrivals"));
+        ArrivalDateColumn.setCellValueFactory(new PropertyValueFactory<>("ArrivalDate"));
+
+        priceColumn.setCellValueFactory(new PropertyValueFactory<>("Price"));
+
         tableView.setItems(dv.getflight());
         SearchField.textProperty().bindBidirectional(dv.searchProperty());
 

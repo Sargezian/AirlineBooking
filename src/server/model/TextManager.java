@@ -3,7 +3,6 @@ package server.model;
 import shared.transferobjects.*;
 import shared.util.Subject;
 
-import java.sql.Date;
 import java.util.List;
 
 public interface TextManager extends Subject {
@@ -15,7 +14,7 @@ public interface TextManager extends Subject {
     List<InputUser> getUser();
 
     List<Seat> getSeat();
-    Seat getSeatID(String seatID,String seatNumber, String classType);
+    Seat getSeatID(int seatID, String seatNumber, String classType);
     boolean ValidateUser(String user, String password) ;
 
 
@@ -34,7 +33,7 @@ public interface TextManager extends Subject {
     void createTicket(myFlightTicket myFlightTicket);
 
 
-    flights readFlightsFromShoppingCart(String flightName, String from, String to);
+    flights readFlightsFromShoppingCart(String flightName, String departure, String arrival);
     Seat readSeatFromShoppingCart(String seatNumber,String classType);
 
 

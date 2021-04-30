@@ -24,22 +24,22 @@ public class ShoppingCartImpl implements ShoppingCartDao {
 
 
     @Override
-    public flights readFlightsFromShoppingCart(String flightName, String from, String to) {
+    public flights readFlightsFromShoppingCart(String flightName, String departures, String arrivals) {
         try {
             try (Connection connection =  daoConnection.getConnection()) {
 
-                PreparedStatement statement = connection.prepareStatement("select *  from flights WHERE flightName = ? AND from_ = ? AND to_ = ? ");
+                PreparedStatement statement = connection.prepareStatement("select *  from flights join Arrival A on A.ArrivalID = flights.ArrivalID join Departure D on D.DepartureID = flights.DepartureID WHERE flightname = ? AND departures = ? AND arrivals = ? ");
 
                 statement.setString(1, flightName);
-                statement.setString(2, from);
-                statement.setString(3, to);
+                statement.setString(2, departures);
+                statement.setString(3, arrivals);
 
 
                 ResultSet resultSet = statement.executeQuery();
 
                 if (resultSet.next()) {
 
-                    flights flights = new flights(flightName,from,to);
+                    flights flights = new flights(flightName,departures,arrivals);
                     return flights;
 
                 }
