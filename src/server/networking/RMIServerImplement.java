@@ -46,8 +46,8 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public List<myFlightTicket> getflightlist(int passengerID) throws RemoteException {
-        return textManager.getflightlist(passengerID);
+    public List<myFlightTicket> getflightlist(int userId) throws RemoteException {
+        return textManager.getflightlist(userId);
     }
 
     @Override

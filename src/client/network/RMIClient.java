@@ -154,11 +154,11 @@ public class RMIClient implements Client, ClientCallBack
   }
 
 
-  @Override public List<myFlightTicket> getflightlist(int passengerID)
+  @Override public List<myFlightTicket> getflightlist(int userId)
   {
     try
     {
-      return server.getflightlist(passengerID);
+      return server.getflightlist(userId);
     }
     catch (RemoteException e)
     {

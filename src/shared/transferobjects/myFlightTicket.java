@@ -9,15 +9,37 @@ public class myFlightTicket implements Serializable {
  public Passenger passenger;
  public flights flights;
  public Seat seat;
+ public InputUser user;
 
 
-    public myFlightTicket(int ticketID, Passenger passenger, flights flights, Seat seat) {
+    public myFlightTicket(int ticketID, Passenger passenger, shared.transferobjects.flights flights, Seat seat) {
         this.ticketID = ticketID;
         this.passenger = passenger;
         this.flights = flights;
         this.seat = seat;
+    }
+
+    public myFlightTicket(int ticketID, Passenger passenger, flights flights, Seat seat, InputUser user) {
+        this.ticketID = ticketID;
+        this.passenger = passenger;
+        this.flights = flights;
+        this.seat = seat;
+        this.user = user;
 
     }
+
+    //Inputuser
+
+
+    public InputUser getUser() {
+        return user;
+    }
+
+
+    public int getId() {
+        return user.id;
+    }
+
 
     //myflightTicket
     public int getTicketID() {
@@ -100,6 +122,17 @@ public class myFlightTicket implements Serializable {
         return flights.getPlaneTypes();
     }
 
+
+    @Override
+    public String toString() {
+        return "myFlightTicket{" +
+                "ticketID=" + ticketID +
+                ", passenger=" + passenger +
+                ", flights=" + flights +
+                ", seat=" + seat +
+                ", user=" + user +
+                '}';
+    }
 }
 
 

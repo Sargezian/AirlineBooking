@@ -25,7 +25,7 @@ public interface TextManager extends Subject {
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);
 
     /*List<myFlightTicket> ReadPriceSUM();*/
-    List<myFlightTicket> getflightlist(int passengerID);
+    List<myFlightTicket> getflightlist(int userId);
 
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate);
 

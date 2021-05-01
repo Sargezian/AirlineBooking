@@ -47,17 +47,22 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
 */
 
     @Override
-    public List<myFlightTicket> ReadFlightList(int passengerID)  {
+    public List<myFlightTicket> ReadFlightList(int userId)  {
 
         try{
 
             try (Connection connection = daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID join passenger p on mFT.passengerid = p.passengerid join seat s on s.seatid = mFT.seatid join planeType pT on pT.planeID = flights.planeID join Departure D on D.DepartureID = flights.DepartureID join Arrival A on A.ArrivalID = flights.ArrivalID join InputUser IU on mFT.id = IU.id where IU.id = ?  ");
-                statement.setInt(1,id);
+                PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID join passenger p on mFT.passengerid = p.passengerid join seat s on s.seatid = mFT.seatid join planeType pT on pT.planeID = flights.planeID join Departure D on D.DepartureID = flights.DepartureID join Arrival A on A.ArrivalID = flights.ArrivalID join InputUser IU on mFT.id = IU.id where IU.id = ?");
+                statement.setInt(1,userId);
                 ResultSet resultSet = statement.executeQuery();
 
                 ArrayList<myFlightTicket> myFlightTickets = new ArrayList<>();
                 while (resultSet.next()) {
+
+
+                    //InputUser
+                    String user = resultSet.getString("user_");
+                    String password = resultSet.getString("password");
 
                     //myflightticket
                     int ticketid = resultSet.getInt("ticketid");
@@ -82,6 +87,8 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
                     String arrival = resultSet.getString("arrivals");
 
                     //passenger
+
+                    int PassengerID = resultSet.getInt(" passengerID");
                     String FirstName = resultSet.getString("FirstName");
                     String LastName = resultSet.getString("LastName");
                     String TelNumber = resultSet.getString("TelNumber");
@@ -92,7 +99,7 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
                     String seatNumber = resultSet.getString("seatNumber");
                     String classtype = resultSet.getString("classType");
 
-                    myFlightTicket myFlightTicket = new myFlightTicket(ticketid,new Passenger(passengerID,FirstName,LastName,TelNumber,email),new flights(flightID,flightName,new Depature(depatureID,departure,depatureDate),new Arrival(arrivalID,arrival,arrivaldate),new PlaneType(planeID,planeType),price),new Seat(seatId,seatNumber,classtype));
+                    myFlightTicket myFlightTicket = new myFlightTicket(ticketid,new Passenger(PassengerID,FirstName,LastName,TelNumber,email),new flights(flightID,flightName,new Depature(depatureID,departure,depatureDate),new Arrival(arrivalID,arrival,arrivaldate),new PlaneType(planeID,planeType),price),new Seat(seatId,seatNumber,classtype),new InputUser(userId,user,password));
 
                     myFlightTickets.add(myFlightTicket);
                 }

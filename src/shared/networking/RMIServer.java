@@ -33,7 +33,7 @@ public interface RMIServer extends Remote {
 
 
     //List<myFlightTicket> ReadPriceSUM() throws RemoteException;
-    List<myFlightTicket> getflightlist(int passengerID) throws RemoteException;
+    List<myFlightTicket> getflightlist(int userId) throws RemoteException;
 
 
     flights readFlightsFromShoppingCart(String flightName, String departure, String arrival) throws RemoteException;
