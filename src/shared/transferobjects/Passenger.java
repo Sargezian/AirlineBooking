@@ -16,7 +16,6 @@ public class Passenger implements Serializable
         Email = email;
     }
 
-
     public Passenger(String firstName, String lastName, String telNumber, String email) {
         FirstName = firstName;
         LastName = lastName;
@@ -24,26 +23,22 @@ public class Passenger implements Serializable
         Email = email;
     }
 
-
+    //passenger
     public String getEmail() {
         return Email;
     }
-
     public int getPassengerID()
     {
         return passengerID;
     }
-
     public String getTelNumber()
     {
         return TelNumber;
     }
-
     public String getFirstName()
     {
         return FirstName;
     }
-
     public String getLastName()
     {
         return LastName;

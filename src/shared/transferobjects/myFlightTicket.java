@@ -19,104 +19,86 @@ public class myFlightTicket implements Serializable {
 
     }
 
+    //myflightTicket
     public int getTicketID() {
         return ticketID;
     }
 
-    // TODO: 29/04/2021 PASSENGER
-
+    // Passenger
     public Passenger getPassenger() {
         return passenger;
     }
-
     public String getEmail() {
         return passenger.Email;
     }
-
     public int getPassengerID()
     {
         return passenger.passengerID;
     }
-
     public String getTelNumber()
     {
         return passenger.TelNumber;
     }
-
     public String getFirstName()
     {
         return passenger.FirstName;
     }
-
     public String getLastName()
     {
         return passenger.LastName;
     }
 
-    // TODO: 29/04/2021 Departue
-      public String getDeparture(){
+    //Departue
+    public String getDeparture(){
         return flights.getDepartures();
       }
-
     public Timestamp getDepartureDate() {
         return flights.getDepartureDate();
     }
+
+    //Arrival
     public String getArrivals() {
         return flights.getArrivals();
     }
-
     public Timestamp getArrivalDate() {
         return flights.getArrivalDate();
     }
 
-
-    // TODO: 29/04/2021  Flight
-
+    //Flight
     public flights getFlights() {
         return flights;
     }
-
-    public int getFlightID() {
+    public String getFlightID() {
         return flights.flightID;
     }
-
     public String getFlightName() {
         return flights.flightName;
     }
-
     public int getPrices() {
         return flights.price;
     }
 
-    // TODO: 29/04/2021 seat
-
+    //Seat
     public Seat getSeat() {
         return seat;
     }
-
     public int getSeatID() {
         return seat.seatID;
     }
     public String getSeatNumber() {
         return seat.seatNumber;
     }
-
     public String getClassType(){
         return seat.classType;
     }
 
-    // TODO: 29/04/2021 PlaneType
-
+    //PlaneType
     public int getPlaneId() {
         return flights.getPlaneId();
     }
-
     public String getPlaneTypes() {
         return flights.getPlaneTypes();
     }
-
-
-
 
 }
 

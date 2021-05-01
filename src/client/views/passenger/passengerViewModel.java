@@ -78,20 +78,6 @@ public class passengerViewModel {
     }
 
 
-   public void finish() {
-
-        flights ft = SaveInfo.getInstance().getFlights();
-        System.out.println("Gets SavedInfo from flights = " + SaveInfo.getInstance().getFlights());
-
-        Seat st = SaveInfo.getInstance().getSeat();
-        System.out.println("Gets SavedInfo from seats = " + SaveInfo.getInstance().getSeat());
-
-        Passenger pg = SaveInfo.getInstance().getPassenger();
-        System.out.println("Gets SavedInfo from passenger = " + SaveInfo.getInstance().getPassenger());
-
-        myFlightTicket myFlightTicket1 = new myFlightTicket(1,pg,ft,st);
-        clientText.createTicket(myFlightTicket1);
-    }
 
     public String getFlightName() {
         return FlightName.get();

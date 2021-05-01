@@ -27,8 +27,9 @@ public class loginViewController implements ViewController {
     }
 
     public void onLogButton() {
-        if (viewModel.validateLoginInfo() == true){
+        if (viewModel.validateLoginInfo()){
             vh.openPaymentView();
+            viewModel.finish();
         }
 
     }

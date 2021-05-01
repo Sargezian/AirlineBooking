@@ -23,6 +23,8 @@ public class PassengerImpl implements PassengerDao {
        try {
              try (Connection connection = daoConnection.getConnection()) {
                 PreparedStatement statement = connection.prepareStatement("INSERT INTO passenger(FirstName,LastName,TelNumber,email) VALUES (?,?,?,?) ", PreparedStatement.RETURN_GENERATED_KEYS);
+
+                //passenger
                 statement.setString(1, FirstName);
                 statement.setString(2, LastName);
                 statement.setString(3, TelNumber);
@@ -52,6 +54,7 @@ public class PassengerImpl implements PassengerDao {
 
                 PreparedStatement statement = connection.prepareStatement("select * from passenger where Firstname = ? and LastName = ? and TelNumber = ? and Email = ?  ");
 
+                //passenger
                 statement.setString(1, Firstname);
                 statement.setString(2, LastName);
                 statement.setString(3, TelNumber);

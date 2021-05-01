@@ -10,61 +10,56 @@ public class ShoppingCart implements Serializable {
     public Depature depature;
     public Arrival arrival;
 
-    public ShoppingCart(shared.transferobjects.flights flights, Seat seat, Depature depature, Arrival arrival) {
+    public ShoppingCart(flights flights, Seat seat, Depature depature, Arrival arrival) {
         this.flights = flights;
         this.seat = seat;
         this.depature = depature;
         this.arrival = arrival;
     }
 
+    //departure
     public int getDepartureID() {
         return depature.departureID;
     }
-
-    public int getArrivalID() {
-        return arrival.arrivalID;
-    }
-
     public String getDepartures() {
         return depature.departure;
     }
-
     public Timestamp getDepartureDate() {
         return depature.departureDate;
     }
-
-    public String getArrivals() {
-        return arrival.arrival;
-    }
-
-    public Timestamp getArrivalDate() {
-        return arrival.arrivalDate;
-    }
-
     public Depature getDepature() {
         return depature;
     }
 
+    //arrival
+    public int getArrivalID() {
+        return arrival.arrivalID;
+    }
+    public String getArrivals() {
+        return arrival.arrival;
+    }
+    public Timestamp getArrivalDate() {
+        return arrival.arrivalDate;
+    }
     public Arrival getArrival() {
         return arrival;
     }
 
+    //flight
     public flights getFlights() {
         return flights;
     }
-
-    public Seat getSeat() {
-        return seat;
-    }
-
-    public int getFlightID(){
+    public String getFlightID(){
         return flights.flightID;
     }
 
+    //seat
+    public Seat getSeat() {
+        return seat;
+    }
     public String getSeatNumber() {
         return seat.seatNumber;
     }
-
     public String getClassType(){
         return seat.classType;
     }

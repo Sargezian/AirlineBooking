@@ -13,14 +13,15 @@ public class Airport implements Serializable {
         this.depature = depature;
     }
 
-    public int getDepartureID() {
-        return depature.departureID;
-    }
-
+    //airport
     public int getAirportID() {
         return AirportID;
     }
 
+    //departure
+    public int getDepartureID() {
+        return depature.departureID;
+    }
     public Depature getDepature() {
         return depature;
     }

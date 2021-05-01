@@ -24,28 +24,26 @@ public class Payment implements Serializable {
         this.flights = flights;
     }
 
-    public int getPrice(){
-        return flights.price;
-    }
-
+    //payment
     public int getPaymentID() {
         return PaymentID;
     }
-
     public String getCardholderName() {
         return CardholderName;
     }
-
     public String getCardNumber() {
         return CardNumber;
     }
-
     public String getCVV() {
         return CVV;
     }
-
     public String getExpirationDate() {
         return ExpirationDate;
+    }
+
+    //flight
+    public int getPrice(){
+        return flights.price;
     }
 
     @Override

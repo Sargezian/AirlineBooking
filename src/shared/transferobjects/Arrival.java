@@ -8,6 +8,7 @@ public class Arrival implements Serializable {
     public int arrivalID;
     public String arrival;
     public Timestamp arrivalDate;
+    public Airport airport;
 
     public Arrival(int arrivalID, String arrival, Timestamp arrivalDate) {
         this.arrivalID = arrivalID;
@@ -15,14 +16,18 @@ public class Arrival implements Serializable {
         this.arrivalDate = arrivalDate;
     }
 
+    //airport
+    public Airport getAirport() {
+        return airport;
+    }
+
+    //arrival
     public int getArrivalID() {
         return arrivalID;
     }
-
     public String getArrival() {
         return arrival;
     }
-
     public Timestamp getArrivalDate() {
         return arrivalDate;
     }
@@ -35,4 +40,5 @@ public class Arrival implements Serializable {
                 ", arrivalDate=" + arrivalDate +
                 '}';
     }
+
 }

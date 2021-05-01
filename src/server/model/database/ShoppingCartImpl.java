@@ -30,8 +30,13 @@ public class ShoppingCartImpl implements ShoppingCartDao {
 
                 PreparedStatement statement = connection.prepareStatement("select *  from flights join Arrival A on A.ArrivalID = flights.ArrivalID join Departure D on D.DepartureID = flights.DepartureID WHERE flightname = ? AND departures = ? AND arrivals = ? ");
 
+                //flight
                 statement.setString(1, flightName);
+
+                //departure
                 statement.setString(2, departures);
+
+                //arrival
                 statement.setString(3, arrivals);
 
 
@@ -60,6 +65,7 @@ public class ShoppingCartImpl implements ShoppingCartDao {
 
                 PreparedStatement statement = connection.prepareStatement("select *  from seat WHERE seatNumber = ? AND classType = ?  ");
 
+                //seat
                 statement.setString(1, seatNumber);
                 statement.setString(2, classType);
 

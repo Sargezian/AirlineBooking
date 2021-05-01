@@ -23,6 +23,8 @@ public class PaymentImpl implements PaymentDao {
         try {
             try (Connection connection =  daoConnection.getConnection()) {
                 PreparedStatement statement = connection.prepareStatement("INSERT INTO payment(cardholderName,cardNumber,CVV,expirationDate) VALUES (?,?,?,?) ", PreparedStatement.RETURN_GENERATED_KEYS);
+
+                //payment
                 statement.setString(1, cardholderName);
                 statement.setString(2, cardNumber);
                 statement.setString(3, CVV);

@@ -1,8 +1,13 @@
 package client.views.Loginbox;
 
 import client.model.ClientText;
+import client.model.SaveInfo;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import shared.transferobjects.Passenger;
+import shared.transferobjects.Seat;
+import shared.transferobjects.flights;
+import shared.transferobjects.myFlightTicket;
 
 public class loginViewModel {
     private ClientText clientText;
@@ -19,6 +24,21 @@ public class loginViewModel {
 
     }
 
+
+    public void finish() {
+
+        flights ft = SaveInfo.getInstance().getFlights();
+        System.out.println("Gets SavedInfo from flights = " + SaveInfo.getInstance().getFlights());
+
+        Seat st = SaveInfo.getInstance().getSeat();
+        System.out.println("Gets SavedInfo from seats = " + SaveInfo.getInstance().getSeat());
+
+        Passenger pg = SaveInfo.getInstance().getPassenger();
+        System.out.println("Gets SavedInfo from passenger = " + SaveInfo.getInstance().getPassenger());
+
+        myFlightTicket myFlightTicket1 = new myFlightTicket(1,pg,ft,st);
+        clientText.createTicket(myFlightTicket1);
+    }
 
 
      public boolean validateLoginInfo(){

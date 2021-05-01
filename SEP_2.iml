@@ -60,7 +60,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="postgresql-42.2.11" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>

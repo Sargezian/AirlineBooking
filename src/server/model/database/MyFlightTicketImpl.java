@@ -46,46 +46,52 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
     }
 */
 
-
     @Override
     public List<myFlightTicket> ReadFlightList(int passengerID)  {
 
         try{
 
             try (Connection connection = daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID join passenger p on mFT.passengerid = p.passengerid join seat s on s.seatid = mFT.seatid join planeType pT on pT.planeID = flights.planeID join Departure D on D.DepartureID = flights.DepartureID join Arrival A on A.ArrivalID = flights.ArrivalID where p.passengerID = ?  ");
-                statement.setInt(1,passengerID);
+                PreparedStatement statement = connection.prepareStatement("select * from flights join myFlightTicket mFT on flights.flightID = mFT.flightID join passenger p on mFT.passengerid = p.passengerid join seat s on s.seatid = mFT.seatid join planeType pT on pT.planeID = flights.planeID join Departure D on D.DepartureID = flights.DepartureID join Arrival A on A.ArrivalID = flights.ArrivalID join InputUser IU on mFT.id = IU.id where IU.id = ?  ");
+                statement.setInt(1,id);
                 ResultSet resultSet = statement.executeQuery();
 
                 ArrayList<myFlightTicket> myFlightTickets = new ArrayList<>();
                 while (resultSet.next()) {
 
-                    int flightID = resultSet.getInt("flightid");
+                    //myflightticket
+                    int ticketid = resultSet.getInt("ticketid");
+
+                    //flight
+                    String flightID = resultSet.getString("flightid");
                     String flightName = resultSet.getString("flightName");
                     int price = resultSet.getInt("price");
-                    //ny table her.
+
+                    //planetype
                     String planeType = resultSet.getString("planeTypes");
                     int planeID = resultSet.getInt("planeid");
 
+                    //departure
                     int depatureID = resultSet.getInt("departureid");
                     String departure = resultSet.getString("departures");
                     Timestamp depatureDate = resultSet.getTimestamp("departuredate");
 
+                    //arrival
                     int arrivalID = resultSet.getInt("arrivalid");
                     Timestamp arrivaldate = resultSet.getTimestamp("arrivaldate");
                     String arrival = resultSet.getString("arrivals");
 
-                    int ticketid = resultSet.getInt("ticketid");
-
+                    //passenger
                     String FirstName = resultSet.getString("FirstName");
                     String LastName = resultSet.getString("LastName");
                     String TelNumber = resultSet.getString("TelNumber");
                     String email = resultSet.getString("email");
 
-
+                    //seat
                     int seatId = resultSet.getInt("seatid");
                     String seatNumber = resultSet.getString("seatNumber");
                     String classtype = resultSet.getString("classType");
+
                     myFlightTicket myFlightTicket = new myFlightTicket(ticketid,new Passenger(passengerID,FirstName,LastName,TelNumber,email),new flights(flightID,flightName,new Depature(depatureID,departure,depatureDate),new Arrival(arrivalID,arrival,arrivaldate),new PlaneType(planeID,planeType),price),new Seat(seatId,seatNumber,classtype));
 
                     myFlightTickets.add(myFlightTicket);
@@ -106,7 +112,7 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
 
                 System.out.println( "database connection til createticket");
 
-                statement.setInt(1, myFlightTicket.getFlights().getFlightID());
+                statement.setString(1, myFlightTicket.getFlights().getFlightID());
                 statement.setInt(2, myFlightTicket.getPassenger().getPassengerID());
                 statement.setInt(3, myFlightTicket.getSeat().getSeatID());
 
@@ -115,7 +121,5 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
     }
-
 }

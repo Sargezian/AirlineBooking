@@ -8,21 +8,27 @@ public class Depature implements Serializable {
     public int departureID;
     public String departure;
     public Timestamp departureDate;
+    public Airport airport;
 
     public Depature(int departureID, String departure, Timestamp departureDate) {
         this.departureID = departureID;
         this.departure = departure;
         this.departureDate = departureDate;
+
     }
 
+    //airport
+    public Airport getAirport() {
+        return airport;
+    }
+
+    //departure
     public int getDepartureID() {
         return departureID;
     }
-
     public String getDeparture() {
         return departure;
     }
-
     public Timestamp getDepartureDate() {
         return departureDate;
     }

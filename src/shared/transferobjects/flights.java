@@ -7,14 +7,14 @@ import java.sql.Timestamp;
 
 public class flights implements Serializable {
 
-    public int flightID;
+    public String flightID;
     public String flightName;
     public Depature departure;
     public Arrival arrival;
     public PlaneType planeType;
     public int price;
 
-    public flights(int flightID, String flightName, Depature departure, Arrival arrival, PlaneType planeType, int price) {
+    public flights(String flightID, String flightName, Depature departure, Arrival arrival, PlaneType planeType, int price) {
         this.flightID = flightID;
         this.flightName = flightName;
         this.departure = departure;
@@ -30,63 +30,56 @@ public class flights implements Serializable {
 
     }
 
+    //departure
     public int getDepartureID() {
         return departure.departureID;
     }
-
-    public int getArrivalID() {
-        return arrival.arrivalID;
-    }
-
     public String getDepartures() {
         return departure.departure;
 
     }
-
     public Timestamp getDepartureDate() {
         return departure.departureDate;
     }
-
-    public String getArrivals() {
-        return arrival.arrival;
-    }
-
-    public Timestamp getArrivalDate() {
-        return arrival.arrivalDate;
-    }
-
-    public int getFlightID() {
-        return flightID;
-    }
-
-    public String getFlightName() {
-        return flightName;
-    }
-
     public Depature getDeparture() {
         return departure;
     }
 
+    //arrival
+    public String getArrivals() {
+        return arrival.arrival;
+    }
+    public Timestamp getArrivalDate() {
+        return arrival.arrivalDate;
+    }
+    public int getArrivalID() {
+        return arrival.arrivalID;
+    }
     public Arrival getArrival() {
         return arrival;
     }
 
-    public PlaneType getPlaneType() {
-        return planeType;
+    //flight
+    public String getFlightID() {
+        return flightID;
     }
-
-    public int getPlaneId() {
-        return planeType.planeId;
+    public String getFlightName() {
+        return flightName;
     }
-
-    public String getPlaneTypes() {
-        return planeType.planeType;
-    }
-
     public int getPrice() {
         return price;
     }
 
+    //planetype
+    public PlaneType getPlaneType() {
+        return planeType;
+    }
+    public int getPlaneId() {
+        return planeType.planeId;
+    }
+    public String getPlaneTypes() {
+        return planeType.planeType;
+    }
 
     @Override
     public String toString() {

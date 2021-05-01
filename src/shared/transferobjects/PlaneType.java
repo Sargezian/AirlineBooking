@@ -13,10 +13,10 @@ public class PlaneType implements Serializable {
 
     }
 
+    //planetype
     public int getPlaneId() {
         return planeId;
     }
-
     public String getPlaneType() {
         return planeType;
     }

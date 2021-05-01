@@ -21,7 +21,6 @@ public class FlightImpl implements FlightDao {
   }
 
 
-
      public static synchronized FlightImpl getInstance(){
 
           if (daoInstance == null){
@@ -40,23 +39,26 @@ public class FlightImpl implements FlightDao {
 
        ArrayList<flights> flightlist = new ArrayList<>();
        while (resultSet.next()) {
-         int flightID = resultSet.getInt("flightid");
-         String flightName = resultSet.getString("flightName");
 
-         //ny table her.
+         //flight
+         String flightID = resultSet.getString("flightid");
+         String flightName = resultSet.getString("flightName");
+         int price = resultSet.getInt("price");
+
+         //planetype
          String planeType = resultSet.getString("planeTypes");
          int planeID = resultSet.getInt("planeid");
 
+         // depature
          int depatureID = resultSet.getInt("departureid");
          String departure = resultSet.getString("departures");
          Timestamp depatureDate = resultSet.getTimestamp("departuredate");
 
+         //arrival
          int arrivalID = resultSet.getInt("arrivalid");
          Timestamp arrivaldate = resultSet.getTimestamp("arrivaldate");
          String arrival = resultSet.getString("arrivals");
 
-         //
-         int price = resultSet.getInt("price");
          flights flights = new flights(flightID, flightName, new Depature(depatureID,departure,depatureDate),new Arrival(arrivalID,arrival,arrivaldate),new PlaneType(planeID,planeType),price);
          flightlist.add(flights);
        }
@@ -79,16 +81,21 @@ public class FlightImpl implements FlightDao {
 
         ArrayList<flights> flightlist = new ArrayList<>();
         while (resultSet.next()) {
-          int flightID = resultSet.getInt("flightID");
+
+          //flight
+          String flightID = resultSet.getString("flightID");
           String flightName = resultSet.getString("flightName");
+
+          //planetype
           String planeType = resultSet.getString("planeType");
 
-
+          //departure
           Timestamp departure = resultSet.getTimestamp("departure");
+
+          //arrival
           Timestamp arrival = resultSet.getTimestamp("arrival");
 
-
-
+          //idontknow
           String from = resultSet.getString("from_");
           String to = resultSet.getString("to_");
           int price = resultSet.getInt("price");

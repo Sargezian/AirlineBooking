@@ -32,6 +32,8 @@ public class SeatImpl implements SeatDao {
 
                 ArrayList<Seat> Seats = new ArrayList<>();
                 while (resultSet.next()) {
+
+                    //seat
                     int seatID = resultSet.getInt("seatID");
                     String seatNumber = resultSet.getString("seatNumber");
                     String classType = resultSet.getString("classType");
@@ -53,6 +55,8 @@ public class SeatImpl implements SeatDao {
         try {
             try (Connection connection = daoConnection.getConnection()) {
                 PreparedStatement statement = connection.prepareStatement("INSERT INTO Seat(seatID, seatNumber,classType ) VALUES (?,?,?) ");
+
+                //seat
                 statement.setInt(1, seatID);
                 statement.setString(2,seatNumber);
                 statement.setString(3, classType);

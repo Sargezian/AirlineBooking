@@ -58,7 +58,6 @@ public class passengerViewController implements ViewController {
 
     public void onOrder(ActionEvent actionEvent) {
         pv.getPassengerInformation();
-        pv.finish();
         vh.openLoginView();
     }
 
