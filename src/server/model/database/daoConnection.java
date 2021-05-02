@@ -9,7 +9,6 @@ public class daoConnection {
     private static daoConnection instance;
 
     private daoConnection() {
-
     }
 
     public static synchronized daoConnection getInstance() {

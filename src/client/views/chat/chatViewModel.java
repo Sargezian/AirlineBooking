@@ -19,33 +19,44 @@ public class chatViewModel {
     private ClientText clientText;
     private ObservableList<InputChat> chats;
     private ObservableList<InputUser> users;
+    private StringProperty totalReviews;
 
-    private DoubleProperty STAR_1;
+
+/*  private DoubleProperty STAR_1;
     private DoubleProperty STAR_2;
     private DoubleProperty STAR_3;
     private DoubleProperty STAR_4;
-    private DoubleProperty STAR_5;
+    private DoubleProperty STAR_5;*/
 
     private StringProperty request;
     private String navn;
 
     public chatViewModel(ClientText clientText) {
         this.clientText = clientText;
+        this.totalReviews = new SimpleStringProperty();
+/*
         STAR_1 = new SimpleDoubleProperty();
         STAR_2 = new SimpleDoubleProperty();
         STAR_3 = new SimpleDoubleProperty();
         STAR_4 = new SimpleDoubleProperty();
         STAR_5 = new SimpleDoubleProperty();
-
+*/
         clientText.addListener(utils.NEWCHAT, this::onNewInputChat);
         request = new SimpleStringProperty();
         clientText.addListener(utils.NEWUSER, this::OnNewInputUser);
     }
 
+
     void chatPrint() {
+
+        int count = 0;
+
         if (request.getValue() != null && !"".equals(request.getValue())) {
             clientText.sendMsg(request.getValue());
             clientText.sendMsg("Besked fra: " + navn);
+            count ++;
+
+
         } else {
             System.out.println(request.getValue());
         }
@@ -84,7 +95,17 @@ public class chatViewModel {
         users.add((InputUser) evt.getNewValue());
     }
 
-    public DoubleProperty STAR_1Property() {
+
+    public String getTotalReviews() {
+        return totalReviews.get();
+    }
+
+    public StringProperty totalReviewsProperty() {
+        return totalReviews;
+    }
+
+
+    /*   public DoubleProperty STAR_1Property() {
         return STAR_1;
     }
     public DoubleProperty STAR_2Property() {
@@ -98,5 +119,5 @@ public class chatViewModel {
     }
     public DoubleProperty STAR_5Property() {
         return STAR_5;
-    }
+    }*/
 }
