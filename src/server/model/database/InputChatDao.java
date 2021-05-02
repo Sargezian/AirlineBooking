@@ -9,6 +9,6 @@ public interface InputChatDao {
     InputChat createChar(String str);
     List<InputChat> readChat();
 
-    InputChat CountChat();
+    int CountChat();
 
 }

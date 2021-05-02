@@ -9,7 +9,7 @@ public interface TextManager extends Subject {
 
     InputChat sendMsg(String str);
     List<InputChat> getChat();
-    InputChat CountChat();
+    int CountChat();
 
     InputUser CreateUser(String user, String password);
     List<InputUser> getUser();

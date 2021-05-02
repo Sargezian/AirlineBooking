@@ -51,14 +51,17 @@ public class chatViewModel {
     }
 
 
-    void chatPrint() {
+   public void setCounter(){
+
+        totalReviews.setValue(String.valueOf(clientText.CountChat()));
+    }
+
+
+    public void chatPrint() {
 
         if (request.getValue() != null && !"".equals(request.getValue())) {
-            clientText.sendMsg(request.getValue());
-            clientText.sendMsg("Besked fra: " + navn);
-
-            totalReviews.setValue(String.valueOf(clientText.CountChat()));
-
+            clientText.sendMsg(request.getValue()+  "  Message from : " + navn);
+            setCounter();
 
         } else {
             System.out.println(request.getValue());
@@ -66,7 +69,7 @@ public class chatViewModel {
         request.set("");
     }
 
-    void loadLogs() {
+    public void loadLogs() {
         List<InputChat> chatList = clientText.getChat();
         chats = FXCollections.observableArrayList(chatList);
     }

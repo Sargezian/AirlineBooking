@@ -41,7 +41,7 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public InputChat CountChat() throws RemoteException {
+    public int CountChat() throws RemoteException {
         return textManager.CountChat();
     }
 

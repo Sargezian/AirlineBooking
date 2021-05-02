@@ -47,7 +47,7 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
-    public InputChat CountChat() {
+    public int CountChat() {
         return client.CountChat();
     }
 

@@ -1,7 +1,6 @@
 package server.model.database;
 
 import shared.transferobjects.InputChat;
-import shared.transferobjects.Passenger;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -69,23 +68,23 @@ public class InputChatImpl implements InputChatDao {
         return null;
     }
 
-    public InputChat CountChat(){
+    public int CountChat(){
         try {
             try (Connection connection =  daoConnection.getConnection()) {
                 PreparedStatement statement = connection.prepareStatement("SELECT count(*) FROM InputChat");
                 ResultSet resultSet = statement.executeQuery();
 
-                if (resultSet.next()) {
-                    String str = resultSet.getString("chat");
-                    InputChat inputChat = new InputChat(str);
-                    return inputChat;
+                resultSet.next();
+                int count = resultSet.getInt("count") ;
 
-                }
+                return count;
+
+
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return null;
+        return 0;
     }
 
 

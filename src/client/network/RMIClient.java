@@ -70,7 +70,7 @@ public class RMIClient implements Client, ClientCallBack
   }
 
   @Override
-  public InputChat CountChat() {
+  public int CountChat() {
     try
     {
       return server.CountChat();

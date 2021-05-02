@@ -100,7 +100,7 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
-    public InputChat CountChat() {
+    public int CountChat() {
         return inputChatDao.CountChat();
     }
 

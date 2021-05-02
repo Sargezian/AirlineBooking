@@ -83,11 +83,16 @@ public class chatViewController implements ViewController {
         TotalReviews.textProperty().bind(vm.totalReviewsProperty());
         requestField.textProperty().bindBidirectional(vm.getRequest());
         vm.setNavn(vmf.getcreateUserViewModel().createUserProperty().getValue());
+        vm.setCounter();
     }
 
     @FXML
     private void onSubmitButton() {
         vm.chatPrint();
+
+
+
+
     }
 
     public void onBackButton() {
