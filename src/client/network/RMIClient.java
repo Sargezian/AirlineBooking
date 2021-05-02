@@ -69,6 +69,18 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
+  @Override
+  public InputChat CountChat() {
+    try
+    {
+      return server.CountChat();
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
   @Override public InputUser username(String user, String password)
   {
     try

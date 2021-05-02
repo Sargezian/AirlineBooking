@@ -1,6 +1,8 @@
 package client.views.chat;
 
 import client.model.ClientText;
+import client.model.SaveInfo;
+import javafx.application.Platform;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -9,6 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
+import shared.transferobjects.Passenger;
 import shared.util.utils;
 
 import java.beans.PropertyChangeEvent;
@@ -20,6 +23,7 @@ public class chatViewModel {
     private ObservableList<InputChat> chats;
     private ObservableList<InputUser> users;
     private StringProperty totalReviews;
+
 
 
 /*  private DoubleProperty STAR_1;
@@ -49,12 +53,11 @@ public class chatViewModel {
 
     void chatPrint() {
 
-        int count = 0;
-
         if (request.getValue() != null && !"".equals(request.getValue())) {
             clientText.sendMsg(request.getValue());
             clientText.sendMsg("Besked fra: " + navn);
-            count ++;
+
+            totalReviews.setValue(String.valueOf(clientText.CountChat()));
 
 
         } else {
@@ -95,7 +98,6 @@ public class chatViewModel {
         users.add((InputUser) evt.getNewValue());
     }
 
-
     public String getTotalReviews() {
         return totalReviews.get();
     }
@@ -104,8 +106,7 @@ public class chatViewModel {
         return totalReviews;
     }
 
-
-    /*   public DoubleProperty STAR_1Property() {
+  /*   public DoubleProperty STAR_1Property() {
         return STAR_1;
     }
     public DoubleProperty STAR_2Property() {

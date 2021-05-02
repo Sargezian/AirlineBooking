@@ -10,6 +10,7 @@ public interface RMIServer extends Remote {
 
     InputChat sendMsg(String str) throws RemoteException;
     List<InputChat> getChat() throws RemoteException;
+    InputChat CountChat() throws RemoteException;
 
     InputUser username(String user, String password) throws RemoteException;
     List<InputUser> getUser() throws RemoteException;

@@ -100,6 +100,11 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
+    public InputChat CountChat() {
+        return inputChatDao.CountChat();
+    }
+
+    @Override
     public List<flights> getflights() {
 
         return new ArrayList<>(dao.getflights());

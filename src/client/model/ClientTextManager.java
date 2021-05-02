@@ -47,6 +47,11 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
+    public InputChat CountChat() {
+        return client.CountChat();
+    }
+
+    @Override
     public InputUser username(String user, String password) {
         return client.username(user, password);
     }

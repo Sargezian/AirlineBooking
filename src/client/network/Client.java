@@ -9,6 +9,7 @@ public interface Client extends Subject {
 
     InputChat sendMsg(String str);
     List<InputChat> getChat();
+    InputChat CountChat();
 
     InputUser username(String user, String password);
     List<InputUser> getUser();
