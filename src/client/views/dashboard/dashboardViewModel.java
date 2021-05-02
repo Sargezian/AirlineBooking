@@ -59,7 +59,7 @@ public class dashboardViewModel {
         System.out.println("Save flightInformation  = " + SaveInfo.getInstance());
     }
 
-    public void se(){
+    public void search(){
         flights.setAll(clientText.readByName(search.getValue()));
 
 

@@ -81,7 +81,12 @@ public class dashboardViewController implements ViewController {
 
     }
 
-    public void sew(ActionEvent actionEvent) {
-         dv.se();
+    public void onSearch(ActionEvent actionEvent) {
+         dv.search();
+    }
+
+
+    public void onReviews(ActionEvent actionEvent) {
+        vh.openToChatView();
     }
 }
