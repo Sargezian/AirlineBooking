@@ -3,6 +3,7 @@ package client.views.createUser;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.model.ClientText;
+import client.model.SaveInfo;
 import client.views.ViewController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -29,7 +30,7 @@ public class createUserViewModel  {
         String CreatePassword = this.CreatePassword.getValue();
 
         if (CreateUser != null && !"".equals(CreateUser) && CreatePassword != null && !"".equals(CreatePassword)) {
-            clientText.username(CreateUser, CreatePassword);
+            SaveInfo.getInstance().setUser(clientText.username(CreateUser, CreatePassword));
             Error.set("korrekt oprettet");
         } else {
             Error.set("Feltet kan ikke være tomt");
@@ -61,7 +62,61 @@ public class createUserViewModel  {
         return Error;
     }
 
+    public boolean attemptCreateUser() {
 
+        if(CreateUser.getValue() == null) {
+            Error.set("Username cannot be empty");
+            return false;
+
+        }
+        if(CreateUser.getValue().contains("#")) {
+           Error.set("Username cannot contain #");
+            return false;
+        }
+        if(CreateUser.getValue().length() < 4) {
+            Error.set("Username must contain more than 3 characters");
+            return false;
+        }
+        if(CreateUser.getValue().length() > 14) {
+          Error.set("Username must contain less than 15 characters");
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    public boolean validatePasswords() {
+
+        if (CreatePassword.getValue() == null) {
+            Error.set("Password cannot be empty");
+            return false;
+        }
+        if (CreatePassword.getValue().length() < 8) {
+            Error.set("Password length must be 8 or more");
+            return false;
+        }
+        if (CreatePassword.getValue().length() > 14) {
+            Error.set("Password length must be 14 or less");
+            return false;
+        }
+
+        if (CreatePassword.getValue().contains("#")) {
+            Error.set("Password cannot contain #");
+            return false;
+        }
+
+        if (!CreatePassword.getValue().matches(".*\\d.*")) {
+            Error.set("Password must contain at least one number");
+            return false;
+        } else {
+
+            return true;
+
+        }
+
+
+    }
 
 
     /*public void addListener(String name, PropertyChangeListener listener) {

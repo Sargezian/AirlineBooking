@@ -30,8 +30,13 @@ public class createUserViewController implements ViewController {
     }
 
     public void onCreateLogin(ActionEvent actionEvent) {
-        cuv.SetUser();
-        vh.openLoginView();
+
+        if (cuv.attemptCreateUser() && cuv.validatePasswords()){
+            cuv.SetUser();
+            vh.openLoginView();
+        }
+
+
 
     }
 

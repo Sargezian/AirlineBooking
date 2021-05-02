@@ -88,7 +88,7 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
 
                     //passenger
 
-                    int PassengerID = resultSet.getInt(" passengerID");
+                    int PassengerID = resultSet.getInt("passengerID");
                     String FirstName = resultSet.getString("FirstName");
                     String LastName = resultSet.getString("LastName");
                     String TelNumber = resultSet.getString("TelNumber");
@@ -115,13 +115,14 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
     public void createTicket(myFlightTicket myFlightTicket) {
         try {
             try (Connection connection =  daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement(" insert into myFlightTicket(flightID, passengerID, seatID) VALUES (?,?,?)");
+                PreparedStatement statement = connection.prepareStatement(" insert into myFlightTicket(flightID, passengerID, seatID, id) VALUES (?,?,?,?)");
 
                 System.out.println( "database connection til createticket");
 
                 statement.setString(1, myFlightTicket.getFlights().getFlightID());
                 statement.setInt(2, myFlightTicket.getPassenger().getPassengerID());
                 statement.setInt(3, myFlightTicket.getSeat().getSeatID());
+                statement.setInt(4, myFlightTicket.getUser().getId());
 
                 statement.executeUpdate();
             }

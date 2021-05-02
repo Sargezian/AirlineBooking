@@ -2,6 +2,7 @@ package client.views.Payment;
 
 import client.model.ClientText;
 import client.model.SaveInfo;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import shared.transferobjects.Passenger;
@@ -49,10 +50,19 @@ public class paymentViewModel {
         Passenger pg = SaveInfo.getInstance().getPassenger();
         clientText.ReadPassenger(pg.FirstName, pg.LastName, pg.TelNumber, pg.Email);
 
-        FirstName.setValue(pg.FirstName);
-        LastName.setValue(pg.LastName);
-        Phone.setValue(pg.TelNumber);
-        Email.setValue(pg.Email);
+
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                FirstName.setValue(pg.FirstName);
+                LastName.setValue(pg.LastName);
+                Phone.setValue(pg.TelNumber);
+                Email.setValue(pg.Email);
+            }
+        });
+
+
+
 
         //TODO LAV LISTE
 

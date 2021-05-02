@@ -1,5 +1,6 @@
 package client.model;
 
+import shared.transferobjects.InputUser;
 import shared.transferobjects.flights;
 import shared.transferobjects.Passenger;
 import shared.transferobjects.Seat;
@@ -14,6 +15,7 @@ public class SaveInfo {
     private flights flights;
     private Seat seat;
     private Passenger passenger;
+    private InputUser user;
 
     public static SaveInfo getInstance() {
 
@@ -28,6 +30,14 @@ public class SaveInfo {
 
     public flights getFlights() {
         return flights;
+    }
+
+    public InputUser getUser() {
+        return user;
+    }
+
+    public void setUser(InputUser user) {
+        this.user = user;
     }
 
     public void setFlights(flights flights) {

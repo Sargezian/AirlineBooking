@@ -46,8 +46,9 @@ public class TextManagerImpl implements TextManager{
 
     @Override
     public InputUser CreateUser(String user, String password) {
-        InputUser inputUser = new InputUser(user, password);
-        userNameList.add(inputUserDao.createUser(user,password));
+        InputUser inputUser;
+        inputUser = inputUserDao.createUser(user,password);
+        userNameList.add(inputUser);
         support.firePropertyChange(utils.NEWUSER, null, inputUser);
         System.out.println("support.getPropertyChangeListeners().length:" + support.getPropertyChangeListeners().length);
         return inputUser;

@@ -4,10 +4,7 @@ import client.model.ClientText;
 import client.model.SaveInfo;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import shared.transferobjects.Passenger;
-import shared.transferobjects.Seat;
-import shared.transferobjects.flights;
-import shared.transferobjects.myFlightTicket;
+import shared.transferobjects.*;
 
 public class loginViewModel {
     private ClientText clientText;
@@ -35,9 +32,14 @@ public class loginViewModel {
 
         Passenger pg = SaveInfo.getInstance().getPassenger();
         System.out.println("Gets SavedInfo from passenger = " + SaveInfo.getInstance().getPassenger());
+        InputUser user = SaveInfo.getInstance().getUser();
+        System.out.println("Gets SavedInfo from Inputuser = " + SaveInfo.getInstance().getUser());
 
-        myFlightTicket myFlightTicket1 = new myFlightTicket(1,pg,ft,st);
+
+        myFlightTicket myFlightTicket1 = new myFlightTicket(1,pg,ft,st,user);
         clientText.createTicket(myFlightTicket1);
+
+
     }
 
 
