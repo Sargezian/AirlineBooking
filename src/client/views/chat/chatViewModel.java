@@ -1,6 +1,8 @@
 package client.views.chat;
 
 import client.model.ClientText;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -18,11 +20,23 @@ public class chatViewModel {
     private ObservableList<InputChat> chats;
     private ObservableList<InputUser> users;
 
+    private DoubleProperty STAR_1;
+    private DoubleProperty STAR_2;
+    private DoubleProperty STAR_3;
+    private DoubleProperty STAR_4;
+    private DoubleProperty STAR_5;
+
     private StringProperty request;
     private String navn;
 
     public chatViewModel(ClientText clientText) {
         this.clientText = clientText;
+        STAR_1 = new SimpleDoubleProperty();
+        STAR_2 = new SimpleDoubleProperty();
+        STAR_3 = new SimpleDoubleProperty();
+        STAR_4 = new SimpleDoubleProperty();
+        STAR_5 = new SimpleDoubleProperty();
+
         clientText.addListener(utils.NEWCHAT, this::onNewInputChat);
         request = new SimpleStringProperty();
         clientText.addListener(utils.NEWUSER, this::OnNewInputUser);
@@ -70,5 +84,19 @@ public class chatViewModel {
         users.add((InputUser) evt.getNewValue());
     }
 
-
+    public DoubleProperty STAR_1Property() {
+        return STAR_1;
+    }
+    public DoubleProperty STAR_2Property() {
+        return STAR_2;
+    }
+    public DoubleProperty STAR_3Property() {
+        return STAR_3;
+    }
+    public DoubleProperty STAR_4Property() {
+        return STAR_4;
+    }
+    public DoubleProperty STAR_5Property() {
+        return STAR_5;
+    }
 }
