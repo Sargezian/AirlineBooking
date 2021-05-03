@@ -22,6 +22,9 @@ public interface ClientText extends Subject {
     //ratings
     List<Rating> getRatings();
 
+    //average
+    int AverageStars();
+
     //flight
     List<flights> getflights();
     List<flights> readByName(String searchString);

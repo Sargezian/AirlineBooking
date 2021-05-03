@@ -110,6 +110,11 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
+    public int AverageStars() {
+        return inputChatDao.AverageStars();
+    }
+
+    @Override
     public List<flights> getflights() {
 
         return new ArrayList<>(dao.getflights());

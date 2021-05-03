@@ -15,6 +15,7 @@ public interface RMIServer extends Remote {
 
     //rating
     public List<Rating> getRatings() throws RemoteException;
+    int AverageStars() throws RemoteException;
 
     //user
     InputUser username(String user, String password) throws RemoteException;

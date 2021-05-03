@@ -12,6 +12,8 @@ public interface InputChatDao {
 
     List<Rating> getRatings();
 
+    int AverageStars();
+
 
     int CountChat();
 

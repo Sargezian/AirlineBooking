@@ -26,6 +26,8 @@ public class chatViewController implements ViewController {
     //starList
     @FXML public ComboBox starList;
 
+    @FXML public Label AverageReviews;
+
     //ChatTabellen
     @FXML private TableView<InputChat> tableView;
     @FXML private TextField requestField;
@@ -50,16 +52,16 @@ public class chatViewController implements ViewController {
         inputColumn.setCellValueFactory(new PropertyValueFactory<>("chat"));
 
         TotalReviews.textProperty().bind(vm.totalReviewsProperty());
+        AverageReviews.textProperty().bind(vm.averageProperty());
+
         requestField.textProperty().bindBidirectional(vm.getRequest());
         vm.setNavn(vmf.getcreateUserViewModel().createUserProperty().getValue());
         vm.setCounter();
+        vm.setAverage();
 
         starList.setItems(vm.getRatings());
 
     }
-
-
-
 
     @FXML
     private void onSubmitButton() {

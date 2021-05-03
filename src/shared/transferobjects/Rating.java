@@ -16,9 +16,7 @@ public class Rating implements Serializable {
 
     @Override
     public String toString() {
-        return "Rating{" +
-                "star=" + star +
-                '}';
+        return " " + star;
     }
 
 

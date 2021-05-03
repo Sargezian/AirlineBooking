@@ -15,9 +15,7 @@ public class InputChatImpl implements InputChatDao {
     public static synchronized InputChatImpl getInstance(){
 
         if (daoInstance == null){
-
             daoInstance = new InputChatImpl();
-
         }
 
         return daoInstance;
@@ -96,6 +94,25 @@ public class InputChatImpl implements InputChatDao {
         return null;
     }
 
+
+    public int AverageStars() {
+        try {
+            try (Connection connection =  daoConnection.getConnection()) {
+                PreparedStatement statement = connection.prepareStatement("SELECT AVG(star) FROM InputChat");
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+
+                    int avg = resultSet.getInt("avg") ;
+                    return avg;
+                }
+
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
+    }
 
 
     public int CountChat(){
