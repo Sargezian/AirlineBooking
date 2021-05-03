@@ -266,6 +266,18 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
+  @Override
+  public InputUser readUser(String user, String password) {
+    try
+    {
+      return server.readUser(user,password);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
   @Override public void updateChat(InputChat entry) throws RemoteException
   {
     support.firePropertyChange(utils.NEWCHAT, null, entry);

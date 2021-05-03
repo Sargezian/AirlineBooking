@@ -80,33 +80,34 @@ public class InputUserImpl implements InputUserDao {
         }
         return null;
     }
-
-
-
-    public boolean ValidateUser(String user, String password)  {
+    @Override
+    public InputUser readUser(String user,String password) {
         try {
             try (Connection connection =  daoConnection.getConnection()) {
 
-                PreparedStatement statement = connection.prepareStatement("SELECT * FROM InputUser WHERE user_ = ? AND password = ? ");
-                statement.setString(1,user);
-                statement.setString(2,password);
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM InputUser where user_ = ? and password  = ?");
+                     statement.setString(1,user);
+                     statement.setString(2,password);
                 ResultSet resultSet = statement.executeQuery();
 
                 if (resultSet.next()) {
-                    return true;
-                }
+                    int id = resultSet.getInt("id");
+                    InputUser inputUser = new InputUser(id, user,password);
+                  return inputUser;
 
-                else{
-
-                    return false;
                 }
 
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return false;
+        return null;
     }
 
 
+
+    public boolean ValidateUser(String user, String password)  {
+        return readUser(user, password) != null;
+
+    }
 }

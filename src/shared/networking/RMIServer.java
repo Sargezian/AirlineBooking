@@ -41,6 +41,7 @@ public interface RMIServer extends Remote {
     Seat readSeatFromShoppingCart(String seatNumber,String classType) throws RemoteException;
 
 
+    InputUser readUser(String user,String password) throws RemoteException;
 
 
 

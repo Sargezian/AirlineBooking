@@ -22,6 +22,7 @@ public interface ClientText extends Subject {
     List<Seat> getSeat();
     Seat getSeatId(int seatID, String seatNumber, String classType);
 
+    InputUser readUser(String user,String password);
 
 
     //Seat seat(String seatNumber, String classType);

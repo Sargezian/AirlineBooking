@@ -68,6 +68,8 @@ public class InputChatImpl implements InputChatDao {
         return null;
     }
 
+
+
     public int CountChat(){
         try {
             try (Connection connection =  daoConnection.getConnection()) {

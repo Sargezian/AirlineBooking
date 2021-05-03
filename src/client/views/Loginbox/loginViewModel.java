@@ -36,12 +36,17 @@ public class loginViewModel {
         System.out.println("Gets SavedInfo from Inputuser = " + SaveInfo.getInstance().getUser());
 
         myFlightTicket myFlightTicket1 = new myFlightTicket(1,pg,ft,st,user);
+
         clientText.createTicket(myFlightTicket1);
+
     }
 
      public boolean validateLoginInfo(){
 
      if (clientText.ValidateUser(navn.getValue(),kode.getValue())){
+         InputUser user = clientText.readUser(navn.getValue(), kode.getValue());
+         SaveInfo.getInstance().setUser(user);
+
          return true;
      } else {
          error.setValue("ERROR field is empty");

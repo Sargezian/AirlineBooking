@@ -65,6 +65,11 @@ public class RMIServerImplement implements RMIServer {
         return textManager.readSeatFromShoppingCart(seatNumber,classType);
     }
 
+    @Override
+    public InputUser readUser(String user, String password) throws RemoteException {
+        return textManager.readUser(user,password);
+    }
+
     @Override public Passenger passernger(String FirstName, String LastName,
                                           String TelNumber, String email)
     {

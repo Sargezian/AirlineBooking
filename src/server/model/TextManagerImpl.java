@@ -152,6 +152,11 @@ public class TextManagerImpl implements TextManager{
         return shoppingCartDao.readSeatFromShoppingCart(seatNumber,classType);
     }
 
+    @Override
+    public InputUser readUser(String user, String password) {
+        return inputUserDao.readUser(user,password);
+    }
+
 
     @Override
     public List<myFlightTicket> getflightlist(int userId) {

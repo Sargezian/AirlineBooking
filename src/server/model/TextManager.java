@@ -41,7 +41,7 @@ public interface TextManager extends Subject {
 
 
 
-
+    InputUser readUser(String user,String password);
 
 
 

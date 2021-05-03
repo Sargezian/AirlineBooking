@@ -87,6 +87,11 @@ public class ClientTextManager implements ClientText {
        return client.getSeatId(seatID,seatNumber,classType);
     }
 
+    @Override
+    public InputUser readUser(String user, String password) {
+        return client.readUser(user,password);
+    }
+
 
    /* @Override
     public Seat seat(String seatNumber, String classType) {

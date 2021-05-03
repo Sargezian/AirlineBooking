@@ -36,6 +36,7 @@ public interface Client extends Subject {
     flights readFlightsFromShoppingCart(String flightName, String departure, String arrival);
     Seat readSeatFromShoppingCart(String seatNumber,String classType);
 
+    InputUser readUser(String user,String password);
 
     void startClient();
 
