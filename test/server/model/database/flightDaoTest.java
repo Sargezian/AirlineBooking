@@ -22,15 +22,15 @@ public class  flightDaoTest
   @Test
   public void createChar() throws SQLException
   {
-    daoq.createChar("hej wdet er fint");
+    //daoq.createChar("hej wdet er fint");
     //daoq.createChar("hej wdet er fint");
     //dao.CreatePassengers("BOB","BOBO","123");
   }
 
   @Test public void readChat() throws SQLException {
     //dao.readChat();
-    InputChat c =  inputChatDao.createChar("ww");
-    assertEquals("ww",c.getInput());
+    //InputChat c =  inputChatDao.createChar("ww");
+    //assertEquals("ww",c.getChat());
   }
 
   @Test public void createUser() throws SQLException {

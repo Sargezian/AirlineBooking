@@ -49,9 +49,6 @@ public class dashboardViewModel {
         List<flights> flight = clientText.getflights();
         flights = FXCollections.observableArrayList(flight);
 
-
-
-
     }
 
     public void getFlightInformation(flights flights) {
@@ -62,10 +59,7 @@ public class dashboardViewModel {
     public void search(){
         flights.setAll(clientText.readByName(search.getValue()));
 
-
     }
-
-
 
 
     public String getSearch() {

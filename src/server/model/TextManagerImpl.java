@@ -57,9 +57,9 @@ public class TextManagerImpl implements TextManager{
 
 
     @Override
-    public InputChat sendMsg(String str) {
-        InputChat inputChat = new InputChat(str);
-        chatListe.add(inputChatDao.createChar(str));
+    public InputChat createChat(String chat, int star) {
+        InputChat inputChat = new InputChat(chat,new Rating(star));
+        chatListe.add(inputChatDao.createChat(chat,star));
         support.firePropertyChange(utils.NEWCHAT, null, inputChat);
         System.out.println("support.getPropertyChangeListeners().length:" + support.getPropertyChangeListeners().length);
         return inputChat;
@@ -102,6 +102,11 @@ public class TextManagerImpl implements TextManager{
     @Override
     public int CountChat() {
         return inputChatDao.CountChat();
+    }
+
+    @Override
+    public List<Rating> getRatings() {
+        return new ArrayList<>(inputChatDao.getRatings());
     }
 
     @Override

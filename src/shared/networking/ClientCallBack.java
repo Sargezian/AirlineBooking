@@ -7,6 +7,7 @@ import java.rmi.RemoteException;
 
 public interface ClientCallBack extends Remote {
 
+    //updates
     void updateChat(InputChat entry) throws RemoteException;
     void updateUser(InputUser entry2) throws RemoteException;
     void updateTicket(myFlightTicket myflightticket) throws RemoteException;

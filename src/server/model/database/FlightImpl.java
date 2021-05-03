@@ -100,8 +100,6 @@ public class FlightImpl implements FlightDao {
           String to = resultSet.getString("to_");
           int price = resultSet.getInt("price");
 
-
-
           /*flights flights = new flights(flightID, flightName,planeType, departure, arrival, from, to,price);
           flightlist.add(flights);*/
         }

@@ -1,6 +1,7 @@
 package server.model.database;
 
 import shared.transferobjects.InputChat;
+import shared.transferobjects.Rating;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -31,15 +32,17 @@ public class InputChatImpl implements InputChatDao {
         daoconnection = daoConnection.getInstance();
     }
 
-
     //createChat
-    public InputChat createChar(String str) {
+    public InputChat createChat(String chat, int star) {
         try {
             try (Connection connection = daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("INSERT INTO InputChat(chat) VALUES (?) ");
-                statement.setString(1, str);
+                PreparedStatement statement = connection.prepareStatement("INSERT INTO InputChat(chat,star) VALUES (?,?) ");
+
+                statement.setString(1, chat);
+                statement.setInt(2,star);
+
                 statement.executeUpdate();
-                return new InputChat(str);
+                return new InputChat(chat, new Rating(star));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -54,16 +57,41 @@ public class InputChatImpl implements InputChatDao {
                 PreparedStatement statement = connection.prepareStatement("SELECT * FROM InputChat");
                 ResultSet resultSet = statement.executeQuery();
                 ArrayList<InputChat> result = new ArrayList<>();
-                while (resultSet.next()) {
-                    String str = resultSet.getString("chat");
-                    InputChat inputChat = new InputChat(str);
-                    result.add(inputChat);
 
+                while (resultSet.next()) {
+                    String chat = resultSet.getString("chat");
+                    int star = resultSet.getInt("star");
+                    InputChat inputChat = new InputChat(chat, new Rating(star));
+                    result.add(inputChat);
                 }
                 return result;
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public List<Rating> getRatings() {
+        try {
+
+            try (Connection connection = daoConnection.getConnection()) {
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM Rating");
+                ResultSet resultSet = statement.executeQuery();
+
+                ArrayList<Rating> rating = new ArrayList<>();
+                while (resultSet.next()) {
+
+                    //rating
+                    int star = resultSet.getInt("star");
+                    Rating rating1 = new Rating(star);
+                    rating.add(rating1);
+                }
+                return rating;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }

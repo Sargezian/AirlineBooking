@@ -4,14 +4,33 @@ import java.io.Serializable;
 
 public class InputChat implements Serializable {
 
-    private String input;
+    public String chat;
+    public Rating rating;
 
-    public InputChat(String input) {
-        this.input = input;
+    public InputChat(String chat, Rating rating) {
+        this.chat = chat;
+        this.rating = rating;
     }
 
-    public String getInput() {
-        return input;
+    public int getStar() {
+        return rating.star;
     }
+
+    public Rating getRating() {
+        return rating;
+    }
+
+    public String getChat() {
+        return chat;
+    }
+
+    @Override
+    public String toString() {
+        return "InputChat{" +
+                "input='" + chat + '\'' +
+                ", rating=" + rating +
+                '}';
+    }
+
 
 }

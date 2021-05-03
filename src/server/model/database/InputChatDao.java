@@ -1,13 +1,17 @@
 package server.model.database;
 
 import shared.transferobjects.InputChat;
+import shared.transferobjects.Rating;
 
 import java.util.List;
 
 public interface InputChatDao {
 
-    InputChat createChar(String str);
+    InputChat createChat(String chat, int star);
     List<InputChat> readChat();
+
+    List<Rating> getRatings();
+
 
     int CountChat();
 

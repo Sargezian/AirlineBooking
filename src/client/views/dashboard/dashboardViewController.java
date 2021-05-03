@@ -2,6 +2,7 @@ package client.views.dashboard;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
+import client.model.SaveInfo;
 import client.views.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -53,15 +54,14 @@ public class dashboardViewController implements ViewController {
         departureColumn.setCellValueFactory(new PropertyValueFactory<>("Departures"));
         DepartureDateColumn.setCellValueFactory(new PropertyValueFactory<>("DepartureDate"));
 
-
         ArrivalColumn.setCellValueFactory(new PropertyValueFactory<>("Arrivals"));
         ArrivalDateColumn.setCellValueFactory(new PropertyValueFactory<>("ArrivalDate"));
 
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("Price"));
 
         tableView.setItems(dv.getflight());
-        SearchField.textProperty().bindBidirectional(dv.searchProperty());
 
+        SearchField.textProperty().bindBidirectional(dv.searchProperty());
 
     }
 
@@ -80,6 +80,13 @@ public class dashboardViewController implements ViewController {
         vh.openSeat();
 
     }
+
+    /*public void getFlightInformation(flights flights) {
+        SaveInfo.getInstance().setFlights(flights);
+        System.out.println("Save flightInformation  = " + SaveInfo.getInstance());
+    }*/
+
+
 
     public void onSearch(ActionEvent actionEvent) {
          dv.search();

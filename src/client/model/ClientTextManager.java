@@ -37,8 +37,8 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
-    public InputChat sendMsg(String text) {
-        return client.sendMsg(text);
+    public InputChat createChat(String chat, int star) {
+        return client.createChat(chat, star);
     }
 
     @Override
@@ -90,6 +90,11 @@ public class ClientTextManager implements ClientText {
     @Override
     public InputUser readUser(String user, String password) {
         return client.readUser(user,password);
+    }
+
+    @Override
+    public List<Rating> getRatings() {
+        return client.getRatings();
     }
 
 
