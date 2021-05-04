@@ -74,8 +74,11 @@ public class chatViewController implements ViewController {
        //
     }
 
-    public void onBackButton() {
+    public void onBackButton(ActionEvent actionEvent) {
         vh.openToMyFlightPlan();
     }
 
+    public void onFlights(ActionEvent actionEvent) {
+        vh.openToMyFlightPlan();
+    }
 }

@@ -77,7 +77,7 @@
                   <Font name="Tahoma Bold" size="18.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" layoutX="75.0" layoutY="177.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="173.0" style="-fx-background-color: #4153F2;" text="Flights" textFill="WHITE">
+            <Button alignment="BASELINE_LEFT" layoutX="75.0" layoutY="177.0" mnemonicParsing="false" onAction="#onFlights" prefHeight="52.0" prefWidth="173.0" style="-fx-background-color: #4153F2;" text="Flights" textFill="WHITE">
                <font>
                   <Font name="Tahoma Bold" size="18.0" />
                </font>
@@ -112,6 +112,16 @@
                   <Font name="Tahoma Bold" size="20.0" />
                </font>
             </Label>
+            <Button alignment="BASELINE_LEFT" layoutX="76.0" layoutY="331.0" mnemonicParsing="false" onAction="#onBackDashboard" prefHeight="52.0" prefWidth="173.0" style="-fx-background-color: #4153F2;" text="Dashboard" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma Bold" size="18.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="34.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Billeder/undo.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <BarChart fx:id="barChart" layoutX="839.0" layoutY="110.0" prefHeight="206.0" prefWidth="209.0">
