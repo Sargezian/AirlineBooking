@@ -9,13 +9,13 @@ import java.util.List;
 public interface RMIServer extends Remote {
 
     //chat
-    InputChat createChat(String chat, int star) throws RemoteException;
+    InputChat createChat(String chat, double star) throws RemoteException;
     List<InputChat> getChat() throws RemoteException;
     int CountChat() throws RemoteException;
 
     //rating
     public List<Rating> getRatings() throws RemoteException;
-    int AverageStars() throws RemoteException;
+    double AverageStars() throws RemoteException;
 
     //user
     InputUser username(String user, String password) throws RemoteException;

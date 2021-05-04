@@ -54,7 +54,7 @@
       <Separator layoutX="820.0" layoutY="99.0" orientation="VERTICAL" prefHeight="229.0" prefWidth="6.0" />
       <Separator layoutX="307.0" layoutY="81.0" prefHeight="3.0" prefWidth="759.0" />
       <ProgressBar layoutX="323.0" layoutY="180.0" prefHeight="42.0" prefWidth="202.0" progress="0.0" />
-      <Label fx:id="AverageReviews" layoutX="407.0" layoutY="142.0" prefHeight="27.0" prefWidth="57.0" text="4.3">
+      <Label fx:id="AverageReviews" layoutX="407.0" layoutY="142.0" prefHeight="27.0" prefWidth="104.0" text="4.3">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>

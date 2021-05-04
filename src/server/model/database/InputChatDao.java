@@ -7,12 +7,12 @@ import java.util.List;
 
 public interface InputChatDao {
 
-    InputChat createChat(String chat, int star);
+    InputChat createChat(String chat, double star);
     List<InputChat> readChat();
 
     List<Rating> getRatings();
 
-    int AverageStars();
+    double AverageStars();
 
 
     int CountChat();

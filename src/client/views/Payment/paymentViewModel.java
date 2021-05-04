@@ -6,14 +6,13 @@ import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import shared.transferobjects.Passenger;
+import shared.transferobjects.Flights;
 import shared.util.utils;
 
 import java.beans.PropertyChangeEvent;
-import java.sql.Date;
 
 public class paymentViewModel {
 
-    // TODO: 04/05/2021 prisen skal vises her
 
     private ClientText clientText;
 
@@ -32,6 +31,9 @@ public class paymentViewModel {
     //error
     private StringProperty error;
 
+    //price
+    private StringProperty price;
+
     public paymentViewModel(ClientText clientText) {
         this.clientText = clientText;
         clientText.addListener(utils.NEWTICKET, this::onNewTicket);
@@ -46,6 +48,7 @@ public class paymentViewModel {
         Email = new SimpleStringProperty();
         Phone = new SimpleStringProperty();
 
+        price = new SimpleStringProperty();
         error = new SimpleStringProperty();
     }
 
@@ -57,8 +60,9 @@ public class paymentViewModel {
     public void SetPassengerInfomation() {
 
         Passenger pg = SaveInfo.getInstance().getPassenger();
+        Flights ft =  SaveInfo.getInstance().getFlights();
         clientText.ReadPassenger(pg.FirstName, pg.LastName, pg.TelNumber, pg.Email);
-
+        clientText.readPrice(ft.price);
 
         Platform.runLater(new Runnable() {
             @Override
@@ -67,12 +71,9 @@ public class paymentViewModel {
                 LastName.setValue(pg.LastName);
                 Phone.setValue(pg.TelNumber);
                 Email.setValue(pg.Email);
+                price.setValue(String.valueOf(ft.price));
             }
         });
-
-
-
-
 
     }
 
@@ -187,5 +188,13 @@ public class paymentViewModel {
 
     public StringProperty errorProperty() {
         return error;
+    }
+
+    public String getPrice() {
+        return price.get();
+    }
+
+    public StringProperty priceProperty() {
+        return price;
     }
 }

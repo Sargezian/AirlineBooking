@@ -41,6 +41,7 @@ public class paymentViewController implements ViewController {
         getEmail.textProperty().bind(pv.emailProperty());
         getPhone.textProperty().bind(pv.phoneProperty());
         errorlabel.textProperty().bind(pv.errorProperty());
+        getPrice.textProperty().bind(pv.priceProperty());
         pv.SetPassengerInfomation();
     }
 

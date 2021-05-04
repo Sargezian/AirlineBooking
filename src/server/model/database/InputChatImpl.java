@@ -31,13 +31,13 @@ public class InputChatImpl implements InputChatDao {
     }
 
     //createChat
-    public InputChat createChat(String chat, int star) {
+    public InputChat createChat(String chat, double star) {
         try {
             try (Connection connection = daoConnection.getConnection()) {
                 PreparedStatement statement = connection.prepareStatement("INSERT INTO InputChat(chat,star) VALUES (?,?) ");
 
                 statement.setString(1, chat);
-                statement.setInt(2,star);
+                statement.setDouble(2,star);
 
                 statement.executeUpdate();
                 return new InputChat(chat, new Rating(star));
@@ -58,7 +58,7 @@ public class InputChatImpl implements InputChatDao {
 
                 while (resultSet.next()) {
                     String chat = resultSet.getString("chat");
-                    int star = resultSet.getInt("star");
+                    double star = resultSet.getInt("star");
                     InputChat inputChat = new InputChat(chat, new Rating(star));
                     result.add(inputChat);
                 }
@@ -82,7 +82,7 @@ public class InputChatImpl implements InputChatDao {
                 while (resultSet.next()) {
 
                     //rating
-                    int star = resultSet.getInt("star");
+                    double star = resultSet.getDouble("star");
                     Rating rating1 = new Rating(star);
                     rating.add(rating1);
                 }
@@ -95,7 +95,7 @@ public class InputChatImpl implements InputChatDao {
     }
 
 
-    public int AverageStars() {
+    public double AverageStars() {
         try {
             try (Connection connection =  daoConnection.getConnection()) {
                 PreparedStatement statement = connection.prepareStatement("SELECT AVG(star) FROM InputChat");
@@ -103,7 +103,7 @@ public class InputChatImpl implements InputChatDao {
 
                 while (resultSet.next()) {
 
-                    int avg = resultSet.getInt("avg") ;
+                    double avg = resultSet.getDouble("avg") ;
                     return avg;
                 }
 

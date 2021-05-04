@@ -57,7 +57,7 @@ public class TextManagerImpl implements TextManager{
 
 
     @Override
-    public InputChat createChat(String chat, int star) {
+    public InputChat createChat(String chat, double star) {
         InputChat inputChat = new InputChat(chat,new Rating(star));
         chatListe.add(inputChatDao.createChat(chat,star));
         support.firePropertyChange(utils.NEWCHAT, null, inputChat);
@@ -111,7 +111,7 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
-    public int AverageStars() {
+    public double AverageStars() {
         return inputChatDao.AverageStars();
     }
 

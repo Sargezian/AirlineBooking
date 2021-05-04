@@ -3,13 +3,12 @@ package client.model;
 import shared.transferobjects.*;
 import shared.util.Subject;
 
-import java.rmi.RemoteException;
 import java.util.List;
 
 public interface ClientText extends Subject {
 
     //chat
-    InputChat createChat(String chat, int star);
+    InputChat createChat(String chat, double star);
     List<InputChat> getChat();
     int CountChat();
 
@@ -24,11 +23,11 @@ public interface ClientText extends Subject {
     List<Rating> getRatings();
 
     //average
-    int AverageStars();
+    double AverageStars();
 
     //flight
-    List<flights> getflights();
-    List<flights> readByName(String searchString);
+    List<Flights> getflights();
+    List<Flights> readByName(String searchString);
 
     //seat
     List<Seat> getSeat(int planeId);
@@ -43,7 +42,7 @@ public interface ClientText extends Subject {
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate);
 
     //shoppingCart
-    flights readFlightsFromShoppingCart(String flightName, String departure, String arrival);
+    Flights readFlightsFromShoppingCart(String flightName, String departure, String arrival);
     Seat readSeatFromShoppingCart(String seatNumber,String classType);
 
     //ticket
@@ -51,7 +50,7 @@ public interface ClientText extends Subject {
     List<myFlightTicket> getflightlist(int userId);
     void createTicket(myFlightTicket myFlightTicket);
     myFlightTicket readUsername_(String user);
-
+    Flights readPrice(int price);
 
 
 

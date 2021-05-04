@@ -37,7 +37,7 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
-    public InputChat createChat(String chat, int star) {
+    public InputChat createChat(String chat, double star) {
         return client.createChat(chat, star);
     }
 
@@ -103,7 +103,7 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
-    public int AverageStars() {
+    public double AverageStars() {
         return client.AverageStars();
     }
 

@@ -8,7 +8,7 @@ import java.util.List;
 public interface Client extends Subject {
 
     //chat
-    InputChat createChat(String chat, int star);
+    InputChat createChat(String chat, double star);
     List<InputChat> getChat();
     int CountChat();
 
@@ -22,7 +22,7 @@ public interface Client extends Subject {
     List<Rating> getRatings();
 
     //average
-    int AverageStars();
+    double AverageStars();
 
     //flights
     List<Flights> getflights();

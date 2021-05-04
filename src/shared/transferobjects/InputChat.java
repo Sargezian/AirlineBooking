@@ -12,7 +12,7 @@ public class InputChat implements Serializable {
         this.rating = rating;
     }
 
-    public int getStar() {
+    public double getStar() {
         return rating.star;
     }
 

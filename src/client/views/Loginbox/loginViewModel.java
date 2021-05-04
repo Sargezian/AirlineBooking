@@ -45,7 +45,6 @@ public class loginViewModel {
         navn.setValue("");
         kode.setValue("");
         error.setValue("");
-
     }
 
 

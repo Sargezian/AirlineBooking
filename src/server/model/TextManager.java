@@ -8,13 +8,13 @@ import java.util.List;
 public interface TextManager extends Subject {
 
     //chat
-    InputChat createChat(String chat, int star);
+    InputChat createChat(String chat, double star);
     List<InputChat> getChat();
     int CountChat();
 
     //rating
     List<Rating> getRatings();
-    int AverageStars();
+    double AverageStars();
 
     //user
     InputUser CreateUser(String user, String password);

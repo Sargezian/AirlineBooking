@@ -29,7 +29,7 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public InputChat createChat(String chat, int star) {
+    public InputChat createChat(String chat, double star) {
         System.out.println("RMI SERVER READ CHAT");
         return textManager.createChat(chat, star);
     }
@@ -51,7 +51,7 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public int AverageStars() throws RemoteException {
+    public double AverageStars() throws RemoteException {
         return textManager.AverageStars();
     }
 

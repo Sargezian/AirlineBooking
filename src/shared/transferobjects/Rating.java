@@ -4,13 +4,13 @@ import java.io.Serializable;
 
 public class Rating implements Serializable {
 
-    public int star;
+    public double star;
 
-    public Rating(int star) {
+    public Rating(double star) {
         this.star = star;
     }
 
-    public int getStar() {
+    public double getStar() {
         return star;
     }
 

@@ -15,8 +15,6 @@ import java.util.List;
 
 public class chatViewModel {
 
-    // TODO: 03/05/2021 lav avg om til Double og database tabellen om til numeric
-
     // TODO: 04/05/2021 lave barchart diagrammerne til chatmodellen.
 
     // TODO: 04/05/2021 fjerne tekstbox fra forsiden men beholde den i myflightticket

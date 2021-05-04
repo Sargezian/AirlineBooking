@@ -30,14 +30,15 @@ public class loginViewController implements ViewController {
         if (viewModel.validateLoginInfo()){
             vh.openPaymentView();
             viewModel.createTicket();
+            viewModel.clearFields();
         }
 
     }
 
     public void onkald(ActionEvent actionEvent) {
       //  System.exit(1);
-        viewModel.clearFields();
         vh.openPassengerView();
+
     }
 
     public void OnSignIn(ActionEvent actionEvent) {

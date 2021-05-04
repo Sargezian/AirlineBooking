@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
 
-public class flights implements Serializable {
+public class Flights implements Serializable {
 
     public String flightID;
     public String flightName;
@@ -14,7 +14,7 @@ public class flights implements Serializable {
     public PlaneType planeType;
     public int price;
 
-    public flights(String flightID, String flightName, Depature departure, Arrival arrival, PlaneType planeType, int price) {
+    public Flights(String flightID, String flightName, Depature departure, Arrival arrival, PlaneType planeType, int price) {
         this.flightID = flightID;
         this.flightName = flightName;
         this.departure = departure;
@@ -23,16 +23,16 @@ public class flights implements Serializable {
         this.price = price;
     }
 
-    public flights(String flightName, String departures, String arrivals) {
+    public Flights(String flightName, String departures, String arrivals) {
         this.flightName = flightName;
         this.departure = departure;
         this.arrival = arrival;
 
     }
 
-    public flights(Arrival arrival)
+    public Flights(int price)
     {
-        this.arrival = arrival;
+        this.price = price;
     }
 
     //departure

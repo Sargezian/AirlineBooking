@@ -43,6 +43,8 @@ public class createUserViewController implements ViewController {
     }
 
     public void onCancel(ActionEvent actionEvent) {
+
+        vh.openLoginView();
     }
 
 

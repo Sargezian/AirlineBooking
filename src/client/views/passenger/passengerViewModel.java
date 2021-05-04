@@ -215,5 +215,5 @@ public class passengerViewModel {
         return price;
     }
 
-    // TODO: 25/04/2021 Indkøbskurven skal virke her
+    // TODO: 25/04/2021 shoppingcart propertychange skal virke
 }

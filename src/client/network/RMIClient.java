@@ -45,7 +45,7 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
-  @Override public InputChat createChat(String chat, int star)
+  @Override public InputChat createChat(String chat, double star)
   {
     try
     {
@@ -327,7 +327,7 @@ public class RMIClient implements Client, ClientCallBack
   }
 
   @Override
-  public int AverageStars() {
+  public double AverageStars() {
     try
     {
       return server.AverageStars();
