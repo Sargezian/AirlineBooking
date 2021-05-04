@@ -28,7 +28,7 @@ public interface RMIServer extends Remote {
     List<flights> readByName(String searchString) throws RemoteException;
 
     //seat
-    List<Seat> getSeat() throws RemoteException;
+    List<Seat> getSeat(int planeId) throws RemoteException;
     Seat getSeatId(int seatID, String seatNumber, String classType) throws RemoteException;
     //Seat seat(String seatNumber, String classType) throws RemoteException;
 

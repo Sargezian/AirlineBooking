@@ -191,8 +191,8 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public List<Seat> getSeat() throws RemoteException {
-        return textManager.getSeat();
+    public List<Seat> getSeat(int planeId) throws RemoteException {
+        return textManager.getSeat(planeId);
     }
 
     @Override

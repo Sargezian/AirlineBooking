@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface SeatDao {
 
-    List<Seat> getSeat();
+    List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID,String seatNumber, String classType);
 
 

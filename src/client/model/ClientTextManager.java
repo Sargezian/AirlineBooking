@@ -77,8 +77,8 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
-    public List<Seat> getSeat() {
-            return client.getSeat();
+    public List<Seat> getSeat(int planeId) {
+            return client.getSeat(planeId);
     }
 
     @Override public Seat getSeatId(int seatID, String seatNumber,

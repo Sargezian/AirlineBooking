@@ -29,7 +29,7 @@ public interface Client extends Subject {
     List<flights> readByName(String searchString);
 
     //seats
-    List<Seat> getSeat();
+    List<Seat> getSeat(int planeId);
     boolean ValidateUser(String user, String password) ;
     Seat getSeatId(int seatID, String seatNumber, String classType);
 

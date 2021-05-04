@@ -30,7 +30,7 @@ public interface ClientText extends Subject {
     List<flights> readByName(String searchString);
 
     //seat
-    List<Seat> getSeat();
+    List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID, String seatNumber, String classType);
     //Seat seat(String seatNumber, String classType);
     //passenger

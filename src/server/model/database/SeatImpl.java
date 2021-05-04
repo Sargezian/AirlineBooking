@@ -24,11 +24,12 @@ public class SeatImpl implements SeatDao {
     }
 
     @Override
-    public List<Seat> getSeat() {
+    public List<Seat> getSeat(int planeId) {
         try {
 
             try (Connection connection = daoConnection.getConnection()) {
                 PreparedStatement statement = connection.prepareStatement("select * from seat where planeID = ?");
+                statement.setInt(1,planeId);
                 ResultSet resultSet = statement.executeQuery();
 
                 ArrayList<Seat> Seats = new ArrayList<>();
@@ -38,7 +39,7 @@ public class SeatImpl implements SeatDao {
                     int seatID = resultSet.getInt("seatID");
                     String seatNumber = resultSet.getString("seatNumber");
                     String classType = resultSet.getString("classType");
-                    int planeId = resultSet.getInt("planeId");
+                    int getplaneId = resultSet.getInt("planeId");
                     //Linje 38 skal måske kun have seat ID
                     Seat seat = new Seat(seatID, seatNumber, classType, new PlaneType(planeId));
                     Seats.add(seat);

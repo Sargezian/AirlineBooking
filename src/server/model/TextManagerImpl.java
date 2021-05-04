@@ -71,8 +71,9 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
-    public List<Seat> getSeat() {
-        return new ArrayList<>(seatDao.getSeat());
+    public List<Seat> getSeat(int planeId) {
+        System.out.println("Her getter vi et seat " + seatDao.getSeat(planeId));
+        return new ArrayList<>(seatDao.getSeat(planeId));
     }
 
     @Override public Seat getSeatID(int seatID, String seatNumber,

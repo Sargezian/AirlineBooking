@@ -129,11 +129,11 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
-  @Override public List<Seat> getSeat()
+  @Override public List<Seat> getSeat(int planeId)
   {
     try
     {
-      return server.getSeat();
+      return server.getSeat(planeId);
     }
     catch (RemoteException e)
     {

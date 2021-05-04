@@ -23,7 +23,7 @@ public interface TextManager extends Subject {
     InputUser readUser(String user,String password);
 
     //seat
-    List<Seat> getSeat();
+    List<Seat> getSeat(int planeId);
     Seat getSeatID(int seatID, String seatNumber, String classType);
     boolean ValidateUser(String user, String password) ;
 
