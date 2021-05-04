@@ -290,6 +290,18 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
+  @Override
+  public int AverageStars() {
+    try
+    {
+      return server.AverageStars();
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
   @Override public void updateChat(InputChat entry) throws RemoteException
   {
     support.firePropertyChange(utils.NEWCHAT, null, entry);

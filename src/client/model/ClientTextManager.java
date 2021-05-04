@@ -97,6 +97,11 @@ public class ClientTextManager implements ClientText {
         return client.getRatings();
     }
 
+    @Override
+    public int AverageStars() {
+        return client.AverageStars();
+    }
+
 
    /* @Override
     public Seat seat(String seatNumber, String classType) {

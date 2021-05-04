@@ -20,6 +20,10 @@ public interface Client extends Subject {
     //rating
     List<Rating> getRatings();
 
+    //average
+    int AverageStars();
+
+
     //flights
     List<flights> getflights();
     List<flights> readByName(String searchString);

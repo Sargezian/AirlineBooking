@@ -81,13 +81,6 @@ public class dashboardViewController implements ViewController {
 
     }
 
-    /*public void getFlightInformation(flights flights) {
-        SaveInfo.getInstance().setFlights(flights);
-        System.out.println("Save flightInformation  = " + SaveInfo.getInstance());
-    }*/
-
-
-
     public void onSearch(ActionEvent actionEvent) {
          dv.search();
     }

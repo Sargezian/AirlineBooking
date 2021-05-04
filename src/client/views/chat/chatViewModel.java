@@ -20,11 +20,14 @@ import java.util.List;
 
 public class chatViewModel {
 
+    // TODO: 03/05/2021 lav avg om til Double og database tabellen om til numeric
+
     private ClientText clientText;
     private ObservableList<InputChat> chats;
     private ObservableList<InputUser> users;
     private ObservableList<Rating> ratings;
     private StringProperty totalReviews;
+    private StringProperty average;
 
     private StringProperty request;
     private String navn;
@@ -32,6 +35,7 @@ public class chatViewModel {
     public chatViewModel(ClientText clientText) {
         this.clientText = clientText;
         this.totalReviews = new SimpleStringProperty();
+        this.average = new SimpleStringProperty();
 
         clientText.addListener(utils.NEWCHAT, this::onNewInputChat);
         request = new SimpleStringProperty();
@@ -43,12 +47,18 @@ public class chatViewModel {
         totalReviews.setValue(String.valueOf(clientText.CountChat()));
     }
 
+    public void setAverage() {
+        average.setValue(String.valueOf(clientText.AverageStars()));
+    }
+
+
     public void chatPrint(Rating rating) {
 
         if (request.getValue() != null && !"".equals(request.getValue())) {
             clientText.createChat(request.getValue()+  "  Message from : " + navn + " " + rating.star + "STAR", rating.star);
 
             setCounter();
+            setAverage();
 
         } else {
             System.out.println(request.getValue());
@@ -105,5 +115,13 @@ public class chatViewModel {
 
     public ObservableList<Rating> getRatings() {
         return ratings;
+    }
+
+    public String getAverage() {
+        return average.get();
+    }
+
+    public StringProperty averageProperty() {
+        return average;
     }
 }

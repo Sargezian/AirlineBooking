@@ -14,6 +14,8 @@ public interface TextManager extends Subject {
 
     //rating
     List<Rating> getRatings();
+    int AverageStars();
+
 
     //user
     InputUser CreateUser(String user, String password);
