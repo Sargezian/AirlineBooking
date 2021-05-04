@@ -100,5 +100,6 @@
       <Label layoutX="587.0" layoutY="90.0" text="Seat" />
       <Label layoutX="659.0" layoutY="90.0" text="Passenger" />
       <Label layoutX="759.0" layoutY="90.0" text="Payment" />
+      <Label fx:id="errorlabel" layoutX="823.0" layoutY="543.0" text="errorlabel" />
     </children>
 </AnchorPane>

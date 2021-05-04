@@ -5,7 +5,6 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
@@ -98,5 +97,6 @@
       <Label layoutX="318.0" layoutY="75.0" text="Seat" />
       <Label layoutX="400.0" layoutY="75.0" text="Passenger" />
       <Label layoutX="502.0" layoutY="75.0" text="Payment" />
+      <Label fx:id="errorlabel" layoutX="496.0" layoutY="508.0" prefHeight="17.0" prefWidth="137.0" text="error" />
     </children>
 </AnchorPane>

@@ -2,8 +2,11 @@ package client.views.seat;
 
 import client.model.ClientText;
 import client.model.SaveInfo;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import shared.transferobjects.Seat;
@@ -21,10 +24,12 @@ public class seatViewModel {
     private ClientText clientText;
     private ObservableList<Seat> Seats;
     private ArrayList<Pane> selectedPane = new ArrayList<>();
+    private StringProperty error;
 
 
     public seatViewModel(ClientText clientText) {
         this.clientText = clientText;
+        this.error = new SimpleStringProperty();
         //SaveInfo.getInstance().setSeat(clientText.seat(seatNumber,classType));
     }
 
@@ -60,8 +65,24 @@ public class seatViewModel {
     }
 
 
-    public void getSeatInformation(Seat seat) {
-        SaveInfo.getInstance().setSeat(seat);
-        System.out.println("Save SeatInformation = " + SaveInfo.getInstance());
+    public boolean getSeatInformation(Seat seat) {
+
+        if (seat != null) {
+            SaveInfo.getInstance().setSeat(seat);
+            System.out.println("Save SeatInformation = " + SaveInfo.getInstance());
+            return true;
+        } else {
+            error.set("Please select seat for continue");
+            return false;
+        }
+
+    }
+
+    public String getError() {
+        return error.get();
+    }
+
+    public StringProperty errorProperty() {
+        return error;
     }
 }

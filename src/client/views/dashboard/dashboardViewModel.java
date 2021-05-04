@@ -6,7 +6,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
 import shared.transferobjects.flights;
 import shared.util.utils;
 import java.beans.PropertyChangeEvent;
@@ -24,34 +23,17 @@ public class dashboardViewModel {
 
     private ClientText clientText;
     private ObservableList<flights> flights;
-    private ObservableList<flights> selectedrows;
     private StringProperty search;
+    private StringProperty error;
 
 
     public dashboardViewModel(ClientText clientText) {
         this.clientText = clientText;
         search = new SimpleStringProperty();
+        error = new SimpleStringProperty();
         clientText.addListener(utils.NEWFLIGHT, this::onNewInputflight);
-        // clientText.removeSelectedFlight(utils.REMOVEDFLIGHT, this::removeflight);
     }
 
-    public void setSelected(ObservableList<flights> flights) {
-        this.selectedrows = flights;
-    }
-
-    public void removeSelected() {
-        //  System.out.println("minselect" + selectedrows);
-         flights.removeAll(selectedrows);
-        //flights.addAll(selectedrows);
-    }
-
-/*    public void addSelected() {
-        for (int i = 0; i < my.size(); i++) {
-            //selectedrows.add(i, my.get(i));
-            //flights.removeAll(selectedrows);
-            flights.add(i, my.get(i));
-        }*/
-    //}
 
     public void loadFlights() {
         List<flights> flight = clientText.getflights();
@@ -59,16 +41,21 @@ public class dashboardViewModel {
 
     }
 
-    public void getFlightInformation(flights flights) {
-        SaveInfo.getInstance().setFlights(flights);
-        System.out.println("Save flightInformation  = " + SaveInfo.getInstance());
+    public boolean getFlightInformation(flights flights) {
+
+        if (flights != null) {
+            SaveInfo.getInstance().setFlights(flights);
+            System.out.println("Save flightInformation  = " + SaveInfo.getInstance());
+            return true;
+        }else {
+            error.set("Please choose a flight for continue ");
+            return false;
+        }
     }
 
     public void search(){
         flights.setAll(clientText.readByName(search.getValue()));
-
     }
-
 
     public String getSearch() {
         return search.get();
@@ -87,9 +74,11 @@ public class dashboardViewModel {
         return flights;
     }
 
-    public ObservableList<flights> getSelectedrows() {
-        return selectedrows;
+    public String getError() {
+        return error.get();
     }
 
-
+    public StringProperty errorProperty() {
+        return error;
+    }
 }

@@ -6,6 +6,7 @@ import client.model.SaveInfo;
 import client.views.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -34,6 +35,7 @@ public class dashboardViewController implements ViewController {
 
 
     @FXML public TextField SearchField;
+    @FXML public Label errorlabel;
 
     private ViewHandler vh;
     private dashboardViewModel dv;
@@ -57,6 +59,8 @@ public class dashboardViewController implements ViewController {
 
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("Price"));
 
+        errorlabel.textProperty().bind(dv.errorProperty());
+
         tableView.setItems(dv.getflight());
 
         SearchField.textProperty().bindBidirectional(dv.searchProperty());
@@ -67,15 +71,12 @@ public class dashboardViewController implements ViewController {
         vh.openLoginView();
     }
 
-    public void onpush(ActionEvent actionEvent) {
-        dv.setSelected(tableView.getSelectionModel().getSelectedItems());
-        dv.removeSelected();
-       // dv.addSelected();
-    }
 
     public void onNext(ActionEvent actionEvent) {
-        dv.getFlightInformation(tableView.getSelectionModel().getSelectedItem());
-        vh.openSeat();
+        if(dv.getFlightInformation(tableView.getSelectionModel().getSelectedItem())) {
+            dv.getFlightInformation(tableView.getSelectionModel().getSelectedItem());
+            vh.openSeat();
+        }
 
     }
 

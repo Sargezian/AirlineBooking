@@ -5,6 +5,7 @@ import client.core.ViewModelFactory;
 import client.views.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -16,26 +17,21 @@ import java.util.ArrayList;
 
 public class seatViewController implements ViewController {
 
-    @FXML
-    public TableView<Seat> tableView;
-    @FXML
-    public TableColumn<String, Seat> seatIDColumn;
-    @FXML
-    public TableColumn<String, Seat> seatNumberColumn;
-    @FXML
-    public TableColumn<String, Seat> classTypeColumn;
-    @FXML
-    public Pane paneTest;
+
+    @FXML public TableView<Seat> tableView;
+    @FXML public TableColumn<String, Seat> seatIDColumn;
+    @FXML public TableColumn<String, Seat> seatNumberColumn;
+    @FXML public TableColumn<String, Seat> classTypeColumn;
+
+    @FXML public Pane paneTest;
+    @FXML public Label errorlabel;
 
 
-private ArrayList<Pane> paneArrayList = new ArrayList<>();
-private ArrayList<Seat> seatArrayList;
+    private ArrayList<Pane> paneArrayList = new ArrayList<>();
+    private ArrayList<Seat> seatArrayList;
 
     private seatViewModel sv;
     private ViewHandler vh;
-
-
-
 
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
@@ -46,6 +42,7 @@ private ArrayList<Seat> seatArrayList;
         seatIDColumn.setCellValueFactory(new PropertyValueFactory<>("seatID"));
         seatNumberColumn.setCellValueFactory(new PropertyValueFactory<>("seatNumber"));
         classTypeColumn.setCellValueFactory(new PropertyValueFactory<>("classType"));
+        errorlabel.textProperty().bind(sv.errorProperty());
         tableView.setItems(sv.getSeat());
     }
 
@@ -71,8 +68,10 @@ private ArrayList<Seat> seatArrayList;
     }
 
     public void onNext(ActionEvent actionEvent) {
-     sv.getSeatInformation(tableView.getSelectionModel().getSelectedItem());
-        vh.openPassengerView();
+        if (sv.getSeatInformation(tableView.getSelectionModel().getSelectedItem())) {
+            sv.getSeatInformation(tableView.getSelectionModel().getSelectedItem());
+            vh.openPassengerView();
+        }
 
     }
 
