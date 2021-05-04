@@ -111,7 +111,6 @@ public class FlightImpl implements FlightDao {
     return null;
   }
 
-  // TODO: 04-05-2021 Måske vi skulle overveje at begrænse os til at prisen altid er et fast beløb, det er en fair begræning at have i sit program hvert fly skal dog koste noget forskelligt
 }
 
 

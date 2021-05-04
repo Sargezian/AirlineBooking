@@ -4,6 +4,9 @@
       <root url="file://$USER_HOME$/Desktop/javafx-sdk-16/lib" />
     </CLASSES>
     <JAVADOC />
+    <NATIVE>
+      <root url="file://$USER_HOME$/Desktop/javafx-sdk-16/lib" />
+    </NATIVE>
     <SOURCES>
       <root url="file://$USER_HOME$/Desktop/javafx-sdk-16/lib" />
     </SOURCES>

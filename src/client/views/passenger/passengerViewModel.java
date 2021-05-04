@@ -12,19 +12,22 @@ import java.beans.PropertyChangeEvent;
 public class passengerViewModel {
 
     private ClientText clientText;
+
+    //passenger
     private StringProperty FirstName;
     private StringProperty LastName;
     private StringProperty TelNumber;
     private StringProperty Email;
 
+    //shoppingcar
     private StringProperty FlightName;
     private StringProperty departure;
     private StringProperty arrival;
-
     private StringProperty seatProperty;
     private StringProperty ClassType;
 
-
+    //error
+    private StringProperty error;
 
     public passengerViewModel(ClientText clientText) {
         this.clientText = clientText;
@@ -37,6 +40,7 @@ public class passengerViewModel {
         arrival = new SimpleStringProperty();
         seatProperty = new SimpleStringProperty();
         ClassType = new SimpleStringProperty();
+        error = new SimpleStringProperty();
 
        clientText.addListener(utils.NEWTICKET, this::onNewTicket);
     }
@@ -65,19 +69,43 @@ public class passengerViewModel {
                 ClassType.setValue(seat.classType);
             }
         });
-
     }
 
-    public void getPassengerInformation() {
+    public boolean getPassengerInformation() {
 
-        String FirstName = this.FirstName.getValue();
-        String LastName = this.LastName.getValue();
-        String TelNumber = this.TelNumber.getValue();
-        String Email = this.Email.getValue();
-        SaveInfo.getInstance().setPassenger(clientText.Createpassernger(FirstName,LastName,TelNumber,Email));
+            if (FirstName.getValue() != null && !"".equals(FirstName.getValue()) && LastName.getValue() != null && !"".equals(LastName.getValue()) && TelNumber.getValue() != null && !"".equals(TelNumber.getValue())  && Email.getValue() != null && !"".equals(Email.getValue()) && Email.getValue().contains("@")) {
+
+                String FirstName = this.FirstName.getValue();
+                String LastName = this.LastName.getValue();
+                String TelNumber = this.TelNumber.getValue();
+                String Email = this.Email.getValue();
+                SaveInfo.getInstance().setPassenger(clientText.Createpassernger(FirstName,LastName,TelNumber,Email));
+                return true;
+            }
+            else if (FirstName.getValue() == null ) {
+                error.set("FirstName cannot be empty");
+                return false;
+            }
+            else if (LastName.getValue() == null ) {
+                error.set("LastName cannot be empty");
+                return false;
+            }
+            else if (TelNumber.getValue() == null ) {
+                error.set("TelNumber cannot be empty");
+                return false;
+            }
+            else if (Email.getValue() == null) {
+                error.set("Email cannot be empty ");
+                return false;
+            }
+             else if (!Email.getValue().contains("@")) {
+                 error.set("Email must contain '@' ");
+                 return false;
+            } else {
+                error.set("Fields cannot be emty");
+                return false;
+            }
     }
-
-
 
     public String getFlightName() {
         return FlightName.get();
@@ -120,7 +148,6 @@ public class passengerViewModel {
     }
 
 
-
     public String getEmail() {
         return Email.get();
     }
@@ -159,7 +186,13 @@ public class passengerViewModel {
         return TelNumber;
     }
 
+    public String getError() {
+        return error.get();
+    }
 
-    // TODO: 25/04/2021 Indkøbskurven skal virke her ved hjælp af join og bedre design skal laves 
+    public StringProperty errorProperty() {
+        return error;
+    }
 
+    // TODO: 25/04/2021 Indkøbskurven skal virke her
 }

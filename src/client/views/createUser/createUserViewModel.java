@@ -17,6 +17,8 @@ public class createUserViewModel  {
     private StringProperty CreatePassword;
     private StringProperty Error;
 
+    // TODO: 04/05/2021 lav fejl kode USER allerede findes; 
+    
     public createUserViewModel(ClientText clientText) {
         this.clientText = clientText;
         CreateUser = new SimpleStringProperty();
@@ -163,7 +165,4 @@ public class createUserViewModel  {
 
 
 
-// TODO: 25/04/2021 = CREATE USER INSERT INTO SKAL VÆRE HER ISTEDET FOR LOGIN VIEWET
-
-// TODO: 25/04/2021 = Login funktion skal virke her kopi'er fra troels eksempel og vis kun specifik min side.
 }

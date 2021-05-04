@@ -21,7 +21,6 @@ public class loginViewModel {
 
     }
 
-
     public void createTicket() {
 
         flights ft = SaveInfo.getInstance().getFlights();

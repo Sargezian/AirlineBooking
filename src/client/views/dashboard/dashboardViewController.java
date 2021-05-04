@@ -35,8 +35,6 @@ public class dashboardViewController implements ViewController {
 
     @FXML public TextField SearchField;
 
-    // TODO: 25/04/2021 læg price
-
     private ViewHandler vh;
     private dashboardViewModel dv;
 

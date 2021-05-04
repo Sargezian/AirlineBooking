@@ -135,5 +135,6 @@
       <Label fx:id="TotalReviews" layoutX="396.0" layoutY="340.0" prefHeight="36.0" prefWidth="45.0" style="-fx-background-color: f7f7f7;" text="?" />
       <Label layoutX="435.0" layoutY="340.0" prefHeight="36.0" prefWidth="632.0" style="-fx-background-color: f7f7f7;" text="CUSTOMERS" />
       <ComboBox fx:id="starList" layoutX="634.0" layoutY="737.0" prefWidth="150.0" promptText="Rating" />
+      <Label fx:id="errorRating" layoutX="634.0" layoutY="767.0" prefHeight="27.0" prefWidth="150.0" text="ErrorRatinglabel" />
    </children>
 </AnchorPane>

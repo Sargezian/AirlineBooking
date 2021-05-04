@@ -16,6 +16,9 @@ public class passengerViewController implements ViewController {
     @FXML public TextField TelNumber;
     @FXML public TextField Email;
 
+    //error
+    @FXML public Label error;
+
     //shopping cart
     @FXML public Label FlightName;
     @FXML public Label departure;
@@ -46,9 +49,8 @@ public class passengerViewController implements ViewController {
         arrival.textProperty().bind(pv.arrivalProperty());
         seat.textProperty().bind(pv.seatPropertyProperty());
         ClassType.textProperty().bind(pv.classTypeProperty());
+        error.textProperty().bind(pv.errorProperty());
          pv.SetShoppingCart();
-
-
 
     }
 
@@ -57,9 +59,10 @@ public class passengerViewController implements ViewController {
     }
 
     public void onOrder(ActionEvent actionEvent) {
-        pv.getPassengerInformation();
-        vh.openLoginView();
+        if (pv.getPassengerInformation()) {
+            pv.getPassengerInformation();
+            vh.openLoginView();
+        }
     }
-
 
 }
