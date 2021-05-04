@@ -107,6 +107,17 @@ public class passengerViewModel {
             }
     }
 
+
+
+    public void clearFields() {
+        FirstName.setValue("");
+        LastName.setValue("");
+        TelNumber.setValue("");
+        Email.setValue("");
+        error.setValue("");
+
+    }
+
     public String getFlightName() {
         return FlightName.get();
     }

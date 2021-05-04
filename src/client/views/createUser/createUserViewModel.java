@@ -7,6 +7,8 @@ import client.model.SaveInfo;
 import client.views.ViewController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import shared.transferobjects.InputUser;
+import shared.transferobjects.flights;
 
 import java.beans.PropertyChangeListener;
 
@@ -31,14 +33,40 @@ public class createUserViewModel  {
         String CreateUser = this.CreateUser.getValue();
         String CreatePassword = this.CreatePassword.getValue();
 
-        if (CreateUser != null && !"".equals(CreateUser) && CreatePassword != null && !"".equals(CreatePassword)) {
-            SaveInfo.getInstance().setUser(clientText.username(CreateUser, CreatePassword));
+
+
+        if (CreateUser != null && !"".equals(CreateUser) && CreatePassword != null && !"".equals(CreatePassword)  ) {
+            InputUser username = clientText.username(CreateUser, CreatePassword);
+            SaveInfo.getInstance().setUser(username);
+
             Error.set("korrekt oprettet");
         } else {
             Error.set("Feltet kan ikke være tomt");
         }
         this.Error.set("");
     }
+
+    public boolean userValidation(){
+      SaveInfo.getInstance().setUser(clientText.readUsername(this.CreateUser.getValue()));
+      InputUser user = SaveInfo.getInstance().getUser();
+      if (user != null){
+
+        if (CreateUser.getValue().equals(user.getOutput())){
+
+            Error.set("Username already exist");
+            return false;
+        }
+      }
+        return true;
+    }
+
+    public void clearFields() {
+        CreateUser.setValue("");
+        CreatePassword.setValue("");
+        Error.setValue("");
+
+    }
+
 
     public String getCreateUser() {
         return CreateUser.get();

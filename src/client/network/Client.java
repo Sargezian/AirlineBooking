@@ -16,6 +16,7 @@ public interface Client extends Subject {
     InputUser username(String user, String password);
     List<InputUser> getUser();
     InputUser readUser(String user,String password);
+    InputUser readUsername(String user);
 
     //rating
     List<Rating> getRatings();

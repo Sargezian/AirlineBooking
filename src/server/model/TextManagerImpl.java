@@ -168,6 +168,11 @@ public class TextManagerImpl implements TextManager{
         return inputUserDao.readUser(user,password);
     }
 
+    @Override
+    public InputUser readUsername(String user) {
+        return inputUserDao.readUsername(user);
+    }
+
 
     @Override
     public List<myFlightTicket> getflightlist(int userId) {

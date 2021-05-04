@@ -279,6 +279,18 @@ public class RMIClient implements Client, ClientCallBack
   }
 
   @Override
+  public InputUser readUsername(String user) {
+    try
+    {
+      return server.readUsername(user);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  @Override
   public List<Rating> getRatings() {
     try
     {

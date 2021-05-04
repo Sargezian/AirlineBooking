@@ -62,7 +62,7 @@ public class InputUserImpl implements InputUserDao {
         try {
             try (Connection connection =  daoConnection.getConnection()) {
 
-                PreparedStatement statement = connection.prepareStatement("SELECT * FROM InputUser ");
+                PreparedStatement statement = connection.prepareStatement(" SELECT * FROM InputUser ");
 
                 ResultSet resultSet = statement.executeQuery();
                 ArrayList<InputUser> result = new ArrayList<>();
@@ -109,5 +109,30 @@ public class InputUserImpl implements InputUserDao {
     public boolean ValidateUser(String user, String password)  {
         return readUser(user, password) != null;
 
+    }
+
+
+    public InputUser readUsername(String user) {
+        try {
+            try (Connection connection =  daoConnection.getConnection()) {
+
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM InputUser where user_ = ?");
+                statement.setString(1,user);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                if (resultSet.next()) {
+                    int id = resultSet.getInt("id");
+                    String password = resultSet.getString("password");
+                    InputUser inputUser = new InputUser(id, user,password);
+                    return inputUser;
+
+                }
+
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
     }
 }

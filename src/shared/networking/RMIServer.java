@@ -22,6 +22,7 @@ public interface RMIServer extends Remote {
     List<InputUser> getUser() throws RemoteException;
     boolean ValidateUser(String user, String password) throws RemoteException;
     InputUser readUser(String user,String password) throws RemoteException;
+    InputUser readUsername(String user) throws RemoteException;
 
     //flight
     List<flights> getflights() throws RemoteException;

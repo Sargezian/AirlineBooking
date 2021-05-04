@@ -93,6 +93,11 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
+    public InputUser readUsername(String user) {
+        return client.readUsername(user);
+    }
+
+    @Override
     public List<Rating> getRatings() {
         return client.getRatings();
     }

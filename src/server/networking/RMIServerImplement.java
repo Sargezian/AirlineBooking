@@ -80,6 +80,11 @@ public class RMIServerImplement implements RMIServer {
         return textManager.readUser(user,password);
     }
 
+    @Override
+    public InputUser readUsername(String user) throws RemoteException {
+        return textManager.readUsername(user);
+    }
+
     @Override public Passenger passernger(String FirstName, String LastName,
                                           String TelNumber, String email)
     {

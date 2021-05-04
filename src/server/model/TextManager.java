@@ -21,6 +21,7 @@ public interface TextManager extends Subject {
     InputUser CreateUser(String user, String password);
     List<InputUser> getUser();
     InputUser readUser(String user,String password);
+    InputUser readUsername(String user);
 
     //seat
     List<Seat> getSeat(int planeId);
