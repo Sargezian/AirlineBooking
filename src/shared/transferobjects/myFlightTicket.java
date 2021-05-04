@@ -7,19 +7,19 @@ public class myFlightTicket implements Serializable {
 
  public int ticketID;
  public Passenger passenger;
- public flights flights;
+ public Flights flights;
  public Seat seat;
  public InputUser user;
 
 
-    public myFlightTicket(int ticketID, Passenger passenger, shared.transferobjects.flights flights, Seat seat) {
+    public myFlightTicket(int ticketID, Passenger passenger, Flights flights, Seat seat) {
         this.ticketID = ticketID;
         this.passenger = passenger;
         this.flights = flights;
         this.seat = seat;
     }
 
-    public myFlightTicket(int ticketID, Passenger passenger, flights flights, Seat seat, InputUser user) {
+    public myFlightTicket(int ticketID, Passenger passenger, Flights flights, Seat seat, InputUser user) {
         this.ticketID = ticketID;
         this.passenger = passenger;
         this.flights = flights;
@@ -88,7 +88,7 @@ public class myFlightTicket implements Serializable {
     }
 
     //Flight
-    public flights getFlights() {
+    public Flights getFlights() {
         return flights;
     }
     public String getFlightID() {

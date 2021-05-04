@@ -67,12 +67,12 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
-    public List<flights> getflights() {
+    public List<Flights> getflights() {
         return client.getflights();
     }
 
     @Override
-    public List<flights> readByName(String searchString) {
+    public List<Flights> readByName(String searchString) {
         return client.readByName(searchString);
     }
 
@@ -136,7 +136,7 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
-    public flights readFlightsFromShoppingCart(String flightName, String departure, String arrival) {
+    public Flights readFlightsFromShoppingCart(String flightName, String departure, String arrival) {
         return client.readFlightsFromShoppingCart(flightName, departure, arrival);
     }
 
@@ -149,11 +149,15 @@ public class ClientTextManager implements ClientText {
         return client.ReadPriceSUM();
     }*/
 
-
     @Override
     public void createTicket(myFlightTicket myFlightTicket) {
         client.createTicket(myFlightTicket);
 
+    }
+
+    @Override
+    public Flights readPrice(int price) {
+        return client.readPrice(price);
     }
 
     @Override

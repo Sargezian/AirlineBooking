@@ -6,7 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import shared.transferobjects.flights;
+import shared.transferobjects.Flights;
 import shared.util.utils;
 import java.beans.PropertyChangeEvent;
 import java.util.List;
@@ -20,7 +20,7 @@ public class dashboardViewModel {
     // TODO: 04/05/2021 print billet ud når ticket er lavet
 
     private ClientText clientText;
-    private ObservableList<flights> flights;
+    private ObservableList<Flights> flights;
     private StringProperty search;
     private StringProperty error;
 
@@ -33,11 +33,11 @@ public class dashboardViewModel {
     }
 
     public void loadFlights() {
-        List<flights> flight = clientText.getflights();
+        List<Flights> flight = clientText.getflights();
         flights = FXCollections.observableArrayList(flight);
     }
 
-    public boolean getFlightInformation(flights flights) {
+    public boolean getFlightInformation(Flights flights) {
 
         if (flights != null) {
             SaveInfo.getInstance().setFlights(flights);
@@ -62,10 +62,10 @@ public class dashboardViewModel {
     }
 
     public void onNewInputflight(PropertyChangeEvent  evt) {
-        flights.add((flights) evt.getNewValue());
+        flights.add((Flights) evt.getNewValue());
     }
 
-    public ObservableList<flights> getflight() {
+    public ObservableList<Flights> getflight() {
         return flights;
     }
 

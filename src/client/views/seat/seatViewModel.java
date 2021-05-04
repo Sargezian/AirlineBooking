@@ -6,11 +6,9 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import shared.transferobjects.Seat;
-import shared.transferobjects.flights;
+import shared.transferobjects.Flights;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +51,7 @@ public class seatViewModel {
     }*/
 
     public void loadSeat() {
-        flights flights = SaveInfo.getInstance().getFlights();
+        Flights flights = SaveInfo.getInstance().getFlights();
         List<Seat> seat = clientText.getSeat(flights.getPlaneId());
         Seats = FXCollections.observableArrayList(seat);
         //Collections.addAll(, selectedrows);

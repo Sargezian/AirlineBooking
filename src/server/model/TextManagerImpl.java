@@ -116,13 +116,13 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
-    public List<flights> getflights() {
+    public List<Flights> getflights() {
 
         return new ArrayList<>(dao.getflights());
     }
 
     @Override
-    public List<flights> readByName(String searchString) {
+    public List<Flights> readByName(String searchString) {
         return dao.readByName(searchString);
     }
 
@@ -154,13 +154,18 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
-    public flights readFlightsFromShoppingCart(String flightName, String departure, String arrival) {
+    public Flights readFlightsFromShoppingCart(String flightName, String departure, String arrival) {
         return shoppingCartDao.readFlightsFromShoppingCart(flightName, departure, arrival);
     }
 
     @Override
     public Seat readSeatFromShoppingCart(String seatNumber, String classType) {
         return shoppingCartDao.readSeatFromShoppingCart(seatNumber,classType);
+    }
+
+    @Override
+    public Flights readPrice(int price) {
+        return shoppingCartDao.readPrice(price);
     }
 
     @Override

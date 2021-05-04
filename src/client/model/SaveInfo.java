@@ -1,7 +1,7 @@
 package client.model;
 
 import shared.transferobjects.InputUser;
-import shared.transferobjects.flights;
+import shared.transferobjects.Flights;
 import shared.transferobjects.Passenger;
 import shared.transferobjects.Seat;
 
@@ -12,7 +12,7 @@ public class SaveInfo {
 
     private static SaveInfo instance;
     private static Lock lock = new ReentrantLock();
-    private flights flights;
+    private Flights flights;
     private Seat seat;
     private Passenger passenger;
     private InputUser user;
@@ -28,8 +28,12 @@ public class SaveInfo {
         return instance;
     }
 
-    public flights getFlights() {
+    public Flights getFlights() {
         return flights;
+    }
+
+    public void setFlights(Flights flights) {
+        this.flights = flights;
     }
 
     public InputUser getUser() {
@@ -38,10 +42,6 @@ public class SaveInfo {
 
     public void setUser(InputUser user) {
         this.user = user;
-    }
-
-    public void setFlights(flights flights) {
-        this.flights = flights;
     }
 
 

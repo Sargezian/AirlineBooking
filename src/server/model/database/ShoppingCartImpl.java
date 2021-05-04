@@ -1,9 +1,7 @@
 package server.model.database;
 
-import shared.transferobjects.Passenger;
 import shared.transferobjects.Seat;
-import shared.transferobjects.flights;
-import shared.transferobjects.myFlightTicket;
+import shared.transferobjects.Flights;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,7 +22,7 @@ public class ShoppingCartImpl implements ShoppingCartDao {
 
 
     @Override
-    public flights readFlightsFromShoppingCart(String flightName, String departures, String arrivals) {
+    public Flights readFlightsFromShoppingCart(String flightName, String departures, String arrivals) {
         try {
             try (Connection connection =  daoConnection.getConnection()) {
 
@@ -44,7 +42,7 @@ public class ShoppingCartImpl implements ShoppingCartDao {
 
                 if (resultSet.next()) {
 
-                    flights flights = new flights(flightName,departures,arrivals);
+                    Flights flights = new Flights(flightName,departures,arrivals);
                     return flights;
 
                 }
@@ -84,6 +82,36 @@ public class ShoppingCartImpl implements ShoppingCartDao {
         }
         return null;
     }
+
+    public Flights readPrice(int price) {
+        try {
+            try (Connection connection =  daoConnection.getConnection()) {
+
+                PreparedStatement statement = connection.prepareStatement("select * from flights WHERE price = ?  ");
+
+                //flights
+                statement.setInt(1, price);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                if (resultSet.next()) {
+
+                    Flights flights = new Flights(price);
+                    return flights;
+
+                }
+                return null;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+
+
+
+    }
+
+
 
 
 

@@ -24,10 +24,9 @@ public interface Client extends Subject {
     //average
     int AverageStars();
 
-
     //flights
-    List<flights> getflights();
-    List<flights> readByName(String searchString);
+    List<Flights> getflights();
+    List<Flights> readByName(String searchString);
 
     //seats
     List<Seat> getSeat(int planeId);
@@ -49,8 +48,9 @@ public interface Client extends Subject {
     myFlightTicket readUsername_(String user);
 
     //ShoppingCart
-    flights readFlightsFromShoppingCart(String flightName, String departure, String arrival);
+    Flights readFlightsFromShoppingCart(String flightName, String departure, String arrival);
     Seat readSeatFromShoppingCart(String seatNumber,String classType);
+    Flights readPrice(int price);
 
     void startClient();
 

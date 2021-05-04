@@ -105,7 +105,7 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
-  @Override public List<flights> getflights()
+  @Override public List<Flights> getflights()
   {
     try
     {
@@ -118,7 +118,7 @@ public class RMIClient implements Client, ClientCallBack
   }
 
   @Override
-  public List<flights> readByName(String searchString) {
+  public List<Flights> readByName(String searchString) {
     try
     {
       return server.readByName(searchString);
@@ -255,7 +255,7 @@ public class RMIClient implements Client, ClientCallBack
   }
 
   @Override
-  public flights readFlightsFromShoppingCart(String flightName, String departure, String arrival) {
+  public Flights readFlightsFromShoppingCart(String flightName, String departure, String arrival) {
     try
     {
       return server.readFlightsFromShoppingCart(flightName, departure, arrival);
@@ -271,6 +271,18 @@ public class RMIClient implements Client, ClientCallBack
     try
     {
       return server.readSeatFromShoppingCart(seatNumber,classType);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  @Override
+  public Flights readPrice(int price) {
+    try
+    {
+      return server.readPrice(price);
     }
     catch (RemoteException e)
     {
@@ -346,7 +358,7 @@ public class RMIClient implements Client, ClientCallBack
   }
 
   @Override
-  public void updateFlight(flights flights) throws RemoteException {
+  public void updateFlight(Flights flights) throws RemoteException {
     support.firePropertyChange(utils.NEWFLIGHT,null, flights);
 
   }

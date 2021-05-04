@@ -50,7 +50,8 @@ public class passengerViewController implements ViewController {
         seat.textProperty().bind(pv.seatPropertyProperty());
         ClassType.textProperty().bind(pv.classTypeProperty());
         error.textProperty().bind(pv.errorProperty());
-         pv.SetShoppingCart();
+        TotalPrice.textProperty().bind(pv.priceProperty());
+        pv.SetShoppingCart();
 
     }
 

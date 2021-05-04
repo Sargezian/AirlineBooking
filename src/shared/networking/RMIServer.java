@@ -25,8 +25,8 @@ public interface RMIServer extends Remote {
     InputUser readUsername(String user) throws RemoteException;
 
     //flight
-    List<flights> getflights() throws RemoteException;
-    List<flights> readByName(String searchString) throws RemoteException;
+    List<Flights> getflights() throws RemoteException;
+    List<Flights> readByName(String searchString) throws RemoteException;
 
     //seat
     List<Seat> getSeat(int planeId) throws RemoteException;
@@ -45,8 +45,9 @@ public interface RMIServer extends Remote {
     myFlightTicket readUsername_(String user) throws RemoteException;
 
     //shoppingcart
-    flights readFlightsFromShoppingCart(String flightName, String departure, String arrival) throws RemoteException;
+    Flights readFlightsFromShoppingCart(String flightName, String departure, String arrival) throws RemoteException;
     Seat readSeatFromShoppingCart(String seatNumber,String classType) throws RemoteException;
+    Flights readPrice(int price) throws RemoteException;
 
     //registerToClient
     void registerChatToClient(ClientCallBack client) throws RemoteException;

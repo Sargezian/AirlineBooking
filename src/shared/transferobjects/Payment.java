@@ -1,16 +1,12 @@
 package shared.transferobjects;
 
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-
 import java.io.Serializable;
-import java.sql.Date;
 
 public class Payment implements Serializable {
 
     public int PaymentID;
     public String CardholderName, CardNumber, CVV, ExpirationDate;
-    private flights flights;
+    private Flights flights;
 
     public Payment(int paymentID, String cardholderName, String cardNumber, String CVV, String expirationDate) {
         this.PaymentID = paymentID;
@@ -20,7 +16,7 @@ public class Payment implements Serializable {
         this.ExpirationDate = expirationDate;
     }
 
-    public Payment(flights flights) {
+    public Payment(Flights flights) {
         this.flights = flights;
     }
 

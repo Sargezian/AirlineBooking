@@ -16,7 +16,6 @@ public interface TextManager extends Subject {
     List<Rating> getRatings();
     int AverageStars();
 
-
     //user
     InputUser CreateUser(String user, String password);
     List<InputUser> getUser();
@@ -29,8 +28,8 @@ public interface TextManager extends Subject {
     boolean ValidateUser(String user, String password) ;
 
     //flight
-    List<flights> getflights();
-    List<flights> readByName(String searchString);
+    List<Flights> getflights();
+    List<Flights> readByName(String searchString);
 
     //passenger
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email);
@@ -46,8 +45,9 @@ public interface TextManager extends Subject {
     void createTicket(myFlightTicket myFlightTicket);
 
     //shoppingCart
-    flights readFlightsFromShoppingCart(String flightName, String departure, String arrival);
+    Flights readFlightsFromShoppingCart(String flightName, String departure, String arrival);
     Seat readSeatFromShoppingCart(String seatNumber,String classType);
+    Flights readPrice(int price);
 
 
 }

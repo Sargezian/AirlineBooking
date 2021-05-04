@@ -1,16 +1,10 @@
 package client.views.createUser;
 
-import client.core.ViewHandler;
-import client.core.ViewModelFactory;
 import client.model.ClientText;
 import client.model.SaveInfo;
-import client.views.ViewController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import shared.transferobjects.InputUser;
-import shared.transferobjects.flights;
-
-import java.beans.PropertyChangeListener;
 
 public class createUserViewModel  {
 

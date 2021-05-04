@@ -19,12 +19,13 @@ public class passengerViewModel {
     private StringProperty TelNumber;
     private StringProperty Email;
 
-    //shoppingcar
+    //shoppingcart
     private StringProperty FlightName;
     private StringProperty departure;
     private StringProperty arrival;
     private StringProperty seatProperty;
     private StringProperty ClassType;
+    private StringProperty price;
 
     //error
     private StringProperty error;
@@ -40,9 +41,10 @@ public class passengerViewModel {
         arrival = new SimpleStringProperty();
         seatProperty = new SimpleStringProperty();
         ClassType = new SimpleStringProperty();
+        price = new SimpleStringProperty();
         error = new SimpleStringProperty();
 
-       clientText.addListener(utils.NEWTICKET, this::onNewTicket);
+       clientText.addListener(utils.NEWFLIGHT, this::onNewTicket);
     }
 
 
@@ -53,11 +55,12 @@ public class passengerViewModel {
 
     public void SetShoppingCart() {
 
-        flights flights = SaveInfo.getInstance().getFlights();
+        Flights flights = SaveInfo.getInstance().getFlights();
         Seat seat = SaveInfo.getInstance().getSeat();
 
         clientText.readFlightsFromShoppingCart(flights.flightName,flights.getDepartures(),flights.getArrivals());
         clientText.readSeatFromShoppingCart(seat.seatNumber,seat.classType);
+        clientText.readPrice(flights.price);
 
         Platform.runLater(new Runnable() {
             @Override
@@ -67,6 +70,8 @@ public class passengerViewModel {
                 arrival.setValue(flights.getArrivals());
                 seatProperty.setValue(seat.seatNumber);
                 ClassType.setValue(seat.classType);
+                price.setValue(String.valueOf(flights.price));
+
             }
         });
     }
@@ -106,8 +111,6 @@ public class passengerViewModel {
                 return false;
             }
     }
-
-
 
     public void clearFields() {
         FirstName.setValue("");
@@ -158,7 +161,6 @@ public class passengerViewModel {
         return ClassType;
     }
 
-
     public String getEmail() {
         return Email.get();
     }
@@ -203,6 +205,14 @@ public class passengerViewModel {
 
     public StringProperty errorProperty() {
         return error;
+    }
+
+    public String getPrice() {
+        return price.get();
+    }
+
+    public StringProperty priceProperty() {
+        return price;
     }
 
     // TODO: 25/04/2021 Indkøbskurven skal virke her

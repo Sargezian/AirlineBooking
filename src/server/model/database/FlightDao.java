@@ -8,8 +8,8 @@ import java.util.List;
 public interface FlightDao
 {
 
-  List<flights> getflights();
+  List<Flights> getflights();
 
-  List<flights> readByName(String searchString);
+  List<Flights> readByName(String searchString);
 
 }

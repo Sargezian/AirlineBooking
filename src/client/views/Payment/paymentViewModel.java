@@ -50,7 +50,6 @@ public class paymentViewModel {
     }
 
     private void onNewTicket(PropertyChangeEvent propertyChangeEvent) {
-
         SetPassengerInfomation();
 
     }

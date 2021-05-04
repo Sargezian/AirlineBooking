@@ -30,14 +30,14 @@ public class FlightImpl implements FlightDao {
      }
 
  @Override
- public List<flights> getflights() {
+ public List<Flights> getflights() {
    try {
 
      try (Connection connection = daoConnection.getConnection()) {
        PreparedStatement statement = connection.prepareStatement("SELECT * FROM flights inner join arrival a on a.arrivalid = flights.arrivalid inner join departure d on d.departureid = flights.departureid join planetype p on p.planeid = flights.planeid");
        ResultSet resultSet = statement.executeQuery();
 
-       ArrayList<flights> flightlist = new ArrayList<>();
+       ArrayList<Flights> flightlist = new ArrayList<>();
        while (resultSet.next()) {
 
          //flight
@@ -59,7 +59,7 @@ public class FlightImpl implements FlightDao {
          Timestamp arrivaldate = resultSet.getTimestamp("arrivaldate");
          String arrival = resultSet.getString("arrivals");
 
-         flights flights = new flights(flightID, flightName, new Depature(depatureID,departure,depatureDate),new Arrival(arrivalID,arrival,arrivaldate),new PlaneType(planeID,planeType),price);
+         Flights flights = new Flights(flightID, flightName, new Depature(depatureID,departure,depatureDate),new Arrival(arrivalID,arrival,arrivaldate),new PlaneType(planeID,planeType),price);
          flightlist.add(flights);
        }
        return flightlist;
@@ -71,7 +71,7 @@ public class FlightImpl implements FlightDao {
  }
 
   @Override
-  public List<flights> readByName(String searchString) {
+  public List<Flights> readByName(String searchString) {
     try {
 
       try (Connection connection = daoConnection.getConnection()) {
@@ -79,7 +79,7 @@ public class FlightImpl implements FlightDao {
         statement.setString(1,"%" + searchString +"%");
         ResultSet resultSet = statement.executeQuery();
 
-        ArrayList<flights> flightlist = new ArrayList<>();
+        ArrayList<Flights> flightlist = new ArrayList<>();
         while (resultSet.next()) {
 
           //flight
@@ -100,7 +100,7 @@ public class FlightImpl implements FlightDao {
           String to = resultSet.getString("to_");*/
           int price = resultSet.getInt("price");
 
-          flights flights = new flights(flightID, flightName, new Depature(departure) ,  new Arrival(arrival), new PlaneType(planeType), price);
+          Flights flights = new Flights(flightID, flightName, new Depature(departure) ,  new Arrival(arrival), new PlaneType(planeType), price);
           flightlist.add(flights);
         }
         return flightlist;

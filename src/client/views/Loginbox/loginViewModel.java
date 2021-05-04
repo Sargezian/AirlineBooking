@@ -23,7 +23,7 @@ public class loginViewModel {
 
     public void createTicket() {
 
-        flights ft = SaveInfo.getInstance().getFlights();
+        Flights ft = SaveInfo.getInstance().getFlights();
         System.out.println("Gets SavedInfo from flights = " + SaveInfo.getInstance().getFlights());
 
         Seat st = SaveInfo.getInstance().getSeat();

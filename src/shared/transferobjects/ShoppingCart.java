@@ -5,12 +5,12 @@ import java.sql.Timestamp;
 
 public class ShoppingCart implements Serializable {
 
-    public flights flights;
+    public Flights flights;
     public Seat seat;
     public Depature depature;
     public Arrival arrival;
 
-    public ShoppingCart(flights flights, Seat seat, Depature depature, Arrival arrival) {
+    public ShoppingCart(Flights flights, Seat seat, Depature depature, Arrival arrival) {
         this.flights = flights;
         this.seat = seat;
         this.depature = depature;
@@ -46,7 +46,7 @@ public class ShoppingCart implements Serializable {
     }
 
     //flight
-    public flights getFlights() {
+    public Flights getFlights() {
         return flights;
     }
     public String getFlightID(){
