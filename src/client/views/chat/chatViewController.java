@@ -80,7 +80,10 @@ public class chatViewController implements ViewController {
         vh.openToMyFlightPlan();
     }
 
+
+
+
+
     public void onBackDashboard(ActionEvent actionEvent) {
-        vh.openToMyFlightPlan();
     }
 }

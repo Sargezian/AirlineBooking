@@ -79,6 +79,8 @@ public class myflightplanViewController implements ViewController {
         TicketTableview.setItems(vm.getMyFlightTickets());
         PassengerTableview.setItems(vm.getMyFlightTickets());
        // PriceTableview.setItems(vm.getMyFlightTickets());
+        myName.textProperty().bind(vm.usernameProperty());
+        vm.setUsername();
     }
 
     public void onBackDashboard(ActionEvent actionEvent) {

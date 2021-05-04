@@ -36,6 +36,7 @@ public class loginViewController implements ViewController {
 
     public void onkald(ActionEvent actionEvent) {
       //  System.exit(1);
+        viewModel.clearFields();
         vh.openPassengerView();
     }
 

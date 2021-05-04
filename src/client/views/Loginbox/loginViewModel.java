@@ -41,7 +41,17 @@ public class loginViewModel {
 
     }
 
-     public boolean validateLoginInfo(){
+    public void clearFields() {
+        navn.setValue("");
+        kode.setValue("");
+        error.setValue("");
+
+    }
+
+
+
+
+    public boolean validateLoginInfo(){
 
      if (clientText.ValidateUser(navn.getValue(),kode.getValue())){
          InputUser user = clientText.readUser(navn.getValue(), kode.getValue());
@@ -54,14 +64,6 @@ public class loginViewModel {
      }
 
      }
-
-
-
-
-
-
-
-
 
 
     public String getNavn() {

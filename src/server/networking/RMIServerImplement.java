@@ -66,6 +66,11 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
+    public myFlightTicket readUsername_(String user) throws RemoteException {
+        return textManager.readUsername_(user);
+    }
+
+    @Override
     public flights readFlightsFromShoppingCart(String flightName, String departure, String arrival) throws RemoteException {
         return textManager.readFlightsFromShoppingCart(flightName, departure, arrival);
     }

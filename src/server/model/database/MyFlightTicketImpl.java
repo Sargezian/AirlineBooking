@@ -130,4 +130,76 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
             throwables.printStackTrace();
         }
     }
+
+    public myFlightTicket readUsername_(String user) {
+
+        try {
+            try (Connection connection =  daoConnection.getConnection()) {
+
+                PreparedStatement statement = connection.prepareStatement("select *  from myFlightTicket join InputUser IU on IU.id = myFlightTicket.id WHERE user_ = ?  ");
+
+                //seat
+                statement.setString(1, user);
+
+
+                ResultSet resultSet = statement.executeQuery();
+
+                if (resultSet.next()) {
+                    int userId = resultSet.getInt("id");
+                    String password = resultSet.getString("password");
+
+                    //myflightticket
+                    int ticketid = resultSet.getInt("ticketid");
+
+                    //flight
+                    String flightID = resultSet.getString("flightid");
+                    String flightName = resultSet.getString("flightName");
+                    int price = resultSet.getInt("price");
+
+                    //planetype
+                    String planeType = resultSet.getString("planeTypes");
+                    int planeID = resultSet.getInt("planeid");
+
+                    //departure
+                    int depatureID = resultSet.getInt("departureid");
+                    String departure = resultSet.getString("departures");
+                    Timestamp depatureDate = resultSet.getTimestamp("departuredate");
+
+                    //arrival
+                    int arrivalID = resultSet.getInt("arrivalid");
+                    Timestamp arrivaldate = resultSet.getTimestamp("arrivaldate");
+                    String arrival = resultSet.getString("arrivals");
+
+                    //passenger
+
+                    int PassengerID = resultSet.getInt("passengerID");
+                    String FirstName = resultSet.getString("FirstName");
+                    String LastName = resultSet.getString("LastName");
+                    String TelNumber = resultSet.getString("TelNumber");
+                    String email = resultSet.getString("email");
+
+                    //seat
+                    int seatId = resultSet.getInt("seatid");
+                    String seatNumber = resultSet.getString("seatNumber");
+                    String classtype = resultSet.getString("classType");
+
+                    myFlightTicket myFlightTicket = new myFlightTicket(ticketid,new Passenger(PassengerID,FirstName,LastName,TelNumber,email),new flights(flightID,flightName,new Depature(depatureID,departure,depatureDate),new Arrival(arrivalID,arrival,arrivaldate),new PlaneType(planeID,planeType),price),new Seat(seatId,seatNumber,classtype),new InputUser(userId,user,password));
+                    return myFlightTicket;
+
+                }
+                return null;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+
+
+
+
+
+
+
+
 }

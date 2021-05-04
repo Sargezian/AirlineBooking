@@ -11,4 +11,6 @@ public interface MyFlightTicketDao {
 
     void createTicket(myFlightTicket myFlightTicket);
 
+    myFlightTicket readUsername_(String user);
+
 }

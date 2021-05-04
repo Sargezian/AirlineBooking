@@ -50,6 +50,7 @@ public interface ClientText extends Subject {
     /* List<myFlightTicket> ReadPriceSUM();*/
     List<myFlightTicket> getflightlist(int userId);
     void createTicket(myFlightTicket myFlightTicket);
+    myFlightTicket readUsername_(String user);
 
 
 

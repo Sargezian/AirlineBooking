@@ -2,11 +2,12 @@ package client.views.myflightplan;
 
 import client.model.ClientText;
 import client.model.SaveInfo;
+import javafx.application.Platform;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import shared.transferobjects.InputUser;
-import shared.transferobjects.Passenger;
-import shared.transferobjects.myFlightTicket;
+import shared.transferobjects.*;
 import shared.util.utils;
 
 import java.beans.PropertyChangeEvent;
@@ -16,12 +17,19 @@ public class myflightplanViewModel {
 
     private ClientText clientText;
     private ObservableList<myFlightTicket> myFlightTickets;
+    private StringProperty username;
 
     public myflightplanViewModel(ClientText clientText) {
         System.out.println("myFlight view model");
         this.clientText = clientText;
         clientText.addListener(utils.NEWTICKET, this::onNewTicket);
+        clientText.addListener(utils.NEWTICKET, this::setUsernameProperty);
+        username = new SimpleStringProperty();
 
+    }
+
+    public void setUsernameProperty(PropertyChangeEvent event) {
+        setUsername();
     }
 
     public void loadMyFlights() {
@@ -57,6 +65,36 @@ public class myflightplanViewModel {
 
     }
 
-// TODO: 25/04/2021 passenger name skal laves her
+    public void setUsername(){
+
+        InputUser user = SaveInfo.getInstance().getUser();
+
+
+        clientText.readUsername(user.user);
+
+
+
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                username.setValue(user.getOutput());
+
+            }
+        });
+
+
+    }
+
+
+
+
+    public String getUsername() {
+        return username.get();
+    }
+
+    public StringProperty usernameProperty() {
+        return username;
+    }
+
 
 }

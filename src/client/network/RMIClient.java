@@ -243,6 +243,18 @@ public class RMIClient implements Client, ClientCallBack
   }
 
   @Override
+  public myFlightTicket readUsername_(String user) {
+    try
+    {
+      return server.readUsername_(user);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  @Override
   public flights readFlightsFromShoppingCart(String flightName, String departure, String arrival) {
     try
     {

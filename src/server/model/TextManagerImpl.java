@@ -180,6 +180,11 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
+    public myFlightTicket readUsername_(String user) {
+        return myFlightTicketDao.readUsername_(user);
+    }
+
+    @Override
     public Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) {
         Payment payment;
         payment = paymentDao.CreatePayment(cardholderName, cardNumber, CVV, expirationDate);

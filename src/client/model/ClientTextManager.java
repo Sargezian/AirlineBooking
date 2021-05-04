@@ -157,6 +157,11 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
+    public myFlightTicket readUsername_(String user) {
+        return client.readUsername_(user);
+    }
+
+    @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         support.addPropertyChangeListener(eventName, listener);
     }

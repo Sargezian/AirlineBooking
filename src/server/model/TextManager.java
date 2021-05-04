@@ -39,6 +39,7 @@ public interface TextManager extends Subject {
     //ticket
     /*List<myFlightTicket> ReadPriceSUM();*/
     List<myFlightTicket> getflightlist(int userId);
+    myFlightTicket readUsername_(String user);
 
     //payment
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate);
