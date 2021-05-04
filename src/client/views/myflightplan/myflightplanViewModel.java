@@ -59,6 +59,4 @@ public class myflightplanViewModel {
 
 // TODO: 25/04/2021 passenger name skal laves her
 
-    // TODO: 04/05/2021 meddel fejlkode, hvis ingen fly valgt
-
 }

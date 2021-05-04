@@ -14,7 +14,6 @@ import java.sql.Date;
 public class paymentViewModel {
 
     // TODO: 04/05/2021 prisen skal vises her
-    // TODO: 04/05/2021 meddel fejlkode, hvis ingen passenger valgt
 
     private ClientText clientText;
     private StringProperty CardholderName;

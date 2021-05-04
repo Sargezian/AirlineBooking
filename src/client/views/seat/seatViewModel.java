@@ -19,7 +19,6 @@ public class seatViewModel {
 
     // TODO: 04/05/2021 fjerne seats når man bestiller
 
-    // TODO: 04/05/2021 meddel fejlkode, hvis ingen sæde valgt
 
     private ClientText clientText;
     private ObservableList<Seat> Seats;

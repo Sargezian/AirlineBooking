@@ -1,17 +1,12 @@
 package client.views.chat;
 
 import client.model.ClientText;
-import client.model.SaveInfo;
-import javafx.application.Platform;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import shared.transferobjects.InputChat;
 import shared.transferobjects.InputUser;
-import shared.transferobjects.Passenger;
 import shared.transferobjects.Rating;
 import shared.util.utils;
 
@@ -34,17 +29,19 @@ public class chatViewModel {
     private ObservableList<Rating> ratings;
     private StringProperty totalReviews;
     private StringProperty average;
+    private StringProperty error;
 
-    private StringProperty request;
-    private String navn;
+    private StringProperty chat;
+    private String user;
 
     public chatViewModel(ClientText clientText) {
         this.clientText = clientText;
         this.totalReviews = new SimpleStringProperty();
         this.average = new SimpleStringProperty();
+        this.error = new SimpleStringProperty();
 
         clientText.addListener(utils.NEWCHAT, this::onNewInputChat);
-        request = new SimpleStringProperty();
+        chat = new SimpleStringProperty();
         clientText.addListener(utils.NEWUSER, this::OnNewInputUser);
     }
 
@@ -60,16 +57,17 @@ public class chatViewModel {
 
     public void chatPrint(Rating rating) {
 
-        if (request.getValue() != null && !"".equals(request.getValue())) {
-            clientText.createChat(request.getValue()+  "  Message from : " + navn + " " + rating.star + " STAR ", rating.star);
+        if (chat.getValue() != null && !"".equals(chat.getValue()) && rating != null) {
+            clientText.createChat(chat.getValue()+  "  Message from : " + user + " " + rating.star + " STAR ", rating.star);
 
             setCounter();
             setAverage();
 
         } else {
-            System.out.println(request.getValue());
+            error.set("please choose a rating");
+            System.out.println(chat.getValue());
         }
-        request.set("");
+        chat.set("");
     }
 
     public void loadLogs() {
@@ -82,6 +80,12 @@ public class chatViewModel {
         users = FXCollections.observableArrayList(userLists);
     }
 
+    public void loadRatings() {
+        List<Rating> rating = clientText.getRatings();
+        ratings = FXCollections.observableArrayList(rating);
+    }
+
+
     ObservableList<InputChat> getChats() {
         return chats;
     }
@@ -89,12 +93,12 @@ public class chatViewModel {
         return users;
     }
 
-    public StringProperty getRequest(){
-        return request;
+    public StringProperty getChat(){
+        return chat;
     }
 
-    public void setNavn(String navn) {
-        this.navn = navn;
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public void onNewInputChat(PropertyChangeEvent evt) {
@@ -113,12 +117,6 @@ public class chatViewModel {
         return totalReviews;
     }
 
-    public void loadRatings() {
-        List<Rating> rating = clientText.getRatings();
-        ratings = FXCollections.observableArrayList(rating);
-    }
-
-
     public ObservableList<Rating> getRatings() {
         return ratings;
     }
@@ -129,5 +127,13 @@ public class chatViewModel {
 
     public StringProperty averageProperty() {
         return average;
+    }
+
+    public String getError() {
+        return error.get();
+    }
+
+    public StringProperty errorProperty() {
+        return error;
     }
 }

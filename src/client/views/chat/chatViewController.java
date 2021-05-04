@@ -2,17 +2,14 @@ package client.views.chat;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
-import client.views.Loginbox.loginViewModel;
 import client.views.ViewController;
 import client.views.createUser.createUserViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import shared.transferobjects.InputChat;
-import shared.transferobjects.InputUser;
 import shared.transferobjects.Rating;
 
 public class chatViewController implements ViewController {
@@ -27,6 +24,9 @@ public class chatViewController implements ViewController {
     @FXML public ComboBox starList;
 
     @FXML public Label AverageReviews;
+
+    //errorlabel
+    @FXML public Label errorRating;
 
     //ChatTabellen
     @FXML private TableView<InputChat> tableView;
@@ -54,8 +54,10 @@ public class chatViewController implements ViewController {
         TotalReviews.textProperty().bind(vm.totalReviewsProperty());
         AverageReviews.textProperty().bind(vm.averageProperty());
 
-        requestField.textProperty().bindBidirectional(vm.getRequest());
-        vm.setNavn(vmf.getcreateUserViewModel().createUserProperty().getValue());
+        requestField.textProperty().bindBidirectional(vm.getChat());
+        errorRating.textProperty().bind(vm.errorProperty());
+
+        vm.setUser(vmf.getcreateUserViewModel().createUserProperty().getValue());
         vm.setCounter();
         vm.setAverage();
 
@@ -74,11 +76,11 @@ public class chatViewController implements ViewController {
        //
     }
 
-    public void onBackButton(ActionEvent actionEvent) {
+    public void onFlights(ActionEvent actionEvent) {
         vh.openToMyFlightPlan();
     }
 
-    public void onFlights(ActionEvent actionEvent) {
+    public void onBackDashboard(ActionEvent actionEvent) {
         vh.openToMyFlightPlan();
     }
 }

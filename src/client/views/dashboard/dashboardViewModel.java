@@ -13,8 +13,6 @@ import java.util.List;
 
 public class dashboardViewModel {
 
-    // TODO: 04/05/2021 felter tomme efter login
-
     // TODO: 04/05/2021 lave evt. en klokke til foside
 
     // TODO: 04/05/2021 lave admin side
@@ -34,11 +32,9 @@ public class dashboardViewModel {
         clientText.addListener(utils.NEWFLIGHT, this::onNewInputflight);
     }
 
-
     public void loadFlights() {
         List<flights> flight = clientText.getflights();
         flights = FXCollections.observableArrayList(flight);
-
     }
 
     public boolean getFlightInformation(flights flights) {
@@ -64,7 +60,6 @@ public class dashboardViewModel {
     public StringProperty searchProperty() {
         return search;
     }
-
 
     public void onNewInputflight(PropertyChangeEvent  evt) {
         flights.add((flights) evt.getNewValue());

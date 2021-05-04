@@ -19,7 +19,6 @@ public class createUserViewModel  {
     private StringProperty CreatePassword;
     private StringProperty Error;
 
-    // TODO: 04/05/2021 lav fejl kode USER allerede findes; 
     
     public createUserViewModel(ClientText clientText) {
         this.clientText = clientText;
