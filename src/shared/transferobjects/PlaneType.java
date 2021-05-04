@@ -13,6 +13,16 @@ public class PlaneType implements Serializable {
 
     }
 
+    public PlaneType(String planeType)
+    {
+        this.planeType = planeType;
+    }
+
+    public PlaneType(int planeId)
+    {
+        this.planeId = planeId;
+    }
+
     //planetype
     public int getPlaneId() {
         return planeId;

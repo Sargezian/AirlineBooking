@@ -17,6 +17,11 @@ public class Depature implements Serializable {
 
     }
 
+    public Depature(String departure)
+    {
+        this.departure = departure;
+    }
+
     //airport
     public Airport getAirport() {
         return airport;

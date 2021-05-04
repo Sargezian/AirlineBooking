@@ -90,18 +90,18 @@ public class FlightImpl implements FlightDao {
           String planeType = resultSet.getString("planeType");
 
           //departure
-          Timestamp departure = resultSet.getTimestamp("departure");
+          String departure = resultSet.getString("departure");
 
           //arrival
-          Timestamp arrival = resultSet.getTimestamp("arrival");
+          String arrival = resultSet.getString("arrival");
 
           //idontknow
-          String from = resultSet.getString("from_");
-          String to = resultSet.getString("to_");
+          /*String from = resultSet.getString("from_");
+          String to = resultSet.getString("to_");*/
           int price = resultSet.getInt("price");
 
-          /*flights flights = new flights(flightID, flightName,planeType, departure, arrival, from, to,price);
-          flightlist.add(flights);*/
+          flights flights = new flights(flightID, flightName, new Depature(departure) ,  new Arrival(arrival), new PlaneType(planeType), price);
+          flightlist.add(flights);
         }
         return flightlist;
       }
@@ -111,6 +111,7 @@ public class FlightImpl implements FlightDao {
     return null;
   }
 
+  // TODO: 04-05-2021 Måske vi skulle overveje at begrænse os til at prisen altid er et fast beløb, det er en fair begræning at have i sit program hvert fly skal dog koste noget forskelligt
 }
 
 

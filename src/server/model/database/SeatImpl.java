@@ -1,6 +1,7 @@
 package server.model.database;
 
 import shared.transferobjects.Passenger;
+import shared.transferobjects.PlaneType;
 import shared.transferobjects.Seat;
 
 import java.sql.Connection;
@@ -27,7 +28,7 @@ public class SeatImpl implements SeatDao {
         try {
 
             try (Connection connection = daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("SELECT * FROM seat");
+                PreparedStatement statement = connection.prepareStatement("select * from seat where planeID = ?");
                 ResultSet resultSet = statement.executeQuery();
 
                 ArrayList<Seat> Seats = new ArrayList<>();
@@ -37,8 +38,9 @@ public class SeatImpl implements SeatDao {
                     int seatID = resultSet.getInt("seatID");
                     String seatNumber = resultSet.getString("seatNumber");
                     String classType = resultSet.getString("classType");
+                    int planeId = resultSet.getInt("planeId");
                     //Linje 38 skal måske kun have seat ID
-                    Seat seat = new Seat(seatID, seatNumber, classType);
+                    Seat seat = new Seat(seatID, seatNumber, classType, new PlaneType(planeId));
                     Seats.add(seat);
                 }
                 return Seats;

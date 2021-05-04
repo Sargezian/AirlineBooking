@@ -80,10 +80,10 @@ private ArrayList<Seat> seatArrayList;
         vh.openLoginView();
     }
 
-    public void Setcolor(MouseEvent mouseEvent)
+   /* public void Setcolor(MouseEvent mouseEvent)
     {
         //sv.SetSeatId(mouseEvent);
     }
-
+*/
 }
 

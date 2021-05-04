@@ -7,16 +7,29 @@ public class Seat implements Serializable {
     public int seatID;
     public String seatNumber;
     public String classType;
+    public PlaneType planeType;
 
-    public Seat(int seatID, String seatNumber, String classType) {
+    public Seat(int seatID, String seatNumber, String classType)
+    {
         this.seatID = seatID;
         this.seatNumber = seatNumber;
         this.classType = classType;
+
     }
 
     public Seat(String seatNumber, String classType) {
         this.seatNumber = seatNumber;
         this.classType = classType;
+    }
+
+
+    public Seat(int seatID, String seatNumber, String classType,
+        PlaneType planeType)
+    {
+        this.seatID = seatID;
+        this.seatNumber = seatNumber;
+        this.classType = classType;
+        this.planeType = planeType;
     }
 
     //seat
@@ -29,14 +42,18 @@ public class Seat implements Serializable {
     public String getClassType() {
         return classType;
     }
+//fkey fra planetype til at udfører at været fly har forskeliige sæder
+    public PlaneType getPlaneType() { return planeType; }
 
-    @Override
-    public String toString() {
-        return "seat{" +
-                "seatID='" + seatID + '\'' +
-                ", seatNumber='" + seatNumber + '\'' +
-                ", classType='" + classType + '\'' +
-                '}';
+
+    public int getPlaneId(){
+        return planeType.planeId;
     }
 
+    @Override public String toString()
+    {
+        return "Seat{" + "seatID=" + seatID + ", seatNumber='" + seatNumber
+            + '\'' + ", classType='" + classType + '\'' + ", planeType="
+            + planeType + '}';
+    }
 }

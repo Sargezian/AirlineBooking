@@ -29,7 +29,7 @@
         </Label>
       <AnchorPane layoutX="162.0" layoutY="301.0" prefHeight="200.0" prefWidth="427.0" style="-fx-background-color: lightblue;">
          <children>
-            <Pane fx:id="i1" layoutX="15.0" layoutY="17.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <!--<Pane fx:id="i1" layoutX="15.0" layoutY="17.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
             <Pane fx:id="i2" layoutX="15.0" layoutY="39.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
             <Pane fx:id="i3" layoutX="15.0" layoutY="60.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
             <Pane fx:id="i4" layoutX="14.0" layoutY="98.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
@@ -82,7 +82,7 @@
             <Pane fx:id="b5" layoutX="235.0" layoutY="124.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
             <Pane fx:id="b6" layoutX="235.0" layoutY="148.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
             <Pane fx:id="c5" layoutX="202.0" layoutY="124.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
-            <Pane fx:id="c6" layoutX="203.0" layoutY="148.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="c6" layoutX="203.0" layoutY="148.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />-->
          </children>
       </AnchorPane>
       <Circle fill="#37a1ff" layoutX="233.0" layoutY="54.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />

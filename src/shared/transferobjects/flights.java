@@ -30,6 +30,11 @@ public class flights implements Serializable {
 
     }
 
+    public flights(Arrival arrival)
+    {
+        this.arrival = arrival;
+    }
+
     //departure
     public int getDepartureID() {
         return departure.departureID;
