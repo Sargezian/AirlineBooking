@@ -69,7 +69,6 @@ public class seatViewController implements ViewController {
 
     public void onNext(ActionEvent actionEvent) {
         if (sv.getSeatInformation(tableView.getSelectionModel().getSelectedItem())) {
-            sv.getSeatInformation(tableView.getSelectionModel().getSelectedItem());
             vh.openPassengerView();
         }
 

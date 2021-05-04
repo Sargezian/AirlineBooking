@@ -74,7 +74,6 @@ public class dashboardViewController implements ViewController {
 
     public void onNext(ActionEvent actionEvent) {
         if(dv.getFlightInformation(tableView.getSelectionModel().getSelectedItem())) {
-            dv.getFlightInformation(tableView.getSelectionModel().getSelectedItem());
             vh.openSeat();
         }
 

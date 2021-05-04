@@ -23,6 +23,7 @@ public class paymentViewController implements ViewController {
     @FXML public Label getPhone;
 
     @FXML public Label getPrice;
+    @FXML public Label errorlabel;
 
     private ViewHandler vh;
     private paymentViewModel pv;
@@ -39,12 +40,13 @@ public class paymentViewController implements ViewController {
         getLastName.textProperty().bind(pv.lastNameProperty());
         getEmail.textProperty().bind(pv.emailProperty());
         getPhone.textProperty().bind(pv.phoneProperty());
+        errorlabel.textProperty().bind(pv.errorProperty());
         pv.SetPassengerInfomation();
     }
 
     public void OnCheckOut(ActionEvent actionEvent) {
-        pv.getPaymentInformation();
-        vh.openToMyFlightPlan();
-
+        if (pv.getPaymentInformation()) {
+            vh.openToMyFlightPlan();
+        }
     }
 }

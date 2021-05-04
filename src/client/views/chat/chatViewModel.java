@@ -19,9 +19,7 @@ public class chatViewModel {
 
     // TODO: 04/05/2021 lave barchart diagrammerne til chatmodellen.
 
-    // TODO: 04/05/2021 fjerne tekstbox fra forsiden men beholde den i myflightticket  
-
-    // TODO: 04/05/2021 fejlkode sådan at man ikke kan sende en besked uden rating 
+    // TODO: 04/05/2021 fjerne tekstbox fra forsiden men beholde den i myflightticket
 
     private ClientText clientText;
     private ObservableList<InputChat> chats;

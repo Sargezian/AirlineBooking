@@ -16,15 +16,21 @@ public class paymentViewModel {
     // TODO: 04/05/2021 prisen skal vises her
 
     private ClientText clientText;
+
+    //payment
     private StringProperty CardholderName;
     private StringProperty CardNumber;
     private StringProperty CVV;
     private StringProperty ExpirationDate;
 
+    //passengerinformation
     private StringProperty FirstName;
     private StringProperty LastName;
     private StringProperty Email;
     private StringProperty Phone;
+
+    //error
+    private StringProperty error;
 
     public paymentViewModel(ClientText clientText) {
         this.clientText = clientText;
@@ -39,6 +45,8 @@ public class paymentViewModel {
         LastName = new SimpleStringProperty();
         Email = new SimpleStringProperty();
         Phone = new SimpleStringProperty();
+
+        error = new SimpleStringProperty();
     }
 
     private void onNewTicket(PropertyChangeEvent propertyChangeEvent) {
@@ -69,13 +77,46 @@ public class paymentViewModel {
 
     }
 
-    public void getPaymentInformation() {
-        String CardholderName = this.CardholderName.getValue();
-        String CardNumber = this.CardNumber.getValue();
-        String CVV = this.CVV.getValue();
-        String ExpirationDate = this.ExpirationDate.getValue();
-        clientText.payment(CardholderName,CardNumber,CVV,ExpirationDate);
+    public boolean getPaymentInformation() {
+
+        if (CardholderName.getValue() != null && !"".equals(CardholderName.getValue()) && CardNumber.getValue() != null && !"".equals(CardNumber.getValue()) && CVV.getValue() != null && !"".equals(CVV.getValue())  && ExpirationDate.getValue() != null && !"".equals(ExpirationDate.getValue())) {
+
+            String CardholderName = this.CardholderName.getValue();
+            String CardNumber = this.CardNumber.getValue();
+            String CVV = this.CVV.getValue();
+            String ExpirationDate = this.ExpirationDate.getValue();
+            clientText.payment(CardholderName,CardNumber,CVV,ExpirationDate);
+            return true;
+        }  else if (CardholderName.getValue() == null ) {
+            error.set("CardholderName cannot be empty");
+            return false;
+        } else if (CardNumber.getValue() == null ) {
+            error.set("CardNumber cannot be empty");
+            return false;
+        } else if (CardNumber.getValue().length() < 16  ) {
+            error.set("CardNumber must contain 16 characters");
+            return false;
+        } else if (CardNumber.getValue().length() > 16  ) {
+            error.set("CardNumber must contain 16 characters");
+            return false;
+        } else if (CVV.getValue() == null) {
+            error.set("CVV must contain more than 0 characters");
+            return false;
+        } else if (CVV.getValue().length() > 3 ) {
+            error.set("CVV must contain less than 3 characters");
+            return false;
+        } else if (ExpirationDate.getValue() == null ) {
+            error.set("ExpirationDate cannot be empty");
+            return false;
+        } else {
+            error.set("Fields cannot be emty");
+            return false;
+        }
+
     }
+
+
+
 
     public String getFirstName() {
         return FirstName.get();
@@ -141,6 +182,11 @@ public class paymentViewModel {
         return ExpirationDate;
     }
 
+    public String getError() {
+        return error.get();
+    }
 
-
+    public StringProperty errorProperty() {
+        return error;
+    }
 }
