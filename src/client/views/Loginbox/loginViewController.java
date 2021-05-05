@@ -45,7 +45,7 @@ public class loginViewController implements ViewController {
                 viewModel.createTicket();
                 SaveInfo.getInstance().reset();
                 viewModel.clearFields();
-                
+
             }
             else
             {
@@ -67,7 +67,7 @@ public class loginViewController implements ViewController {
     }
 
 
-    // TODO: 26-04-2021          login skal skelne mellem dashbord og payment
+
 
 
 
