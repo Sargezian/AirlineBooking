@@ -1,9 +1,6 @@
 package client.model;
 
-import shared.transferobjects.InputUser;
-import shared.transferobjects.Flights;
-import shared.transferobjects.Passenger;
-import shared.transferobjects.Seat;
+import shared.transferobjects.*;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -59,6 +56,12 @@ public class SaveInfo {
 
     public void setPassenger(Passenger passenger) {
         this.passenger = passenger;
+    }
+
+    public void reset(){
+        System.out.println("Her sætter vi flights til null");
+    setFlights(null);
+        System.out.println("Her getter vi en user " + getUser());
     }
 
     @Override

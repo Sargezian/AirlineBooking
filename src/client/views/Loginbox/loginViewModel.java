@@ -65,6 +65,9 @@ public class loginViewModel {
      }
 
 
+
+
+
     public String getNavn() {
         return navn.get();
     }

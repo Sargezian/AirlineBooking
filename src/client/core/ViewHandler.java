@@ -1,9 +1,11 @@
 package client.core;
 
 import client.views.ViewController;
+import client.views.myflightplan.myflightplanViewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -11,8 +13,29 @@ import java.io.IOException;
 public class ViewHandler {
 
     private Scene chatScene, loginScene, myflightplanScene, seatScene, passengerScene, paymentScene, createuserScene;
+    private myflightplanViewController mfv;
     private Stage stage;
     private ViewModelFactory vmf;
+    private class loadFxmlresult{
+        private Parent root;
+        private ViewController controller;
+
+        public loadFxmlresult(Parent root, ViewController controller)
+        {
+            this.root = root;
+            this.controller = controller;
+        }
+
+        public Parent getRoot()
+        {
+            return root;
+        }
+
+        public ViewController getController()
+        {
+            return controller;
+        }
+    }
 
     public ViewHandler(ViewModelFactory vmf) {
         this.vmf = vmf;
@@ -23,9 +46,10 @@ public class ViewHandler {
         openToDashView();
     }
 
+
     public void openToDashView() {
         try {
-            Parent root = loadFXML("../views/dashboard/dashboard.fxml");
+            Parent root = loadFXML("../views/dashboard/dashboard.fxml").getRoot();
             Scene logScene = new Scene(root);
             stage.setTitle("Dashboard");
             stage.setScene(logScene);
@@ -38,7 +62,7 @@ public class ViewHandler {
     public void openLoginView() {
         if (loginScene == null) {
             try {
-                Parent root = loadFXML("../views/Loginbox/login.fxml");
+                Parent root = loadFXML("../views/Loginbox/login.fxml").getRoot();
 
                 stage.setTitle("Login");
                 loginScene = new Scene(root);
@@ -53,14 +77,16 @@ public class ViewHandler {
     public void openToMyFlightPlan() {
         if (myflightplanScene == null) {
             try {
-                Parent root = loadFXML("../views/myflightplan/myflightplan.fxml");
-
+                loadFxmlresult root = loadFXML("../views/myflightplan/myflightplan.fxml");
+                mfv = (myflightplanViewController) root.getController();
                 stage.setTitle("MyFlightPlan");
-                myflightplanScene = new Scene(root);
+                myflightplanScene = new Scene(root.getRoot());
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+        mfv.reloadvm();
         stage.setScene(myflightplanScene);
         stage.show();
     }
@@ -68,7 +94,7 @@ public class ViewHandler {
     public void openSeat() {
         if (seatScene == null) {
             try {
-                Parent root = loadFXML("../views/seat/seat.fxml");
+                Parent root = loadFXML("../views/seat/seat.fxml").getRoot();
 
                 stage.setTitle("seat");
                 seatScene = new Scene(root);
@@ -84,7 +110,7 @@ public class ViewHandler {
     public void openToChatView() {
         if (chatScene == null) {
             try {
-                Parent root = loadFXML("../views/chat/chat.fxml");
+                Parent root = loadFXML("../views/chat/chat.fxml").getRoot();
 
                 stage.setTitle("Chat");
                 chatScene = new Scene(root);
@@ -99,7 +125,7 @@ public class ViewHandler {
     public void openPassengerView() {
         if (passengerScene == null) {
             try {
-                Parent root = loadFXML("../views/passenger/passenger.fxml");
+                Parent root = loadFXML("../views/passenger/passenger.fxml").getRoot();
 
                 stage.setTitle("passenger");
                 passengerScene = new Scene(root);
@@ -114,8 +140,7 @@ public class ViewHandler {
     public void openPaymentView() {
         if (paymentScene == null) {
             try {
-                Parent root = loadFXML("../views/Payment/payment.fxml");
-
+                Parent root = loadFXML("../views/Payment/payment.fxml").getRoot();
                 stage.setTitle("payment");
                 paymentScene = new Scene(root);
             } catch (IOException e) {
@@ -129,7 +154,7 @@ public class ViewHandler {
     public void openCreateUserView() {
         if (createuserScene == null) {
             try {
-                Parent root = loadFXML("../views/createUser/createUser.fxml");
+                Parent root = loadFXML("../views/createUser/createUser.fxml").getRoot();
 
                 stage.setTitle("User");
                 createuserScene = new Scene(root);
@@ -143,13 +168,13 @@ public class ViewHandler {
 
 
 
-    private Parent loadFXML(String path) throws IOException {
+    private loadFxmlresult loadFXML(String path) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(path));
         Parent root = loader.load();
 
         ViewController vc = loader.getController();
         vc.init(this, vmf);
-        return root;
+        return new loadFxmlresult(root,vc);
     }
 }

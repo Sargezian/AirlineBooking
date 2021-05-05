@@ -57,6 +57,8 @@ public class myflightplanViewController implements ViewController {
         this.vh = vh;
         vm = vmf.getmyflightplanViewModel();
         vm.loadMyFlights();
+        reloadvm();
+
         //vm.loadPriceSUM();
         FlightIdColumn.setCellValueFactory(new PropertyValueFactory<>("flightID"));
         FlightnameColumn.setCellValueFactory(new PropertyValueFactory<>("flightName"));
@@ -80,6 +82,10 @@ public class myflightplanViewController implements ViewController {
         PassengerTableview.setItems(vm.getMyFlightTickets());
        // PriceTableview.setItems(vm.getMyFlightTickets());
         myName.textProperty().bind(vm.usernameProperty());
+    }
+
+    public void reloadvm(){
+        vm.loadMyFlights();
         vm.setUsername();
     }
 

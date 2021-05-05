@@ -37,6 +37,7 @@ public class myflightplanViewModel {
         InputUser id = SaveInfo.getInstance().getUser();
 
         List<myFlightTicket> flight = clientText.getflightlist(id.getId());
+        System.out.println("Loadmyflights " + SaveInfo.getInstance().getUser());
 
         myFlightTickets = FXCollections.observableArrayList(flight);
         System.out.println("loadlflights = " + flight);
@@ -56,6 +57,7 @@ public class myflightplanViewModel {
 
     public void onNewTicket(PropertyChangeEvent evt) {
         // getPassengerInformation(1);
+        System.out.println("onNewTicket " + SaveInfo.getInstance().getUser());
         myFlightTickets.clear();
         InputUser id = SaveInfo.getInstance().getUser();
 
@@ -68,8 +70,6 @@ public class myflightplanViewModel {
     public void setUsername(){
 
         InputUser user = SaveInfo.getInstance().getUser();
-
-
         clientText.readUsername(user.user);
 
 
