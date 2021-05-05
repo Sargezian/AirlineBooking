@@ -72,11 +72,6 @@
                   <Image url="@../../../Billeder/world.png" />
                </image>
             </ImageView>
-            <Button alignment="BASELINE_LEFT" layoutX="75.0" layoutY="279.0" mnemonicParsing="false" onAction="#OnLogin" prefHeight="52.0" prefWidth="173.0" style="-fx-background-color: #4153F2;" text="Login" textFill="WHITE">
-               <font>
-                  <Font name="Tahoma Bold" size="18.0" />
-               </font>
-            </Button>
             <Button alignment="BASELINE_LEFT" layoutX="75.0" layoutY="177.0" mnemonicParsing="false" onAction="#onFlights" prefHeight="52.0" prefWidth="173.0" style="-fx-background-color: #4153F2;" text="Flights" textFill="WHITE">
                <font>
                   <Font name="Tahoma Bold" size="18.0" />

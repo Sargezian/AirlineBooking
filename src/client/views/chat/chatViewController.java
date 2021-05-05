@@ -72,9 +72,7 @@ public class chatViewController implements ViewController {
 
     }
 
-    public void OnLogin(ActionEvent actionEvent) {
-       //
-    }
+
 
     public void onFlights(ActionEvent actionEvent) {
         vh.openToMyFlightPlan();
