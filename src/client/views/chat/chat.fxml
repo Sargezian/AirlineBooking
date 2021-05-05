@@ -87,11 +87,6 @@
                   <Image url="@../../../Billeder/flight-route.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="34.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../Billeder/—Pngtree—vector%20avatar%20icon_4013749.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="69.0" fitWidth="27.0" layoutX="33.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../Billeder/airplane.png" />
@@ -107,12 +102,12 @@
                   <Font name="Tahoma Bold" size="20.0" />
                </font>
             </Label>
-            <Button alignment="BASELINE_LEFT" layoutX="76.0" layoutY="331.0" mnemonicParsing="false" onAction="#onBackDashboard" prefHeight="52.0" prefWidth="173.0" style="-fx-background-color: #4153F2;" text="Dashboard" textFill="WHITE">
+            <Button alignment="BASELINE_LEFT" layoutX="76.0" layoutY="290.0" mnemonicParsing="false" onAction="#onBackDashboard" prefHeight="52.0" prefWidth="173.0" style="-fx-background-color: #4153F2;" text="Dashboard" textFill="WHITE">
                <font>
                   <Font name="Tahoma Bold" size="18.0" />
                </font>
             </Button>
-            <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="34.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="27.0" fitWidth="33.0" layoutX="33.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../Billeder/undo.png" />
                </image>

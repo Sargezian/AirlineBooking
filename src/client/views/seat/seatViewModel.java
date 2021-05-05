@@ -67,6 +67,8 @@ public class seatViewModel {
         if (seat != null) {
             SaveInfo.getInstance().setSeat(seat);
             System.out.println("Save SeatInformation = " + SaveInfo.getInstance());
+            clientText.delete(seat.seatID);
+
             return true;
         } else {
             error.set("Please select seat for continue");
@@ -74,6 +76,8 @@ public class seatViewModel {
         }
 
     }
+
+
 
     public String getError() {
         return error.get();

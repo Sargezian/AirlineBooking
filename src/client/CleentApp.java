@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class CleentApp extends Application {
+
     @Override
     public void start(Stage stage) throws Exception {
         ClientFactory cf = new ClientFactory();
@@ -16,4 +17,5 @@ public class CleentApp extends Application {
         ViewHandler vh = new ViewHandler(vmf);
         vh.start();
     }
+
 }

@@ -88,6 +88,11 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
+    public void delete(int seatID) {
+        client.delete(seatID);
+    }
+
+    @Override
     public InputUser readUser(String user, String password) {
         return client.readUser(user,password);
     }

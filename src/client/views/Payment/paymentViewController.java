@@ -47,6 +47,7 @@ public class paymentViewController implements ViewController {
 
     public void OnCheckOut(ActionEvent actionEvent) {
         if (pv.getPaymentInformation()) {
+            pv.getPaymentInformation();
             vh.openToMyFlightPlan();
         }
     }

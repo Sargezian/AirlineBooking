@@ -2,6 +2,7 @@ package client.views.chat;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
+import client.model.SaveInfo;
 import client.views.ViewController;
 import client.views.createUser.createUserViewModel;
 import javafx.event.ActionEvent;
@@ -55,15 +56,30 @@ public class chatViewController implements ViewController {
         AverageReviews.textProperty().bind(vm.averageProperty());
 
         requestField.textProperty().bindBidirectional(vm.getChat());
+
         errorRating.textProperty().bind(vm.errorProperty());
 
         vm.setUser(vmf.getcreateUserViewModel().createUserProperty().getValue());
         vm.setCounter();
         vm.setAverage();
+        visible();
 
         starList.setItems(vm.getRatings());
 
     }
+
+    private void visible() {
+        if(SaveInfo.getInstance().getUser() == null) {
+            requestField.setVisible(false);
+            errorRating.setVisible(false);
+            starList.setVisible(false);
+        } else {
+            requestField.setVisible(true);
+            errorRating.setVisible(true);
+            starList.setVisible(true);
+        }
+    }
+
 
     @FXML
     private void onSubmitButton() {
@@ -83,5 +99,6 @@ public class chatViewController implements ViewController {
 
 
     public void onBackDashboard(ActionEvent actionEvent) {
+        vh.openToDashView();
     }
 }

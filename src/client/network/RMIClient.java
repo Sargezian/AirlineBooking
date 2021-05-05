@@ -165,6 +165,18 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
+  @Override
+  public void delete(int seatID) {
+    try
+    {
+      server.delete(seatID);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
 
   @Override public List<myFlightTicket> getflightlist(int userId)
   {

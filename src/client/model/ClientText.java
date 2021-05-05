@@ -32,9 +32,10 @@ public interface ClientText extends Subject {
     //seat
     List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID, String seatNumber, String classType);
+    void delete(int seatID);
     //Seat seat(String seatNumber, String classType);
-    //passenger
 
+    //passenger
     Passenger Createpassernger(String FirstName, String LastName, String TelNumber, String email);
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);
 

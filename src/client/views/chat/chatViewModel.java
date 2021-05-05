@@ -17,7 +17,6 @@ public class chatViewModel {
 
     // TODO: 04/05/2021 lave barchart diagrammerne til chatmodellen.
 
-    // TODO: 04/05/2021 fjerne tekstbox fra forsiden men beholde den i myflightticket
 
     private ClientText clientText;
     private ObservableList<InputChat> chats;
