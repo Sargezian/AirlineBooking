@@ -60,6 +60,12 @@ public class myflightplanViewController implements ViewController {
         reloadvm();
 
         //vm.loadPriceSUM();
+        myName.textProperty().bind(vm.usernameProperty());
+    }
+
+    public void reloadvm(){
+        vm.loadMyFlights();
+        vm.setUsername();
         FlightIdColumn.setCellValueFactory(new PropertyValueFactory<>("flightID"));
         FlightnameColumn.setCellValueFactory(new PropertyValueFactory<>("flightName"));
         PlanetypeColumn.setCellValueFactory(new PropertyValueFactory<>("planeTypes"));
@@ -76,17 +82,12 @@ public class myflightplanViewController implements ViewController {
         LastNameCoulmn.setCellValueFactory(new PropertyValueFactory<>("LastName"));
         teleNumberColumn.setCellValueFactory(new PropertyValueFactory<>("TelNumber"));
         EmailCoulmn.setCellValueFactory(new PropertyValueFactory<>("Email"));
-      //  PriceSumColumn.setCellValueFactory(new PropertyValueFactory<>("PriceSum"));
+        //  PriceSumColumn.setCellValueFactory(new PropertyValueFactory<>("PriceSum"));
         flighttableview.setItems(vm.getMyFlightTickets());
         TicketTableview.setItems(vm.getMyFlightTickets());
         PassengerTableview.setItems(vm.getMyFlightTickets());
-       // PriceTableview.setItems(vm.getMyFlightTickets());
-        myName.textProperty().bind(vm.usernameProperty());
-    }
+        // PriceTableview.setItems(vm.getMyFlightTickets());
 
-    public void reloadvm(){
-        vm.loadMyFlights();
-        vm.setUsername();
     }
 
     public void onBackDashboard(ActionEvent actionEvent) {
