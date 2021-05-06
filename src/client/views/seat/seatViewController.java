@@ -37,13 +37,14 @@ public class seatViewController implements ViewController {
     public void init(ViewHandler vh, ViewModelFactory vmf) {
 
        this.vh = vh;
-       sv = vmf.getseatViewModel();
+        sv = vmf.getseatViewModel();
         sv.loadSeat();
         seatIDColumn.setCellValueFactory(new PropertyValueFactory<>("seatID"));
         seatNumberColumn.setCellValueFactory(new PropertyValueFactory<>("seatNumber"));
         classTypeColumn.setCellValueFactory(new PropertyValueFactory<>("classType"));
         errorlabel.textProperty().bind(sv.errorProperty());
         tableView.setItems(sv.getSeat());
+
     }
 
    /* public Pane getPane(int id)
@@ -72,6 +73,7 @@ public class seatViewController implements ViewController {
             /*sv.deleteSeat(tableView.getSelectionModel().getSelectedItem());*/
             vh.openPassengerView();
             //fjerne select
+
         }
 
     }

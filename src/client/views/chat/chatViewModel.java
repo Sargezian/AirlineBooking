@@ -12,6 +12,7 @@ import shared.transferobjects.Rating;
 import shared.util.utils;
 
 import java.beans.PropertyChangeEvent;
+import java.io.Serial;
 import java.util.List;
 
 public class chatViewModel {
@@ -70,7 +71,6 @@ public class chatViewModel {
             series.setName("Rating");
             setCounter();
             setAverage();
-
         } else {
             error.set("please choose a rating");
             System.out.println(chat.getValue());

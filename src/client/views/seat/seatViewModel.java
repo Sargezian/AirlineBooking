@@ -15,12 +15,14 @@ import java.util.List;
 
 public class seatViewModel {
 
+    // TODO: 04/05/2021 fjerne seats når man bestiller
+
 
     private ClientText clientText;
     private ObservableList<Seat> Seats;
     private ArrayList<Pane> selectedPane = new ArrayList<>();
     private StringProperty error;
-
+    private seatViewController svc;
 
     public seatViewModel(ClientText clientText) {
         this.clientText = clientText;
@@ -65,6 +67,7 @@ public class seatViewModel {
         if (seat != null) {
             SaveInfo.getInstance().setSeat(seat);
             System.out.println("Save SeatInformation = " + SaveInfo.getInstance());
+
             return true;
         } else {
             error.set("Please select seat for continue");
@@ -74,6 +77,7 @@ public class seatViewModel {
     }
 
 
+
     public String getError() {
         return error.get();
     }
@@ -81,4 +85,6 @@ public class seatViewModel {
     public StringProperty errorProperty() {
         return error;
     }
+    
+
 }
