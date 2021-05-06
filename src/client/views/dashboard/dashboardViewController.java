@@ -68,6 +68,7 @@ public class dashboardViewController implements ViewController {
         tableView.setItems(dv.getflight());
 
         SearchField.textProperty().bindBidirectional(dv.searchProperty());
+        dv.startClock();
 
     }
 

@@ -55,7 +55,7 @@ public interface ClientText extends Subject {
 
 
 
-
+    Object cloak();
 
 
 

@@ -2,6 +2,7 @@ package client.views.dashboard;
 
 import client.model.ClientText;
 import client.model.SaveInfo;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -9,6 +10,8 @@ import javafx.collections.ObservableList;
 import shared.transferobjects.Flights;
 import shared.util.utils;
 import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -34,6 +37,11 @@ public class dashboardViewModel {
         error = new SimpleStringProperty();
         clock = new SimpleStringProperty();
         clientText.addListener(utils.NEWFLIGHT, this::onNewInputflight);
+        clientText.addListener("time", this::clockPropertye);
+        //startClock();
+    }
+
+    private void clockPropertye(PropertyChangeEvent event) {
         startClock();
     }
 
@@ -85,24 +93,16 @@ public class dashboardViewModel {
     public StringProperty clockProperty(){return clock;}
 
     public void startClock(){
-        new Thread(new Runnable()
-        {
-            @Override public void run()
-            {
-                while (true){
-                Date myDate=new Date();
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
 
-                System.out.println(myDate);
-
-                int currentHour;
-                int currentMinute;
-                int currentSecond;
-                currentHour=myDate.getHours();
-                currentMinute=myDate.getMinutes();
-                currentSecond=myDate.getSeconds();
-
-                clock.setValue("clock"+currentHour+currentMinute+currentSecond);
-            }}
-        }).start();
+                    clock.setValue(String.valueOf(clientText.cloak()));
+            }
+        });
     }
+
+
 }
+
+

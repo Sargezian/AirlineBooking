@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="1145.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.dashboard.dashboardViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="1145.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.dashboard.dashboardViewController">
     <children>
         <VBox prefHeight="634.0" prefWidth="237.0" style="-fx-background-color: #4153F2;">
             <children>
@@ -101,6 +101,7 @@
       <Label layoutX="659.0" layoutY="90.0" text="Passenger" />
       <Label layoutX="759.0" layoutY="90.0" text="Payment" />
       <Label fx:id="errorlabel" layoutX="823.0" layoutY="543.0" text="errorlabel" />
-      <Label fx:id="clock" layoutX="270.0" layoutY="40.0" prefHeight="52.0" prefWidth="154.0" text="Label" />
+      <Label fx:id="clock" layoutX="246.0" layoutY="40.0" prefHeight="52.0" prefWidth="208.0" text="Label" />
+      <Button layoutX="289.0" layoutY="573.0" mnemonicParsing="false" onAction="#updateClock" text="Button" />
     </children>
 </AnchorPane>

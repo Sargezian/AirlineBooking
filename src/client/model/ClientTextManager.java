@@ -7,6 +7,7 @@ import shared.util.utils;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.Date;
 import java.util.List;
 
 public class ClientTextManager implements ClientText {
@@ -178,6 +179,13 @@ public class ClientTextManager implements ClientText {
     @Override
     public void removeListener(String eventName, PropertyChangeListener listener) {
         support.removePropertyChangeListener(eventName, listener);
+    }
+
+    public Object cloak(){
+        Date myDate=new Date();
+        support.firePropertyChange("time",-1,1);
+
+        return myDate;
     }
 }
 
