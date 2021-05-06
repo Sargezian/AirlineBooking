@@ -39,6 +39,8 @@ public class dashboardViewModel {
         //startClock();
     }
 
+
+
     private void clockPropertye(PropertyChangeEvent event) {
         startClock();
     }

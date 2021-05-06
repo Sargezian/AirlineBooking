@@ -99,4 +99,10 @@ public class myflightplanViewController implements ViewController {
     }
 
 
+    public void printbillet(ActionEvent actionEvent) {
+
+
+
+
+    }
 }

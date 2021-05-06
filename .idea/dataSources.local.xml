@@ -14,7 +14,10 @@
               <node kind="schema" qname="@" />
             </node>
             <node kind="database" qname="postgres">
-              <node kind="schema" qname="sep2" />
+              <node kind="schema">
+                <name qname="sep2" />
+                <name qname="postgres" />
+              </node>
             </node>
           </node>
         </introspection-scope>
