@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import shared.transferobjects.Flights;
+import shared.transferobjects.Seat;
 
 public class loginViewController implements ViewController {
 

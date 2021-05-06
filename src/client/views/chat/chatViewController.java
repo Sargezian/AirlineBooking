@@ -3,12 +3,12 @@ package client.views.chat;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.model.SaveInfo;
-import client.views.Loginbox.loginViewModel;
 import client.views.ViewController;
 import client.views.createUser.createUserViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import shared.transferobjects.InputChat;
@@ -17,7 +17,8 @@ import shared.transferobjects.Rating;
 public class chatViewController implements ViewController {
 
     //barChart
-    @FXML public BarChart barChart;
+    @FXML private BarChart<String, Integer> barChart;
+    /*private XYChart.Data<String, Integer> x = new XYChart.Data<String, Integer>("X", 0);*/
 
     //total reviews
     @FXML public Label TotalReviews;
@@ -25,7 +26,9 @@ public class chatViewController implements ViewController {
     //starList
     @FXML public ComboBox starList;
 
+    //averageReviews
     @FXML public Label AverageReviews;
+    @FXML public ProgressBar ProgressAvgBar;
 
     //errorlabel
     @FXML public Label errorRating;
@@ -37,14 +40,14 @@ public class chatViewController implements ViewController {
 
 
     private chatViewModel vm;
-    private loginViewModel cuv;
+    private createUserViewModel cuv;
     private ViewHandler vh;
 
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.vh = vh;
 
-        cuv = vmf.getloginViewModel();
+        cuv = vmf.getcreateUserViewModel();
         vm = vmf.getchatViewModel();
         vm.loadLogs();
         vm.loadLogs2();
@@ -56,11 +59,15 @@ public class chatViewController implements ViewController {
         TotalReviews.textProperty().bind(vm.totalReviewsProperty());
         AverageReviews.textProperty().bind(vm.averageProperty());
 
+        ProgressAvgBar.progressProperty().bind(vm.progressbarProperty());
+
         requestField.textProperty().bindBidirectional(vm.getChat());
 
         errorRating.textProperty().bind(vm.errorProperty());
 
-        vm.setUser(vmf.getloginViewModel().getNavn());
+        barChart.getData().add(vm.getSeries());
+
+        vm.setUser(vmf.getcreateUserViewModel().createUserProperty().getValue());
         vm.setCounter();
         vm.setAverage();
         visible();
@@ -86,6 +93,7 @@ public class chatViewController implements ViewController {
     private void onSubmitButton() {
 
         vm.chatPrint((Rating) starList.getSelectionModel().getSelectedItem());
+
 
     }
 

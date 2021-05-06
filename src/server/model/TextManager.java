@@ -26,7 +26,6 @@ public interface TextManager extends Subject {
     List<Seat> getSeat(int planeId);
     Seat getSeatID(int seatID, String seatNumber, String classType);
     boolean ValidateUser(String user, String password);
-    void delete(int seatID);
 
     //flight
     List<Flights> getflights();

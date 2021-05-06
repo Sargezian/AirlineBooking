@@ -124,8 +124,6 @@ public class paymentViewModel {
             return false;
         }
 
-
-
         if (ExpirationDate.getValue() == null ) {
             error.set("ExpirationDate cannot be empty");
             return false;

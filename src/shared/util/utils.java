@@ -9,6 +9,7 @@ public class utils
     public static final String NEWFLIGHT = "NewInputflight";
     public static final String NEWPASSENGER = "NewPassenger";
     public static final String NEWTICKET = "NewTicket";
+    public static final String NEWDATA = "NewData";
 
 
 }

@@ -6,6 +6,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import shared.transferobjects.*;
 
+import java.util.List;
+
 public class loginViewModel {
     private ClientText clientText;
     private StringProperty navn;
@@ -38,6 +40,7 @@ public class loginViewModel {
         myFlightTicket myFlightTicket1 = new myFlightTicket(1,pg,ft,st,user);
 
         clientText.createTicket(myFlightTicket1);
+
 
     }
 

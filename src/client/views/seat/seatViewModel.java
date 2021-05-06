@@ -15,8 +15,6 @@ import java.util.List;
 
 public class seatViewModel {
 
-    // TODO: 04/05/2021 fjerne seats når man bestiller
-
 
     private ClientText clientText;
     private ObservableList<Seat> Seats;
@@ -67,8 +65,6 @@ public class seatViewModel {
         if (seat != null) {
             SaveInfo.getInstance().setSeat(seat);
             System.out.println("Save SeatInformation = " + SaveInfo.getInstance());
-            clientText.delete(seat.seatID);
-
             return true;
         } else {
             error.set("Please select seat for continue");
@@ -76,7 +72,6 @@ public class seatViewModel {
         }
 
     }
-
 
 
     public String getError() {

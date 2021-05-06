@@ -93,8 +93,4 @@ public class dashboardViewController implements ViewController {
         vh.openToChatView();
     }
 
-    public void updateClock(ActionEvent actionEvent)
-    {
-        dv.startClock();
-    }
 }

@@ -81,50 +81,7 @@ public class SeatImpl implements SeatDao {
         return null;
     }
 
-    public void delete(int seatID) {
-        try {
-            try (Connection connection = daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("DELETE FROM Seat WHERE seatID = ?");
-                statement.setInt(1, seatID);
-                statement.executeUpdate();
-
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-    }
-
 }
-
-
-
-
-
-
-   /* @Override
-    public Seat CreateSeat(String seatNumber, String classType) {
-        try {
-            try (Connection connection =  daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("INSERT INTO seat(seatNumber,classType) VALUES (?,?) ", PreparedStatement.RETURN_GENERATED_KEYS);
-                statement.setString(1, seatNumber);
-                statement.setString(2, classType);
-                statement.executeUpdate();
-                ResultSet key = statement.getGeneratedKeys();
-
-                if (key.next()) {
-
-                    return new Seat(key.getInt(1),seatNumber,classType);
-                } else {
-
-                    throw new SQLException("Her bliver det testet på at lave en ny seat");
-
-                }
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return null;
-    }*/
 
 
 

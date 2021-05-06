@@ -101,7 +101,6 @@
       <Label layoutX="659.0" layoutY="90.0" text="Passenger" />
       <Label layoutX="759.0" layoutY="90.0" text="Payment" />
       <Label fx:id="errorlabel" layoutX="823.0" layoutY="543.0" text="errorlabel" />
-      <Label fx:id="clock" layoutX="246.0" layoutY="40.0" prefHeight="52.0" prefWidth="208.0" text="Label" />
-      <Button layoutX="289.0" layoutY="573.0" mnemonicParsing="false" onAction="#updateClock" text="Button" />
+      <Label fx:id="clock" layoutX="931.0" layoutY="6.0" prefHeight="52.0" prefWidth="208.0" text="Label" />
     </children>
 </AnchorPane>

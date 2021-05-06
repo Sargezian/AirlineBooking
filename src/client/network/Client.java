@@ -32,7 +32,6 @@ public interface Client extends Subject {
     List<Seat> getSeat(int planeId);
     boolean ValidateUser(String user, String password) ;
     Seat getSeatId(int seatID, String seatNumber, String classType);
-    void delete(int seatID);
 
     //Seat seat(String seatNumber, String classType);
     //passenger
