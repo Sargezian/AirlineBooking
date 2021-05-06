@@ -3,6 +3,7 @@ package client.views.chat;
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
 import client.model.SaveInfo;
+import client.views.Loginbox.loginViewModel;
 import client.views.ViewController;
 import client.views.createUser.createUserViewModel;
 import javafx.event.ActionEvent;
@@ -36,14 +37,14 @@ public class chatViewController implements ViewController {
 
 
     private chatViewModel vm;
-    private createUserViewModel cuv;
+    private loginViewModel cuv;
     private ViewHandler vh;
 
     @Override
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.vh = vh;
 
-        cuv = vmf.getcreateUserViewModel();
+        cuv = vmf.getloginViewModel();
         vm = vmf.getchatViewModel();
         vm.loadLogs();
         vm.loadLogs2();
@@ -59,7 +60,7 @@ public class chatViewController implements ViewController {
 
         errorRating.textProperty().bind(vm.errorProperty());
 
-        vm.setUser(vmf.getcreateUserViewModel().createUserProperty().getValue());
+        vm.setUser(vmf.getloginViewModel().getNavn());
         vm.setCounter();
         vm.setAverage();
         visible();

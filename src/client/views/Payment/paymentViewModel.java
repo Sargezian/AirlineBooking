@@ -87,28 +87,49 @@ public class paymentViewModel {
             String ExpirationDate = this.ExpirationDate.getValue();
             clientText.payment(CardholderName,CardNumber,CVV,ExpirationDate);
             return true;
-        }  else if (CardholderName.getValue() == null ) {
+        }
+
+
+        if (CardholderName.getValue() == null ) {
             error.set("CardholderName cannot be empty");
             return false;
-        } else if (CardNumber.getValue() == null ) {
+        }
+
+
+        if (CardNumber.getValue() == null ) {
             error.set("CardNumber cannot be empty");
             return false;
-        } else if (CardNumber.getValue().length() < 16  ) {
+        }
+
+        if (CardNumber.getValue().length() < 16  ) {
             error.set("CardNumber must contain 16 characters");
             return false;
-        } else if (CardNumber.getValue().length() > 16  ) {
+        }
+
+
+        if (CardNumber.getValue().length() > 16  ) {
             error.set("CardNumber must contain 16 characters");
             return false;
-        } else if (CVV.getValue() == null) {
+        }
+
+
+        if (CVV.getValue() == null) {
             error.set("CVV must contain more than 0 characters");
             return false;
-        } else if (CVV.getValue().length() > 3 ) {
+        }
+
+
+        if (CVV.getValue().length() > 3 ) {
             error.set("CVV must contain less than 3 characters");
             return false;
-        } else if (ExpirationDate.getValue() == null ) {
+        }
+
+
+
+        if (ExpirationDate.getValue() == null ) {
             error.set("ExpirationDate cannot be empty");
             return false;
-        } else {
+        }  {
             error.set("Fields cannot be emty");
             return false;
         }

@@ -44,4 +44,5 @@ public class InputUser implements Serializable {
                 ", id=" + id +
                 '}';
     }
+
 }
