@@ -17,7 +17,6 @@ import java.util.List;
 
 public class dashboardViewModel {
 
-    // TODO: 04/05/2021 lave evt. en klokke til foside
 
     // TODO: 04/05/2021 lave admin side
 
@@ -28,7 +27,6 @@ public class dashboardViewModel {
     private StringProperty search;
     private StringProperty error;
     private StringProperty clock;
-
 
 
     public dashboardViewModel(ClientText clientText) {
