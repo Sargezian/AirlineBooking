@@ -11,6 +11,8 @@ public class RunServer {
 
         RMIServerImplement rsi = new RMIServerImplement(new TextManagerImpl());
         rsi.startServer();
+
+
     }
 
 

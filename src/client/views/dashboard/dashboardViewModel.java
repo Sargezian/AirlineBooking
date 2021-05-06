@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import shared.transferobjects.Flights;
 import shared.util.utils;
 import java.beans.PropertyChangeEvent;
+import java.util.Date;
 import java.util.List;
 
 public class dashboardViewModel {
@@ -23,13 +24,17 @@ public class dashboardViewModel {
     private ObservableList<Flights> flights;
     private StringProperty search;
     private StringProperty error;
+    private StringProperty clock;
+
 
 
     public dashboardViewModel(ClientText clientText) {
         this.clientText = clientText;
         search = new SimpleStringProperty();
         error = new SimpleStringProperty();
+        clock = new SimpleStringProperty();
         clientText.addListener(utils.NEWFLIGHT, this::onNewInputflight);
+        startClock();
     }
 
     public void loadFlights() {
@@ -75,5 +80,29 @@ public class dashboardViewModel {
 
     public StringProperty errorProperty() {
         return error;
+    }
+
+    public StringProperty clockProperty(){return clock;}
+
+    public void startClock(){
+        new Thread(new Runnable()
+        {
+            @Override public void run()
+            {
+                while (true){
+                Date myDate=new Date();
+
+                System.out.println(myDate);
+
+                int currentHour;
+                int currentMinute;
+                int currentSecond;
+                currentHour=myDate.getHours();
+                currentMinute=myDate.getMinutes();
+                currentSecond=myDate.getSeconds();
+
+                clock.setValue("clock"+currentHour+currentMinute+currentSecond);
+            }}
+        }).start();
     }
 }
