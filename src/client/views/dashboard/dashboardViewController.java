@@ -11,8 +11,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import shared.transferobjects.Flights;
-
 import java.sql.Timestamp;
+
+
 
 public class dashboardViewController implements ViewController {
 
@@ -35,6 +36,7 @@ public class dashboardViewController implements ViewController {
 
     @FXML public TextField SearchField;
     @FXML public Label errorlabel;
+    @FXML public Label clock;
 
     private ViewHandler vh;
     private dashboardViewModel dv;
@@ -59,6 +61,9 @@ public class dashboardViewController implements ViewController {
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("Price"));
 
         errorlabel.textProperty().bind(dv.errorProperty());
+
+        clock.textProperty().bind(dv.clockProperty());
+
 
         tableView.setItems(dv.getflight());
 
@@ -85,5 +90,10 @@ public class dashboardViewController implements ViewController {
 
     public void onReviews(ActionEvent actionEvent) {
         vh.openToChatView();
+    }
+
+    public void updateClock(ActionEvent actionEvent)
+    {
+        dv.startClock();
     }
 }
