@@ -10,8 +10,12 @@ import javafx.collections.ObservableList;
 import shared.transferobjects.*;
 import shared.util.utils;
 
+import javax.mail.*;
+import javax.mail.internet.*;
 import java.beans.PropertyChangeEvent;
+import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
 public class myflightplanViewModel {
 
@@ -84,6 +88,69 @@ public class myflightplanViewModel {
 
 
     }
+
+
+    public void sendtoEmail( ) throws AddressException {
+
+        for (myFlightTicket myFlightTicket : myFlightTickets) {
+
+
+
+
+        final String username = "sep2test123@gmail.com";
+        final String password = "42323087";
+        String fromEmail = "sep2test123@gmail.com";
+        String toEmail =  myFlightTicket.getEmail();
+
+
+        System.out.println("email" );
+
+
+        Properties properties = new Properties();
+        properties.put("mail.smtp.auth","true");
+        properties.put("mail.smtp.starttls.enable","true");
+        properties.put("mail.smtp.host","smtp.gmail.com");
+        properties.put("mail.smtp.port","587");
+
+
+        Session session = Session.getInstance(properties,new javax.mail.Authenticator(){
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username,password);
+            }
+        });
+
+        MimeMessage msg = new MimeMessage(session);
+        try {
+            msg.setFrom(new InternetAddress(fromEmail));
+            msg.addRecipient(Message.RecipientType.TO,new InternetAddress(toEmail));
+            msg.setSubject("ticket");
+            msg.setText("test 123");
+
+            Multipart emailcontent = new MimeMultipart();
+
+            MimeBodyPart text = new MimeBodyPart();
+            text.setText("test");
+
+            MimeBodyPart pdf = new MimeBodyPart();
+            pdf.attachFile("/Users/Abdullahi/IdeaProjects/SEP_2/myT.pdf");
+
+            emailcontent.addBodyPart(text);
+            emailcontent.addBodyPart(pdf);
+
+            msg.setContent(emailcontent);
+
+            Transport.send(msg);
+
+
+            System.out.println("sent message");
+        } catch (MessagingException | IOException e) {
+            e.printStackTrace();
+        }
+        }
+
+    }
+
 
 
 
