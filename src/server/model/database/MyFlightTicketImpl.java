@@ -88,7 +88,7 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
 
                     //passenger
 
-                    String PassengerID = resultSet.getString("passengerID");
+                    int PassengerID = resultSet.getInt("passengerID");
                     String FirstName = resultSet.getString("FirstName");
                     String LastName = resultSet.getString("LastName");
                     String TelNumber = resultSet.getString("TelNumber");
@@ -120,7 +120,7 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
                 System.out.println( "database connection til createticket");
 
                 statement.setString(1, myFlightTicket.getFlights().getFlightID());
-                statement.setString(2, myFlightTicket.getPassenger().getPassengerID());
+                statement.setInt(2, myFlightTicket.getPassenger().getPassengerID());
                 statement.setInt(3, myFlightTicket.getSeat().getSeatID());
                 statement.setInt(4, myFlightTicket.getUser().getId());
 
@@ -172,7 +172,7 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
 
                     //passenger
 
-                    String PassengerID = resultSet.getString("passengerID");
+                    int PassengerID = resultSet.getInt("passengerID");
                     String FirstName = resultSet.getString("FirstName");
                     String LastName = resultSet.getString("LastName");
                     String TelNumber = resultSet.getString("TelNumber");

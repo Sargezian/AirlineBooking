@@ -170,10 +170,6 @@ public class myflightplanViewController implements ViewController {
 
 
 
-
-
-
-
         image1.setPosition(-311f,0f);
         image1.drawOn(page);
 

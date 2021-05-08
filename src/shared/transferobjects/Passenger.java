@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 public class Passenger implements Serializable
 {
-    public String passengerID;
+    public int passengerID;
     public String FirstName, LastName,TelNumber;
     public String Email;
 
-    public Passenger(String passengerID, String firstName, String lastName, String telNumber, String email) {
+    public Passenger(int passengerID, String firstName, String lastName, String telNumber, String email) {
         this.passengerID = passengerID;
         FirstName = firstName;
         LastName = lastName;
@@ -31,7 +31,7 @@ public class Passenger implements Serializable
     public String getEmail() {
         return Email;
     }
-    public String getPassengerID()
+    public int getPassengerID()
     {
         return passengerID;
     }

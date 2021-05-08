@@ -53,7 +53,7 @@ public class myFlightTicket implements Serializable {
     public String getEmail() {
         return passenger.Email;
     }
-    public String getPassengerID()
+    public int getPassengerID()
     {
         return passenger.passengerID;
     }

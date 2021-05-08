@@ -129,13 +129,13 @@ public class myflightplanViewModel {
         try {
             msg.setFrom(new InternetAddress(fromEmail));
             msg.addRecipient(Message.RecipientType.TO,new InternetAddress(toEmail));
-            msg.setSubject("ticket");
-            msg.setText("test 123");
+            msg.setSubject("Airline Booking");
+            msg.setText("your ticket");
 
             Multipart emailcontent = new MimeMultipart();
 
             MimeBodyPart text = new MimeBodyPart();
-            text.setText("test");
+            text.setText("Thanks for the Purchase!\n rffdsf");
 
             MimeBodyPart pdf = new MimeBodyPart();
             Path relativePath1 = Paths.get("src", "myT.pdf");
