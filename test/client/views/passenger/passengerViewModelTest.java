@@ -12,22 +12,23 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class passengerViewModelTest
 {
-  private passengerViewModel vm;
   private PassengerDao passengerDao;
 
   @BeforeEach public void setup()
   {
-    vm.getFirstName();
-
     passengerDao = new PassengerImpl();
   }
 
   @Test
   public void testifwecanreadfromdatabase(){
 
-    Passenger ps = passengerDao.CreatePassengers("Mar32k","Pede324rsen","49408234516","Mark23hjuler@gmail.com");
 
-    assertEquals(ps,vm.getFirstName());
+    Passenger passenger = new Passenger(1,"hej","Hej","12345678","Mark@gmail.com");
+    Passenger test = passengerDao.CreatePassengers(passenger.passengerID,passenger.FirstName, passenger.LastName, passenger.TelNumber,passenger.Email);
+
+
+    assertEquals(test,passengerDao.ReadPassenger(test.FirstName,
+        test.LastName, test.TelNumber, test.Email));
 
   }
 

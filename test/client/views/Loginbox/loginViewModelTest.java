@@ -1,3 +1,4 @@
+/*
 package client.views.Loginbox;
 
 import org.junit.jupiter.api.Test;
@@ -6,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class loginViewModelTest
 {
+  private log
 
   @Test void createTicket()
   {
@@ -42,4 +44,4 @@ class loginViewModelTest
   @Test void errorProperty()
   {
   }
-}
+}*/

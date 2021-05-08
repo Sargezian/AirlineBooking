@@ -1,4 +1,3 @@
-
 /*
 
 package client.views.seat;
@@ -42,5 +41,6 @@ class seatViewModelTest
 
   }
 }
+
 
 */

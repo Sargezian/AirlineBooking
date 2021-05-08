@@ -26,13 +26,14 @@ class createUserViewModelTest
 
   }
 
-  @Test
-  public void testuser(){
+/*  @Test
+  public void testCreateUser(){
+//Det vi vil teste her er om vi kan add en user til vores database
+InputUser user = null;
+InputUserDao userDao = new InputUserImpl();
+userDao.createUser("Mark","12345678");
 
-    InputUser user = new InputUser(1,"A9","First Class");
-    inputUserDao.readUsername(user.password);
-    System.out.println(user);
+assertEquals("mark",userDao.readUser(testCreateUser()));
 
-    assertEquals(user,inputUserDao.readUser());
-  }
+  }*/
 }
