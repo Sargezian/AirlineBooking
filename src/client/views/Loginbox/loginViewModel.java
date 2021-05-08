@@ -63,15 +63,12 @@ public class loginViewModel {
 
 
 
-    public boolean validateAdmin() {
+    public void validateAdmin() {
 
         if (navn.equals("Admin123@") && kode.equals("Admin")) {
-
-            return true;
-        } else {
-            error.setValue("ERROR field is empty");
-            return validateLoginInfo();
+            System.out.println("virker");
         }
+
 
     }
 

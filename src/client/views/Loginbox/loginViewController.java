@@ -31,6 +31,10 @@ public class loginViewController implements ViewController {
 
     public void onLogButton()
     {
+        viewModel.validateAdmin();
+        vh.openAdminView();
+        System.out.println("åben admin");
+
 
         System.out.println("Her ser vi om Getflights bliver sat eller om den altid forbliver null:  " + SaveInfo.getInstance().getFlights());
         if (viewModel.validateLoginInfo())
@@ -58,11 +62,6 @@ public class loginViewController implements ViewController {
 
 
     public void onkald(ActionEvent actionEvent) {
-        if (viewModel.validateAdmin()) {
-            viewModel.validateAdmin();
-            vh.openAdminView();
-            System.out.println("åben admin");
-        }
 
     }
 
