@@ -27,7 +27,6 @@ public class createUserViewModel  {
         String CreatePassword = this.CreatePassword.getValue();
 
 
-
         if (CreateUser != null && !"".equals(CreateUser) && CreatePassword != null && !"".equals(CreatePassword)  ) {
             InputUser username = clientText.username(CreateUser, CreatePassword);
             SaveInfo.getInstance().setUser(username);

@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class ViewHandler {
 
-    private Scene chatScene, loginScene, myflightplanScene, seatScene, passengerScene, paymentScene, createuserScene;
+    private Scene chatScene, loginScene, myflightplanScene, seatScene, passengerScene, paymentScene, createuserScene, adminScene;
     private myflightplanViewController mfv;
     private Stage stage;
     private ViewModelFactory vmf;
@@ -134,6 +134,21 @@ public class ViewHandler {
             }
         }
         stage.setScene(passengerScene);
+        stage.show();
+    }
+
+    public void openAdminView() {
+        if (adminScene == null) {
+            try {
+                Parent root = loadFXML("../views/admin/admin.fxml").getRoot();
+
+                stage.setTitle("admin");
+                adminScene = new Scene(root);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        stage.setScene(adminScene);
         stage.show();
     }
 

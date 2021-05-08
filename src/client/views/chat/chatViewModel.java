@@ -33,11 +33,7 @@ public class chatViewModel {
     private StringProperty chat;
     private String user;
 
-    private int sum1 = 0;
-    private int sum2 = 0;
-
-    XYChart.Series<String, Integer> series = new XYChart.Series<>();
-
+    XYChart.Series<String, Double> series = new XYChart.Series<>();
 
     public chatViewModel(ClientText clientText) {
         this.clientText = clientText;
@@ -62,37 +58,44 @@ public class chatViewModel {
         System.out.println("avg" + clientText.AverageStars()/5);
     }
 
+    public void setBarchart(Rating rating) {
+
+        Platform.runLater(new Runnable() {
+            @Override public void run() {
+
+                series.setName("Rating");
+
+                if (rating.star == 1) {
+                    double star_1 = clientText.CountRatings(rating.star);
+                    series.getData().add(new XYChart.Data<String, Double>("1 Star", star_1));
+                } else if (rating.star == 2) {
+                    double star_2 = clientText.CountRatings(rating.star);
+                    series.getData().add(new XYChart.Data<String, Double>("2 Star", star_2));
+                } else if (rating.star == 3) {
+                    double star_3 = clientText.CountRatings(rating.star);
+                    series.getData().add(new XYChart.Data<String, Double>("3 Star", star_3));
+                } else if (rating.star == 4) {
+                    double star_4 = clientText.CountRatings(rating.star);
+                    series.getData().add(new XYChart.Data<String, Double>("4 Star", star_4));
+                } else if (rating.star == 5) {
+                    double star_5 = clientText.CountRatings(rating.star);
+                    series.getData().add(new XYChart.Data<String, Double>("5 Star", star_5));
+                }
+            }});
+    }
+
 
     public void chatPrint(Rating rating) {
 
         if (chat.getValue() != null && !"".equals(chat.getValue()) && rating != null) {
             clientText.createChat(chat.getValue() + "  Message from : " + user + " " + rating.star + " STAR ", rating.star);
 
-            series.setName("Rating");
             setCounter();
             setAverage();
         } else {
             error.set("please choose a rating");
             System.out.println(chat.getValue());
         }
-
-            /*if (rating.star == 5) {
-                sum1++;
-                series.getData().add(new XYChart.Data<String, Integer>("5 Star", sum1));
-            } else if (rating.star == 4) {
-                sum2++;
-                series.getData().add(new XYChart.Data<String, Integer>("4 Star", sum2));
-            }  else {
-                error.set("please choose a rating");
-                System.out.println(chat.getValue());
-            }*/
-
-
-            /*Platform.runLater(new Runnable() {
-                @Override public void run() {
-
-                }});*/
-
             chat.set("");
 
     }
@@ -165,7 +168,7 @@ public class chatViewModel {
         return error;
     }
 
-    public XYChart.Series<String, Integer> getSeries() {
+    public XYChart.Series<String, Double> getSeries() {
         return series;
     }
 

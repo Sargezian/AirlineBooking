@@ -6,7 +6,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import shared.transferobjects.*;
 
-import java.util.List;
 
 public class loginViewModel {
     private ClientText clientText;
@@ -41,7 +40,6 @@ public class loginViewModel {
 
         clientText.createTicket(myFlightTicket1);
 
-
     }
 
     public void clearFields() {
@@ -50,24 +48,18 @@ public class loginViewModel {
         error.setValue("");
     }
 
+    public boolean validateLoginInfo() {
 
+        if (clientText.ValidateUser(navn.getValue(), kode.getValue())) {
+            InputUser user = clientText.readUser(navn.getValue(), kode.getValue());
+            SaveInfo.getInstance().setUser(user);
 
-
-    public boolean validateLoginInfo(){
-
-     if (clientText.ValidateUser(navn.getValue(),kode.getValue())){
-         InputUser user = clientText.readUser(navn.getValue(), kode.getValue());
-         SaveInfo.getInstance().setUser(user);
-
-         return true;
-     } else {
-         error.setValue("ERROR field is empty");
-         return false;
-     }
-
-     }
-
-
+            return true;
+        } else {
+            error.setValue("ERROR field is empty");
+            return false;
+        }
+    }
 
 
 

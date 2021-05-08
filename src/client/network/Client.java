@@ -20,6 +20,7 @@ public interface Client extends Subject {
 
     //rating
     List<Rating> getRatings();
+    int CountRatings(double star);
 
     //average
     double AverageStars();
@@ -30,10 +31,9 @@ public interface Client extends Subject {
 
     //seats
     List<Seat> getSeat(int planeId);
-    boolean ValidateUser(String user, String password) ;
     Seat getSeatId(int seatID, String seatNumber, String classType);
+    boolean ValidateUser(String user, String password);
 
-    //Seat seat(String seatNumber, String classType);
     //passenger
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email);
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);
@@ -53,5 +53,4 @@ public interface Client extends Subject {
     Flights readPrice(int price);
 
     void startClient();
-
 }

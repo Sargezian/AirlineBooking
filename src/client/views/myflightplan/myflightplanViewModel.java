@@ -94,9 +94,6 @@ public class myflightplanViewModel {
 
         for (myFlightTicket myFlightTicket : myFlightTickets) {
 
-
-
-
         final String username = "sep2test123@gmail.com";
         final String password = "42323087";
         String fromEmail = "sep2test123@gmail.com";
@@ -150,7 +147,6 @@ public class myflightplanViewModel {
         }
 
     }
-
 
 
 

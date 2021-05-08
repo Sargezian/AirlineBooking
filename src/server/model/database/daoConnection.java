@@ -21,8 +21,8 @@ public class daoConnection {
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(
-                "jdbc:postgresql://localhost:5432/postgres?currentSchema=sepdummy",
-                "postgres", "Sofuserenhund!");
+                "jdbc:postgresql://localhost:5432/postgres?currentSchema=sep2",
+                "postgres", "banat");
     }
 
 }

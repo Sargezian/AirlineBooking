@@ -104,13 +104,10 @@ public class InputUserImpl implements InputUserDao {
         return null;
     }
 
-
-
     public boolean ValidateUser(String user, String password)  {
         return readUser(user, password) != null;
 
     }
-
 
     public InputUser readUsername(String user) {
         try {

@@ -53,6 +53,11 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
+    public int CountRatings(double star) {
+        return client.CountRatings(star);
+    }
+
+    @Override
     public InputUser username(String user, String password) {
         return client.username(user, password);
     }

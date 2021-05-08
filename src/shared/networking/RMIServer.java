@@ -16,13 +16,14 @@ public interface RMIServer extends Remote {
     //rating
     public List<Rating> getRatings() throws RemoteException;
     double AverageStars() throws RemoteException;
+    int CountRatings(double star) throws RemoteException;
 
     //user
     InputUser username(String user, String password) throws RemoteException;
     List<InputUser> getUser() throws RemoteException;
-    boolean ValidateUser(String user, String password) throws RemoteException;
     InputUser readUser(String user,String password) throws RemoteException;
     InputUser readUsername(String user) throws RemoteException;
+    boolean ValidateUser(String user, String password) throws RemoteException;
 
     //flight
     List<Flights> getflights() throws RemoteException;

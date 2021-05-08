@@ -17,7 +17,7 @@ import shared.transferobjects.Rating;
 public class chatViewController implements ViewController {
 
     //barChart
-    @FXML private BarChart<String, Integer> barChart;
+    @FXML private BarChart<String, Double> barChart;
     /*private XYChart.Data<String, Integer> x = new XYChart.Data<String, Integer>("X", 0);*/
 
     //total reviews
@@ -93,6 +93,8 @@ public class chatViewController implements ViewController {
     private void onSubmitButton() {
 
         vm.chatPrint((Rating) starList.getSelectionModel().getSelectedItem());
+
+        vm.setBarchart((Rating) starList.getSelectionModel().getSelectedItem());
 
 
     }

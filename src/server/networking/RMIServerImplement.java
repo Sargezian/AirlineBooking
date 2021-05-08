@@ -56,6 +56,11 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
+    public int CountRatings(double star) throws RemoteException {
+        return textManager.CountRatings(star);
+    }
+
+    @Override
     public InputUser username(String user, String password)  {
         return textManager.CreateUser(user, password);
     }

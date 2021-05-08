@@ -15,17 +15,18 @@ public interface TextManager extends Subject {
     //rating
     List<Rating> getRatings();
     double AverageStars();
+    int CountRatings(double star);
 
     //user
     InputUser CreateUser(String user, String password);
     List<InputUser> getUser();
     InputUser readUser(String user,String password);
     InputUser readUsername(String user);
+    boolean ValidateUser(String user, String password);
 
     //seat
     List<Seat> getSeat(int planeId);
     Seat getSeatID(int seatID, String seatNumber, String classType);
-    boolean ValidateUser(String user, String password);
 
     //flight
     List<Flights> getflights();

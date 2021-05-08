@@ -13,7 +13,6 @@ import java.beans.PropertyChangeEvent;
 
 public class paymentViewModel {
 
-
     private ClientText clientText;
 
     //payment
@@ -74,7 +73,6 @@ public class paymentViewModel {
                 price.setValue(String.valueOf(ft.price));
             }
         });
-
     }
 
     public void getPaymentInformation() {
@@ -88,7 +86,6 @@ public class paymentViewModel {
             clientText.payment(CardholderName,CardNumber,CVV,ExpirationDate);
 
         }
-
     }
 
     public boolean validatePaymentInfo(){
@@ -139,13 +136,7 @@ public class paymentViewModel {
 
         }
 
-
-
-
     }
-
-
-
 
     public String getFirstName() {
         return FirstName.get();

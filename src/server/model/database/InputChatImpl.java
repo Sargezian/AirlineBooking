@@ -134,5 +134,30 @@ public class InputChatImpl implements InputChatDao {
         return 0;
     }
 
+    public int CountRatings(double star) {
+        try {
+            try (Connection connection =  daoConnection.getConnection()) {
+
+                PreparedStatement statement = connection.prepareStatement("SELECT count(*) FROM InputChat where star = ?");
+                statement.setDouble(1,star);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                resultSet.next();
+
+                int count = resultSet.getInt("count") ;
+
+                return count;
+
+
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return 0;
+    }
+
+
+
 
 }

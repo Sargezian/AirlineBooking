@@ -327,6 +327,18 @@ public class RMIClient implements Client, ClientCallBack
   }
 
   @Override
+  public int CountRatings(double star) {
+    try
+    {
+      return server.CountRatings(star);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  @Override
   public double AverageStars() {
     try
     {

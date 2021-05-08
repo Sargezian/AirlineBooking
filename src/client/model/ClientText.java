@@ -14,13 +14,14 @@ public interface ClientText extends Subject {
 
     //user
     InputUser username(String user, String password);
-    boolean ValidateUser(String user, String password) ;
     List<InputUser> getUser();
     InputUser readUser(String user,String password);
     InputUser readUsername(String user);
+    boolean ValidateUser(String user, String password);
 
     //ratings
     List<Rating> getRatings();
+    int CountRatings(double star);
 
     //average
     double AverageStars();

@@ -157,11 +157,11 @@ public class myflightplanViewController implements ViewController {
         tablerow.add(cell);
         cell = new Cell(f1, ArrivalColumn.getText());
         tablerow.add(cell);
-   /*     cell = new Cell(f1, DepartureDateColumn.getText());
+        cell = new Cell(f1, DepartureDateColumn.getText());
         tablerow.add(cell);
         cell = new Cell(f1, ArrivalDateColumn.getText());
         tablerow.add(cell);
-        cell = new Cell(f1, PassengerIdColumn.getText());*/
+        cell = new Cell(f1, PassengerIdColumn.getText());
        // tablerow.add(cell);
         cell = new Cell(f1, NameColumn.getText());
         tablerow.add(cell);
