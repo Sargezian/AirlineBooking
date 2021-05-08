@@ -118,6 +118,18 @@ public class RMIClient implements Client, ClientCallBack
   }
 
   @Override
+  public Flights CreateFlights(String flightName, int price) {
+    try
+    {
+      return server.CreateFlights(flightName,price);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  @Override
   public List<Flights> readByName(String searchString) {
     try
     {
@@ -196,6 +208,18 @@ public class RMIClient implements Client, ClientCallBack
     try
     {
       return server.passernger(Firstname, LastName, TelNumber,Email);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  @Override
+  public Passenger readByEmail(String email) {
+    try
+    {
+      return server.readByEmail(email);
     }
     catch (RemoteException e)
     {

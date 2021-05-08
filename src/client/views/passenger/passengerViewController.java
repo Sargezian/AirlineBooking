@@ -2,6 +2,7 @@ package client.views.passenger;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
+import client.model.SaveInfo;
 import client.views.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -56,6 +57,7 @@ public class passengerViewController implements ViewController {
     }
 
     public void onBack(ActionEvent actionEvent) {
+
         vh.openSeat();
     }
 
@@ -66,5 +68,8 @@ public class passengerViewController implements ViewController {
             vh.openLoginView();
         }
     }
+
+
+
 
 }

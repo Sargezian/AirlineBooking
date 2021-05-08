@@ -111,6 +111,11 @@ public class RMIServerImplement implements RMIServer {
         return textManager.ReadPassenger(Firstname,LastName,TelNumber,Email);
     }
 
+    @Override
+    public Passenger readByEmail(String email) throws RemoteException {
+        return textManager.readByEmail(email);
+    }
+
 
     @Override
     public Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) {
@@ -208,6 +213,11 @@ public class RMIServerImplement implements RMIServer {
     @Override
     public List<Flights> readByName(String searchString) throws RemoteException {
         return textManager.readByName(searchString);
+    }
+
+    @Override
+    public Flights CreateFlights(String flightName, int price) throws RemoteException {
+        return textManager.CreateFlights(flightName,price);
     }
 
     @Override

@@ -1,3 +1,4 @@
+
 package server.model.database;
 
 import shared.transferobjects.Passenger;
@@ -82,6 +83,7 @@ public class SeatImpl implements SeatDao {
     }
 
 }
+
 
 
 

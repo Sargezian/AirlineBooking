@@ -46,7 +46,7 @@ public class loginViewController implements ViewController {
                 vh.openPaymentView();
 
                 viewModel.createTicket();
-                SaveInfo.getInstance().reset();
+              //  SaveInfo.getInstance().reset();
                 viewModel.clearFields();
 
             }

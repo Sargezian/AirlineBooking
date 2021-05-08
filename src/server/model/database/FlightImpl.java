@@ -29,6 +29,39 @@ public class FlightImpl implements FlightDao {
           return daoInstance;
      }
 
+@Override
+  public Flights CreateFlights(String flightName, int price ) {
+    try {
+      try (Connection connection = daoConnection.getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO flights(flightName,price) VALUES (?,?) ", PreparedStatement.RETURN_GENERATED_KEYS);
+
+        //flights
+
+        statement.setString(1, flightName);
+        statement.setInt(2,price);
+
+        statement.executeUpdate();
+        ResultSet key = statement.getGeneratedKeys();
+
+        if (key.next()) {
+
+          return new Flights(key.getString(1),flightName,price);
+        } else {
+
+          throw new SQLException("Her bliver det testet på at lave en ny flight");
+
+        }
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+    return null;
+  }
+
+
+
+
+
  @Override
  public List<Flights> getflights() {
    try {
@@ -52,11 +85,11 @@ public class FlightImpl implements FlightDao {
          // depature
          int depatureID = resultSet.getInt("departureid");
          String departure = resultSet.getString("departures");
-         Timestamp depatureDate = resultSet.getTimestamp("departuredate");
+         String depatureDate = resultSet.getString("departuredate");
 
          //arrival
          int arrivalID = resultSet.getInt("arrivalid");
-         Timestamp arrivaldate = resultSet.getTimestamp("arrivaldate");
+         String arrivaldate = resultSet.getString("arrivaldate");
          String arrival = resultSet.getString("arrivals");
 
          Flights flights = new Flights(flightID, flightName, new Depature(depatureID,departure,depatureDate),new Arrival(arrivalID,arrival,arrivaldate),new PlaneType(planeID,planeType),price);
@@ -98,11 +131,11 @@ public class FlightImpl implements FlightDao {
           // depature
           int depatureID = resultSet.getInt("departureid");
           String departure = resultSet.getString("departures");
-          Timestamp depatureDate = resultSet.getTimestamp("departuredate");
+          String depatureDate = resultSet.getString("departuredate");
 
           //arrival
           int arrivalID = resultSet.getInt("arrivalid");
-          Timestamp arrivaldate = resultSet.getTimestamp("arrivaldate");
+          String arrivaldate = resultSet.getString("arrivaldate");
           String arrival = resultSet.getString("arrivals");
 
           Flights flights = new Flights(flightID, flightName, new Depature(depatureID,departure,depatureDate),new Arrival(arrivalID,arrival,arrivaldate),new PlaneType(planeID,planeType),price);

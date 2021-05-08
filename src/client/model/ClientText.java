@@ -3,6 +3,7 @@ package client.model;
 import shared.transferobjects.*;
 import shared.util.Subject;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
 public interface ClientText extends Subject {
@@ -29,6 +30,7 @@ public interface ClientText extends Subject {
     //flight
     List<Flights> getflights();
     List<Flights> readByName(String searchString);
+    Flights CreateFlights(String flightName, int price);
 
     //seat
     List<Seat> getSeat(int planeId);
@@ -38,6 +40,7 @@ public interface ClientText extends Subject {
     //passenger
     Passenger Createpassernger(String FirstName, String LastName, String TelNumber, String email);
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);
+    Passenger readByEmail(String email);
 
     //payment
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate);

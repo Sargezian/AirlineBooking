@@ -1,12 +1,15 @@
 package client.model;
 
 import client.network.Client;
+
 import shared.transferobjects.*;
 import shared.util.utils;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,12 +25,18 @@ public class ClientTextManager implements ClientText {
         client.addListener(utils.NEWCHAT, this::onNewInputChat);
         client.addListener(utils.NEWUSER, this::onNewInputUser);
         client.addListener(utils.NEWTICKET, this::onNewTicket);
+        client.addListener(utils.NEWFLIGHT,this::onNewFlight);
 
     }
 
     private void onNewTicket(PropertyChangeEvent propertyChangeEvent) {
         support.firePropertyChange(propertyChangeEvent);
     }
+
+    private void onNewFlight(PropertyChangeEvent propertyChangeEvent) {
+        support.firePropertyChange(propertyChangeEvent);
+    }
+
 
     private void onNewInputChat(PropertyChangeEvent evt) {
         support.firePropertyChange(evt);
@@ -83,6 +92,11 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
+    public Flights CreateFlights(String flightName, int price) {
+        return client.CreateFlights(flightName, price);
+    }
+
+    @Override
     public List<Seat> getSeat(int planeId) {
             return client.getSeat(planeId);
     }
@@ -133,6 +147,11 @@ public class ClientTextManager implements ClientText {
     @Override
     public Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email) {
         return client.ReadPassenger(Firstname,LastName,TelNumber,Email);
+    }
+
+    @Override
+    public Passenger readByEmail(String email) {
+        return client.readByEmail(email);
     }
 
 
@@ -187,6 +206,12 @@ public class ClientTextManager implements ClientText {
 
         return myDate;
     }
+
+
+
+
+
+
 }
 
 

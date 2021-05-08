@@ -16,6 +16,7 @@ public class TextManagerImpl implements TextManager{
     private List<Passenger> passengersList;
     private List<Seat> seatsList;
     private List<Payment> paymentList;
+    private List<Flights> flightsList;
 
     private FlightDao dao;
     private InputChatDao inputChatDao;
@@ -41,6 +42,7 @@ public class TextManagerImpl implements TextManager{
         seatDao = SeatImpl.getInstance();
         paymentDao = PaymentImpl.getInstance();
         shoppingCartDao = ShoppingCartImpl.getInstance();
+        flightsList = new ArrayList<>();
 
     }
 
@@ -124,7 +126,6 @@ public class TextManagerImpl implements TextManager{
 
     @Override
     public List<Flights> getflights() {
-
         return new ArrayList<>(dao.getflights());
     }
 
@@ -133,17 +134,32 @@ public class TextManagerImpl implements TextManager{
         return dao.readByName(searchString);
     }
 
+    @Override
+    public Flights CreateFlights(String flightName, int price) {
+        Flights flights;
+        flights = dao.CreateFlights(flightName,price);
+        flightsList.add(flights);
+       support.firePropertyChange(utils.NEWFLIGHT,null,flights);
+        return flights;
+    }
+
     @Override public Passenger passernger(String FirstName, String LastName, String TelNumber, String email) {
         Passenger passenger;
         passenger = passengerDao.CreatePassengers(FirstName, LastName, TelNumber,email);
         passengersList.add(passenger);
         System.out.println("Passenger id er : " +passenger);
+        support.firePropertyChange(utils.NEWPASSENGER,null,passenger);
         return passenger;
     }
 
     @Override
     public Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email) {
         return passengerDao.ReadPassenger(Firstname,LastName,TelNumber,Email);
+    }
+
+    @Override
+    public Passenger readByEmail(String email) {
+        return passengerDao.readByEmail(email);
     }
 
 

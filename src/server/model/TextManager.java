@@ -31,10 +31,12 @@ public interface TextManager extends Subject {
     //flight
     List<Flights> getflights();
     List<Flights> readByName(String searchString);
+    Flights CreateFlights(String flightName, int price );
 
     //passenger
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email);
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);
+    Passenger readByEmail(String email);
 
     //ticket
     /*List<myFlightTicket> ReadPriceSUM();*/

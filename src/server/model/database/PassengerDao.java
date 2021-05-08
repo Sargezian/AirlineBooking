@@ -8,4 +8,6 @@ public interface PassengerDao {
 
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);
 
+    Passenger readByEmail(String email);
+
 }

@@ -27,6 +27,7 @@ public interface Client extends Subject {
 
     //flights
     List<Flights> getflights();
+    Flights CreateFlights(String flightName, int price);
     List<Flights> readByName(String searchString);
 
     //seats
@@ -37,6 +38,7 @@ public interface Client extends Subject {
     //passenger
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email);
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);
+    Passenger readByEmail(String email);
 
     //payment
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate);

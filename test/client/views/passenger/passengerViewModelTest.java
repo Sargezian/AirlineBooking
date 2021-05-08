@@ -19,8 +19,8 @@ class passengerViewModelTest
     passengerDao = new PassengerImpl();
   }
 
-/*  @Test
-  public void testifwecanreadfromdatabase(){
+//  @Test
+  /*public void testifwecanreadfromdatabase(){
 
 
     Passenger passenger = new Passenger(1,"hej","Hej","12345678","Mark@gmail.com");

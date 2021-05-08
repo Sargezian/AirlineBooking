@@ -1,7 +1,6 @@
 package shared.transferobjects;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
 
 public class ShoppingCart implements Serializable {
 
@@ -24,7 +23,7 @@ public class ShoppingCart implements Serializable {
     public String getDepartures() {
         return depature.departure;
     }
-    public Timestamp getDepartureDate() {
+    public String getDepartureDate() {
         return depature.departureDate;
     }
     public Depature getDepature() {
@@ -38,7 +37,7 @@ public class ShoppingCart implements Serializable {
     public String getArrivals() {
         return arrival.arrival;
     }
-    public Timestamp getArrivalDate() {
+    public String getArrivalDate() {
         return arrival.arrivalDate;
     }
     public Arrival getArrival() {

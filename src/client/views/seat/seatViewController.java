@@ -2,6 +2,7 @@ package client.views.seat;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
+import client.model.SaveInfo;
 import client.views.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -65,6 +66,7 @@ public class seatViewController implements ViewController {
 
 
     public void onBack(ActionEvent actionEvent) {
+
         vh.openToDashView();
     }
 

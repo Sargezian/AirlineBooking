@@ -28,6 +28,7 @@ public interface RMIServer extends Remote {
     //flight
     List<Flights> getflights() throws RemoteException;
     List<Flights> readByName(String searchString) throws RemoteException;
+    Flights CreateFlights(String flightName, int price) throws RemoteException;
 
     //seat
     List<Seat> getSeat(int planeId) throws RemoteException;
@@ -36,6 +37,7 @@ public interface RMIServer extends Remote {
     //passenger
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email) throws RemoteException;
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email) throws RemoteException;
+    Passenger readByEmail(String email) throws RemoteException;
 
     //payment
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) throws RemoteException;

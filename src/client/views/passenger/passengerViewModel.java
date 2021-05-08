@@ -7,7 +7,11 @@ import javafx.beans.property.*;
 import shared.transferobjects.*;
 import shared.util.utils;
 
+import javax.mail.*;
+import javax.mail.internet.*;
 import java.beans.PropertyChangeEvent;
+import java.io.IOException;
+import java.util.Properties;
 
 public class passengerViewModel {
 
@@ -62,19 +66,18 @@ public class passengerViewModel {
         clientText.readSeatFromShoppingCart(seat.seatNumber,seat.classType);
         clientText.readPrice(flights.price);
 
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                FlightName.setValue(flights.flightName);
-                departure.setValue(flights.getDepartures());
-                arrival.setValue(flights.getArrivals());
-                seatProperty.setValue(seat.seatNumber);
-                ClassType.setValue(seat.classType);
-                price.setValue(String.valueOf(flights.price));
+        Platform.runLater(() -> {
+            FlightName.setValue(flights.flightName);
+            departure.setValue(flights.getDepartures());
+            arrival.setValue(flights.getArrivals());
+            seatProperty.setValue(seat.seatNumber);
+            ClassType.setValue(seat.classType);
+            price.setValue(String.valueOf(flights.price));
 
-            }
         });
     }
+
+
 
     public void getPassengerInformation() {
 
@@ -134,6 +137,35 @@ public class passengerViewModel {
         error.setValue("");
 
     }
+
+    public void createflight(){
+        Flights flights = SaveInfo.getInstance().getFlights();
+        clientText.CreateFlights(flights.flightName,flights.price);
+    }
+
+//    public void sete(){
+//
+//        Passenger passenger = SaveInfo.getInstance().getPassenger();
+//        clientText.readUsername(passenger.Email);
+//
+//
+//
+//        Platform.runLater(new Runnable() {
+//            @Override
+//            public void run() {
+//                Email.setValue(passenger.getEmail());
+//
+//            }
+//        });
+//
+//
+//    }
+
+
+
+
+
+
 
     public String getFlightName() {
         return FlightName.get();

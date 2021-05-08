@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 public class Passenger implements Serializable
 {
-    public int passengerID;
+    public String passengerID;
     public String FirstName, LastName,TelNumber;
     public String Email;
 
-    public Passenger(int passengerID, String firstName, String lastName, String telNumber, String email) {
+    public Passenger(String passengerID, String firstName, String lastName, String telNumber, String email) {
         this.passengerID = passengerID;
         FirstName = firstName;
         LastName = lastName;
@@ -23,11 +23,15 @@ public class Passenger implements Serializable
         Email = email;
     }
 
+    public Passenger(String email) {
+        this.Email = email;
+    }
+
     //passenger
     public String getEmail() {
         return Email;
     }
-    public int getPassengerID()
+    public String getPassengerID()
     {
         return passengerID;
     }

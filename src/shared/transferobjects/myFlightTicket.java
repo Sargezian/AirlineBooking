@@ -1,25 +1,24 @@
 package shared.transferobjects;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
 
 public class myFlightTicket implements Serializable {
 
- public int ticketID;
+ public String ticketID;
  public Passenger passenger;
  public Flights flights;
  public Seat seat;
  public InputUser user;
 
 
-    public myFlightTicket(int ticketID, Passenger passenger, Flights flights, Seat seat) {
+    public myFlightTicket(String ticketID, Passenger passenger, Flights flights, Seat seat) {
         this.ticketID = ticketID;
         this.passenger = passenger;
         this.flights = flights;
         this.seat = seat;
     }
 
-    public myFlightTicket(int ticketID, Passenger passenger, Flights flights, Seat seat, InputUser user) {
+    public myFlightTicket(String ticketID, Passenger passenger, Flights flights, Seat seat, InputUser user) {
         this.ticketID = ticketID;
         this.passenger = passenger;
         this.flights = flights;
@@ -43,7 +42,7 @@ public class myFlightTicket implements Serializable {
 
 
     //myflightTicket
-    public int getTicketID() {
+    public String getTicketID() {
         return ticketID;
     }
 
@@ -54,7 +53,7 @@ public class myFlightTicket implements Serializable {
     public String getEmail() {
         return passenger.Email;
     }
-    public int getPassengerID()
+    public String getPassengerID()
     {
         return passenger.passengerID;
     }
@@ -75,7 +74,7 @@ public class myFlightTicket implements Serializable {
     public String getDeparture(){
         return flights.getDepartures();
       }
-    public Timestamp getDepartureDate() {
+    public String getDepartureDate() {
         return flights.getDepartureDate();
     }
 
@@ -83,7 +82,7 @@ public class myFlightTicket implements Serializable {
     public String getArrivals() {
         return flights.getArrivals();
     }
-    public Timestamp getArrivalDate() {
+    public String getArrivalDate() {
         return flights.getArrivalDate();
     }
 

@@ -36,7 +36,7 @@ public class loginViewModel {
         InputUser user = SaveInfo.getInstance().getUser();
         System.out.println("Gets SavedInfo from Inputuser = " + SaveInfo.getInstance().getUser());
 
-        myFlightTicket myFlightTicket1 = new myFlightTicket(1,pg,ft,st,user);
+        myFlightTicket myFlightTicket1 = new myFlightTicket(String.valueOf(1),pg,ft,st,user);
 
         clientText.createTicket(myFlightTicket1);
 

@@ -25,6 +25,7 @@ public class myflightplanViewModel {
     private ClientText clientText;
     private ObservableList<myFlightTicket> myFlightTickets;
     private StringProperty username;
+    private StringProperty print;
 
     public myflightplanViewModel(ClientText clientText) {
         System.out.println("myFlight view model");
@@ -32,6 +33,7 @@ public class myflightplanViewModel {
         clientText.addListener(utils.NEWTICKET, this::onNewTicket);
         clientText.addListener(utils.NEWTICKET, this::setUsernameProperty);
         username = new SimpleStringProperty();
+        print = new SimpleStringProperty();
 
     }
 
@@ -61,6 +63,8 @@ public class myflightplanViewModel {
         System.out.println("myFlightTickets = " + myFlightTickets);
         return myFlightTickets;
     }
+
+
 
     public void onNewTicket(PropertyChangeEvent evt) {
         // getPassengerInformation(1);
@@ -144,6 +148,8 @@ public class myflightplanViewModel {
 
             Transport.send(msg);
 
+            print.setValue("The ticket has been sent to your email " + myFlightTicket.getEmail());
+
 
             System.out.println("sent message");
         } catch (MessagingException | IOException e) {
@@ -153,7 +159,13 @@ public class myflightplanViewModel {
 
     }
 
+    public String getPrint() {
+        return print.get();
+    }
 
+    public StringProperty printProperty() {
+        return print;
+    }
 
 
     public String getUsername() {

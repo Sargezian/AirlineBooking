@@ -34,7 +34,7 @@ public class PassengerImpl implements PassengerDao {
 
                 if (key.next()) {
 
-                    return new Passenger(key.getInt(1), FirstName, LastName, TelNumber, Email);
+                    return new Passenger(key.getString(1), FirstName, LastName, TelNumber, Email);
                 } else {
 
                     throw new SQLException("Her bliver det testet på at lave en ny passenger");
@@ -74,7 +74,45 @@ public class PassengerImpl implements PassengerDao {
         }
         return null;
     }
+    @Override
+    public Passenger readByEmail(String email){
+        try {
+            try (Connection connection =  daoConnection.getConnection()) {
+
+                PreparedStatement statement = connection.prepareStatement("select * from passenger where Email = ?  ");
+
+                //passenger
+
+                statement.setString(1, email);
+
+                ResultSet resultSet = statement.executeQuery();
+
+                if (resultSet.next()) {
+
+                    Passenger passenger = new Passenger(email);
+                    return passenger;
+                }
+                return null;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+
+
+
+
+    }
+
+
+
+
+
+
+
+
 }
+
 
 
 

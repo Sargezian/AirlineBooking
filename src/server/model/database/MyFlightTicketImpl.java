@@ -65,7 +65,7 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
                     String password = resultSet.getString("password");
 
                     //myflightticket
-                    int ticketid = resultSet.getInt("ticketid");
+                    String ticketid = resultSet.getString("ticketid");
 
                     //flight
                     String flightID = resultSet.getString("flightid");
@@ -79,16 +79,16 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
                     //departure
                     int depatureID = resultSet.getInt("departureid");
                     String departure = resultSet.getString("departures");
-                    Timestamp depatureDate = resultSet.getTimestamp("departuredate");
+                    String depatureDate = resultSet.getString("departuredate");
 
                     //arrival
                     int arrivalID = resultSet.getInt("arrivalid");
-                    Timestamp arrivaldate = resultSet.getTimestamp("arrivaldate");
+                    String arrivaldate = resultSet.getString("arrivaldate");
                     String arrival = resultSet.getString("arrivals");
 
                     //passenger
 
-                    int PassengerID = resultSet.getInt("passengerID");
+                    String PassengerID = resultSet.getString("passengerID");
                     String FirstName = resultSet.getString("FirstName");
                     String LastName = resultSet.getString("LastName");
                     String TelNumber = resultSet.getString("TelNumber");
@@ -120,7 +120,7 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
                 System.out.println( "database connection til createticket");
 
                 statement.setString(1, myFlightTicket.getFlights().getFlightID());
-                statement.setInt(2, myFlightTicket.getPassenger().getPassengerID());
+                statement.setString(2, myFlightTicket.getPassenger().getPassengerID());
                 statement.setInt(3, myFlightTicket.getSeat().getSeatID());
                 statement.setInt(4, myFlightTicket.getUser().getId());
 
@@ -149,7 +149,7 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
                     String password = resultSet.getString("password");
 
                     //myflightticket
-                    int ticketid = resultSet.getInt("ticketid");
+                    String ticketid = resultSet.getString("ticketid");
 
                     //flight
                     String flightID = resultSet.getString("flightid");
@@ -163,16 +163,16 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
                     //departure
                     int depatureID = resultSet.getInt("departureid");
                     String departure = resultSet.getString("departures");
-                    Timestamp depatureDate = resultSet.getTimestamp("departuredate");
+                    String depatureDate = resultSet.getString("departuredate");
 
                     //arrival
                     int arrivalID = resultSet.getInt("arrivalid");
-                    Timestamp arrivaldate = resultSet.getTimestamp("arrivaldate");
+                    String arrivaldate = resultSet.getString("arrivaldate");
                     String arrival = resultSet.getString("arrivals");
 
                     //passenger
 
-                    int PassengerID = resultSet.getInt("passengerID");
+                    String PassengerID = resultSet.getString("passengerID");
                     String FirstName = resultSet.getString("FirstName");
                     String LastName = resultSet.getString("LastName");
                     String TelNumber = resultSet.getString("TelNumber");

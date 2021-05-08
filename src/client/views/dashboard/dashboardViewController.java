@@ -70,6 +70,7 @@ public class dashboardViewController implements ViewController {
         SearchField.textProperty().bindBidirectional(dv.searchProperty());
         dv.startClock();
 
+
     }
 
     public void OnLogin(ActionEvent actionEvent) {

@@ -12,4 +12,6 @@ public interface FlightDao
 
   List<Flights> readByName(String searchString);
 
+  Flights CreateFlights(String flightName, int price );
+
 }
