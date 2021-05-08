@@ -76,7 +76,7 @@ public class passengerViewModel {
         });
     }
 
-    public boolean getPassengerInformation() {
+    public void getPassengerInformation() {
 
             if (FirstName.getValue() != null && !"".equals(FirstName.getValue()) && LastName.getValue() != null && !"".equals(LastName.getValue()) && TelNumber.getValue() != null && !"".equals(TelNumber.getValue())  && Email.getValue() != null && !"".equals(Email.getValue()) && Email.getValue().contains("@")) {
 
@@ -85,31 +85,45 @@ public class passengerViewModel {
                 String TelNumber = this.TelNumber.getValue();
                 String Email = this.Email.getValue();
                 SaveInfo.getInstance().setPassenger(clientText.Createpassernger(FirstName,LastName,TelNumber,Email));
-                return true;
+
             }
-            else if (FirstName.getValue() == null ) {
-                error.set("FirstName cannot be empty");
-                return false;
-            }
-            else if (LastName.getValue() == null ) {
-                error.set("LastName cannot be empty");
-                return false;
-            }
-            else if (TelNumber.getValue() == null ) {
-                error.set("TelNumber cannot be empty");
-                return false;
-            }
-            else if (Email.getValue() == null) {
-                error.set("Email cannot be empty ");
-                return false;
-            }
-             else if (!Email.getValue().contains("@")) {
-                 error.set("Email must contain '@' ");
-                 return false;
-            } else {
-                error.set("Fields cannot be emty");
-                return false;
-            }
+
+    }
+
+    public boolean validatePassengerInformation(){
+
+        if (FirstName.getValue() == null ) {
+            error.set("FirstName cannot be empty");
+            return false;
+        }
+         if (LastName.getValue() == null ) {
+            error.set("LastName cannot be empty");
+            return false;
+        }
+         if (TelNumber.getValue() == null ) {
+            error.set("TelNumber cannot be empty");
+            return false;
+        }
+
+         if (TelNumber.getValue().length()> 8 && TelNumber.getValue().length() < 8 ) {
+            error.set("TelNumber must be 8 digits");
+            return false;
+        }
+         if (Email.getValue() == null) {
+            error.set("Email cannot be empty ");
+            return false;
+        }
+         if (!Email.getValue().contains("@")) {
+            error.set("Email must contain '@' ");
+            return false;
+        }
+
+         else {
+
+            return true;
+        }
+
+
     }
 
     public void clearFields() {

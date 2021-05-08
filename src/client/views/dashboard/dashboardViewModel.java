@@ -17,7 +17,6 @@ import java.util.List;
 
 public class dashboardViewModel {
 
-    // TODO: 04/05/2021 lave evt. en klokke til foside
 
     // TODO: 04/05/2021 lave admin side
 
@@ -30,7 +29,6 @@ public class dashboardViewModel {
     private StringProperty clock;
 
 
-
     public dashboardViewModel(ClientText clientText) {
         this.clientText = clientText;
         search = new SimpleStringProperty();
@@ -40,6 +38,8 @@ public class dashboardViewModel {
         clientText.addListener("time", this::clockPropertye);
         //startClock();
     }
+
+
 
     private void clockPropertye(PropertyChangeEvent event) {
         startClock();

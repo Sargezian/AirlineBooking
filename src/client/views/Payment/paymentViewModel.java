@@ -77,7 +77,7 @@ public class paymentViewModel {
 
     }
 
-    public boolean getPaymentInformation() {
+    public void getPaymentInformation() {
 
         if (CardholderName.getValue() != null && !"".equals(CardholderName.getValue()) && CardNumber.getValue() != null && !"".equals(CardNumber.getValue()) && CVV.getValue() != null && !"".equals(CVV.getValue())  && ExpirationDate.getValue() != null && !"".equals(ExpirationDate.getValue())) {
 
@@ -86,8 +86,12 @@ public class paymentViewModel {
             String CVV = this.CVV.getValue();
             String ExpirationDate = this.ExpirationDate.getValue();
             clientText.payment(CardholderName,CardNumber,CVV,ExpirationDate);
-            return true;
+
         }
+
+    }
+
+    public boolean validatePaymentInfo(){
 
 
         if (CardholderName.getValue() == null ) {
@@ -127,10 +131,16 @@ public class paymentViewModel {
         if (ExpirationDate.getValue() == null ) {
             error.set("ExpirationDate cannot be empty");
             return false;
-        }  {
-            error.set("Fields cannot be emty");
-            return false;
         }
+
+        else {
+
+            return true;
+
+        }
+
+
+
 
     }
 
