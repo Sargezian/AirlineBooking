@@ -1,3 +1,4 @@
+/*
 package server.model.database;
 
 import shared.transferobjects.Passenger;
@@ -54,7 +55,7 @@ public class SeatImpl implements SeatDao {
 
 
 
-    public Seat getSeatId(int seatID, String seatNumber, String classType) {
+    public Seat getSeatId(int seatID, String seatNumber, String classType, String planeID) {
         try {
             try (Connection connection = daoConnection.getConnection()) {
                 PreparedStatement statement = connection.prepareStatement("INSERT INTO Seat(seatID, seatNumber,classType ) VALUES (?,?,?) ");
@@ -85,3 +86,4 @@ public class SeatImpl implements SeatDao {
 
 
 
+*/

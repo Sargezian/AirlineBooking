@@ -13,7 +13,7 @@ public class InputUserImpl implements InputUserDao {
     private daoConnection daoconnection;
 
 
-    private InputUserImpl() {
+    public InputUserImpl() {
         try {
             DriverManager.registerDriver(new org.postgresql.Driver());
         } catch (SQLException throwables) {

@@ -1,109 +1,34 @@
 package client.views.passenger;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import server.model.database.PassengerDao;
+import server.model.database.PassengerImpl;
+import shared.transferobjects.Flights;
+import shared.transferobjects.Passenger;
+import shared.transferobjects.Seat;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class passengerViewModelTest
 {
+  private passengerViewModel vm;
+  private PassengerDao passengerDao;
 
-  @Test void setShoppingCart()
+  @BeforeEach public void setup()
   {
+    vm.getFirstName();
+
+    passengerDao = new PassengerImpl();
   }
 
-  @Test void getPassengerInformation()
-  {
+  @Test
+  public void testifwecanreadfromdatabase(){
+
+    Passenger ps = passengerDao.CreatePassengers("Mar32k","Pede324rsen","49408234516","Mark23hjuler@gmail.com");
+
+    assertEquals(ps,vm.getFirstName());
+
   }
 
-  @Test void clearFields()
-  {
-  }
-
-  @Test void getFlightName()
-  {
-  }
-
-  @Test void flightNameProperty()
-  {
-  }
-
-  @Test void getDeparture()
-  {
-  }
-
-  @Test void departureProperty()
-  {
-  }
-
-  @Test void getArrival()
-  {
-  }
-
-  @Test void arrivalProperty()
-  {
-  }
-
-  @Test void getSeatProperty()
-  {
-  }
-
-  @Test void seatPropertyProperty()
-  {
-  }
-
-  @Test void getClassType()
-  {
-  }
-
-  @Test void classTypeProperty()
-  {
-  }
-
-  @Test void getEmail()
-  {
-  }
-
-  @Test void emailProperty()
-  {
-  }
-
-  @Test void getFirstName()
-  {
-  }
-
-  @Test void firstNameProperty()
-  {
-  }
-
-  @Test void getLastName()
-  {
-  }
-
-  @Test void lastNameProperty()
-  {
-  }
-
-  @Test void getTelNumber()
-  {
-  }
-
-  @Test void telNumberProperty()
-  {
-  }
-
-  @Test void getError()
-  {
-  }
-
-  @Test void errorProperty()
-  {
-  }
-
-  @Test void getPrice()
-  {
-  }
-
-  @Test void priceProperty()
-  {
-  }
 }

@@ -38,7 +38,7 @@ public class TextManagerImpl implements TextManager{
         inputUserDao = InputUserImpl.getInstance();
         myFlightTicketDao = MyFlightTicketImpl.getInstance();
         passengerDao = PassengerImpl.getInstance();
-        seatDao = SeatImpl.getInstance();
+        //seatDao = SeatImpl.getInstance();
         paymentDao = PaymentImpl.getInstance();
         shoppingCartDao = ShoppingCartImpl.getInstance();
 
