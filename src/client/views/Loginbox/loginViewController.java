@@ -40,9 +40,7 @@ public class loginViewController implements ViewController {
             {
 
                 vh.openPaymentView();
-                // Her skal vi lave om så  TICKET ikke bliver oprettet ved payment, men
-                System.out.println("Denne sout skal først kører når vi er væk fra payview");
-                //Linje 42 skal flyttes
+
                 viewModel.createTicket();
                 SaveInfo.getInstance().reset();
                 viewModel.clearFields();
@@ -55,16 +53,22 @@ public class loginViewController implements ViewController {
             }
 
         }
+
     }
 
+
     public void onkald(ActionEvent actionEvent) {
-      //  System.exit(1);
-        vh.openPassengerView();
+        if (viewModel.validateAdmin()) {
+            viewModel.validateAdmin();
+            vh.openAdminView();
+            System.out.println("åben admin");
+        }
 
     }
 
     public void OnSignIn(ActionEvent actionEvent) {
         vh.openCreateUserView();
+
     }
 
 

@@ -63,6 +63,21 @@ public class loginViewModel {
 
 
 
+    public boolean validateAdmin() {
+
+        if (navn.equals("Admin123@") && kode.equals("Admin")) {
+
+            return true;
+        } else {
+            error.setValue("ERROR field is empty");
+            return validateLoginInfo();
+        }
+
+    }
+
+
+
+
     public String getNavn() {
         return navn.get();
     }
