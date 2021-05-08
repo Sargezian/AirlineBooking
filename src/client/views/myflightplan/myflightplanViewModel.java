@@ -13,7 +13,10 @@ import shared.util.utils;
 import javax.mail.*;
 import javax.mail.internet.*;
 import java.beans.PropertyChangeEvent;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Properties;
 
@@ -100,6 +103,7 @@ public class myflightplanViewModel {
         String toEmail =  myFlightTicket.getEmail();
 
 
+
         System.out.println("email" );
 
 
@@ -130,7 +134,8 @@ public class myflightplanViewModel {
             text.setText("test");
 
             MimeBodyPart pdf = new MimeBodyPart();
-            pdf.attachFile("/Users/Abdullahi/IdeaProjects/SEP_2/myT.pdf");
+            Path relativePath1 = Paths.get("src", "myT.pdf");
+            pdf.attachFile(String.valueOf(relativePath1));
 
             emailcontent.addBodyPart(text);
             emailcontent.addBodyPart(pdf);

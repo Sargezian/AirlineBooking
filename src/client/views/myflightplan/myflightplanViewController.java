@@ -22,6 +22,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -132,8 +134,12 @@ public class myflightplanViewController implements ViewController {
 
     public void printbillet(ActionEvent actionEvent) throws Exception {
 
+        Path relativePath1 = Paths.get("src","myT.pdf");
+
+
+
         File out = new File("myT.pdf");
-        FileOutputStream fos = new FileOutputStream(out);
+        FileOutputStream fos = new FileOutputStream(String.valueOf(relativePath1));
         PDF pdf = new PDF(fos);
 
         Page page = new Page(pdf, A4.LANDSCAPE);
