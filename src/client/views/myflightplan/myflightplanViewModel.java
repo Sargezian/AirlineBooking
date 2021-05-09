@@ -138,7 +138,12 @@ public class myflightplanViewModel {
             Multipart emailcontent = new MimeMultipart();
 
             MimeBodyPart text = new MimeBodyPart();
-            text.setText("Thanks for the Purchase!\n rffdsf");
+            text.setText("Thanks for the Purchase " + myFlightTicket.getFirstName() + "!" + "\n" + "\n" + "Kære " + myFlightTicket.getFirstName() + " " + myFlightTicket.getLastName() + "\n" + "\n" +
+                    "Du har succesfuldt booket en flybillet fra " + myFlightTicket.getFlightName() + ". Vi venter på dig på " + myFlightTicket.getArrivals() + " på " + myFlightTicket.getArrivalDate() + "." + "\n" +"\n" +
+                    "Tak fordi du valgte os, og vi ser frem til at møde dig!" + "\n" + "\n" + "Airline booking.");
+
+
+
 
             MimeBodyPart pdf = new MimeBodyPart();
             Path relativePath1 = Paths.get("src", "myT.pdf");
