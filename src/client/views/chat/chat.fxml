@@ -20,12 +20,12 @@
 
 <AnchorPane prefHeight="791.0" prefWidth="1082.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.chat.chatViewController">
    <children>
-      <TextField fx:id="requestField" layoutX="307.0" layoutY="737.0" prefHeight="59.0" prefWidth="287.0" promptText="Skriv din besked her...">
+      <TextField fx:id="requestField" layoutX="228.0" layoutY="733.0" prefHeight="59.0" prefWidth="288.0" promptText="Skriv din besked her...">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </TextField>
-      <Label layoutX="307.0" layoutY="31.0" prefHeight="27.0" prefWidth="184.0" text="REVIEWS">
+      <Label layoutX="231.0" layoutY="24.0" prefHeight="27.0" prefWidth="184.0" text="REVIEWS">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
@@ -41,7 +41,7 @@
             <Glow />
          </effect>
       </Button>
-      <TableView fx:id="tableView" layoutX="308.0" layoutY="401.0" prefHeight="336.0" prefWidth="752.0" style="-fx-background-color: white;" styleClass="ss">
+      <TableView fx:id="tableView" layoutX="226.0" layoutY="376.0" prefHeight="339.0" prefWidth="856.0" style="-fx-background-color: white;" styleClass="ss">
         <columns>
           <TableColumn fx:id="inputColumn" prefWidth="218.0" sortType="DESCENDING" style="-fx-background-color: white; -fx-text-fill: black; -fx-font-size: 13px;" />
         </columns>
@@ -49,18 +49,18 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Label layoutX="308.0" layoutY="340.0" prefHeight="36.0" prefWidth="88.0" style="-fx-background-color: f7f7f7;" text="REVIEWED BY" />
-      <Separator layoutX="545.0" layoutY="99.0" orientation="VERTICAL" prefHeight="229.0" prefWidth="6.0" />
+      <Label layoutX="223.0" layoutY="340.0" prefHeight="36.0" prefWidth="173.0" style="-fx-background-color: f7f7f7;" text="REVIEWED BY" />
+      <Separator layoutX="528.0" layoutY="91.0" orientation="VERTICAL" prefHeight="240.0" prefWidth="6.0" />
       <Separator layoutX="820.0" layoutY="99.0" orientation="VERTICAL" prefHeight="229.0" prefWidth="6.0" />
-      <Separator layoutX="307.0" layoutY="81.0" prefHeight="3.0" prefWidth="759.0" />
-      <ProgressBar fx:id="ProgressAvgBar" layoutX="323.0" layoutY="180.0" prefHeight="42.0" prefWidth="202.0" progress="0.0" />
-      <Label fx:id="AverageReviews" layoutX="407.0" layoutY="142.0" prefHeight="27.0" prefWidth="104.0" text="4.3">
+      <Separator layoutX="219.0" layoutY="82.0" prefHeight="2.0" prefWidth="847.0" />
+      <ProgressBar fx:id="ProgressAvgBar" layoutX="271.0" layoutY="184.0" prefHeight="42.0" prefWidth="202.0" progress="0.0" />
+      <Label fx:id="AverageReviews" layoutX="350.0" layoutY="149.0" prefHeight="27.0" prefWidth="104.0" text="4.3">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="371.0" layoutY="237.0" text="Average reviews  " />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="584.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+      <Label layoutX="325.0" layoutY="237.0" text="Average reviews  " />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="571.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Billeder/trustpilot.png" />
          </image>
@@ -114,7 +114,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <BarChart fx:id="barChart" layoutX="532.0" layoutY="110.0" prefHeight="220.0" prefWidth="516.0">
+      <BarChart fx:id="barChart" layoutX="822.0" layoutY="94.0" prefHeight="257.0" prefWidth="259.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -122,9 +122,9 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
-      <Label fx:id="TotalReviews" layoutX="396.0" layoutY="340.0" prefHeight="36.0" prefWidth="45.0" style="-fx-background-color: f7f7f7;" text="?" />
-      <Label layoutX="435.0" layoutY="340.0" prefHeight="36.0" prefWidth="632.0" style="-fx-background-color: f7f7f7;" text="CUSTOMERS" />
-      <ComboBox fx:id="starList" layoutX="634.0" layoutY="737.0" prefWidth="150.0" promptText="Rating" />
-      <Label fx:id="errorRating" layoutX="634.0" layoutY="767.0" prefHeight="27.0" prefWidth="150.0" text="ErrorRatinglabel" />
+      <Label fx:id="TotalReviews" layoutX="315.0" layoutY="340.0" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: f7f7f7;" text="?" />
+      <Label layoutX="395.0" layoutY="340.0" prefHeight="36.0" prefWidth="672.0" style="-fx-background-color: f7f7f7;" text="CUSTOMERS" />
+      <ComboBox fx:id="starList" layoutX="596.0" layoutY="737.0" prefWidth="150.0" promptText="Rating" />
+      <Label fx:id="errorRating" layoutX="602.0" layoutY="767.0" prefHeight="27.0" prefWidth="150.0" text="ErrorRatinglabel" />
    </children>
 </AnchorPane>
