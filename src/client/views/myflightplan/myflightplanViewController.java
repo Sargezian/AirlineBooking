@@ -130,8 +130,10 @@ public class myflightplanViewController implements ViewController {
 
     }
 
+
     public void onBackDashboard(ActionEvent actionEvent) {
         SaveInfo.getInstance().reset();
+        vm.clearLabel();
         vh.openToDashView();
     }
 
@@ -141,7 +143,6 @@ public class myflightplanViewController implements ViewController {
 
 
     public void printbillet(ActionEvent actionEvent) throws Exception {
-
 
 
         Path relativePath1 = Paths.get("src","myT.pdf");

@@ -167,6 +167,13 @@ public class myflightplanViewModel {
 
     }
 
+    public void clearLabel(){
+
+        print.setValue(null);
+
+    }
+
+
     public String getPrint() {
         return print.get();
     }

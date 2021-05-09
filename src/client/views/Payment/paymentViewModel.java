@@ -138,6 +138,15 @@ public class paymentViewModel {
 
     }
 
+
+    public void clearFields() {
+        CardholderName.setValue("");
+        CardNumber.setValue("");
+        CVV.setValue("");
+        ExpirationDate.setValue("");
+
+    }
+
     public String getFirstName() {
         return FirstName.get();
     }

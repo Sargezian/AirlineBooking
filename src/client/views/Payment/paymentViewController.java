@@ -49,6 +49,7 @@ public class paymentViewController implements ViewController {
         if (pv.validatePaymentInfo()) {
             pv.getPaymentInformation();
             vh.openToMyFlightPlan();
+            pv.clearFields();
         }
     }
 }
