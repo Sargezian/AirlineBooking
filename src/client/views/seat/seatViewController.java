@@ -66,7 +66,7 @@ public class seatViewController implements ViewController {
 
 
     public void onBack(ActionEvent actionEvent) {
-
+        SaveInfo.getInstance().reset();
         vh.openToDashView();
     }
 

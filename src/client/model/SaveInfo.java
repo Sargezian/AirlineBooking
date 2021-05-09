@@ -60,7 +60,7 @@ public class SaveInfo {
 
     public void reset(){
         System.out.println("Her sætter vi flights til null");
-   // setFlights(null);
+    setFlights(null);
         System.out.println("Her getter vi en user " + getUser());
     }
 

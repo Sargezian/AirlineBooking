@@ -59,6 +59,9 @@ public class myflightplanViewModel {
 
     }*/
 
+
+
+
     public ObservableList<myFlightTicket> getMyFlightTickets() {
         System.out.println("myFlightTickets = " + myFlightTickets);
         return myFlightTickets;

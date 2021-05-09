@@ -66,6 +66,7 @@ public class loginViewController implements ViewController {
     }
 
     public void OnSignIn(ActionEvent actionEvent) {
+        viewModel.clearFields();
         vh.openCreateUserView();
 
     }
