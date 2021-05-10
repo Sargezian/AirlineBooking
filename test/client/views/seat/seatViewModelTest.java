@@ -1,5 +1,3 @@
-/*
-
 package client.views.seat;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -41,6 +39,3 @@ class seatViewModelTest
 
   }
 }
-
-
-*/

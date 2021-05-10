@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.admin.adminViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.admin.adminViewController">
    <children>
       <AnchorPane prefHeight="533.0" prefWidth="764.0">
          <children>
@@ -27,14 +26,19 @@
                 <TableColumn prefWidth="75.0" text="C2" />
               </columns>
             </TableView>
-            <Button layoutX="442.0" layoutY="422.0" mnemonicParsing="false" onAction="#onDelete" prefHeight="40.0" prefWidth="149.0" text="delete" />
+            <Button layoutX="402.0" layoutY="422.0" mnemonicParsing="false" onAction="#onDelete" prefHeight="40.0" prefWidth="149.0" text="delete" />
             <Button layoutX="171.0" layoutY="422.0" mnemonicParsing="false" onAction="#onBack" prefHeight="40.0" prefWidth="121.0" text="back" />
-            <Button layoutX="687.0" layoutY="95.0" mnemonicParsing="false" onAction="#onLogOff" text="Log off" />
+            <Button layoutX="703.0" layoutY="101.0" mnemonicParsing="false" onAction="#onLogOff" text="Log off" />
             <Label layoutX="92.0" layoutY="100.0" prefHeight="20.0" prefWidth="188.0" text="Flights">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
+            <Button layoutX="564.0" layoutY="422.0" mnemonicParsing="false" onAction="#onAdd" prefHeight="40.0" prefWidth="149.0" text="ADD" />
+            <Button layoutX="701.0" layoutY="267.0" mnemonicParsing="false" onAction="#onDepartureAdd" text="Departure" />
+            <Button layoutX="701.0" layoutY="189.0" mnemonicParsing="false" onAction="#onSeatAdd" prefHeight="26.0" prefWidth="70.0" text="Seat" />
+            <Button layoutX="694.0" layoutY="300.0" mnemonicParsing="false" onAction="#onArrivalAdd" prefHeight="26.0" prefWidth="70.0" text="Arrival" />
+            <Button layoutX="701.0" layoutY="235.0" mnemonicParsing="false" onAction="#onAirportAdd" prefHeight="26.0" prefWidth="70.0" text="Airport" />
          </children>
       </AnchorPane>
    </children>

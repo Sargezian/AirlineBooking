@@ -31,31 +31,41 @@ public class loginViewController implements ViewController {
 
     public void onLogButton()
     {
-        viewModel.validateAdmin();
-        vh.openAdminView();
-        System.out.println("åben admin");
-
-
-        System.out.println("Her ser vi om Getflights bliver sat eller om den altid forbliver null:  " + SaveInfo.getInstance().getFlights());
-        if (viewModel.validateLoginInfo())
+        if (navn.getText().equals("Admin") && kode.getText().equals("Admin123"))
+        {
+            System.out.println("Tester om vi kommer i åben admin if statement");
+            viewModel.validateAdmin();
+            vh.openAdminView();
+            viewModel.clearFields();
+        }
+        else
         {
 
-            if (SaveInfo.getInstance().getFlights() != null)
+            System.out.println(
+                "Her ser vi om Getflights bliver sat eller om den altid forbliver null:  "
+                    + SaveInfo.getInstance().getFlights());
+            if (viewModel.validateLoginInfo())
             {
 
-                vh.openPaymentView();
+                if (SaveInfo.getInstance().getFlights() != null)
+                {
 
-                viewModel.createTicket();
-              //  SaveInfo.getInstance().reset();
-                viewModel.clearFields();
+                    vh.openPaymentView();
+
+                    viewModel.createTicket();
+                    //  SaveInfo.getInstance().reset();
+                    viewModel.clearFields();
+
+                }
+                else
+                {
+                    vh.openToMyFlightPlan();
+                    viewModel.clearFields();
+
+
+                }
 
             }
-            else
-            {
-                vh.openToMyFlightPlan();
-
-            }
-
         }
 
     }

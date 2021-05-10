@@ -23,8 +23,8 @@ class passengerViewModelTest
   /*public void testifwecanreadfromdatabase(){
 
 
-    Passenger passenger = new Passenger(1,"hej","Hej","12345678","Mark@gmail.com");
-    Passenger test = passengerDao.CreatePassengers(passenger.passengerID,passenger.FirstName, passenger.LastName, passenger.TelNumber,passenger.Email);
+    Passenger passenger = new Passenger("hej","Hej","12345678","Mark@gmail.com");
+    Passenger test = passengerDao.CreatePassengers(passenger.FirstName, passenger.LastName, passenger.TelNumber,passenger.Email);
 
 
     assertEquals(test,passengerDao.ReadPassenger(test.FirstName,

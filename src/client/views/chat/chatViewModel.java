@@ -62,9 +62,15 @@ public class chatViewModel {
 
         Platform.runLater(new Runnable() {
             @Override public void run() {
-
                 series.setName("Rating");
+                for (int i = 1; i <= 5; i++)
+                {
+                    double star_1 = clientText.CountRatings(i);
+                    series.getData().add(new XYChart.Data<String, Double>( i + " Star", star_1));
 
+                }
+
+/*
                 if (rating.star == 1) {
                     double star_1 = clientText.CountRatings(rating.star);
                     series.getData().add(new XYChart.Data<String, Double>("1 Star", star_1));
@@ -80,7 +86,7 @@ public class chatViewModel {
                 } else if (rating.star == 5) {
                     double star_5 = clientText.CountRatings(rating.star);
                     series.getData().add(new XYChart.Data<String, Double>("5 Star", star_5));
-                }
+                }*/
             }});
     }
 
