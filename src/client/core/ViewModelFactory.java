@@ -2,7 +2,7 @@ package client.core;
 
 import client.views.Loginbox.loginViewModel;
 import client.views.Payment.paymentViewModel;
-import client.views.admin.adminViewModel;
+import client.views.admin.adminFlightViewModel;
 import client.views.chat.chatViewModel;
 import client.views.createUser.createUserViewModel;
 import client.views.dashboard.dashboardViewModel;
@@ -21,7 +21,7 @@ public class ViewModelFactory {
     private passengerViewModel passengerViewModel;
     private paymentViewModel paymentViewModel;
     private createUserViewModel createUserViewModel;
-    private adminViewModel adminViewModel;
+    private adminFlightViewModel adminViewModel;
 
     public ViewModelFactory(ModelFactory mf) {
         this.mf=mf;
@@ -75,9 +75,9 @@ public class ViewModelFactory {
                 createUserViewModel);
     }
 
-    public adminViewModel getadminViewModel() {
+    public adminFlightViewModel getadminViewModel() {
         return (adminViewModel = adminViewModel == null ?
-                new adminViewModel(mf.getClientText()) :
+                new adminFlightViewModel(mf.getClientText()) :
                 adminViewModel);
     }
 

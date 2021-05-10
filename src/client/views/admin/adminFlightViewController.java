@@ -7,13 +7,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 
-public class adminViewController implements ViewController {
+public class adminFlightViewController implements ViewController {
 
 
     @FXML public TableView FlightTableview;
 
     private ViewHandler vh;
-    private adminViewModel av;
+    private adminFlightViewModel av;
 
 
     @Override

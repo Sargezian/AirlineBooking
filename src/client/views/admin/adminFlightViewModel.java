@@ -2,11 +2,11 @@ package client.views.admin;
 
 import client.model.ClientText;
 
-public class adminViewModel {
+public class adminFlightViewModel {
 
     private ClientText clientText;
 
-    public adminViewModel(ClientText clientText) {
+    public adminFlightViewModel(ClientText clientText) {
         this.clientText = clientText;
     }
 
