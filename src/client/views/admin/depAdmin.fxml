@@ -9,36 +9,29 @@
    <children>
       <Line endX="35.0" layoutX="197.0" layoutY="98.0" startX="-100.0" stroke="#0088ff" style="-fx-blend-mode: #37a1ff;" />
       <Button layoutX="87.0" layoutY="487.0" mnemonicParsing="false" onAction="#onBack" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Back" textFill="WHITE" />
-      <Button layoutX="308.0" layoutY="487.0" mnemonicParsing="false" onAction="#onOrder" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Order" textFill="WHITE" />
-      <Label layoutX="74.0" layoutY="274.0" prefHeight="22.0" prefWidth="200.0" text="First Name:">
+      <Button layoutX="308.0" layoutY="487.0" mnemonicParsing="false" onAction="#onAdd" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Add" textFill="WHITE" />
+      <Label layoutX="74.0" layoutY="274.0" prefHeight="22.0" prefWidth="200.0" text="Departure ID">
          <font>
             <Font size="17.0" />
          </font></Label>
-      <TextField fx:id="FirstName" layoutX="74.0" layoutY="306.0" prefHeight="27.0" prefWidth="200.0" promptText="Firstname" style="-fx-background-color: white;" />
-      <TextField fx:id="LastName" layoutX="308.0" layoutY="306.0" prefHeight="27.0" prefWidth="200.0" promptText="Lastname" style="-fx-background-color: white;" />
-      <TextField fx:id="Email" layoutX="74.0" layoutY="401.0" prefHeight="27.0" prefWidth="228.0" promptText="Email" style="-fx-background-color: white;" />
-      <Label layoutX="75.0" layoutY="368.0" prefHeight="22.0" prefWidth="200.0" text="Email:">
+      <TextField fx:id="DepartureId" layoutX="74.0" layoutY="306.0" prefHeight="27.0" prefWidth="200.0" promptText="Departure ID" style="-fx-background-color: white;" />
+      <TextField fx:id="departures" layoutX="308.0" layoutY="306.0" prefHeight="27.0" prefWidth="200.0" promptText="Departures" style="-fx-background-color: white;" />
+      <TextField fx:id="departureDate" layoutX="74.0" layoutY="401.0" prefHeight="27.0" prefWidth="228.0" promptText="Departure Date" style="-fx-background-color: white;" />
+      <Label layoutX="75.0" layoutY="368.0" prefHeight="22.0" prefWidth="200.0" text="Departure Date">
          <font>
             <Font size="17.0" />
          </font></Label>
-      <Label layoutX="308.0" layoutY="274.0" prefHeight="22.0" prefWidth="200.0" text="Last Name:">
+      <Label layoutX="308.0" layoutY="274.0" prefHeight="22.0" prefWidth="200.0" text="Departures">
          <font>
             <Font size="17.0" />
          </font></Label>
-      <Label cacheShape="false" layoutX="74.0" layoutY="187.0" prefHeight="35.0" prefWidth="342.0" text="Passenger Details">
+      <Label cacheShape="false" layoutX="74.0" layoutY="187.0" prefHeight="35.0" prefWidth="342.0" text="Departure Details">
          <font>
             <Font name="Tahoma Bold" size="24.0" />
          </font></Label>
-      <Label layoutX="308.0" layoutY="368.0" prefHeight="22.0" prefWidth="200.0" text="Phone Number:">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <TextField fx:id="TelNumber" layoutX="317.0" layoutY="401.0" prefHeight="27.0" prefWidth="200.0" promptText="Phone" style="-fx-background-color: white;" />
       <Separator layoutX="75.0" layoutY="353.0" prefHeight="3.0" prefWidth="200.0" />
       <Separator layoutX="308.0" layoutY="352.0" prefWidth="200.0" />
       <Separator layoutX="74.0" layoutY="440.0" prefWidth="200.0" />
-      <Separator layoutX="308.0" layoutY="442.0" prefHeight="3.0" prefWidth="200.0" />
       <Separator layoutX="579.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="644.0" prefWidth="6.0" />
       <Separator layoutX="582.0" layoutY="352.0" prefHeight="3.0" prefWidth="459.0" />
       <Circle fill="WHITE" layoutX="494.0" layoutY="98.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
