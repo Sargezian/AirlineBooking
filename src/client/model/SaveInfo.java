@@ -11,6 +11,40 @@ public class SaveInfo {
     private static Lock lock = new ReentrantLock();
     private Flights flights;
     private Seat seat;
+    private Airport airport;
+    private Arrival arrival;
+    private Depature depature;
+
+    public Airport getAirport()
+    {
+        return airport;
+    }
+
+    public void setAirport(Airport airport)
+    {
+        this.airport = airport;
+    }
+
+    public Arrival getArrival()
+    {
+        return arrival;
+    }
+
+    public void setArrival(Arrival arrival)
+    {
+        this.arrival = arrival;
+    }
+
+    public Depature getDepature()
+    {
+        return depature;
+    }
+
+    public void setDepature(Depature depature)
+    {
+        this.depature = depature;
+    }
+
     private Passenger passenger;
     private InputUser user;
 

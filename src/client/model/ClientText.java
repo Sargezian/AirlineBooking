@@ -35,7 +35,14 @@ public interface ClientText extends Subject {
     //seat
     List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID, String seatNumber, String classType);
+    Seat CreateSeat(int seatId, String SeatNumber,String classtype);
 
+    //Airport
+    Airport CreateAirport(int airportID, Depature depature);
+    // Arrival
+    Arrival CreateArrival(int arrivalID, String arrival,String arrivalDate);
+    // Departure
+    Depature CreateDeparture(int departureID, String departure, String departureDate)
 
     //passenger
     Passenger Createpassernger(String FirstName, String LastName, String TelNumber, String email);

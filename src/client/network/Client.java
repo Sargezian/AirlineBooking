@@ -33,12 +33,20 @@ public interface Client extends Subject {
     //seats
     List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID, String seatNumber, String classType);
+    Seat CreateSeat(int seatId, String SeatNumber,String classtype);
     boolean ValidateUser(String user, String password);
 
+    //Airport
+    Airport CreateAirport(int airportID,Depature depature);
+    //arrival
+    Arrival CreateArrival(int arrivalID, String arrival, String arrivalDate);
     //passenger
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email);
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);
     Passenger readByEmail(String email);
+
+    //Departure
+    Depature CreateDeparture(int departureID, String departure, String departureDate);
 
     //payment
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate);

@@ -95,7 +95,7 @@ public class ClientTextManager implements ClientText {
     public Flights CreateFlights(String flightName, int price) {
         return client.CreateFlights(flightName, price);
     }
-
+//-----------------------Seat Start---------------------------------------------
     @Override
     public List<Seat> getSeat(int planeId) {
             return client.getSeat(planeId);
@@ -106,6 +106,30 @@ public class ClientTextManager implements ClientText {
     {
        return client.getSeatId(seatID,seatNumber,classType);
     }
+
+    @Override public Seat CreateSeat(int seatId, String SeatNumber,
+        String classtype)
+    {
+        return client.CreateSeat(seatId,SeatNumber,classtype);
+    }
+
+    @Override public Airport CreateAirport(int airportID, Depature depature)
+    {
+        return client.CreateAirport(airportID, depature);
+    }
+
+    @Override public Arrival CreateArrival(int arrivalID, String arrival,
+        String arrivalDate)
+    {
+        return client.CreateArrival(arrivalID, arrival, arrivalDate);
+    }
+
+    @Override public Depature CreateDeparture(int departureID, String departure,
+        String departureDate)
+    {
+        return client.CreateDeparture(departureID, departure, departureDate);
+    }
+    //--------------------------Seat End--------------------------------------------
 
     @Override
     public InputUser readUser(String user, String password) {
@@ -128,10 +152,7 @@ public class ClientTextManager implements ClientText {
     }
 
 
-   /* @Override
-    public Seat seat(String seatNumber, String classType) {
-        return client.seat(seatNumber,classType);
-    }*/
+
 
     @Override
     public List<myFlightTicket> getflightlist(int userId) {
