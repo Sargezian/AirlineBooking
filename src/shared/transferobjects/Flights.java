@@ -10,9 +10,9 @@ public class Flights implements Serializable {
     public Depature departure;
     public Arrival arrival;
     public PlaneType planeType;
-    public int price;
+    public String price;
 
-    public Flights(String flightID, String flightName, Depature departure, Arrival arrival, PlaneType planeType, int price) {
+    public Flights(String flightID, String flightName, Depature departure, Arrival arrival, PlaneType planeType, String price) {
         this.flightID = flightID;
         this.flightName = flightName;
         this.departure = departure;
@@ -21,25 +21,18 @@ public class Flights implements Serializable {
         this.price = price;
     }
 
-    public Flights(String flightName, String departures, String arrivals) {
+    public Flights(String flightID, String flightName,String price) {
+        this.flightID = flightID;
         this.flightName = flightName;
-        this.departure = departure;
-        this.arrival = arrival;
-
+        this.price = price;
     }
 
-    public Flights(int price)
+    public Flights(String price)
     {
         this.price = price;
     }
 
-    public Flights(String flightID, String flightName, int price) {
-        this.flightID = flightID;
-        this.flightName = flightName;
-        this.price = price;
 
-
-    }
 
     //departure
     public int getDepartureID() {
@@ -77,7 +70,7 @@ public class Flights implements Serializable {
     public String getFlightName() {
         return flightName;
     }
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 

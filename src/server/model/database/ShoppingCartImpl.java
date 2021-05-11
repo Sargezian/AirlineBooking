@@ -83,14 +83,14 @@ public class ShoppingCartImpl implements ShoppingCartDao {
         return null;
     }
 
-    public Flights readPrice(int price) {
+    public Flights readPrice(String price) {
         try {
             try (Connection connection =  daoConnection.getConnection()) {
 
                 PreparedStatement statement = connection.prepareStatement("select * from flights WHERE price = ?  ");
 
                 //flights
-                statement.setInt(1, price);
+                statement.setString(1, price);
 
                 ResultSet resultSet = statement.executeQuery();
 

@@ -27,26 +27,28 @@ public interface Client extends Subject {
 
     //flights
     List<Flights> getflights();
-    Flights CreateFlights(String flightName, int price);
+    Flights CreateFlights(String flightID, String flightName, String price);
     List<Flights> readByName(String searchString);
+    void deleteFlight(Flights flights);
+    List<Flights> getAllTheFLights();
 
     //seats
     List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID, String seatNumber, String classType);
-    Seat CreateSeat(int seatId, String SeatNumber,String classtype);
+    //Seat CreateSeat(int seatId, String SeatNumber,String classtype);
     boolean ValidateUser(String user, String password);
 
     //Airport
-    Airport CreateAirport(int airportID,Depature depature);
+    //Airport CreateAirport(int airportID,Depature depature);
     //arrival
-    Arrival CreateArrival(int arrivalID, String arrival, String arrivalDate);
+   // Arrival CreateArrival(int arrivalID, String arrival, String arrivalDate);
     //passenger
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email);
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);
     Passenger readByEmail(String email);
 
     //Departure
-    Depature CreateDeparture(int departureID, String departure, String departureDate);
+    //Depature CreateDeparture(int departureID, String departure, String departureDate);
 
     //payment
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate);
@@ -60,7 +62,7 @@ public interface Client extends Subject {
     //ShoppingCart
     Flights readFlightsFromShoppingCart(String flightName, String departure, String arrival);
     Seat readSeatFromShoppingCart(String seatNumber,String classType);
-    Flights readPrice(int price);
+    Flights readPrice(String price);
 
     void startClient();
 }

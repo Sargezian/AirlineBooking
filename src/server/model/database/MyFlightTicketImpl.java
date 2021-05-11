@@ -70,7 +70,7 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
                     //flight
                     String flightID = resultSet.getString("flightid");
                     String flightName = resultSet.getString("flightName");
-                    int price = resultSet.getInt("price");
+                    String price = resultSet.getString("price");
 
                     //planetype
                     String planeType = resultSet.getString("planeTypes");
@@ -154,7 +154,7 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
                     //flight
                     String flightID = resultSet.getString("flightid");
                     String flightName = resultSet.getString("flightName");
-                    int price = resultSet.getInt("price");
+                    String price = resultSet.getString("price");
 
                     //planetype
                     String planeType = resultSet.getString("planeTypes");

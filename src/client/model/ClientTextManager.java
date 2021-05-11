@@ -92,10 +92,22 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
-    public Flights CreateFlights(String flightName, int price) {
-        return client.CreateFlights(flightName, price);
+    public Flights CreateFlights(String flightID, String flightName, String price) {
+        return client.CreateFlights(flightID,flightName, price);
     }
-//-----------------------Seat Start---------------------------------------------
+
+    @Override
+    public void deleteFlight(Flights flights) {
+        client.deleteFlight(flights);
+
+    }
+
+    @Override
+    public List<Flights> getAllTheFLights() {
+        return client.getAllTheFLights();
+    }
+
+    //-----------------------Seat Start---------------------------------------------
     @Override
     public List<Seat> getSeat(int planeId) {
             return client.getSeat(planeId);
@@ -107,7 +119,7 @@ public class ClientTextManager implements ClientText {
        return client.getSeatId(seatID,seatNumber,classType);
     }
 
-    @Override public Seat CreateSeat(int seatId, String SeatNumber,
+   /* @Override public Seat CreateSeat(int seatId, String SeatNumber,
         String classtype)
     {
         return client.CreateSeat(seatId,SeatNumber,classtype);
@@ -128,7 +140,7 @@ public class ClientTextManager implements ClientText {
         String departureDate)
     {
         return client.CreateDeparture(departureID, departure, departureDate);
-    }
+    }*/
     //--------------------------Seat End--------------------------------------------
 
     @Override
@@ -202,7 +214,7 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
-    public Flights readPrice(int price) {
+    public Flights readPrice(String price) {
         return client.readPrice(price);
     }
 

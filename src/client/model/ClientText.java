@@ -30,19 +30,22 @@ public interface ClientText extends Subject {
     //flight
     List<Flights> getflights();
     List<Flights> readByName(String searchString);
-    Flights CreateFlights(String flightName, int price);
+    Flights CreateFlights(String flightID, String flightName, String price);
+    void deleteFlight(Flights flights);
+    List<Flights> getAllTheFLights();
+
 
     //seat
     List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID, String seatNumber, String classType);
-    Seat CreateSeat(int seatId, String SeatNumber,String classtype);
+    //Seat CreateSeat(int seatId, String SeatNumber,String classtype);
 
     //Airport
-    Airport CreateAirport(int airportID, Depature depature);
+   // Airport CreateAirport(int airportID, Depature depature);
     // Arrival
-    Arrival CreateArrival(int arrivalID, String arrival,String arrivalDate);
+    //Arrival CreateArrival(int arrivalID, String arrival,String arrivalDate);
     // Departure
-    Depature CreateDeparture(int departureID, String departure, String departureDate)
+   // Depature CreateDeparture(int departureID, String departure, String departureDate)
 
     //passenger
     Passenger Createpassernger(String FirstName, String LastName, String TelNumber, String email);
@@ -61,7 +64,7 @@ public interface ClientText extends Subject {
     List<myFlightTicket> getflightlist(int userId);
     void createTicket(myFlightTicket myFlightTicket);
     myFlightTicket readUsername_(String user);
-    Flights readPrice(int price);
+    Flights readPrice(String price);
 
 
 

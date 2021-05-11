@@ -2,48 +2,44 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1052.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.admin.adminFlightViewController">
    <children>
-      <Line endX="35.0" layoutX="197.0" layoutY="98.0" startX="-100.0" stroke="#0088ff" style="-fx-blend-mode: #37a1ff;" />
-      <Button layoutX="87.0" layoutY="487.0" mnemonicParsing="false" onAction="#onBack" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Back" textFill="WHITE" />
-      <Button layoutX="308.0" layoutY="487.0" mnemonicParsing="false" onAction="#onAdd" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Add" textFill="WHITE" />
-      <Label layoutX="74.0" layoutY="274.0" prefHeight="22.0" prefWidth="200.0" text="Flight Name:">
+      <Button layoutX="39.0" layoutY="487.0" mnemonicParsing="false" onAction="#onBack" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Back" textFill="WHITE" />
+      <Button layoutX="235.0" layoutY="487.0" mnemonicParsing="false" onAction="#onAdd" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Add" textFill="WHITE" />
+      <Label layoutX="320.0" layoutY="108.0" prefHeight="22.0" prefWidth="200.0" text="Flight Name:">
          <font>
             <Font size="17.0" />
          </font></Label>
-      <TextField fx:id="FlightName" layoutX="74.0" layoutY="306.0" prefHeight="27.0" prefWidth="200.0" promptText="Flight Name" style="-fx-background-color: white;" />
-      <TextField fx:id="Price" layoutX="308.0" layoutY="306.0" prefHeight="27.0" prefWidth="200.0" promptText="Price" style="-fx-background-color: white;" />
-      <TextField fx:id="FlightID" layoutX="74.0" layoutY="401.0" prefHeight="27.0" prefWidth="228.0" promptText="Flight ID" style="-fx-background-color: white;" />
-      <Label layoutX="75.0" layoutY="368.0" prefHeight="22.0" prefWidth="200.0" text="Flight ID">
+      <TextField fx:id="FlightName" layoutX="320.0" layoutY="149.0" prefHeight="27.0" prefWidth="200.0" promptText="Flight Name" style="-fx-background-color: white;" />
+      <TextField fx:id="Price" layoutX="39.0" layoutY="295.0" prefHeight="27.0" prefWidth="200.0" promptText="Price" style="-fx-background-color: white;" />
+      <TextField fx:id="FlightID" layoutX="33.0" layoutY="149.0" prefHeight="27.0" prefWidth="228.0" promptText="Flight ID" style="-fx-background-color: white;" />
+      <Label layoutX="33.0" layoutY="108.0" prefHeight="22.0" prefWidth="200.0" text="Flight ID">
          <font>
             <Font size="17.0" />
          </font></Label>
-      <Label layoutX="308.0" layoutY="274.0" prefHeight="22.0" prefWidth="200.0" text="Price">
+      <Label layoutX="47.0" layoutY="261.0" prefHeight="22.0" prefWidth="200.0" text="Price">
          <font>
             <Font size="17.0" />
          </font></Label>
-      <Label cacheShape="false" layoutX="74.0" layoutY="187.0" prefHeight="35.0" prefWidth="342.0" text="Flights Details">
+      <Label cacheShape="false" layoutX="39.0" layoutY="21.0" prefHeight="35.0" prefWidth="342.0" text="Flights Details">
          <font>
             <Font name="Tahoma Bold" size="24.0" />
          </font></Label>
-      <Separator layoutX="75.0" layoutY="353.0" prefHeight="3.0" prefWidth="200.0" />
-      <Separator layoutX="308.0" layoutY="352.0" prefWidth="200.0" />
-      <Separator layoutX="74.0" layoutY="440.0" prefWidth="200.0" />
+      <Separator layoutX="33.0" layoutY="191.0" prefHeight="3.0" prefWidth="200.0" />
+      <Separator layoutX="47.0" layoutY="328.0" prefWidth="200.0" />
+      <Separator layoutX="308.0" layoutY="193.0" prefWidth="200.0" />
       <Separator layoutX="579.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="644.0" prefWidth="6.0" />
-      <Separator layoutX="582.0" layoutY="352.0" prefHeight="3.0" prefWidth="459.0" />
-      <Circle fill="WHITE" layoutX="494.0" layoutY="98.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#37a1ff" layoutX="372.0" layoutY="98.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#37a1ff" layoutX="233.0" layoutY="98.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#37a1ff" layoutX="96.0" layoutY="98.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
-      <Line endX="35.0" layoutX="334.0" layoutY="98.0" startX="-100.0" stroke="#0088ff" style="-fx-blend-mode: #37a1ff;" />
-      <Line endX="83.0" endY="-6.0" layoutX="402.0" layoutY="104.0" startX="-21.0" startY="-6.0" />
-      <Label layoutX="82.0" layoutY="117.0" text="Flight" />
-      <Label layoutX="479.0" layoutY="119.0" text="Payment" />
-      <Label layoutX="355.0" layoutY="119.0" text="Passenger" />
-      <Label layoutX="209.0" layoutY="119.0" text="Seat" />
-      <Label fx:id="error" layoutX="360.0" layoutY="406.0" prefHeight="16.0" prefWidth="146.0" text="errorLabel" />
+      <Separator layoutX="582.0" layoutY="352.0" prefHeight="3.0" prefWidth="475.0" />
+      <Label fx:id="error" layoutX="47.0" layoutY="342.0" prefHeight="16.0" prefWidth="146.0" text="errorLabel" />
+      <TableView fx:id="FlightTableview" layoutX="583.0" layoutY="2.0" prefHeight="348.0" prefWidth="469.0">
+        <columns>
+          <TableColumn fx:id="FlightIdCoulmn" prefWidth="166.0" text="FlightId" />
+          <TableColumn fx:id="FlightNameColumn" prefWidth="199.0" text="FlightName" />
+            <TableColumn fx:id="PriceCoulmn" prefWidth="103.0" text="Price" />
+        </columns>
+      </TableView>
+      <Button layoutX="420.0" layoutY="487.0" mnemonicParsing="false" onAction="#onDelete" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Delete" textFill="WHITE" />
    </children>
 </AnchorPane>

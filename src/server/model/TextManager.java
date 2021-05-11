@@ -31,7 +31,9 @@ public interface TextManager extends Subject {
     //flight
     List<Flights> getflights();
     List<Flights> readByName(String searchString);
-    Flights CreateFlights(String flightName, int price );
+    Flights CreateFlights(String flightID, String flightName, String price );
+    void deleteFlight(Flights flights);
+    List<Flights> getAllTheFLights();
 
     //passenger
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email);
@@ -50,7 +52,7 @@ public interface TextManager extends Subject {
     //shoppingCart
     Flights readFlightsFromShoppingCart(String flightName, String departure, String arrival);
     Seat readSeatFromShoppingCart(String seatNumber,String classType);
-    Flights readPrice(int price);
+    Flights readPrice(String price);
 
 
 }

@@ -135,12 +135,22 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
-    public Flights CreateFlights(String flightName, int price) {
+    public Flights CreateFlights(String flightID, String flightName, String price) {
         Flights flights;
-        flights = dao.CreateFlights(flightName,price);
+        flights = dao.CreateFlights(flightID,flightName,price);
         flightsList.add(flights);
        support.firePropertyChange(utils.NEWFLIGHT,null,flights);
         return flights;
+    }
+
+    @Override
+    public void deleteFlight(Flights flights) {
+        dao.deleteFlight(flights);
+    }
+
+    @Override
+    public List<Flights> getAllTheFLights() {
+        return new ArrayList<>(dao.getAllTheFLights());
     }
 
     @Override public Passenger passernger(String FirstName, String LastName, String TelNumber, String email) {
@@ -187,7 +197,7 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
-    public Flights readPrice(int price) {
+    public Flights readPrice(String price) {
         return shoppingCartDao.readPrice(price);
     }
 

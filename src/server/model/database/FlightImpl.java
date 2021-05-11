@@ -30,27 +30,20 @@ public class FlightImpl implements FlightDao {
      }
 
 @Override
-  public Flights CreateFlights(String flightName, int price ) {
+  public Flights CreateFlights(String flightID, String flightName, String price ) {
     try {
       try (Connection connection = daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO flights(flightName,price) VALUES (?,?) ", PreparedStatement.RETURN_GENERATED_KEYS);
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO flights(flightID,flightName,price) VALUES (?,?,?)");
 
         //flights
 
-        statement.setString(1, flightName);
-        statement.setInt(2,price);
+
+        statement.setString(1,flightID);
+        statement.setString(2, flightName);
+        statement.setString(3,price);
 
         statement.executeUpdate();
-        ResultSet key = statement.getGeneratedKeys();
-
-        if (key.next()) {
-
-          return new Flights(key.getString(1),flightName,price);
-        } else {
-
-          throw new SQLException("Her bliver det testet på at lave en ny flight");
-
-        }
+          return new Flights(flightID,flightName,price);
       }
     } catch (SQLException throwables) {
       throwables.printStackTrace();
@@ -58,11 +51,24 @@ public class FlightImpl implements FlightDao {
     return null;
   }
 
+  @Override
+  public void deleteFlight(Flights flights) {
+    try {
+      try (Connection connection = daoConnection.getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("DELETE From flights WHERE flightID = ? ");
+        statement.setString(1,flights.getFlightID());
+        statement.executeUpdate();
+
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
 
 
+  }
 
 
- @Override
+  @Override
  public List<Flights> getflights() {
    try {
 
@@ -76,7 +82,7 @@ public class FlightImpl implements FlightDao {
          //flight
          String flightID = resultSet.getString("flightid");
          String flightName = resultSet.getString("flightName");
-         int price = resultSet.getInt("price");
+         String price = resultSet.getString("price");
 
          //planetype
          String planeType = resultSet.getString("planeTypes");
@@ -122,7 +128,7 @@ public class FlightImpl implements FlightDao {
           //flight
           String flightID = resultSet.getString("flightid");
           String flightName = resultSet.getString("flightName");
-          int price = resultSet.getInt("price");
+          String price = resultSet.getString("price");
 
           //planetype
           String planeType = resultSet.getString("planeTypes");
@@ -148,6 +154,40 @@ public class FlightImpl implements FlightDao {
     }
     return null;
   }
+
+@Override
+  public List<Flights> getAllTheFLights() {
+    try {
+
+      try (Connection connection = daoConnection.getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM flights");
+        ResultSet resultSet = statement.executeQuery();
+
+        ArrayList<Flights> flightlist = new ArrayList<>();
+        while (resultSet.next()) {
+
+          //flight
+          String flightID = resultSet.getString("flightID");
+          String flightName = resultSet.getString("flightName");
+          String price = resultSet.getString("price");
+
+
+
+          Flights flights = new Flights(flightID, flightName,price);
+          flightlist.add(flights);
+        }
+        return flightlist;
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+
+
+
+
 
 }
 

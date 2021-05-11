@@ -28,7 +28,10 @@ public interface RMIServer extends Remote {
     //flight
     List<Flights> getflights() throws RemoteException;
     List<Flights> readByName(String searchString) throws RemoteException;
-    Flights CreateFlights(String flightName, int price) throws RemoteException;
+    Flights CreateFlights(String flightID, String flightName, String price) throws RemoteException;
+    void deleteFlight(Flights flights) throws RemoteException;
+    List<Flights> getAllTheFLights()throws RemoteException;
+
 
     //seat
     List<Seat> getSeat(int planeId) throws RemoteException;
@@ -49,7 +52,7 @@ public interface RMIServer extends Remote {
     //shoppingcart
     Flights readFlightsFromShoppingCart(String flightName, String departure, String arrival) throws RemoteException;
     Seat readSeatFromShoppingCart(String seatNumber,String classType) throws RemoteException;
-    Flights readPrice(int price) throws RemoteException;
+    Flights readPrice(String price) throws RemoteException;
 
     //registerToClient
     void registerChatToClient(ClientCallBack client) throws RemoteException;

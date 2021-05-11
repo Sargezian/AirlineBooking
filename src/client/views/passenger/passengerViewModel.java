@@ -140,7 +140,7 @@ public class passengerViewModel {
 
     public void createflight(){
         Flights flights = SaveInfo.getInstance().getFlights();
-        clientText.CreateFlights(flights.flightName,flights.price);
+       // clientText.CreateFlights(flights.flightName,flights.price);
     }
 
 //    public void sete(){

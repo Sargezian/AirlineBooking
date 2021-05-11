@@ -38,7 +38,7 @@ public class Payment implements Serializable {
     }
 
     //flight
-    public int getPrice(){
+    public String getPrice(){
         return flights.price;
     }
 

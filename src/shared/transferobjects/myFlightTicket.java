@@ -96,7 +96,7 @@ public class myFlightTicket implements Serializable {
     public String getFlightName() {
         return flights.flightName;
     }
-    public int getPrices() {
+    public String getPrices() {
         return flights.price;
     }
 

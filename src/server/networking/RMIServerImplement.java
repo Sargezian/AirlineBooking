@@ -86,7 +86,7 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public Flights readPrice(int price) throws RemoteException {
+    public Flights readPrice(String price) throws RemoteException {
         return textManager.readPrice(price);
     }
 
@@ -216,8 +216,19 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public Flights CreateFlights(String flightName, int price) throws RemoteException {
-        return textManager.CreateFlights(flightName,price);
+    public Flights CreateFlights(String flightID, String flightName, String price) throws RemoteException {
+        return textManager.CreateFlights(flightID,flightName,price);
+    }
+
+    @Override
+    public void deleteFlight(Flights flights) throws RemoteException {
+        textManager.deleteFlight(flights);
+
+    }
+
+    @Override
+    public List<Flights> getAllTheFLights() throws RemoteException {
+        return textManager.getAllTheFLights();
     }
 
     @Override

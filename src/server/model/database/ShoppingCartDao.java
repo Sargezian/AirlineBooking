@@ -8,7 +8,7 @@ public interface ShoppingCartDao {
 
     Flights readFlightsFromShoppingCart(String flightName, String departures, String arrivals);
     Seat readSeatFromShoppingCart(String seatNumber,String classType);
-    Flights readPrice(int price);
+    Flights readPrice(String price);
 
 
 
