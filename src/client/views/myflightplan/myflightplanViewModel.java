@@ -20,6 +20,8 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Properties;
 
+// TODO: 08/05/2021 lave print færdig (abdullahi) 
+
 public class myflightplanViewModel {
 
     private ClientText clientText;

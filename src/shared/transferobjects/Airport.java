@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Airport implements Serializable {
 
+    // TODO: 08/05/2021 fjerne metoder vi ikke bruger og ændre metodenavne til det rigtige (alle)
 
     public int AirportID;
     public Depature depature;

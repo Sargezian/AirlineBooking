@@ -157,7 +157,4 @@ public class InputChatImpl implements InputChatDao {
         return 0;
     }
 
-
-
-
 }

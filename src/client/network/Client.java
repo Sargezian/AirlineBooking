@@ -17,6 +17,7 @@ public interface Client extends Subject {
     List<InputUser> getUser();
     InputUser readUser(String user,String password);
     InputUser readUsername(String user);
+    boolean ValidateUser(String user, String password);
 
     //rating
     List<Rating> getRatings();
@@ -29,14 +30,14 @@ public interface Client extends Subject {
     List<Flights> getflights();
     Flights CreateFlights(String flightID, String flightName, String price);
     List<Flights> readByName(String searchString);
+
+
+    //admin
     void deleteFlight(Flights flights);
     List<Flights> getAllTheFLights();
     Arrival CreateArrival(String Arrival, String Arrivaldate);
-
     Depature CreateDeparture(String Departure, String DepartureDate);
-
     PlaneType CreatePlane(String PlaneTypes);
-
     List<PlaneType> getAllPlaneType();
     List<Depature> getAllDeparture();
     List<Arrival> getAllArrival();;
@@ -44,20 +45,11 @@ public interface Client extends Subject {
     //seats
     List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID, String seatNumber, String classType);
-    //Seat CreateSeat(int seatId, String SeatNumber,String classtype);
-    boolean ValidateUser(String user, String password);
 
-    //Airport
-    //Airport CreateAirport(int airportID,Depature depature);
-    //arrival
-   // Arrival CreateArrival(int arrivalID, String arrival, String arrivalDate);
     //passenger
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email);
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);
     Passenger readByEmail(String email);
-
-    //Departure
-    //Depature CreateDeparture(int departureID, String departure, String departureDate);
 
     //payment
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate);

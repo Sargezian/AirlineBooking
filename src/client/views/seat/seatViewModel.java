@@ -15,8 +15,6 @@ import java.util.List;
 
 public class seatViewModel {
 
-    // TODO: 04/05/2021 fjerne seats når man bestiller
-
 
     private ClientText clientText;
     private ObservableList<Seat> Seats;

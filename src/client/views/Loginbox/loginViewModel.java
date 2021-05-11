@@ -61,19 +61,12 @@ public class loginViewModel {
         }
     }
 
-
-
     public void validateAdmin() {
 
         if (navn.equals("Admin123@") && kode.equals("Admin")) {
             System.out.println("virker");
         }
-
-
     }
-
-
-
 
     public String getNavn() {
         return navn.get();

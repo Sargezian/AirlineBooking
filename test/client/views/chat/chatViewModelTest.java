@@ -1,14 +1,25 @@
 package client.views.chat;
 
 import org.junit.jupiter.api.Test;
+import shared.transferobjects.InputChat;
+import shared.transferobjects.Rating;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+// TODO: 08/05/2021 lave test færdig (alle)
 
 class chatViewModelTest
 {
 
-  @Test void setCounter()
+  @Test
+  public void setCounter()
   {
+    //  Arrange
+    Rating rating = new Rating(5.0);
+    //  Act
+    //  Assert
+    assertEquals(5.0,rating.toString());
+
   }
 
   @Test void setAverage()

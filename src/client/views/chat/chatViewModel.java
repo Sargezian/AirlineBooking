@@ -17,9 +17,6 @@ import java.util.List;
 
 public class chatViewModel {
 
-    // TODO: 04/05/2021 lave barchart diagrammerne til chatmodellen.
-
-
     private ClientText clientText;
     private ObservableList<InputChat> chats;
     private ObservableList<InputUser> users;

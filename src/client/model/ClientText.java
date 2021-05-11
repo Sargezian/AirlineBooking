@@ -33,28 +33,19 @@ public interface ClientText extends Subject {
     Flights CreateFlights(String flightID, String flightName, String price);
     void deleteFlight(Flights flights);
     List<Flights> getAllTheFLights();
+
+    //admin
     Arrival CreateArrival(String Arrival, String Arrivaldate);
-
     Depature CreateDeparture(String Departure, String DepartureDate);
-
     PlaneType CreatePlane(String PlaneTypes);
-
     List<PlaneType> getAllPlaneType();
     List<Depature> getAllDeparture();
     List<Arrival> getAllArrival();
-
 
     //seat
     List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID, String seatNumber, String classType);
     //Seat CreateSeat(int seatId, String SeatNumber,String classtype);
-
-    //Airport
-   // Airport CreateAirport(int airportID, Depature depature);
-    // Arrival
-    //Arrival CreateArrival(int arrivalID, String arrival,String arrivalDate);
-    // Departure
-   // Depature CreateDeparture(int departureID, String departure, String departureDate)
 
     //passenger
     Passenger Createpassernger(String FirstName, String LastName, String TelNumber, String email);

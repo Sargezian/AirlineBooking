@@ -29,6 +29,7 @@ public class TextManagerImpl implements TextManager{
     private SeatDao seatDao;
     private PaymentDao paymentDao;
     private ShoppingCartDao shoppingCartDao;
+    private adminDao adminDao;
 
     public TextManagerImpl() {
         support = new PropertyChangeSupport(this);
@@ -45,6 +46,7 @@ public class TextManagerImpl implements TextManager{
         seatDao = SeatImpl.getInstance();
         paymentDao = PaymentImpl.getInstance();
         shoppingCartDao = ShoppingCartImpl.getInstance();
+        adminDao = adminImpl.getInstance();
         flightsList = new ArrayList<>();
         arrivalList = new ArrayList<>();
         departureList = new ArrayList<>();
@@ -96,15 +98,6 @@ public class TextManagerImpl implements TextManager{
     }
 
 
-
-    /*@Override
-    public Seat seat(String seatNumber, String classType) {
-        Seat seat;
-        seat = seatDao.CreateSeat(seatNumber,classType);
-        seatsList.add(seat);
-        return seat;
-    }*/
-
     @Override
     public List<InputChat> getChat() {
        return new ArrayList<>(inputChatDao.readChat());
@@ -143,26 +136,27 @@ public class TextManagerImpl implements TextManager{
     @Override
     public Flights CreateFlights(String flightID, String flightName, String price) {
         Flights flights;
-        flights = dao.CreateFlights(flightID,flightName,price);
+        flights = adminDao.CreateFlights(flightID,flightName,price);
         flightsList.add(flights);
        support.firePropertyChange(utils.NEWFLIGHT,null,flights);
         return flights;
     }
 
+
     @Override
     public void deleteFlight(Flights flights) {
-        dao.deleteFlight(flights);
+        adminDao.deleteFlight(flights);
     }
 
     @Override
     public List<Flights> getAllTheFLights() {
-        return new ArrayList<>(dao.getAllTheFLights());
+        return new ArrayList<>(adminDao.getAllTheFLights());
     }
 
     @Override
     public Arrival CreateArrival(String Arrival, String Arrivaldate) {
         Arrival arrival;
-        arrival = dao.CreateArrival(Arrival,Arrivaldate);
+        arrival = adminDao.CreateArrival(Arrival,Arrivaldate);
         arrivalList.add(arrival);
        support.firePropertyChange(utils.NEWARRIVAL,null,arrival);
         return arrival;
@@ -171,7 +165,7 @@ public class TextManagerImpl implements TextManager{
     @Override
     public Depature CreateDeparture(String Departure, String DepartureDate) {
         Depature  departure;
-        departure = dao.CreateDeparture(Departure,DepartureDate);
+        departure = adminDao.CreateDeparture(Departure,DepartureDate);
         departureList.add(departure);
         support.firePropertyChange(utils.NEWDEPARTURE,null,departure);
         return departure;
@@ -180,7 +174,7 @@ public class TextManagerImpl implements TextManager{
     @Override
     public PlaneType CreatePlane(String PlaneTypes) {
         PlaneType planeType;
-        planeType = dao.CreatePlane(PlaneTypes);
+        planeType = adminDao.CreatePlane(PlaneTypes);
         planeTypeList.add(planeType);
         support.firePropertyChange(utils.NEWPLANE,null,planeType);
         return planeType;
@@ -188,17 +182,17 @@ public class TextManagerImpl implements TextManager{
 
     @Override
     public List<PlaneType> getAllPlaneType() {
-        return new ArrayList<>(dao.getAllPlaneType());
+        return new ArrayList<>(adminDao.getAllPlaneType());
     }
 
     @Override
     public List<Depature> getAllDeparture() {
-        return new ArrayList<>(dao.getAllDeparture());
+        return new ArrayList<>(adminDao.getAllDeparture());
     }
 
     @Override
     public List<Arrival> getAllArrival() {
-        return new ArrayList<>(dao.getAllArrival());
+        return new ArrayList<>(adminDao.getAllArrival());
     }
 
     @Override public Passenger passernger(String FirstName, String LastName, String TelNumber, String email) {
@@ -221,11 +215,11 @@ public class TextManagerImpl implements TextManager{
     }
 
 
-
    /* @Override
     public List<myFlightTicket> ReadPriceSUM() {
         return  new ArrayList<>(myFlightTicketDao.ReadPriceSUM());
     }*/
+
 
     @Override
     public void createTicket(myFlightTicket myFlightTicket) {
@@ -276,9 +270,7 @@ public class TextManagerImpl implements TextManager{
         payment = paymentDao.CreatePayment(cardholderName, cardNumber, CVV, expirationDate);
         paymentList.add(payment);
         return payment;
-
     }
-
 
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
