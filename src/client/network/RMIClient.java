@@ -36,6 +36,9 @@ public class RMIClient implements Client, ClientCallBack
       server.registerUserToClient(this);
       server.registerTicketToClient(this);
       server.registerFlightToClient(this);
+      server.registerArrivalToClient(this);
+      server.registerDepartureToClient(this);
+      server.registerPlaneToClient(this);
       //server.registerpassengerToClient(this);
 
     }
@@ -158,6 +161,78 @@ public class RMIClient implements Client, ClientCallBack
     try
     {
     return  server.getAllTheFLights();
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  @Override
+  public Arrival CreateArrival(String Arrival, String Arrivaldate) {
+    try
+    {
+      return  server.CreateArrival(Arrival,Arrivaldate);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  @Override
+  public Depature CreateDeparture(String Departure, String DepartureDate) {
+    try
+    {
+      return  server.CreateDeparture(Departure,DepartureDate);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  @Override
+  public PlaneType CreatePlane(String PlaneTypes) {
+    try
+    {
+      return  server.CreatePlane(PlaneTypes);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  @Override
+  public List<PlaneType> getAllPlaneType() {
+    try
+    {
+      return  server.getAllPlaneType();
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  @Override
+  public List<Depature> getAllDeparture() {
+    try
+    {
+      return  server.getAllDeparture();
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  @Override
+  public List<Arrival> getAllArrival() {
+    try
+    {
+      return  server.getAllArrival();
     }
     catch (RemoteException e)
     {
@@ -421,6 +496,21 @@ public class RMIClient implements Client, ClientCallBack
   public void updateFlight(Flights flights) throws RemoteException {
     support.firePropertyChange(utils.NEWFLIGHT,null, flights);
 
+  }
+
+  @Override
+  public void updateArrival(Arrival arrival) throws RemoteException {
+    support.firePropertyChange(utils.NEWARRIVAL,null, arrival);
+  }
+
+  @Override
+  public void updateDeparture(Depature depature) throws RemoteException {
+    support.firePropertyChange(utils.NEWDEPARTURE,null, depature);
+  }
+
+  @Override
+  public void updatePlane(PlaneType planeType) throws RemoteException {
+    support.firePropertyChange(utils.NEWPLANE,null, planeType);
   }
 
 

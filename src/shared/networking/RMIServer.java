@@ -31,6 +31,15 @@ public interface RMIServer extends Remote {
     Flights CreateFlights(String flightID, String flightName, String price) throws RemoteException;
     void deleteFlight(Flights flights) throws RemoteException;
     List<Flights> getAllTheFLights()throws RemoteException;
+    Arrival CreateArrival(String Arrival, String Arrivaldate) throws RemoteException;
+
+    Depature CreateDeparture(String Departure, String DepartureDate) throws RemoteException;
+
+    PlaneType CreatePlane(String PlaneTypes)throws RemoteException;
+
+    List<PlaneType> getAllPlaneType() throws RemoteException;
+    List<Depature> getAllDeparture()throws RemoteException;
+    List<Arrival> getAllArrival()throws RemoteException;
 
 
     //seat
@@ -60,5 +69,10 @@ public interface RMIServer extends Remote {
     void createTicket(myFlightTicket myFlightTicket) throws RemoteException;
     void registerTicketToClient(ClientCallBack client) throws  RemoteException;
     void registerFlightToClient(ClientCallBack client) throws  RemoteException;
+    void registerArrivalToClient(ClientCallBack client) throws  RemoteException;
+    void registerDepartureToClient(ClientCallBack client) throws  RemoteException;
+    void registerPlaneToClient(ClientCallBack client) throws  RemoteException;
+
+
 
 }

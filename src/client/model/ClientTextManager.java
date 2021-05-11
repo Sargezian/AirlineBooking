@@ -26,6 +26,9 @@ public class ClientTextManager implements ClientText {
         client.addListener(utils.NEWUSER, this::onNewInputUser);
         client.addListener(utils.NEWTICKET, this::onNewTicket);
         client.addListener(utils.NEWFLIGHT,this::onNewFlight);
+        client.addListener(utils.NEWARRIVAL,this::onNewArrival);
+        client.addListener(utils.NEWDEPARTURE,this::onNewDeparture);
+        client.addListener(utils.NEWPLANE,this::onNewPlane);
 
     }
 
@@ -34,6 +37,18 @@ public class ClientTextManager implements ClientText {
     }
 
     private void onNewFlight(PropertyChangeEvent propertyChangeEvent) {
+        support.firePropertyChange(propertyChangeEvent);
+    }
+
+    private void onNewArrival(PropertyChangeEvent propertyChangeEvent) {
+        support.firePropertyChange(propertyChangeEvent);
+    }
+
+    private void onNewDeparture(PropertyChangeEvent propertyChangeEvent) {
+        support.firePropertyChange(propertyChangeEvent);
+    }
+
+    private void onNewPlane(PropertyChangeEvent propertyChangeEvent) {
         support.firePropertyChange(propertyChangeEvent);
     }
 
@@ -105,6 +120,36 @@ public class ClientTextManager implements ClientText {
     @Override
     public List<Flights> getAllTheFLights() {
         return client.getAllTheFLights();
+    }
+
+    @Override
+    public Arrival CreateArrival(String Arrival, String Arrivaldate) {
+        return client.CreateArrival(Arrival,Arrivaldate);
+    }
+
+    @Override
+    public Depature CreateDeparture(String Departure, String DepartureDate) {
+        return client.CreateDeparture(Departure,DepartureDate);
+    }
+
+    @Override
+    public PlaneType CreatePlane(String PlaneTypes) {
+        return client.CreatePlane(PlaneTypes);
+    }
+
+    @Override
+    public List<PlaneType> getAllPlaneType() {
+        return client.getAllPlaneType();
+    }
+
+    @Override
+    public List<Depature> getAllDeparture() {
+        return client.getAllDeparture();
+    }
+
+    @Override
+    public List<Arrival> getAllArrival() {
+        return client.getAllArrival();
     }
 
     //-----------------------Seat Start---------------------------------------------

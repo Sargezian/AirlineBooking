@@ -31,6 +31,15 @@ public interface Client extends Subject {
     List<Flights> readByName(String searchString);
     void deleteFlight(Flights flights);
     List<Flights> getAllTheFLights();
+    Arrival CreateArrival(String Arrival, String Arrivaldate);
+
+    Depature CreateDeparture(String Departure, String DepartureDate);
+
+    PlaneType CreatePlane(String PlaneTypes);
+
+    List<PlaneType> getAllPlaneType();
+    List<Depature> getAllDeparture();
+    List<Arrival> getAllArrival();;
 
     //seats
     List<Seat> getSeat(int planeId);

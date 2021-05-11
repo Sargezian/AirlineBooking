@@ -17,6 +17,9 @@ public class TextManagerImpl implements TextManager{
     private List<Seat> seatsList;
     private List<Payment> paymentList;
     private List<Flights> flightsList;
+    private List<Arrival> arrivalList;
+    private List<Depature> departureList;
+    private List<PlaneType> planeTypeList;
 
     private FlightDao dao;
     private InputChatDao inputChatDao;
@@ -43,6 +46,9 @@ public class TextManagerImpl implements TextManager{
         paymentDao = PaymentImpl.getInstance();
         shoppingCartDao = ShoppingCartImpl.getInstance();
         flightsList = new ArrayList<>();
+        arrivalList = new ArrayList<>();
+        departureList = new ArrayList<>();
+        planeTypeList = new ArrayList<>();
 
     }
 
@@ -151,6 +157,48 @@ public class TextManagerImpl implements TextManager{
     @Override
     public List<Flights> getAllTheFLights() {
         return new ArrayList<>(dao.getAllTheFLights());
+    }
+
+    @Override
+    public Arrival CreateArrival(String Arrival, String Arrivaldate) {
+        Arrival arrival;
+        arrival = dao.CreateArrival(Arrival,Arrivaldate);
+        arrivalList.add(arrival);
+       support.firePropertyChange(utils.NEWARRIVAL,null,arrival);
+        return arrival;
+    }
+
+    @Override
+    public Depature CreateDeparture(String Departure, String DepartureDate) {
+        Depature  departure;
+        departure = dao.CreateDeparture(Departure,DepartureDate);
+        departureList.add(departure);
+        support.firePropertyChange(utils.NEWDEPARTURE,null,departure);
+        return departure;
+    }
+
+    @Override
+    public PlaneType CreatePlane(String PlaneTypes) {
+        PlaneType planeType;
+        planeType = dao.CreatePlane(PlaneTypes);
+        planeTypeList.add(planeType);
+        support.firePropertyChange(utils.NEWPLANE,null,planeType);
+        return planeType;
+    }
+
+    @Override
+    public List<PlaneType> getAllPlaneType() {
+        return new ArrayList<>(dao.getAllPlaneType());
+    }
+
+    @Override
+    public List<Depature> getAllDeparture() {
+        return new ArrayList<>(dao.getAllDeparture());
+    }
+
+    @Override
+    public List<Arrival> getAllArrival() {
+        return new ArrayList<>(dao.getAllArrival());
     }
 
     @Override public Passenger passernger(String FirstName, String LastName, String TelNumber, String email) {

@@ -12,6 +12,9 @@ public interface ClientCallBack extends Remote {
     void updateUser(InputUser entry2) throws RemoteException;
     void updateTicket(myFlightTicket myflightticket) throws RemoteException;
     void updateFlight(Flights flights) throws  RemoteException;
+    void updateArrival(Arrival arrival) throws  RemoteException;
+    void updateDeparture(Depature depature) throws  RemoteException;
+    void updatePlane(PlaneType planeType) throws  RemoteException;
 
 
 }

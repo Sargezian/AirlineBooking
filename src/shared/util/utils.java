@@ -10,6 +10,9 @@ public class utils
     public static final String NEWPASSENGER = "NewPassenger";
     public static final String NEWTICKET = "NewTicket";
     public static final String NEWDATA = "NewData";
+    public static final String NEWARRIVAL = "NewInputArrival";
+    public static final String NEWDEPARTURE = "NewInputdeparture";
+    public static final String NEWPLANE = "NewInputplane";
 
 
 }
