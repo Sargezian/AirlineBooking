@@ -152,6 +152,23 @@ public class ClientTextManager implements ClientText {
         return client.getAllArrival();
     }
 
+    @Override
+    public void deleteArrival(Arrival arrival) {
+        client.deleteArrival(arrival);
+
+    }
+
+    @Override
+    public void deleteDeparture(Depature depature) {
+        client.deleteDeparture(depature);
+
+    }
+
+    @Override
+    public void deletePlaneType(PlaneType planeType) {
+             client.deletePlaneType(planeType);
+    }
+
     //-----------------------Seat Start---------------------------------------------
     @Override
     public List<Seat> getSeat(int planeId) {

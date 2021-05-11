@@ -24,7 +24,7 @@ public class chatViewController implements ViewController {
     @FXML public Label TotalReviews;
 
     //starList
-    @FXML public ComboBox starList;
+    @FXML public ComboBox<Rating> starList;
 
     //averageReviews
     @FXML public Label AverageReviews;
@@ -73,6 +73,7 @@ public class chatViewController implements ViewController {
         visible();
 
         starList.setItems(vm.getRatings());
+        vm.setBarchart((Rating) starList.getSelectionModel().getSelectedItem());
 
     }
 
@@ -92,9 +93,9 @@ public class chatViewController implements ViewController {
     @FXML
     private void onSubmitButton() {
 
-        vm.chatPrint((Rating) starList.getSelectionModel().getSelectedItem());
+        vm.chatPrint(starList.getSelectionModel().getSelectedItem());
 
-        vm.setBarchart((Rating) starList.getSelectionModel().getSelectedItem());
+        vm.setBarchart(starList.getSelectionModel().getSelectedItem());
 
 
     }

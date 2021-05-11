@@ -195,6 +195,23 @@ public class TextManagerImpl implements TextManager{
         return new ArrayList<>(adminDao.getAllArrival());
     }
 
+    @Override
+    public void deleteArrival(Arrival arrival) {
+        adminDao.deleteArrival(arrival);
+    }
+
+    @Override
+    public void deleteDeparture(Depature depature) {
+        adminDao.deleteDeparture(depature);
+
+    }
+
+    @Override
+    public void deletePlaneType(PlaneType planeType) {
+        adminDao.deletePlaneType(planeType);
+
+    }
+
     @Override public Passenger passernger(String FirstName, String LastName, String TelNumber, String email) {
         Passenger passenger;
         passenger = passengerDao.CreatePassengers(FirstName, LastName, TelNumber,email);

@@ -3,6 +3,7 @@ package client.network;
 import shared.transferobjects.*;
 import shared.util.Subject;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
 public interface Client extends Subject {
@@ -41,6 +42,9 @@ public interface Client extends Subject {
     List<PlaneType> getAllPlaneType();
     List<Depature> getAllDeparture();
     List<Arrival> getAllArrival();;
+    void deleteArrival(Arrival arrival);
+    void deleteDeparture(Depature depature);
+    void deletePlaneType(PlaneType planeType);
 
     //seats
     List<Seat> getSeat(int planeId);

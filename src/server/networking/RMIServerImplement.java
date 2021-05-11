@@ -310,6 +310,21 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
+    public void deleteArrival(Arrival arrival) throws RemoteException {
+        textManager.deleteArrival(arrival);
+    }
+
+    @Override
+    public void deleteDeparture(Depature depature) throws RemoteException {
+           textManager.deleteDeparture(depature);
+    }
+
+    @Override
+    public void deletePlaneType(PlaneType planeType) throws RemoteException {
+           textManager.deletePlaneType(planeType);
+    }
+
+    @Override
     public List<Seat> getSeat(int planeId) throws RemoteException {
         return textManager.getSeat(planeId);
     }

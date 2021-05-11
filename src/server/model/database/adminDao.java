@@ -12,6 +12,9 @@ public interface adminDao {
     Flights CreateFlights(String flightID, String flightName, String price );
 
     void deleteFlight(Flights flights);
+    void deleteArrival(Arrival arrival);
+    void deleteDeparture(Depature depature);
+    void deletePlaneType(PlaneType planeType);
 
     List<Flights> getAllTheFLights();
 

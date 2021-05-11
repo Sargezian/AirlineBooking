@@ -240,6 +240,42 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
+  @Override
+  public void deleteArrival(Arrival arrival) {
+    try
+    {
+        server.deleteArrival(arrival);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  @Override
+  public void deleteDeparture(Depature depature) {
+    try
+    {
+        server.deleteDeparture(depature);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  @Override
+  public void deletePlaneType(PlaneType planeType) {
+    try
+    {
+        server.deletePlaneType(planeType);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
   @Override public List<Seat> getSeat(int planeId)
   {
     try

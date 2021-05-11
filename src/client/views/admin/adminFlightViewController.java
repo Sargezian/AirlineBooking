@@ -15,14 +15,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import shared.transferobjects.Flights;
+import shared.transferobjects.*;
 
 import javax.naming.Binding;
 
 public class adminFlightViewController implements ViewController {
 
 
-    @FXML public TableView FlightTableview;
+    @FXML public TableView<Flights> FlightTableview;
     @FXML
     public TextField FlightName;
     @FXML
@@ -66,11 +66,11 @@ public class adminFlightViewController implements ViewController {
     @FXML
     public TableColumn<String, Flights> PlaneTypesCoulmn;
     @FXML
-    public TableView ArrivalTableview;
+    public TableView<Arrival> ArrivalTableview;
     @FXML
-    public TableView DepartureTableview;
+    public TableView<Depature> DepartureTableview;
     @FXML
-    public TableView PlaneTableview;
+    public TableView<PlaneType> PlaneTableview;
 
 
     private ViewHandler vh;
@@ -119,7 +119,7 @@ public class adminFlightViewController implements ViewController {
 
 
     public void onDelete(ActionEvent actionEvent) {
-
+        av.deleteDeparture(DepartureTableview.getSelectionModel().getSelectedItem());
 
     }
 

@@ -41,6 +41,12 @@ public interface RMIServer extends Remote {
     List<Depature> getAllDeparture()throws RemoteException;
     List<Arrival> getAllArrival()throws RemoteException;
 
+    //admin
+
+    void deleteArrival(Arrival arrival) throws RemoteException;
+    void deleteDeparture(Depature depature) throws RemoteException;
+    void deletePlaneType(PlaneType planeType)throws RemoteException;
+
 
     //seat
     List<Seat> getSeat(int planeId) throws RemoteException;

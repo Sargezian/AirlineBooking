@@ -130,14 +130,45 @@ public class adminFlightViewModel {
     }
 
 
+    public boolean deleteFlight(Flights flights){
 
+        clientText.deleteFlight(flights);
+        this.flights.removeAll(flights);
 
-
-    public void deleteFlight(){
-
-
+        return true;
 
     }
+
+
+    public boolean deleteArrival(Arrival arrival){
+        clientText.deleteArrival(arrival);
+        this.arrivals.removeAll(arrival);
+        return true;
+
+    }
+
+
+    public boolean deleteDeparture(Depature depature){
+
+       clientText.deleteDeparture(depature);
+        this.depatures.removeAll(depatures);
+        return true;
+
+    }
+
+
+
+    public boolean deletePlaneType(PlaneType planeType){
+         clientText.deletePlaneType(planeType);
+        this.planeTypes.removeAll(planeType);
+        return true;
+
+    }
+
+
+
+
+
 
 
 

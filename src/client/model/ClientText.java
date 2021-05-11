@@ -41,6 +41,9 @@ public interface ClientText extends Subject {
     List<PlaneType> getAllPlaneType();
     List<Depature> getAllDeparture();
     List<Arrival> getAllArrival();
+    void deleteArrival(Arrival arrival);
+    void deleteDeparture(Depature depature);
+    void deletePlaneType(PlaneType planeType);
 
     //seat
     List<Seat> getSeat(int planeId);
