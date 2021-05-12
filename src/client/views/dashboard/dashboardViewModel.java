@@ -84,6 +84,8 @@ public class dashboardViewModel {
 
     public void onNewInputflight(PropertyChangeEvent  evt) {
         flights.add((Flights) evt.getNewValue());
+        loadFlights();
+
     }
 
     public ObservableList<Flights> getflight() {

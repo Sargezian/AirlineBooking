@@ -13,6 +13,8 @@ public class utils
     public static final String NEWARRIVAL = "NewInputArrival";
     public static final String NEWDEPARTURE = "NewInputdeparture";
     public static final String NEWPLANE = "NewInputplane";
+    public static final String NEWSEAT = "NewInputseat";
+    public static final String NEWAIRPORT = "NewInputairport";
 
 
 }

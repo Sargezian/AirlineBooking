@@ -49,6 +49,7 @@ public class passengerViewModel {
         error = new SimpleStringProperty();
 
        clientText.addListener(utils.NEWFLIGHT, this::onNewTicket);
+       clientText.addListener(utils.NEWSEAT, this::onNewTicket);
     }
 
 

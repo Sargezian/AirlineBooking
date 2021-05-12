@@ -15,6 +15,16 @@ public class adminImpl implements adminDao {
     private daoConnection daoconnection;
 
 
+    private adminImpl() {
+        try {
+            DriverManager.registerDriver(new org.postgresql.Driver());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        daoconnection = daoConnection.getInstance();
+    }
+
+
     public static synchronized adminImpl getInstance(){
 
         if (daoInstance == null){
@@ -51,7 +61,7 @@ public class adminImpl implements adminDao {
     public void deleteFlight(Flights flights) {
         try {
             try (Connection connection = daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("DELETE From flights WHERE flightID = ? ");
+                PreparedStatement statement = connection.prepareStatement("DELETE From flights,Arrival,departures,planeType WHERE flightID = ? ");
                 statement.setString(1,flights.getFlightID());
                 statement.executeUpdate();
 

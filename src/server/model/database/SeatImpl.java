@@ -91,6 +91,42 @@ public class SeatImpl implements SeatDao {
         return null;
     }
 
+
+    @Override
+    public List<Seat> getSeats() {
+        try {
+
+            try (Connection connection = daoConnection.getConnection()) {
+                PreparedStatement statement = connection.prepareStatement("select * from seat ");
+
+                ResultSet resultSet = statement.executeQuery();
+
+                ArrayList<Seat> Seats = new ArrayList<>();
+                while (resultSet.next()) {
+
+                    //seat
+                    int seatID = resultSet.getInt("seatID");
+                    String seatNumber = resultSet.getString("seatNumber");
+                    String classType = resultSet.getString("classType");
+
+                    //Linje 38 skal måske kun have seat ID
+                    Seat seat = new Seat(seatID, seatNumber, classType);
+                    Seats.add(seat);
+                }
+                return Seats;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+
+
+
+
+
 }
 
 

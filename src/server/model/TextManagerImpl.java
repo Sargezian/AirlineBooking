@@ -20,6 +20,7 @@ public class TextManagerImpl implements TextManager{
     private List<Arrival> arrivalList;
     private List<Depature> departureList;
     private List<PlaneType> planeTypeList;
+    private List<Airport> airportList;
 
     private FlightDao dao;
     private InputChatDao inputChatDao;
@@ -30,6 +31,7 @@ public class TextManagerImpl implements TextManager{
     private PaymentDao paymentDao;
     private ShoppingCartDao shoppingCartDao;
     private adminDao adminDao;
+    private AirportDao airportDao;
 
     public TextManagerImpl() {
         support = new PropertyChangeSupport(this);
@@ -47,10 +49,12 @@ public class TextManagerImpl implements TextManager{
         paymentDao = PaymentImpl.getInstance();
         shoppingCartDao = ShoppingCartImpl.getInstance();
         adminDao = adminImpl.getInstance();
+        airportDao =  AirportImpl.getInstance();
         flightsList = new ArrayList<>();
         arrivalList = new ArrayList<>();
         departureList = new ArrayList<>();
         planeTypeList = new ArrayList<>();
+        airportList = new ArrayList<>();
 
     }
 
@@ -90,6 +94,16 @@ public class TextManagerImpl implements TextManager{
                                     String classType)
     {
        return seatDao.getSeatId(seatID,seatNumber,classType);
+    }
+
+    @Override
+    public Seat CreateSeat(String SeatNumber, String classtype) {
+        Seat seat;
+        seat = seatDao.CreateSeat(SeatNumber,classtype);
+        seatsList.add(seat);
+        support.firePropertyChange(utils.NEWSEAT, null, seat);
+        System.out.println("support.getPropertyChangeListeners().length:" + support.getPropertyChangeListeners().length);
+        return seat;
     }
 
     @Override
@@ -212,6 +226,16 @@ public class TextManagerImpl implements TextManager{
 
     }
 
+    @Override
+    public List<Seat> getSeats() {
+        return new ArrayList<>(seatDao.getSeats());
+    }
+
+    @Override
+    public List<Airport> getAirport() {
+        return new ArrayList<>(airportDao.getAirport());
+    }
+
     @Override public Passenger passernger(String FirstName, String LastName, String TelNumber, String email) {
         Passenger passenger;
         passenger = passengerDao.CreatePassengers(FirstName, LastName, TelNumber,email);
@@ -258,6 +282,16 @@ public class TextManagerImpl implements TextManager{
     @Override
     public Flights readPrice(String price) {
         return shoppingCartDao.readPrice(price);
+    }
+
+    @Override
+    public Airport CreateAirport(String airportId, String airportName, String airportCity) {
+        Airport airport;
+        airport = airportDao.CreateAirport(airportId,airportName,airportCity);
+        airportList.add(airport);
+        support.firePropertyChange(utils.NEWAIRPORT, null, airport);
+        System.out.println("support.getPropertyChangeListeners().length:" + support.getPropertyChangeListeners().length);
+        return airport;
     }
 
     @Override

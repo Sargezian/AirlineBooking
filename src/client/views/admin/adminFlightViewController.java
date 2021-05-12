@@ -2,13 +2,7 @@ package client.views.admin;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
-import client.model.SaveInfo;
 import client.views.ViewController;
-import javafx.beans.binding.Bindings;
-import javafx.beans.property.Property;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -16,8 +10,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import shared.transferobjects.*;
-
-import javax.naming.Binding;
 
 public class adminFlightViewController implements ViewController {
 
@@ -119,7 +111,38 @@ public class adminFlightViewController implements ViewController {
 
 
     public void onDelete(ActionEvent actionEvent) {
-        av.deleteDeparture(DepartureTableview.getSelectionModel().getSelectedItem());
+
+        Depature selectedItem = DepartureTableview.getSelectionModel().getSelectedItem();
+
+
+        Flights selectedItem1 = FlightTableview.getSelectionModel().getSelectedItem();
+
+
+        Arrival selectedItem2 = ArrivalTableview.getSelectionModel().getSelectedItem();
+
+        PlaneType selectedItem3 = PlaneTableview.getSelectionModel().getSelectedItem();
+
+
+        if (selectedItem != null){
+            av.deleteDeparture(DepartureTableview.getSelectionModel().getSelectedItem());
+
+        }
+
+        if (selectedItem1 != null){
+            av.deleteArrival(ArrivalTableview.getSelectionModel().getSelectedItem());
+
+        }
+
+        if (selectedItem2 != null){
+            av.deleteFlight(FlightTableview.getSelectionModel().getSelectedItem());
+
+        }
+
+
+        if (selectedItem3 != null){
+            av.deletePlaneType(PlaneTableview.getSelectionModel().getSelectedItem());
+
+        }
 
     }
 
@@ -135,5 +158,10 @@ public class adminFlightViewController implements ViewController {
         av.InsertDepartureInformation();
         av.InsertPlaneInformation();
         av.InsertFlightInformation();
+    }
+
+    public void seatAdmin(ActionEvent actionEvent) {
+        vh.openAdminSeat();
+
     }
 }

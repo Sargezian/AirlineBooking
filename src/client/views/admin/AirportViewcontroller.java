@@ -37,12 +37,12 @@ public class AirportViewcontroller implements ViewController
 
 
   public void onDelete(ActionEvent actionEvent) {
-vh.openAddSeat();
+vh.openAdminSeat();
 
   }
 
   public void onBack(ActionEvent actionEvent) {
-    vh.openAddSeat();
+    vh.openAdminSeat();
   }
 
   public void onLogOff(ActionEvent actionEvent) {

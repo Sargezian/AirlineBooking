@@ -64,9 +64,9 @@ public class seatViewController implements ViewController {
 
 
 
-
     public void onBack(ActionEvent actionEvent) {
         SaveInfo.getInstance().reset();
+        SaveInfo.getInstance().resetSeat();
         vh.openToDashView();
     }
 
@@ -83,6 +83,8 @@ public class seatViewController implements ViewController {
     public void openLogin(ActionEvent actionEvent) {
         vh.openLoginView();
     }
+
+
 
    /* public void Setcolor(MouseEvent mouseEvent)
     {

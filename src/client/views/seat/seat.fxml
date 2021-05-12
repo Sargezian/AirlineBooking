@@ -19,8 +19,8 @@
                 <TableColumn fx:id="classTypeColumn" prefWidth="210.0" text="classType" />
             </columns>
         </TableView>
-        <Button layoutX="184.0" layoutY="531.0" mnemonicParsing="false" onAction="#onBack" prefHeight="34.0" prefWidth="98.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Back" textFill="WHITE" />
-        <Button layoutX="458.0" layoutY="531.0" mnemonicParsing="false" onAction="#onNext" prefHeight="34.0" prefWidth="88.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Next" textFill="WHITE" />
+        <Button layoutX="187.0" layoutY="531.0" mnemonicParsing="false" onAction="#onBack" prefHeight="34.0" prefWidth="98.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Back" textFill="WHITE" />
+        <Button layoutX="438.0" layoutY="531.0" mnemonicParsing="false" onAction="#onNext" prefHeight="34.0" prefWidth="88.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Next" textFill="WHITE" />
         <Label layoutX="29.0" layoutY="74.0" prefHeight="52.0" prefWidth="391.0" text="Seat ">
             <font>
                 <Font name="Tahoma Bold" size="24.0" />

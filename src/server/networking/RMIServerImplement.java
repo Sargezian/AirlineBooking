@@ -253,6 +253,41 @@ public class RMIServerImplement implements RMIServer {
         textManager.addListener(utils.NEWPLANE, listener);
     }
 
+    @Override
+    public void registerSeatToClient(ClientCallBack client) throws RemoteException {
+        PropertyChangeListener listener = null;
+        PropertyChangeListener finalListener = listener;
+        listener = evt -> {
+            try {
+                System.out.println("register ticket to client ");
+                client.updateSeat((Seat) evt.getNewValue());
+            } catch (RemoteException e) {
+
+                textManager.removeListener(utils.NEWSEAT, finalListener);
+            }
+        };
+        textManager.addListener(utils.NEWSEAT, listener);
+
+
+    }
+
+    @Override
+    public void registerAirportToClient(ClientCallBack client) throws RemoteException {
+        PropertyChangeListener listener = null;
+        PropertyChangeListener finalListener = listener;
+        listener = evt -> {
+            try {
+                System.out.println("register ticket to client ");
+                client.updateAirport((Airport) evt.getNewValue());
+            } catch (RemoteException e) {
+
+                textManager.removeListener(utils.NEWAIRPORT, finalListener);
+            }
+        };
+        textManager.addListener(utils.NEWAIRPORT, listener);
+
+    }
+
 
     @Override
     public void createTicket(myFlightTicket myFlightTicket) throws RemoteException {
@@ -328,6 +363,16 @@ public class RMIServerImplement implements RMIServer {
     @Override
     public void deletePlaneType(PlaneType planeType) throws RemoteException {
            textManager.deletePlaneType(planeType);
+    }
+
+    @Override
+    public List<Seat> getSeats() throws RemoteException {
+        return textManager.getSeats();
+    }
+
+    @Override
+    public List<Airport> getAirport() throws RemoteException {
+        return textManager.getAirport();
     }
 
     @Override

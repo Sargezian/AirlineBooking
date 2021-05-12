@@ -29,7 +29,18 @@ public class ClientTextManager implements ClientText {
         client.addListener(utils.NEWARRIVAL,this::onNewArrival);
         client.addListener(utils.NEWDEPARTURE,this::onNewDeparture);
         client.addListener(utils.NEWPLANE,this::onNewPlane);
+        client.addListener(utils.NEWSEAT,this::onNewSeat);
+        client.addListener(utils.NEWAIRPORT,this::onNewAirport);
 
+
+    }
+
+    private void onNewAirport(PropertyChangeEvent event) {
+        support.firePropertyChange(event);
+    }
+
+    private void onNewSeat(PropertyChangeEvent event) {
+        support.firePropertyChange(event);
     }
 
     private void onNewTicket(PropertyChangeEvent propertyChangeEvent) {
@@ -169,6 +180,16 @@ public class ClientTextManager implements ClientText {
              client.deletePlaneType(planeType);
     }
 
+    @Override
+    public List<Seat> getSeats() {
+        return client.getSeats();
+    }
+
+    @Override
+    public List<Airport> getAirport() {
+        return client.getAirport();
+    }
+
     //-----------------------Seat Start---------------------------------------------
     @Override
     public List<Seat> getSeat(int planeId) {
@@ -189,7 +210,7 @@ public class ClientTextManager implements ClientText {
 
 
     @Override public Airport CreateAirport(String airportId, String airportName, String airportCity)
-        throws RemoteException
+
     {
         return client.CreateAirport(airportId,airportName,airportCity);
     }

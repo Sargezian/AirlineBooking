@@ -8,6 +8,10 @@ import java.util.List;
 
 public interface Client extends Subject {
 
+
+
+    Airport CreateAirport(String airportId, String airportName,
+                          String airportCity);
     //chat
     InputChat createChat(String chat, double star);
     List<InputChat> getChat();
@@ -45,10 +49,13 @@ public interface Client extends Subject {
     void deleteArrival(Arrival arrival);
     void deleteDeparture(Depature depature);
     void deletePlaneType(PlaneType planeType);
+    List<Seat> getSeats();
+    List<Airport> getAirport();
 
     //seats
     List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID, String seatNumber, String classType);
+    Seat CreateSeat(String SeatNumber,String classtype);
 
     //passenger
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email);

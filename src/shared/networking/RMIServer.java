@@ -48,6 +48,8 @@ public interface RMIServer extends Remote {
     void deleteArrival(Arrival arrival) throws RemoteException;
     void deleteDeparture(Depature depature) throws RemoteException;
     void deletePlaneType(PlaneType planeType)throws RemoteException;
+    List<Seat> getSeats() throws RemoteException;
+    List<Airport> getAirport() throws RemoteException;
 
 
     //seat
@@ -81,6 +83,10 @@ public interface RMIServer extends Remote {
     void registerArrivalToClient(ClientCallBack client) throws  RemoteException;
     void registerDepartureToClient(ClientCallBack client) throws  RemoteException;
     void registerPlaneToClient(ClientCallBack client) throws  RemoteException;
+    void registerSeatToClient(ClientCallBack client) throws  RemoteException;
+    void registerAirportToClient(ClientCallBack client) throws  RemoteException;
+
+
 
 
 

@@ -14,6 +14,8 @@ public class SaveInfo {
     private Airport airport;
     private Arrival arrival;
     private Depature depature;
+    private PlaneType planeType;
+
 
     public Airport getAirport()
     {
@@ -75,6 +77,9 @@ public class SaveInfo {
         this.user = user;
     }
 
+    public PlaneType getPlaneType() {
+        return planeType;
+    }
 
     public Seat getSeat() {
         return seat;
@@ -98,9 +103,9 @@ public class SaveInfo {
         System.out.println("Her getter vi en user " + getUser());
     }
 
-    public void resetSeatAndPass(){
+    public void resetSeat(){
         setSeat(null);
-        setPassenger(null);
+
     }
 
     @Override
@@ -108,9 +113,12 @@ public class SaveInfo {
         return "SaveInfo{" +
                 "flights=" + flights +
                 ", seat=" + seat +
+                ", airport=" + airport +
+                ", arrival=" + arrival +
+                ", depature=" + depature +
+                ", planeType=" + planeType +
                 ", passenger=" + passenger +
+                ", user=" + user +
                 '}';
     }
-
-
 }

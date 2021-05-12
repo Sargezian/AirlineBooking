@@ -4,6 +4,8 @@ import shared.transferobjects.Airport;
 import shared.transferobjects.Flights;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AirportImpl implements AirportDao
 {
@@ -51,5 +53,44 @@ public class AirportImpl implements AirportDao
     }
     return null;
   }
+  @Override
+  public List<Airport> getAirport() {
+    try {
+
+      try (Connection connection = daoConnection.getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("select * from airport");
+
+        ResultSet resultSet = statement.executeQuery();
+
+        ArrayList<Airport> airportArrayList = new ArrayList<>();
+        while (resultSet.next()) {
+
+          //seat
+          String airportId = resultSet.getString("airportID");
+          String name = resultSet.getString("Name");
+          String city = resultSet.getString("City");
+
+             Airport airport = new Airport(airportId,name,city);
+
+             airportArrayList.add(airport);
+
+        }
+        return airportArrayList;
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
+
+
+
+
+
+
+
+
+
 }
 

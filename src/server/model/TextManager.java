@@ -49,6 +49,8 @@ public interface TextManager extends Subject {
     void deleteArrival(Arrival arrival);
     void deleteDeparture(Depature depature);
     void deletePlaneType(PlaneType planeType);
+    List<Seat> getSeats();
+    List<Airport> getAirport();
 
     //passenger
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email);

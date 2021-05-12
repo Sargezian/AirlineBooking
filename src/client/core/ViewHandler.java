@@ -181,7 +181,7 @@ public class ViewHandler {
         stage.show();
     }
 
-    public void openAddSeat() {
+    public void openAdminSeat() {
         if (seatAdmin == null) {
             try {
                 Parent root = loadFXML("../views/admin/SeatAdmin.fxml").getRoot();
@@ -196,7 +196,7 @@ public class ViewHandler {
         stage.show();
     }
 
-    public void openAddAirport() {
+    public void openAdminAirport() {
         if (airportAdmin == null) {
             try {
                 Parent root = loadFXML("../views/admin/AirportAdmin.fxml").getRoot();

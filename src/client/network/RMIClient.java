@@ -40,6 +40,9 @@ public class RMIClient implements Client, ClientCallBack
       server.registerArrivalToClient(this);
       server.registerDepartureToClient(this);
       server.registerPlaneToClient(this);
+      server.registerSeatToClient(this);
+      server.registerAirportToClient(this);
+
       //server.registerpassengerToClient(this);
 
     }
@@ -270,6 +273,30 @@ public class RMIClient implements Client, ClientCallBack
     try
     {
         server.deletePlaneType(planeType);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  @Override
+  public List<Seat> getSeats() {
+    try
+    {
+      return server.getSeats();
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke få fat i server");
+    }
+  }
+
+  @Override
+  public List<Airport> getAirport() {
+    try
+    {
+      return server.getAirport();
     }
     catch (RemoteException e)
     {
@@ -572,6 +599,16 @@ public class RMIClient implements Client, ClientCallBack
   @Override
   public void updatePlane(PlaneType planeType) throws RemoteException {
     support.firePropertyChange(utils.NEWPLANE,null, planeType);
+  }
+
+  @Override
+  public void updateSeat(Seat Seat) throws RemoteException {
+    support.firePropertyChange(utils.NEWSEAT,null, Seat);
+  }
+
+  @Override
+  public void updateAirport(Airport airport) throws RemoteException {
+    support.firePropertyChange(utils.NEWAIRPORT,null, airport);
   }
 
 
