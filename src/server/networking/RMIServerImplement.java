@@ -28,6 +28,12 @@ public class RMIServerImplement implements RMIServer {
         registry.bind(utils.SERVER,this);
     }
 
+    @Override public Airport CreateAirport(String airportId, String airportName,
+        String airportCity)
+    {
+        return textManager.CreateAirport(airportId,airportName,airportCity);
+    }
+
     @Override
     public InputChat createChat(String chat, double star) {
         System.out.println("RMI SERVER READ CHAT");
@@ -247,11 +253,12 @@ public class RMIServerImplement implements RMIServer {
         return textManager.getSeatID(seatID,seatNumber,classType);
     }
 
-
-   /* @Override
-    public Seat seat(String seatNumber, String classType) throws RemoteException {
-        return textManager.seat(seatNumber,classType);
+    @Override public Seat CreateSeat(String SeatNumber, String classtype)
+    {
+        return textManager.CreateSeat(SeatNumber,classtype);
     }
-*/
+
+
+
 
 }

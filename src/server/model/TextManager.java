@@ -27,6 +27,7 @@ public interface TextManager extends Subject {
     //seat
     List<Seat> getSeat(int planeId);
     Seat getSeatID(int seatID, String seatNumber, String classType);
+    Seat CreateSeat(String SeatNumber,String classtype);
 
     //flight
     List<Flights> getflights();
@@ -53,6 +54,9 @@ public interface TextManager extends Subject {
     Flights readFlightsFromShoppingCart(String flightName, String departure, String arrival);
     Seat readSeatFromShoppingCart(String seatNumber,String classType);
     Flights readPrice(String price);
+
+    //Airport
+    Airport CreateAirport(String airportId, String airportName, String airportCity);
 
 
 }

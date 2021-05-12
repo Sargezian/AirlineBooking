@@ -5,6 +5,7 @@ import shared.networking.RMIServer;
 import shared.transferobjects.*;
 import shared.util.utils;
 
+import javax.management.RuntimeMBeanException;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.rmi.NotBoundException;
@@ -189,6 +190,18 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
+  @Override public Airport CreateAirport(String airportId, String airportName,
+      String airportCity)
+  {
+    try
+    {
+      return server.CreateAirport(airportId,airportName,airportCity);
+    }
+    catch (RemoteException e){
+      throw  new RuntimeException("Kunne ikke få fat i server");
+    }
+    }
+
   @Override
   public Seat getSeatId(int seatID, String seatNumber, String classType) {
     try
@@ -201,6 +214,17 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
+  @Override public Seat CreateSeat(String SeatNumber, String classtype)
+  {
+    try
+    {
+      return server.CreateSeat(SeatNumber, classtype);
+    }
+    catch (RemoteException e)
+    {
+     throw new RuntimeException("Kunne ikke oprettet forbindelse til server")
+      ; }
+  }
 
   @Override public List<myFlightTicket> getflightlist(int userId)
   {
@@ -250,6 +274,7 @@ public class RMIClient implements Client, ClientCallBack
       throw new RuntimeException("Kunne ikke få fat i server");
     }
   }
+
 
 
   @Override

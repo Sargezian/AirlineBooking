@@ -3,6 +3,7 @@ package client.network;
 import shared.transferobjects.*;
 import shared.util.Subject;
 
+import java.rmi.RemoteException;
 import java.util.List;
 
 public interface Client extends Subject {
@@ -35,11 +36,12 @@ public interface Client extends Subject {
     //seats
     List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID, String seatNumber, String classType);
-    //Seat CreateSeat(int seatId, String SeatNumber,String classtype);
+    Seat CreateSeat(String SeatNumber,String classtype);
     boolean ValidateUser(String user, String password);
 
     //Airport
-    //Airport CreateAirport(int airportID,Depature depature);
+    Airport CreateAirport(String airportId, String airportName, String airportCity)
+        throws RemoteException;
     //arrival
    // Arrival CreateArrival(int arrivalID, String arrival, String arrivalDate);
     //passenger

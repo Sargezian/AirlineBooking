@@ -38,10 +38,11 @@ public interface ClientText extends Subject {
     //seat
     List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID, String seatNumber, String classType);
-    //Seat CreateSeat(int seatId, String SeatNumber,String classtype);
+    Seat CreateSeat(String SeatNumber,String classtype);
 
     //Airport
-   // Airport CreateAirport(int airportID, Depature depature);
+   Airport CreateAirport(String airportId, String airportName, String airportCity)
+       throws RemoteException;
     // Arrival
     //Arrival CreateArrival(int arrivalID, String arrival,String arrivalDate);
     // Departure

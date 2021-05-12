@@ -5,34 +5,49 @@ import java.io.Serializable;
 public class Airport implements Serializable {
 
 
-    public int AirportID;
-    public Depature depature;
+    public String AirportID;
+    public String AirportName;
+    public String AirportCity;
 
-    public Airport(int airportID, Depature depature) {
-        AirportID = airportID;
-        this.depature = depature;
+    public Airport(String AirportID, String AirportName, String AirportCity) {
+        this.AirportID = AirportID;
+        this.AirportName = AirportName;
+        this.AirportCity = AirportCity;
     }
 
-    //airport
-    public int getAirportID() {
-        return AirportID;
-    }
+  @Override public String toString()
+  {
+    return "Airport{" + "AirportID='" + AirportID + '\'' + ", AirportName='"
+        + AirportName + '\'' + ", AirportCity='" + AirportCity + '\'' + '}';
+  }
 
-    //departure
-    public int getDepartureID() {
-        return depature.departureID;
-    }
-    public Depature getDepature() {
-        return depature;
-    }
+  public String getAirportID()
+  {
+    return AirportID;
+  }
 
-    @Override
-    public String toString() {
-        return "Airport{" +
-                "AirportID=" + AirportID +
-                ", depature=" + depature +
-                '}';
-    }
+  public void setAirportID(String airportID)
+  {
+    AirportID = airportID;
+  }
 
+  public String getAirportName()
+  {
+    return AirportName;
+  }
 
+  public void setAirportName(String airportName)
+  {
+    AirportName = airportName;
+  }
+
+  public String getAirportCity()
+  {
+    return AirportCity;
+  }
+
+  public void setAirportCity(String airportCity)
+  {
+    AirportCity = airportCity;
+  }
 }

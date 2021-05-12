@@ -2,7 +2,7 @@ package client.core;
 
 import client.views.Loginbox.loginViewModel;
 import client.views.Payment.paymentViewModel;
-import client.views.admin.adminFlightViewModel;
+import client.views.admin.*;
 import client.views.chat.chatViewModel;
 import client.views.createUser.createUserViewModel;
 import client.views.dashboard.dashboardViewModel;
@@ -22,6 +22,10 @@ public class ViewModelFactory {
     private paymentViewModel paymentViewModel;
     private createUserViewModel createUserViewModel;
     private adminFlightViewModel adminViewModel;
+    private Seatviewmodel seatviewmodel1;
+    //private DepartureViewmodel departureViewmodel;
+    //private Arrivalviewmodel arrivalviewmodel;
+   private AirportViewmodel airportViewmodel;
 
     public ViewModelFactory(ModelFactory mf) {
         this.mf=mf;
@@ -80,6 +84,33 @@ public class ViewModelFactory {
                 new adminFlightViewModel(mf.getClientText()) :
                 adminViewModel);
     }
+
+  public Seatviewmodel getSeatViewModel() {
+        return (seatviewmodel1 = seatViewModel == null ?
+            new Seatviewmodel(mf.getClientText()) :
+            seatviewmodel1);
+    }
+/*
+    public DepartureViewmodel getDepartureViewModel() {
+        return (departureViewmodel = departureViewmodel == null ?
+            new DepartureViewmodel(mf.getClientText()) :
+            departureViewmodel);
+    }
+
+    public Arrivalviewmodel getArrivalviewmodel() {
+        return (arrivalviewmodel = arrivalviewmodel == null ?
+            new Arrivalviewmodel(mf.getClientText()) :
+            arrivalviewmodel);
+    }
+*/
+
+    public AirportViewmodel getAirportviewmodel() {
+        return (airportViewmodel = airportViewmodel == null ?
+            new AirportViewmodel(mf.getClientText()) :
+            airportViewmodel);
+
+
+}
 
 
 }

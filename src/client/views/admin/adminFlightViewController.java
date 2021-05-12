@@ -59,7 +59,7 @@ public class adminFlightViewController implements ViewController {
 
 
     public void onDelete(ActionEvent actionEvent) {
-
+        vh.openAddAirport();
 
     }
 
@@ -68,6 +68,7 @@ public class adminFlightViewController implements ViewController {
     }
 
     public void onLogOff(ActionEvent actionEvent) {
+
     }
 
     public void onAdd(ActionEvent actionEvent) {

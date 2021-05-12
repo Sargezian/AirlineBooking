@@ -1,6 +1,8 @@
 
 package server.model.database;
 
+import client.model.SaveInfo;
+import shared.transferobjects.Flights;
 import shared.transferobjects.Passenger;
 import shared.transferobjects.PlaneType;
 import shared.transferobjects.Seat;
@@ -53,26 +55,33 @@ public class SeatImpl implements SeatDao {
         return null;
     }
 
+    @Override public Seat getSeatId(int seatID, String seatNumber,
+        String classType)
+    {
+        return null;
+    }
 
-
-    public Seat getSeatId(int seatID, String seatNumber, String classType) {
+    @Override public Seat CreateSeat( String SeatNumber,
+        String classtype)
+    {
         try {
             try (Connection connection = daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("INSERT INTO Seat(seatID, seatNumber,classType ) VALUES (?,?,?) ");
+                PreparedStatement statement = connection.prepareStatement("INSERT INTO seat(seatNumber,classType) VALUES (?,?) ", PreparedStatement.RETURN_GENERATED_KEYS);
 
                 //seat
-                statement.setInt(1, seatID);
-                statement.setString(2,seatNumber);
-                statement.setString(3, classType);
+
+                statement.setString(1, SeatNumber);
+                statement.setString(2,classtype);
+
                 statement.executeUpdate();
                 ResultSet key = statement.getGeneratedKeys();
 
                 if (key.next()) {
 
-                    return new Seat(seatID, seatNumber,classType);
+                    return new Seat(key.getInt(1),SeatNumber,classtype);
                 } else {
 
-                    throw new SQLException("Her bliver det testet på at lave en ny seat");
+                    throw new SQLException("Her bliver det testet på at lave et nyt seat");
 
                 }
             }
@@ -83,6 +92,7 @@ public class SeatImpl implements SeatDao {
     }
 
 }
+
 
 
 

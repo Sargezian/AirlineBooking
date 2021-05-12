@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="javax.activation-1.2.0">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/javax.activation-1.2.0.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/java-extentions/javax.activation-1.2.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

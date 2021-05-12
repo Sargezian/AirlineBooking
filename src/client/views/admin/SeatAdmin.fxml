@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1052.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.admin.Seatviewcontroller">
    <children>
       <Line endX="35.0" layoutX="197.0" layoutY="98.0" startX="-100.0" stroke="#0088ff" style="-fx-blend-mode: #37a1ff;" />
       <Button layoutX="87.0" layoutY="487.0" mnemonicParsing="false" onAction="#onBack" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Back" textFill="WHITE" />
-      <Button layoutX="308.0" layoutY="487.0" mnemonicParsing="false" onAction="#onAdd" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Add" textFill="WHITE" />
-      <Label layoutX="74.0" layoutY="274.0" prefHeight="22.0" prefWidth="200.0" text="Seat ID">
+      <Button fx:id="add" layoutX="308.0" layoutY="487.0" mnemonicParsing="false" onAction="#onAdd" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Add" textFill="WHITE" />
+      <Label layoutX="74.0" layoutY="274.0" prefHeight="22.0" prefWidth="200.0" text="Class Type">
          <font>
             <Font size="17.0" />
          </font></Label>
-      <TextField fx:id="SeatID" layoutX="74.0" layoutY="306.0" prefHeight="27.0" prefWidth="200.0" promptText="Seat ID" style="-fx-background-color: white;" />
-      <TextField fx:id="seatNumbers" layoutX="308.0" layoutY="306.0" prefHeight="27.0" prefWidth="200.0" promptText="Seat Number" style="-fx-background-color: white;" />
-      <TextField fx:id="ClassType" layoutX="74.0" layoutY="401.0" prefHeight="27.0" prefWidth="228.0" promptText="Class Type" style="-fx-background-color: white;" />
-      <Label layoutX="75.0" layoutY="368.0" prefHeight="22.0" prefWidth="200.0" text="Class Type">
-         <font>
-            <Font size="17.0" />
-         </font></Label>
+      <TextField fx:id="classType" layoutX="74.0" layoutY="306.0" prefHeight="27.0" prefWidth="200.0" promptText="Class Type" style="-fx-background-color: white;" />
+      <TextField fx:id="seatNumber" layoutX="308.0" layoutY="306.0" prefHeight="27.0" prefWidth="200.0" promptText="Seat Number" style="-fx-background-color: white;" />
       <Label layoutX="308.0" layoutY="274.0" prefHeight="22.0" prefWidth="200.0" text="Seat Number">
          <font>
             <Font size="17.0" />

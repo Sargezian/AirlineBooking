@@ -26,6 +26,7 @@ public class TextManagerImpl implements TextManager{
     private SeatDao seatDao;
     private PaymentDao paymentDao;
     private ShoppingCartDao shoppingCartDao;
+    private AirportDao airportDao;
 
     public TextManagerImpl() {
         support = new PropertyChangeSupport(this);
@@ -42,6 +43,7 @@ public class TextManagerImpl implements TextManager{
         seatDao = SeatImpl.getInstance();
         paymentDao = PaymentImpl.getInstance();
         shoppingCartDao = ShoppingCartImpl.getInstance();
+        airportDao = AirportImpl.getInstance();
         flightsList = new ArrayList<>();
 
     }
@@ -84,20 +86,17 @@ public class TextManagerImpl implements TextManager{
        return seatDao.getSeatId(seatID,seatNumber,classType);
     }
 
+    @Override public Seat CreateSeat(String SeatNumber, String classtype)
+    {
+        return seatDao.CreateSeat(SeatNumber,classtype);
+    }
+
     @Override
     public boolean ValidateUser(String user, String password) {
         return inputUserDao.ValidateUser(user,password);
     }
 
 
-
-    /*@Override
-    public Seat seat(String seatNumber, String classType) {
-        Seat seat;
-        seat = seatDao.CreateSeat(seatNumber,classType);
-        seatsList.add(seat);
-        return seat;
-    }*/
 
     @Override
     public List<InputChat> getChat() {
@@ -200,6 +199,15 @@ public class TextManagerImpl implements TextManager{
     public Flights readPrice(String price) {
         return shoppingCartDao.readPrice(price);
     }
+
+    @Override public Airport CreateAirport(String airportId, String airportName,
+        String airportCity)
+    {
+        return airportDao.CreateAirport(airportId,airportName,airportCity);
+
+    }
+
+
 
     @Override
     public InputUser readUser(String user, String password) {

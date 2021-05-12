@@ -7,6 +7,8 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 public interface RMIServer extends Remote {
+    //Airport
+    Airport CreateAirport(String airportId, String airportName, String airportCity) throws RemoteException;
 
     //chat
     InputChat createChat(String chat, double star) throws RemoteException;
@@ -36,6 +38,7 @@ public interface RMIServer extends Remote {
     //seat
     List<Seat> getSeat(int planeId) throws RemoteException;
     Seat getSeatId(int seatID, String seatNumber, String classType) throws RemoteException;
+    Seat CreateSeat(String SeatNumber,String classtype) throws RemoteException;
 
     //passenger
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email) throws RemoteException;

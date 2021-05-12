@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="PDFjet">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/PDFjet.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/java-extentions/PDFjet.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

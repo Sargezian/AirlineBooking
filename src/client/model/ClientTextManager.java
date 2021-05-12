@@ -9,7 +9,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-import java.util.ArrayList;
+import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.List;
 
@@ -119,28 +119,20 @@ public class ClientTextManager implements ClientText {
        return client.getSeatId(seatID,seatNumber,classType);
     }
 
-   /* @Override public Seat CreateSeat(int seatId, String SeatNumber,
+    @Override public Seat CreateSeat(String SeatNumber,
         String classtype)
     {
-        return client.CreateSeat(seatId,SeatNumber,classtype);
+        return client.CreateSeat(SeatNumber,classtype);
     }
 
-    @Override public Airport CreateAirport(int airportID, Depature depature)
+
+    @Override public Airport CreateAirport(String airportId, String airportName, String airportCity)
+        throws RemoteException
     {
-        return client.CreateAirport(airportID, depature);
+        return client.CreateAirport(airportId,airportName,airportCity);
     }
 
-    @Override public Arrival CreateArrival(int arrivalID, String arrival,
-        String arrivalDate)
-    {
-        return client.CreateArrival(arrivalID, arrival, arrivalDate);
-    }
 
-    @Override public Depature CreateDeparture(int departureID, String departure,
-        String departureDate)
-    {
-        return client.CreateDeparture(departureID, departure, departureDate);
-    }*/
     //--------------------------Seat End--------------------------------------------
 
     @Override
