@@ -29,44 +29,6 @@ public class FlightImpl implements FlightDao {
           return daoInstance;
      }
 
-@Override
-  public Flights CreateFlights(String flightID, String flightName, String price ) {
-    try {
-      try (Connection connection = daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO flights(flightID,flightName,price) VALUES (?,?,?)");
-
-        //flights
-
-
-        statement.setString(1,flightID);
-        statement.setString(2, flightName);
-        statement.setString(3,price);
-
-        statement.executeUpdate();
-          return new Flights(flightID,flightName,price);
-      }
-    } catch (SQLException throwables) {
-      throwables.printStackTrace();
-    }
-    return null;
-  }
-
-  @Override
-  public void deleteFlight(Flights flights) {
-    try {
-      try (Connection connection = daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("DELETE From flights WHERE flightID = ? ");
-        statement.setString(1,flights.getFlightID());
-        statement.executeUpdate();
-
-      }
-    } catch (SQLException throwables) {
-      throwables.printStackTrace();
-    }
-
-
-  }
-
 
   @Override
  public List<Flights> getflights() {
@@ -154,40 +116,6 @@ public class FlightImpl implements FlightDao {
     }
     return null;
   }
-
-@Override
-  public List<Flights> getAllTheFLights() {
-    try {
-
-      try (Connection connection = daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("SELECT * FROM flights");
-        ResultSet resultSet = statement.executeQuery();
-
-        ArrayList<Flights> flightlist = new ArrayList<>();
-        while (resultSet.next()) {
-
-          //flight
-          String flightID = resultSet.getString("flightID");
-          String flightName = resultSet.getString("flightName");
-          String price = resultSet.getString("price");
-
-
-
-          Flights flights = new Flights(flightID, flightName,price);
-          flightlist.add(flights);
-        }
-        return flightlist;
-      }
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-    return null;
-  }
-
-
-
-
-
 
 }
 

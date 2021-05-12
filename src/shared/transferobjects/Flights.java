@@ -32,7 +32,17 @@ public class Flights implements Serializable {
         this.price = price;
     }
 
+    public Flights(Arrival arrival) {
+        this.arrival = arrival;
+    }
 
+    public Flights(Depature departure) {
+        this.departure = departure;
+    }
+
+    public Flights(PlaneType planeType) {
+        this.planeType = planeType;
+    }
 
     //departure
     public int getDepartureID() {

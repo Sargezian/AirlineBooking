@@ -205,6 +205,54 @@ public class RMIServerImplement implements RMIServer {
 
     }
 
+    @Override
+    public void registerArrivalToClient(ClientCallBack client) throws RemoteException {
+        PropertyChangeListener listener = null;
+        PropertyChangeListener finalListener = listener;
+        listener = evt -> {
+            try {
+                System.out.println("register ticket to client ");
+                client.updateArrival((Arrival) evt.getNewValue());
+            } catch (RemoteException e) {
+
+                textManager.removeListener(utils.NEWARRIVAL, finalListener);
+            }
+        };
+        textManager.addListener(utils.NEWARRIVAL, listener);
+    }
+
+    @Override
+    public void registerDepartureToClient(ClientCallBack client) throws RemoteException {
+        PropertyChangeListener listener = null;
+        PropertyChangeListener finalListener = listener;
+        listener = evt -> {
+            try {
+                System.out.println("register ticket to client ");
+                client.updateDeparture((Depature) evt.getNewValue());
+            } catch (RemoteException e) {
+
+                textManager.removeListener(utils.NEWDEPARTURE, finalListener);
+            }
+        };
+        textManager.addListener(utils.NEWDEPARTURE, listener);
+    }
+
+    @Override
+    public void registerPlaneToClient(ClientCallBack client) throws RemoteException {
+        PropertyChangeListener listener = null;
+        PropertyChangeListener finalListener = listener;
+        listener = evt -> {
+            try {
+                System.out.println("register ticket to client ");
+                client.updatePlane((PlaneType) evt.getNewValue());
+            } catch (RemoteException e) {
+
+                textManager.removeListener(utils.NEWPLANE, finalListener);
+            }
+        };
+        textManager.addListener(utils.NEWPLANE, listener);
+    }
+
 
     @Override
     public void createTicket(myFlightTicket myFlightTicket) throws RemoteException {
@@ -235,6 +283,51 @@ public class RMIServerImplement implements RMIServer {
     @Override
     public List<Flights> getAllTheFLights() throws RemoteException {
         return textManager.getAllTheFLights();
+    }
+
+    @Override
+    public Arrival CreateArrival(String Arrival, String Arrivaldate) throws RemoteException {
+        return textManager.CreateArrival(Arrival,Arrivaldate);
+    }
+
+    @Override
+    public Depature CreateDeparture(String Departure, String DepartureDate) throws RemoteException {
+        return textManager.CreateDeparture(Departure,DepartureDate);
+    }
+
+    @Override
+    public PlaneType CreatePlane(String PlaneTypes) throws RemoteException {
+        return textManager.CreatePlane(PlaneTypes);
+    }
+
+    @Override
+    public List<PlaneType> getAllPlaneType() throws RemoteException {
+        return textManager.getAllPlaneType();
+    }
+
+    @Override
+    public List<Depature> getAllDeparture() throws RemoteException{
+        return textManager.getAllDeparture();
+    }
+
+    @Override
+    public List<Arrival> getAllArrival()throws RemoteException {
+        return textManager.getAllArrival();
+    }
+
+    @Override
+    public void deleteArrival(Arrival arrival) throws RemoteException {
+        textManager.deleteArrival(arrival);
+    }
+
+    @Override
+    public void deleteDeparture(Depature depature) throws RemoteException {
+           textManager.deleteDeparture(depature);
+    }
+
+    @Override
+    public void deletePlaneType(PlaneType planeType) throws RemoteException {
+           textManager.deletePlaneType(planeType);
     }
 
     @Override

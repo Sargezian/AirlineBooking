@@ -1,6 +1,7 @@
 package shared.transferobjects;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class InputChat implements Serializable {
 
@@ -32,5 +33,16 @@ public class InputChat implements Serializable {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        InputChat inputChat = (InputChat) o;
+        return chat.equals(inputChat.chat) && rating.equals(inputChat.rating);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(chat, rating);
+    }
 }

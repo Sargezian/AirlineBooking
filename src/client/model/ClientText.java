@@ -34,19 +34,21 @@ public interface ClientText extends Subject {
     void deleteFlight(Flights flights);
     List<Flights> getAllTheFLights();
 
+    //admin
+    Arrival CreateArrival(String Arrival, String Arrivaldate);
+    Depature CreateDeparture(String Departure, String DepartureDate);
+    PlaneType CreatePlane(String PlaneTypes);
+    List<PlaneType> getAllPlaneType();
+    List<Depature> getAllDeparture();
+    List<Arrival> getAllArrival();
+    void deleteArrival(Arrival arrival);
+    void deleteDeparture(Depature depature);
+    void deletePlaneType(PlaneType planeType);
 
     //seat
     List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID, String seatNumber, String classType);
-    Seat CreateSeat(String SeatNumber,String classtype);
-
-    //Airport
-   Airport CreateAirport(String airportId, String airportName, String airportCity)
-       throws RemoteException;
-    // Arrival
-    //Arrival CreateArrival(int arrivalID, String arrival,String arrivalDate);
-    // Departure
-   // Depature CreateDeparture(int departureID, String departure, String departureDate)
+    //Seat CreateSeat(int seatId, String SeatNumber,String classtype);
 
     //passenger
     Passenger Createpassernger(String FirstName, String LastName, String TelNumber, String email);

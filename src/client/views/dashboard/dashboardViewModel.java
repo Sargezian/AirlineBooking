@@ -36,14 +36,8 @@ public class dashboardViewModel {
         clock = new SimpleStringProperty();
         clientText.addListener(utils.NEWFLIGHT, this::onNewInputflight);
         clientText.addListener("time", this::clockPropertye);
-        //startClock();
     }
 
-
-
-    private void clockPropertye(PropertyChangeEvent event) {
-        startClock();
-    }
 
     public void loadFlights() {
         List<Flights> flight = clientText.getflights();
@@ -60,6 +54,20 @@ public class dashboardViewModel {
             error.set("Please choose a flight for continue ");
             return false;
         }
+    }
+
+    public void startClock(){
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+
+                clock.setValue(String.valueOf(clientText.cloak()));
+            }
+        });
+    }
+
+    private void clockPropertye(PropertyChangeEvent event) {
+        startClock();
     }
 
     public void search(){
@@ -91,16 +99,6 @@ public class dashboardViewModel {
     }
 
     public StringProperty clockProperty(){return clock;}
-
-    public void startClock(){
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-
-                    clock.setValue(String.valueOf(clientText.cloak()));
-            }
-        });
-    }
 
 
 }
