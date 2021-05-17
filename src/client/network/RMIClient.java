@@ -364,6 +364,20 @@ public class RMIClient implements Client, ClientCallBack
       ; }
   }
 
+  @Override
+  public void deleteSeat(Seat seat) {
+
+    try
+    {
+       server.deleteSeat(seat);
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke oprettet forbindelse til server"); }
+
+
+  }
+
   @Override public List<myFlightTicket> getflightlist(int userId)
   {
     try

@@ -122,6 +122,20 @@ public class SeatImpl implements SeatDao {
         return null;
     }
 
+    @Override
+    public void deleteSeat(Seat seat) {
+        try {
+            try (Connection connection = daoConnection.getConnection()) {
+                PreparedStatement statement = connection.prepareStatement("DELETE From seat WHERE seatID = ? ");
+                statement.setInt(1,seat.seatID);
+                statement.executeUpdate();
+
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
 
 
 

@@ -396,7 +396,10 @@ public class RMIServerImplement implements RMIServer {
         return textManager.CreateSeat(SeatNumber,classtype);
     }
 
-
+    @Override
+    public void deleteSeat(Seat seat) throws RemoteException {
+        textManager.deleteSeat(seat);
+    }
 
 
 }

@@ -107,6 +107,11 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
+    public void deleteSeat(Seat seat) {
+        seatDao.deleteSeat(seat);
+    }
+
+    @Override
     public boolean ValidateUser(String user, String password) {
         return inputUserDao.ValidateUser(user,password);
     }

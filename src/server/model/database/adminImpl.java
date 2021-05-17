@@ -61,7 +61,7 @@ public class adminImpl implements adminDao {
     public void deleteFlight(Flights flights) {
         try {
             try (Connection connection = daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("DELETE From flights,Arrival,departures,planeType WHERE flightID = ? ");
+                PreparedStatement statement = connection.prepareStatement("DELETE From flights WHERE flightID = ? ");
                 statement.setString(1,flights.getFlightID());
                 statement.executeUpdate();
 

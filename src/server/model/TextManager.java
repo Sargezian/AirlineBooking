@@ -28,6 +28,7 @@ public interface TextManager extends Subject {
     List<Seat> getSeat(int planeId);
     Seat getSeatID(int seatID, String seatNumber, String classType);
     Seat CreateSeat(String SeatNumber,String classtype);
+    void deleteSeat(Seat seat);
 
     //flight
     List<Flights> getflights();

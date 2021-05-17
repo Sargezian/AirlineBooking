@@ -208,6 +208,12 @@ public class ClientTextManager implements ClientText {
         return client.CreateSeat(SeatNumber,classtype);
     }
 
+    @Override
+    public void deleteSeat(Seat seat) {
+        client.deleteSeat(seat);
+
+    }
+
 
     @Override public Airport CreateAirport(String airportId, String airportName, String airportCity)
 

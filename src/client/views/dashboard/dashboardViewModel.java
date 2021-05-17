@@ -18,10 +18,6 @@ import java.util.List;
 public class dashboardViewModel {
 
 
-    // TODO: 04/05/2021 lave admin side
-
-
-
     private ClientText clientText;
     private ObservableList<Flights> flights;
     private StringProperty search;
