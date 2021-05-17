@@ -67,7 +67,7 @@ public class chatViewController implements ViewController {
 
         barChart.getData().add(vm.getSeries());
 
-        vm.setUser(vmf.getloginViewModel().getNavn());
+        vm.setUser(vmf.getcreateUserViewModel().getCreateUser());
         vm.setCounter();
         vm.setAverage();
         visible();

@@ -2,6 +2,7 @@ package client.views.dashboard;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
+import client.model.SaveInfo;
 import client.views.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -74,14 +75,19 @@ public class dashboardViewController implements ViewController {
     }
 
     public void OnLogin(ActionEvent actionEvent) {
+        SaveInfo.getInstance().reset();
         vh.openLoginView();
     }
 
 
     public void onNext(ActionEvent actionEvent) {
         if(dv.getFlightInformation(tableView.getSelectionModel().getSelectedItem())) {
+            tableView.refresh();
             vh.openSeat();
+
         }
+
+
 
     }
 
@@ -91,6 +97,7 @@ public class dashboardViewController implements ViewController {
 
 
     public void onReviews(ActionEvent actionEvent) {
+        SaveInfo.getInstance().reset();
         vh.openToChatView();
     }
 

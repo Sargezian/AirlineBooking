@@ -15,7 +15,8 @@ public class SaveInfo {
     private Arrival arrival;
     private Depature depature;
     private PlaneType planeType;
-
+    private Passenger passenger;
+    private InputUser user;
 
     public Airport getAirport()
     {
@@ -47,8 +48,7 @@ public class SaveInfo {
         this.depature = depature;
     }
 
-    private Passenger passenger;
-    private InputUser user;
+
 
     public static SaveInfo getInstance() {
 
@@ -99,12 +99,14 @@ public class SaveInfo {
 
     public void reset(){
         System.out.println("Her sætter vi flights til null");
-    setFlights(null);
+        setFlights(null);
+        setSeat(null);
+        setPassenger(null);
+        setUser(null);
         System.out.println("Her getter vi en user " + getUser());
     }
 
     public void resetSeat(){
-        setSeat(null);
 
     }
 

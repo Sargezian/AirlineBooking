@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="1444.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.admin.Seatviewcontroller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="1444.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.admin.Seatviewcontroller">
    <children>
       <Button layoutX="3.0" layoutY="382.0" mnemonicParsing="false" onAction="#onBack" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Back" textFill="WHITE" />
       <Button fx:id="add" layoutX="550.0" layoutY="382.0" mnemonicParsing="false" onAction="#onAdd" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Add" textFill="WHITE" />
@@ -55,11 +55,12 @@
       <Separator layoutX="14.0" layoutY="354.0" prefHeight="3.0" prefWidth="200.0" />
       <Separator layoutX="308.0" layoutY="249.0" prefHeight="3.0" prefWidth="200.0" />
       <Separator layoutX="14.0" layoutY="250.0" prefHeight="3.0" prefWidth="200.0" />
-      <TableView fx:id="SeatTableview" layoutX="719.0" layoutY="47.0" prefHeight="329.0" prefWidth="316.0">
+      <TableView fx:id="SeatTableview" layoutX="707.0" layoutY="47.0" prefHeight="329.0" prefWidth="342.0">
         <columns>
           <TableColumn fx:id="SeatIDCoulmn" prefWidth="77.0" text="SeatId" />
-          <TableColumn fx:id="SeatNumberCoulmn" prefWidth="94.0" text="SeatNumber" />
-            <TableColumn fx:id="ClassTypeCoulmn" prefWidth="144.0" text="ClassType" />
+          <TableColumn fx:id="SeatNumberCoulmn" text="SeatNumber" />
+            <TableColumn fx:id="ClassTypeCoulmn" prefWidth="112.0" text="ClassType" />
+            <TableColumn fx:id="planeIDCoulmn" prefWidth="75.0" text="planeId" />
         </columns>
       </TableView>
       <TableView fx:id="AirportTableView" layoutX="1073.0" layoutY="47.0" prefHeight="329.0" prefWidth="342.0">

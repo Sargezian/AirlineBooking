@@ -10,7 +10,9 @@ import javafx.scene.layout.Pane;
 import shared.transferobjects.PlaneType;
 import shared.transferobjects.Seat;
 import shared.transferobjects.Flights;
+import shared.util.utils;
 
+import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +28,13 @@ public class seatViewModel {
     public seatViewModel(ClientText clientText) {
         this.clientText = clientText;
         this.error = new SimpleStringProperty();
+        clientText.addListener(utils.NEWSEAT,this::Onnewseats);
+        clientText.addListener(utils.NEWFLIGHT,this::Onnewseats);
         //SaveInfo.getInstance().setSeat(clientText.seat(seatNumber,classType));
+    }
+
+    private void Onnewseats(PropertyChangeEvent propertyChangeEvent) {
+        loadSeat();
     }
 
 /*
@@ -50,8 +58,8 @@ public class seatViewModel {
     }*/
 
     public void loadSeat() {
-        PlaneType planeType = SaveInfo.getInstance().getPlaneType();
-        List<Seat> seat = clientText.getSeat(planeType.getPlaneId());
+        Flights flights = SaveInfo.getInstance().getFlights();
+        List<Seat> seat = clientText.getSeat(flights.getPlaneId());
         Seats = FXCollections.observableArrayList(seat);
         //Collections.addAll(, selectedrows);
     }

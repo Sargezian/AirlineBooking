@@ -45,6 +45,7 @@ public class Seatviewcontroller implements ViewController
     public TableColumn<String,Airport> AirportNameCoulmn;
     @FXML
     public TableColumn<String,Airport> AirportCityCoulmn;
+    public TableColumn<Integer,Seat> planeIDCoulmn;
 
     private ViewHandler vh;
     private Seatviewmodel av;
@@ -59,6 +60,7 @@ public void init(ViewHandler vh, ViewModelFactory vmf) {
     SeatIDCoulmn.setCellValueFactory(new PropertyValueFactory<>("seatID"));
     SeatNumberCoulmn.setCellValueFactory(new PropertyValueFactory<>("seatNumber"));
     ClassTypeCoulmn.setCellValueFactory(new PropertyValueFactory<>("classType"));
+    planeIDCoulmn.setCellValueFactory(new PropertyValueFactory<>("planeId"));
 
 
     AirportIdCoulmn.setCellValueFactory(new PropertyValueFactory<>("AirportID"));

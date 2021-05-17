@@ -46,27 +46,15 @@ public class seatViewController implements ViewController {
         errorlabel.textProperty().bind(sv.errorProperty());
         tableView.setItems(sv.getSeat());
 
-    }
-
-   /* public Pane getPane(int id)
-    {
-        for (Pane pane : paneArrayList)
-        {
-            if (pane.idProperty().get().equals(id))
-            {
-                return pane;
-            }
-        }
-        return null;
 
     }
-*/
 
 
 
     public void onBack(ActionEvent actionEvent) {
         SaveInfo.getInstance().reset();
-        SaveInfo.getInstance().resetSeat();
+        tableView.refresh();
+
         vh.openToDashView();
     }
 

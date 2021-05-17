@@ -110,8 +110,8 @@ public class Seatviewmodel {
 
 
   public void loadSeat() {
-    List<Seat> seats = clientText.getSeats();
-    seatObservableList = FXCollections.observableArrayList(seats);
+    List<Seat> seat = clientText.getSeats();
+    seatObservableList = FXCollections.observableArrayList(seat);
   }
 
 
