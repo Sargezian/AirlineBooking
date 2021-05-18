@@ -40,6 +40,8 @@ public class dashboardViewModel {
         flights = FXCollections.observableArrayList(flight);
     }
 
+
+
     public boolean getFlightInformation(Flights flights) {
 
         if (flights != null) {

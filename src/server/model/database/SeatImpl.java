@@ -122,6 +122,20 @@ public class SeatImpl implements SeatDao {
         return null;
     }
 
+    @Override public List<Seat> countSeats()
+    {
+        try {
+            try (Connection connection = daoConnection.getConnection()) {
+                PreparedStatement statement = connection.prepareStatement("select count(*) from seat where planeID = ?");
+                statement.executeUpdate();
+
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
+
     @Override
     public void deleteSeat(Seat seat) {
         try {

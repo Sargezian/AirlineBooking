@@ -107,6 +107,15 @@ public class TextManagerImpl implements TextManager{
     }
 
     @Override
+    public Seat countSeat()
+    {
+        List<Seat> counter = seatDao.countSeats();
+        System.out.println(counter);
+        return (Seat) counter;
+    }
+
+
+    @Override
     public void deleteSeat(Seat seat) {
         seatDao.deleteSeat(seat);
     }

@@ -56,6 +56,7 @@ public interface RMIServer extends Remote {
     List<Seat> getSeat(int planeId) throws RemoteException;
     Seat getSeatId(int seatID, String seatNumber, String classType) throws RemoteException;
     Seat CreateSeat(String SeatNumber,String classtype) throws RemoteException;
+    Seat countSeat() throws RemoteException;
     void deleteSeat(Seat seat) throws RemoteException;
 
     //passenger

@@ -56,6 +56,7 @@ public interface Client extends Subject {
     List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID, String seatNumber, String classType);
     Seat CreateSeat(String SeatNumber,String classtype);
+    Seat countSeat();
     void deleteSeat(Seat seat);
 
     //passenger

@@ -10,9 +10,6 @@ public interface SeatDao {
     Seat getSeatId(int seatID,String seatNumber, String classType);
     Seat CreateSeat(String SeatNumber,String classtype);
     List<Seat> getSeats();
+    List<Seat> countSeats();
     void deleteSeat(Seat seat);
-
-
-
-
 }

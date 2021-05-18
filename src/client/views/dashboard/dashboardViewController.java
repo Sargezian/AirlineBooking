@@ -77,6 +77,7 @@ public class dashboardViewController implements ViewController {
     public void OnLogin(ActionEvent actionEvent) {
         SaveInfo.getInstance().reset();
         vh.openLoginView();
+
     }
 
 
@@ -84,6 +85,7 @@ public class dashboardViewController implements ViewController {
         if(dv.getFlightInformation(tableView.getSelectionModel().getSelectedItem())) {
             tableView.refresh();
             vh.openSeat();
+
 
         }
 

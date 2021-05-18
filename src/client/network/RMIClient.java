@@ -364,6 +364,18 @@ public class RMIClient implements Client, ClientCallBack
       ; }
   }
 
+  @Override public Seat countSeat()
+  {
+    try
+    {
+      return server.countSeat();
+    }
+    catch (RemoteException e)
+    {
+      throw new RuntimeException("Kunne ikke oprettet forbindelse til server")
+          ; }
+  }
+
   @Override
   public void deleteSeat(Seat seat) {
 
@@ -374,9 +386,8 @@ public class RMIClient implements Client, ClientCallBack
     catch (RemoteException e)
     {
       throw new RuntimeException("Kunne ikke oprettet forbindelse til server"); }
-
-
   }
+
 
   @Override public List<myFlightTicket> getflightlist(int userId)
   {

@@ -208,6 +208,11 @@ public class ClientTextManager implements ClientText {
         return client.CreateSeat(SeatNumber,classtype);
     }
 
+    @Override public Seat countSeat()
+    {
+        return client.countSeat();
+    }
+
     @Override
     public void deleteSeat(Seat seat) {
         client.deleteSeat(seat);

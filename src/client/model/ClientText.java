@@ -53,6 +53,7 @@ public interface ClientText extends Subject {
     List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID, String seatNumber, String classType);
     Seat CreateSeat(String SeatNumber,String classtype);
+    Seat countSeat();
     void deleteSeat(Seat seat);
 
     //passenger
@@ -75,7 +76,7 @@ public interface ClientText extends Subject {
     Flights readPrice(String price);
 
 
-
+    //Clock
     Object cloak();
 
 

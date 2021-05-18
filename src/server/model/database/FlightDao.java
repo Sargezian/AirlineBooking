@@ -12,6 +12,8 @@ public interface FlightDao
 
   List<Flights> readByName(String searchString);
 
+  List<Flights> updateFlight(Flights flights);
+
 
 
 }
