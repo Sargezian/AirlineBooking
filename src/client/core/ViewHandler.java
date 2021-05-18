@@ -4,6 +4,7 @@ import client.views.Payment.paymentViewController;
 import client.views.Payment.paymentViewModel;
 import client.views.ViewController;
 import client.views.admin.Seatviewcontroller;
+import client.views.chat.chatViewController;
 import client.views.myflightplan.myflightplanViewController;
 import client.views.passenger.passengerViewController;
 import client.views.seat.seatViewController;
@@ -24,6 +25,7 @@ public class ViewHandler {
     private seatViewController seatController;
     private passengerViewController passengerViewController;
     private paymentViewController paymentViewModel;
+    private chatViewController chatViewController;
 
     private class loadFxmlresult{
         private Parent root;
@@ -123,7 +125,10 @@ public class ViewHandler {
     public void openToChatView() {
         if (chatScene == null) {
             try {
-                Parent root = loadFXML("../views/chat/chat.fxml").getRoot();
+                loadFxmlresult loadFxmlresult = loadFXML(
+                    "../views/chat/chat.fxml");
+                Parent root = loadFxmlresult.getRoot();
+                chatViewController= (client.views.chat.chatViewController) loadFxmlresult.getController();
 
                 stage.setTitle("Chat");
                 chatScene = new Scene(root);
@@ -131,6 +136,7 @@ public class ViewHandler {
                 e.printStackTrace();
             }
         }
+        chatViewController.reloadchatview();
         stage.setScene(chatScene);
         stage.show();
     }

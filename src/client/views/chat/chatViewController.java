@@ -70,11 +70,11 @@ public class chatViewController implements ViewController {
         vm.setUser(vmf.getcreateUserViewModel().getCreateUser());
         vm.setCounter();
         vm.setAverage();
-        visible();
+
 
         starList.setItems(vm.getRatings());
         vm.setBarchart((Rating) starList.getSelectionModel().getSelectedItem());
-
+        reloadchatview();
     }
 
     private void visible() {
@@ -113,4 +113,9 @@ public class chatViewController implements ViewController {
     public void onBackDashboard(ActionEvent actionEvent) {
         vh.openToDashView();
     }
+
+  public void reloadchatview()
+  {
+      visible();
+  }
 }
