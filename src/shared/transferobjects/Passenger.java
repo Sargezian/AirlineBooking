@@ -1,6 +1,7 @@
 package shared.transferobjects;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Passenger implements Serializable
 {
@@ -57,5 +58,18 @@ public class Passenger implements Serializable
                 ", TelNumber='" + TelNumber + '\'' +
                 ", Email='" + Email + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Passenger)) return false;
+        Passenger passenger = (Passenger) o;
+        return getPassengerID() == passenger.getPassengerID() && Objects.equals(getFirstName(), passenger.getFirstName()) && Objects.equals(getLastName(), passenger.getLastName()) && Objects.equals(getTelNumber(), passenger.getTelNumber()) && Objects.equals(getEmail(), passenger.getEmail());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getPassengerID(), getFirstName(), getLastName(), getTelNumber(), getEmail());
     }
 }

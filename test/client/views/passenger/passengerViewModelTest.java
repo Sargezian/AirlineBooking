@@ -19,8 +19,8 @@ class passengerViewModelTest
     passengerDao = new PassengerImpl();
   }
 
-//  @Test
-  /*public void testifwecanreadfromdatabase(){
+ @Test
+  public void testifwecanreadfromdatabase(){
 
 
     Passenger passenger = new Passenger("hej","Hej","12345678","Mark@gmail.com");
@@ -30,6 +30,6 @@ class passengerViewModelTest
     assertEquals(test,passengerDao.ReadPassenger(test.FirstName,
         test.LastName, test.TelNumber, test.Email));
 
-  }*/
+  }
 
 }

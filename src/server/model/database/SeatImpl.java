@@ -140,7 +140,7 @@ public class SeatImpl implements SeatDao {
     public void deleteSeat(Seat seat) {
         try {
             try (Connection connection = daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("UPDATE seat SET seatNumber = seatNumber WHERE seatID = ? ");
+                PreparedStatement statement = connection.prepareStatement("delete from seat WHERE seatID = ?");
                 statement.setInt(1,seat.seatID);
                 statement.executeUpdate();
 
