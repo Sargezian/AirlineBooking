@@ -5,8 +5,7 @@ import client.model.SaveInfo;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import shared.transferobjects.Passenger;
-import shared.transferobjects.Flights;
+import shared.transferobjects.*;
 import shared.util.utils;
 
 import java.beans.PropertyChangeEvent;
@@ -53,6 +52,27 @@ public class paymentViewModel {
 
     private void onNewTicket(PropertyChangeEvent propertyChangeEvent) {
         SetPassengerInfomation();
+
+    }
+
+
+    public void createTicket() {
+
+        Flights ft = SaveInfo.getInstance().getFlights();
+        System.out.println("Gets SavedInfo from flights = " + SaveInfo.getInstance().getFlights());
+
+        Seat st = SaveInfo.getInstance().getSeat();
+        System.out.println("Gets SavedInfo from seats = " + SaveInfo.getInstance().getSeat());
+
+        Passenger pg = SaveInfo.getInstance().getPassenger();
+        System.out.println("Gets SavedInfo from passenger = " + SaveInfo.getInstance().getPassenger());
+
+        InputUser user = SaveInfo.getInstance().getUser();
+        System.out.println("Gets SavedInfo from Inputuser = " + SaveInfo.getInstance().getUser());
+
+        myFlightTicket myFlightTicket1 = new myFlightTicket(String.valueOf(1),pg,ft,st,user);
+
+        clientText.createTicket(myFlightTicket1);
 
     }
 

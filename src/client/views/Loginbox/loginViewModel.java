@@ -22,25 +22,7 @@ public class loginViewModel {
 
     }
 
-    public void createTicket() {
 
-        Flights ft = SaveInfo.getInstance().getFlights();
-        System.out.println("Gets SavedInfo from flights = " + SaveInfo.getInstance().getFlights());
-
-        Seat st = SaveInfo.getInstance().getSeat();
-        System.out.println("Gets SavedInfo from seats = " + SaveInfo.getInstance().getSeat());
-
-        Passenger pg = SaveInfo.getInstance().getPassenger();
-        System.out.println("Gets SavedInfo from passenger = " + SaveInfo.getInstance().getPassenger());
-
-        InputUser user = SaveInfo.getInstance().getUser();
-        System.out.println("Gets SavedInfo from Inputuser = " + SaveInfo.getInstance().getUser());
-
-        myFlightTicket myFlightTicket1 = new myFlightTicket(String.valueOf(1),pg,ft,st,user);
-
-        clientText.createTicket(myFlightTicket1);
-
-    }
 
     public void clearFields() {
         navn.setValue("");

@@ -58,6 +58,9 @@ public class passengerViewModel {
     }
 
 
+
+
+
     public void SetShoppingCart() {
 
         Flights flights = SaveInfo.getInstance().getFlights();
@@ -262,5 +265,5 @@ public class passengerViewModel {
         return price;
     }
 
-    // TODO: 25/04/2021 shoppingcart propertychange skal virke (alle)
+
 }

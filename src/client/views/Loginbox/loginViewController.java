@@ -52,7 +52,7 @@ public class loginViewController implements ViewController {
 
                     vh.openPaymentView();
 
-                    viewModel.createTicket();
+
                     //  SaveInfo.getInstance().reset();
                     viewModel.clearFields();
 
