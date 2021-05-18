@@ -1,5 +1,7 @@
 package client.core;
 
+import client.views.Payment.paymentViewController;
+import client.views.Payment.paymentViewModel;
 import client.views.ViewController;
 import client.views.admin.Seatviewcontroller;
 import client.views.myflightplan.myflightplanViewController;
@@ -21,6 +23,7 @@ public class ViewHandler {
     private ViewModelFactory vmf;
     private seatViewController seatController;
     private passengerViewController passengerViewController;
+    private paymentViewController paymentViewModel;
 
     private class loadFxmlresult{
         private Parent root;
@@ -170,13 +173,17 @@ public class ViewHandler {
     public void openPaymentView() {
         if (paymentScene == null) {
             try {
-                Parent root = loadFXML("../views/Payment/payment.fxml").getRoot();
+                loadFxmlresult loadFxmlresult = loadFXML(
+                    "../views/Payment/payment.fxml");
+                Parent root = loadFxmlresult.getRoot();
+                paymentViewModel = (paymentViewController) loadFxmlresult.getController();
                 stage.setTitle("payment");
                 paymentScene = new Scene(root);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+        paymentViewModel.reloadpayment();
         stage.setScene(paymentScene);
         stage.show();
     }

@@ -42,7 +42,7 @@ public class paymentViewController implements ViewController {
         getPhone.textProperty().bind(pv.phoneProperty());
         errorlabel.textProperty().bind(pv.errorProperty());
         getPrice.textProperty().bind(pv.priceProperty());
-        pv.SetPassengerInfomation();
+        reloadpayment();
     }
 
     public void OnCheckOut(ActionEvent actionEvent) {
@@ -52,4 +52,9 @@ public class paymentViewController implements ViewController {
             pv.clearFields();
         }
     }
+
+  public void reloadpayment()
+  {
+      pv.SetPassengerInfomation();
+  }
 }
