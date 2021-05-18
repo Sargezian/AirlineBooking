@@ -1,7 +1,10 @@
 package client.core;
 
 import client.views.ViewController;
+import client.views.admin.Seatviewcontroller;
 import client.views.myflightplan.myflightplanViewController;
+import client.views.passenger.passengerViewController;
+import client.views.seat.seatViewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,6 +19,9 @@ public class ViewHandler {
     private myflightplanViewController mfv;
     private Stage stage;
     private ViewModelFactory vmf;
+    private seatViewController seatController;
+    private passengerViewController passengerViewController;
+
     private class loadFxmlresult{
         private Parent root;
         private ViewController controller;
@@ -94,7 +100,10 @@ public class ViewHandler {
     public void openSeat() {
         if (seatScene == null) {
             try {
-                Parent root = loadFXML("../views/seat/seat.fxml").getRoot();
+                loadFxmlresult loadFxmlresult = loadFXML(
+                    "../views/seat/seat.fxml");
+                Parent root = loadFxmlresult.getRoot();
+                seatController = (seatViewController) loadFxmlresult.getController();
 
                 stage.setTitle("seat");
                 seatScene = new Scene(root);
@@ -102,6 +111,7 @@ public class ViewHandler {
                 e.printStackTrace();
             }
         }
+        seatController.reloadSeats();
         stage.setScene(seatScene);
         stage.show();
     }
@@ -125,7 +135,11 @@ public class ViewHandler {
     public void openPassengerView() {
         if (passengerScene == null) {
             try {
-                Parent root = loadFXML("../views/passenger/passenger.fxml").getRoot();
+                loadFxmlresult loadFxmlresult = loadFXML(
+                    "../views/passenger/passenger.fxml");
+                Parent root = loadFxmlresult.getRoot();
+               passengerViewController = (client.views.passenger.passengerViewController) loadFxmlresult.getController();
+
 
                 stage.setTitle("passenger");
                 passengerScene = new Scene(root);
@@ -133,6 +147,7 @@ public class ViewHandler {
                 e.printStackTrace();
             }
         }
+        passengerViewController.reloadpassenger();
         stage.setScene(passengerScene);
         stage.show();
     }

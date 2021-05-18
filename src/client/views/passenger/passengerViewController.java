@@ -52,7 +52,7 @@ public class passengerViewController implements ViewController {
         ClassType.textProperty().bind(pv.classTypeProperty());
         error.textProperty().bind(pv.errorProperty());
         TotalPrice.textProperty().bind(pv.priceProperty());
-        pv.SetShoppingCart();
+        reloadpassenger();
 
     }
 
@@ -69,7 +69,8 @@ public class passengerViewController implements ViewController {
         }
     }
 
-
-
-
+  public void reloadpassenger()
+  {
+      pv.SetShoppingCart();
+  }
 }

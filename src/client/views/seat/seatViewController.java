@@ -39,12 +39,11 @@ public class seatViewController implements ViewController {
 
        this.vh = vh;
         sv = vmf.getseatViewModel();
-        sv.loadSeat();
         seatIDColumn.setCellValueFactory(new PropertyValueFactory<>("seatID"));
         seatNumberColumn.setCellValueFactory(new PropertyValueFactory<>("seatNumber"));
         classTypeColumn.setCellValueFactory(new PropertyValueFactory<>("classType"));
         errorlabel.textProperty().bind(sv.errorProperty());
-        tableView.setItems(sv.getSeat());
+
 
 
     }
@@ -71,6 +70,12 @@ public class seatViewController implements ViewController {
     public void openLogin(ActionEvent actionEvent) {
         vh.openLoginView();
     }
+
+  public void reloadSeats()
+  {
+    sv.loadSeat();
+    tableView.setItems(sv.getSeat());
+  }
 
 
 
