@@ -92,6 +92,10 @@ public class seatViewModel {
     public StringProperty errorProperty() {
         return error;
     }
-    
 
+
+    public void deleteSeat(Seat Seat) {
+        clientText.deleteSeat(Seat);
+
+    }
 }

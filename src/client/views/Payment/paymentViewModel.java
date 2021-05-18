@@ -56,6 +56,10 @@ public class paymentViewModel {
     }
 
 
+
+
+
+
     public void createTicket() {
 
         Flights ft = SaveInfo.getInstance().getFlights();
@@ -71,11 +75,11 @@ public class paymentViewModel {
         System.out.println("Gets SavedInfo from Inputuser = " + SaveInfo.getInstance().getUser());
 
         myFlightTicket myFlightTicket1 = new myFlightTicket(String.valueOf(1),pg,ft,st,user);
+        clientText.deleteSeat(st);
 
         clientText.createTicket(myFlightTicket1);
 
-    }
-
+}
     public void SetPassengerInfomation() {
 
         Passenger pg = SaveInfo.getInstance().getPassenger();

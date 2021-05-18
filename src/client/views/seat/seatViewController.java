@@ -59,7 +59,7 @@ public class seatViewController implements ViewController {
 
     public void onNext(ActionEvent actionEvent) {
         if (sv.getSeatInformation(tableView.getSelectionModel().getSelectedItem())) {
-            /*sv.deleteSeat(tableView.getSelectionModel().getSelectedItem());*/
+          //  sv.deleteSeat(tableView.getSelectionModel().getSelectedItem());
             vh.openPassengerView();
             //fjerne select
 
