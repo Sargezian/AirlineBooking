@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="791.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.seat.seatViewController">
+    <children>
+      <Line endX="174.0" endY="-5.0" layoutX="352.0" layoutY="60.0" startX="-21.0" startY="-6.0" />
+        <TableView fx:id="tableView" layoutX="29.0" layoutY="132.0" prefHeight="144.0" prefWidth="603.0">
+            <columns>
+                <TableColumn fx:id="seatIDColumn" prefWidth="186.0" text="seatID" />
+                <TableColumn fx:id="seatNumberColumn" prefWidth="165.0" text="seatNumber" />
+                <TableColumn fx:id="classTypeColumn" prefWidth="210.0" text="classType" />
+            </columns>
+        </TableView>
+        <Button layoutX="184.0" layoutY="531.0" mnemonicParsing="false" onAction="#onBack" prefHeight="34.0" prefWidth="98.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Back" textFill="WHITE" />
+        <Button layoutX="458.0" layoutY="531.0" mnemonicParsing="false" onAction="#onNext" prefHeight="34.0" prefWidth="88.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Next" textFill="WHITE" />
+        <Label layoutX="29.0" layoutY="74.0" prefHeight="52.0" prefWidth="391.0" text="Seat ">
+            <font>
+                <Font name="Tahoma Bold" size="24.0" />
+            </font>
+        </Label>
+      <AnchorPane layoutX="162.0" layoutY="301.0" prefHeight="200.0" prefWidth="427.0" style="-fx-background-color: lightblue;">
+         <children>
+            <!--<Pane fx:id="i1" layoutX="15.0" layoutY="17.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="i2" layoutX="15.0" layoutY="39.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="i3" layoutX="15.0" layoutY="60.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="i4" layoutX="14.0" layoutY="98.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="i5" layoutX="14.0" layoutY="124.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="i6" layoutX="14.0" layoutY="148.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="h1" layoutX="46.0" layoutY="17.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="g1" layoutX="79.0" layoutY="18.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="f1" layoutX="116.0" layoutY="18.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="c4" layoutX="203.0" layoutY="98.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="h2" layoutX="45.0" layoutY="40.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="h3" layoutX="45.0" layoutY="61.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="g2" layoutX="79.0" layoutY="39.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="g3" layoutX="79.0" layoutY="60.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="d6" layoutX="168.0" layoutY="148.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="d5" layoutX="168.0" layoutY="124.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="d4" layoutX="168.0" layoutY="98.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="e6" layoutX="135.0" layoutY="148.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="e5" layoutX="135.0" layoutY="124.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="e4" layoutX="135.0" layoutY="98.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="f4" layoutX="105.0" layoutY="98.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="f5" layoutX="105.0" layoutY="124.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="f6" layoutX="105.0" layoutY="148.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="g6" layoutX="79.0" layoutY="148.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="g5" layoutX="79.0" layoutY="124.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="g4" layoutX="79.0" layoutY="98.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="h4" layoutX="46.0" layoutY="98.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="h5" layoutX="45.0" layoutY="124.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="h6" layoutX="45.0" layoutY="148.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="a3" layoutX="279.0" layoutY="61.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="a2" layoutX="279.0" layoutY="40.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="a1" layoutX="279.0" layoutY="17.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="b3" layoutX="246.0" layoutY="61.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="b2" layoutX="246.0" layoutY="40.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="b1" layoutX="246.0" layoutY="18.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="c3" layoutX="213.0" layoutY="60.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="c2" layoutX="213.0" layoutY="39.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="c1" layoutX="213.0" layoutY="18.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="d3" layoutX="179.0" layoutY="61.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="d2" layoutX="179.0" layoutY="40.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="d1" layoutX="179.0" layoutY="18.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="a6" layoutX="268.0" layoutY="148.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="a5" layoutX="268.0" layoutY="124.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="a4" layoutX="268.0" layoutY="99.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="e3" layoutX="146.0" layoutY="60.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="e2" layoutX="146.0" layoutY="39.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="e1" layoutX="146.0" layoutY="18.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="f3" layoutX="116.0" layoutY="61.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="f2" layoutX="116.0" layoutY="40.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="b4" layoutX="235.0" layoutY="98.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="b5" layoutX="235.0" layoutY="124.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="b6" layoutX="235.0" layoutY="148.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="c5" layoutX="202.0" layoutY="124.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />
+            <Pane fx:id="c6" layoutX="203.0" layoutY="148.0" onMouseClicked="#Setcolor" prefHeight="18.0" prefWidth="21.0" style="-fx-background-color: lightgreen;" />-->
+         </children>
+      </AnchorPane>
+      <Circle fill="#37a1ff" layoutX="233.0" layoutY="54.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Line endX="76.0" endY="-6.0" layoutX="255.0" layoutY="60.0" startX="-21.0" startY="-6.0" stroke="#37a1ff" />
+      <Circle fill="#37a1ff" layoutX="331.0" layoutY="54.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="429.0" layoutY="55.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fill="WHITE" layoutX="526.0" layoutY="55.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+      <Label layoutX="218.0" layoutY="75.0" text="Flight">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="318.0" layoutY="75.0" text="Seat" />
+      <Label layoutX="400.0" layoutY="75.0" text="Passenger" />
+      <Label layoutX="502.0" layoutY="75.0" text="Payment" />
+    </children>
+</AnchorPane>
