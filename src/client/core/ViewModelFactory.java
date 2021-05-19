@@ -22,8 +22,6 @@ public class ViewModelFactory {
     private paymentViewModel paymentViewModel;
     private createUserViewModel createUserViewModel;
     private adminFlightViewModel adminViewModel;
-    private Seatviewmodel seatviewmodel1;
-    private AirportViewmodel airportViewmodel;
 
     public ViewModelFactory(ModelFactory mf) {
         this.mf = mf;
@@ -81,19 +79,6 @@ public class ViewModelFactory {
         return (adminViewModel = adminViewModel == null ?
                 new adminFlightViewModel(mf.getClientText()) :
                 adminViewModel);
-    }
-
-    public Seatviewmodel getSeatViewModel() {
-        return (seatviewmodel1 = seatViewModel == null ?
-                new Seatviewmodel(mf.getClientText()) :
-                seatviewmodel1);
-    }
-
-    public AirportViewmodel getAirportviewmodel() {
-        return (airportViewmodel = airportViewmodel == null ?
-                new AirportViewmodel(mf.getClientText()) :
-                airportViewmodel);
-
     }
 
 }

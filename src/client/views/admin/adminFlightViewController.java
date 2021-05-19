@@ -13,7 +13,6 @@ import shared.transferobjects.*;
 
 public class adminFlightViewController implements ViewController {
 
-
     @FXML public TableView<Flights> FlightTableview;
     @FXML
     public TextField FlightName;
@@ -37,7 +36,7 @@ public class adminFlightViewController implements ViewController {
     public TextField Departuredate;
     @FXML
     public TextField PlaneTypes;
-   
+
 
     @FXML
     public TableColumn<Integer,Flights> ArrivalIDCoulmn;
@@ -45,14 +44,14 @@ public class adminFlightViewController implements ViewController {
     public TableColumn<String, Flights> ArrivalsColumn;
     @FXML
     public TableColumn<String, Flights> ArrivalDateCoulmn;
-  
+
     @FXML
     public TableColumn<Integer,Flights> DepartureIDCoulmn;
     @FXML
     public TableColumn<String, Flights> DeparturesCoulmn;
     @FXML
     public TableColumn<String, Flights> DepartureeDateCoulmn;
-  
+
     @FXML
     public TableColumn<Integer,Flights> PlaneIDCoulmn;
     @FXML
@@ -63,6 +62,38 @@ public class adminFlightViewController implements ViewController {
     public TableView<Depature> DepartureTableview;
     @FXML
     public TableView<PlaneType> PlaneTableview;
+
+
+    @FXML
+    public TextField airportId;
+    @FXML
+    public TextField airportName;
+    @FXML
+    public TextField airportCity;
+
+    @FXML
+    public TextField seatNumber;
+    @FXML
+    public TextField classType;
+    @FXML
+    public TableView<Seat> SeatTableview;
+    @FXML
+    public TableColumn<String,Seat> SeatIDCoulmn;
+    @FXML
+    public TableColumn<String,Seat> SeatNumberCoulmn;
+    @FXML
+    public TableColumn<String,Seat> ClassTypeCoulmn;
+
+    @FXML
+    public TableView <Airport>AirportTableView;
+    @FXML
+    public TableColumn<String,Airport> AirportIdCoulmn;
+    @FXML
+    public TableColumn<String,Airport> AirportNameCoulmn;
+    @FXML
+    public TableColumn<String,Airport> AirportCityCoulmn;
+    public TableColumn<Integer,Seat> planeIDCoulmn;
+
 
 
     private ViewHandler vh;
@@ -77,13 +108,15 @@ public class adminFlightViewController implements ViewController {
         av.loadArrival();
         av.loadPlane();
         av.loadDeparture();
+        av.loadSeat();
+        av.loadAirport();
 
         FlightIdCoulmn.setCellValueFactory(new PropertyValueFactory<>("FlightID"));
         FlightNameColumn.setCellValueFactory(new PropertyValueFactory<>("flightName"));
         PriceCoulmn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         PlaneIDCoulmn.setCellValueFactory(new PropertyValueFactory<>("PlaneId"));
-        PlaneTypesCoulmn.setCellValueFactory(new PropertyValueFactory<>("PlaneType"));
+        PlaneTypesCoulmn.setCellValueFactory(new PropertyValueFactory<>("planeType"));
 
 
         DepartureIDCoulmn.setCellValueFactory(new PropertyValueFactory<>("DepartureID"));
@@ -95,6 +128,17 @@ public class adminFlightViewController implements ViewController {
         ArrivalsColumn.setCellValueFactory(new PropertyValueFactory<>("Arrival"));
         ArrivalDateCoulmn.setCellValueFactory(new PropertyValueFactory<>("ArrivalDate"));
 
+
+        SeatIDCoulmn.setCellValueFactory(new PropertyValueFactory<>("seatID"));
+        SeatNumberCoulmn.setCellValueFactory(new PropertyValueFactory<>("seatNumber"));
+        ClassTypeCoulmn.setCellValueFactory(new PropertyValueFactory<>("classType"));
+        planeIDCoulmn.setCellValueFactory(new PropertyValueFactory<>("planeId"));
+
+
+        AirportIdCoulmn.setCellValueFactory(new PropertyValueFactory<>("AirportID"));
+        AirportNameCoulmn.setCellValueFactory(new PropertyValueFactory<>("AirportName"));
+        AirportCityCoulmn.setCellValueFactory(new PropertyValueFactory<>("AirportCity"));
+
         FlightName.textProperty().bindBidirectional(av.flightNameProperty());
         FlightID.textProperty().bindBidirectional(av.flightIdProperty());
         Price.textProperty().bindBidirectional(av.priceProperty());
@@ -103,10 +147,21 @@ public class adminFlightViewController implements ViewController {
         departures.textProperty().bindBidirectional(av.departuresProperty());
         Departuredate.textProperty().bindBidirectional(av.departureDateProperty());
         PlaneTypes.textProperty().bindBidirectional(av.planeTypesProperty());
+        seatNumber.textProperty().bindBidirectional(av.seatNumberProperty());
+        classType.textProperty().bindBidirectional(av.classTypeProperty());
+        airportId.textProperty().bindBidirectional(av.airportIdProperty());
+        airportName.textProperty().bindBidirectional(av.airportNameProperty());
+        airportCity.textProperty().bindBidirectional(av.airportCityProperty());
+
+
+
+
         FlightTableview.setItems(av.getFlightsList());
         ArrivalTableview.setItems(av.getArrivalsList());
         DepartureTableview.setItems(av.getDepatures());
         PlaneTableview.setItems(av.getPlanetyp());
+        SeatTableview.setItems(av.getSeatObservableList());
+        AirportTableView.setItems(av.getAirportObservableList());
     }
 
 
@@ -154,10 +209,22 @@ public class adminFlightViewController implements ViewController {
     }
 
     public void onAdd(ActionEvent actionEvent) {
+
+        av.InsertAirportInfomation();
         av.InsertArrivalInformation();
         av.InsertDepartureInformation();
         av.InsertPlaneInformation();
         av.InsertFlightInformation();
+        av.InsertSeatInfomation();
+
+        av.validateAirportInformation();
+
+        System.out.println(av.seatIdProperty());
+        System.out.println(av.seatNumberProperty());
+        System.out.println(av.classTypeProperty());
+        System.out.println(av.airportCityProperty());
+        System.out.println(av.airportNameProperty());
+        System.out.println(av.airportIdProperty());
     }
 
     public void seatAdmin(ActionEvent actionEvent) {

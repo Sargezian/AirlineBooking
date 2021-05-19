@@ -40,11 +40,6 @@
             </ImageView>
             <Button cacheShape="false" layoutX="82.0" layoutY="439.0" mnemonicParsing="false" onAction="#onLogButton" prefHeight="44.0" prefWidth="293.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Log Ind" textFill="WHITE" />
             <Label fx:id="error" layoutX="91.0" layoutY="403.0" prefHeight="17.0" prefWidth="161.0" text="Error label" />
-            <Button layoutX="331.0" layoutY="643.0" mnemonicParsing="false" onAction="#onkald" prefHeight="27.0" prefWidth="91.0" style="-fx-background-color: #27a1ff;" text="Luk" textFill="WHITE">
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font>
-            </Button>
             <Label layoutX="72.0" layoutY="117.0" text="Welcome">
                <font>
                   <Font name="System Bold" size="29.0" />

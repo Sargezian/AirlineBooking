@@ -50,20 +50,14 @@
       <Separator layoutX="308.0" layoutY="442.0" prefHeight="3.0" prefWidth="200.0" />
       <Separator layoutX="579.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="644.0" prefWidth="6.0" />
       <Separator layoutX="582.0" layoutY="352.0" prefHeight="3.0" prefWidth="459.0" />
-      <Label layoutX="661.0" layoutY="406.0" text="Subtotal:" />
-      <Label layoutX="658.0" layoutY="455.0" text="Seatprice:" />
-      <Label layoutX="661.0" layoutY="496.0" text="Food:" />
-      <Label layoutX="660.0" layoutY="541.0" text="Total">
+      <Label layoutX="663.0" layoutY="460.0" text="Total">
          <font>
-            <Font name="Tahoma Bold" size="20.0" />
+            <Font name="Tahoma Bold" size="30.0" />
          </font>
       </Label>
-      <Label fx:id="Subtotal" layoutX="864.0" layoutY="406.0" text="100kr" />
-      <Label fx:id="seatPrice" layoutX="867.0" layoutY="455.0" text="50kr" />
-      <Label fx:id="FoodPrice" layoutX="867.0" layoutY="496.0" text="50kr" />
-      <Label fx:id="TotalPrice" layoutX="867.0" layoutY="541.0" text="200kr">
+      <Label fx:id="TotalPrice" layoutX="842.0" layoutY="460.0" text="200kr">
          <font>
-            <Font name="Tahoma Bold" size="20.0" />
+            <Font name="Tahoma Bold" size="30.0" />
          </font>
       </Label>
       <Label layoutX="664.0" layoutY="157.0" text="FLIGHT">
@@ -76,18 +70,12 @@
       <Label fx:id="arrival" layoutX="911.0" layoutY="196.0" text="Label" />
       <Label fx:id="seat" layoutX="671.0" layoutY="275.0" text="Label" />
       <Label fx:id="ClassType" layoutX="797.0" layoutY="275.0" text="Label" />
-      <Label fx:id="Food" layoutX="912.0" layoutY="277.0" text="Label" />
       <Label layoutX="787.0" layoutY="158.0" text="FROM">
          <font>
             <Font name="Tahoma Bold" size="13.0" />
          </font>
       </Label>
       <Label layoutX="907.0" layoutY="158.0" text="TO">
-         <font>
-            <Font name="Tahoma Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="906.0" layoutY="242.0" text="FOOD">
          <font>
             <Font name="Tahoma Bold" size="13.0" />
          </font>
@@ -112,5 +100,6 @@
       <Label layoutX="479.0" layoutY="119.0" text="Payment" />
       <Label layoutX="355.0" layoutY="119.0" text="Passenger" />
       <Label layoutX="209.0" layoutY="119.0" text="Seat" />
+      <Label fx:id="error" layoutX="308.0" layoutY="455.0" prefHeight="16.0" prefWidth="146.0" text="errorLabel" />
     </children>
 </AnchorPane>

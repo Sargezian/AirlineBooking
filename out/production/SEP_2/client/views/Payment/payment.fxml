@@ -87,6 +87,7 @@
                   <Image url="@../../../Billeder/visa.png" />
                </image>
             </ImageView>
+            <Label fx:id="errorlabel" layoutX="252.0" layoutY="360.0" text="errorLabel" />
          </children>
       </AnchorPane>
    </children>

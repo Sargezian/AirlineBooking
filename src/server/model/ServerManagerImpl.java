@@ -105,14 +105,6 @@ public class ServerManagerImpl implements ServerManager {
         return seat;
     }
 
-    @Override
-    public Seat countSeat()
-    {
-        List<Seat> counter = seatDao.countSeats();
-        System.out.println(counter);
-        return (Seat) counter;
-    }
-
 
     @Override
     public void deleteSeat(Seat seat) {
