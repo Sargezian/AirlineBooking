@@ -1,13 +1,12 @@
 package client.views.seat;
 
-import client.model.ClientText;
+import client.model.ClientModel;
 import client.model.SaveInfo;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.layout.Pane;
-import shared.transferobjects.PlaneType;
 import shared.transferobjects.Seat;
 import shared.transferobjects.Flights;
 import shared.util.utils;
@@ -19,17 +18,17 @@ import java.util.List;
 public class seatViewModel {
 
 
-    private ClientText clientText;
+    private ClientModel clientModel;
     private ObservableList<Seat> Seats;
     private ArrayList<Pane> selectedPane = new ArrayList<>();
     private StringProperty error;
     private seatViewController svc;
 
-    public seatViewModel(ClientText clientText) {
-        this.clientText = clientText;
+    public seatViewModel(ClientModel clientModel) {
+        this.clientModel = clientModel;
         this.error = new SimpleStringProperty();
-        clientText.addListener(utils.NEWSEAT,this::Onnewseats);
-        clientText.addListener(utils.NEWFLIGHT,this::Onnewseats);
+        clientModel.addListener(utils.NEWSEAT,this::Onnewseats);
+        clientModel.addListener(utils.NEWFLIGHT,this::Onnewseats);
         //SaveInfo.getInstance().setSeat(clientText.seat(seatNumber,classType));
     }
 
@@ -59,7 +58,7 @@ public class seatViewModel {
 
     public void loadSeat() {
         Flights flights = SaveInfo.getInstance().getFlights();
-        List<Seat> seat = clientText.getSeat(flights.getPlaneId());
+        List<Seat> seat = clientModel.getSeat(flights.getPlaneId());
         Seats = FXCollections.observableArrayList(seat);
         //Collections.addAll(, selectedrows);
     }
@@ -95,7 +94,7 @@ public class seatViewModel {
 
 
     public void deleteSeat(Seat Seat) {
-        clientText.deleteSeat(Seat);
+        clientModel.deleteSeat(Seat);
 
     }
 }

@@ -1,21 +1,21 @@
 package client.core;
 
-import client.model.ClientText;
-import client.model.ClientTextManager;
+import client.model.ClientModel;
+import client.model.ClientModelManager;
 
 public class ModelFactory {
 
     private final ClientFactory cf;
-    private ClientText clientText;
+    private ClientModel clientModel;
 
     public ModelFactory(ClientFactory cf) {
         this.cf = cf;
     }
 
-    public ClientText getClientText() {
-        if(clientText == null)
-            clientText = new ClientTextManager(cf.getClient());
-        return clientText;
+    public ClientModel getClientText() {
+        if (clientModel == null)
+            clientModel = new ClientModelManager(cf.getClient());
+        return clientModel;
     }
 }
 

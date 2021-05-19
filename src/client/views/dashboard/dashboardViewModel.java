@@ -1,6 +1,6 @@
 package client.views.dashboard;
 
-import client.model.ClientText;
+import client.model.ClientModel;
 import client.model.SaveInfo;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -10,33 +10,29 @@ import javafx.collections.ObservableList;
 import shared.transferobjects.Flights;
 import shared.util.utils;
 import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class dashboardViewModel {
 
 
-    private ClientText clientText;
+    private ClientModel clientModel;
     private ObservableList<Flights> flights;
     private StringProperty search;
     private StringProperty error;
     private StringProperty clock;
 
-
-    public dashboardViewModel(ClientText clientText) {
-        this.clientText = clientText;
+    public dashboardViewModel(ClientModel clientModel) {
+        this.clientModel = clientModel;
         search = new SimpleStringProperty();
         error = new SimpleStringProperty();
         clock = new SimpleStringProperty();
-        clientText.addListener(utils.NEWFLIGHT, this::onNewInputflight);
-        clientText.addListener("time", this::clockPropertye);
+        clientModel.addListener(utils.NEWFLIGHT, this::onNewInputflight);
+        clientModel.addListener("time", this::clockPropertye);
     }
 
 
     public void loadFlights() {
-        List<Flights> flight = clientText.getflights();
+        List<Flights> flight = clientModel.getflights();
         flights = FXCollections.observableArrayList(flight);
     }
 
@@ -59,7 +55,7 @@ public class dashboardViewModel {
             @Override
             public void run() {
 
-                clock.setValue(String.valueOf(clientText.cloak()));
+                clock.setValue(String.valueOf(clientModel.clock()));
             }
         });
     }
@@ -69,7 +65,7 @@ public class dashboardViewModel {
     }
 
     public void search(){
-        flights.setAll(clientText.readByName(search.getValue()));
+        flights.setAll(clientModel.readByName(search.getValue()));
     }
 
     public String getSearch() {

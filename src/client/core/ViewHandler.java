@@ -1,9 +1,7 @@
 package client.core;
 
 import client.views.Payment.paymentViewController;
-import client.views.Payment.paymentViewModel;
 import client.views.ViewController;
-import client.views.admin.Seatviewcontroller;
 import client.views.chat.chatViewController;
 import client.views.myflightplan.myflightplanViewController;
 import client.views.passenger.passengerViewController;
@@ -11,9 +9,7 @@ import client.views.seat.seatViewController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class ViewHandler {
@@ -27,23 +23,20 @@ public class ViewHandler {
     private paymentViewController paymentViewModel;
     private chatViewController chatViewController;
 
-    private class loadFxmlresult{
+    private class loadFxmlresult {
         private Parent root;
         private ViewController controller;
 
-        public loadFxmlresult(Parent root, ViewController controller)
-        {
+        public loadFxmlresult(Parent root, ViewController controller) {
             this.root = root;
             this.controller = controller;
         }
 
-        public Parent getRoot()
-        {
+        public Parent getRoot() {
             return root;
         }
 
-        public ViewController getController()
-        {
+        public ViewController getController() {
             return controller;
         }
     }
@@ -106,7 +99,7 @@ public class ViewHandler {
         if (seatScene == null) {
             try {
                 loadFxmlresult loadFxmlresult = loadFXML(
-                    "../views/seat/seat.fxml");
+                        "../views/seat/seat.fxml");
                 Parent root = loadFxmlresult.getRoot();
                 seatController = (seatViewController) loadFxmlresult.getController();
 
@@ -126,9 +119,9 @@ public class ViewHandler {
         if (chatScene == null) {
             try {
                 loadFxmlresult loadFxmlresult = loadFXML(
-                    "../views/chat/chat.fxml");
+                        "../views/chat/chat.fxml");
                 Parent root = loadFxmlresult.getRoot();
-                chatViewController= (client.views.chat.chatViewController) loadFxmlresult.getController();
+                chatViewController = (client.views.chat.chatViewController) loadFxmlresult.getController();
 
                 stage.setTitle("Chat");
                 chatScene = new Scene(root);
@@ -145,9 +138,9 @@ public class ViewHandler {
         if (passengerScene == null) {
             try {
                 loadFxmlresult loadFxmlresult = loadFXML(
-                    "../views/passenger/passenger.fxml");
+                        "../views/passenger/passenger.fxml");
                 Parent root = loadFxmlresult.getRoot();
-               passengerViewController = (client.views.passenger.passengerViewController) loadFxmlresult.getController();
+                passengerViewController = (client.views.passenger.passengerViewController) loadFxmlresult.getController();
 
 
                 stage.setTitle("passenger");
@@ -180,7 +173,7 @@ public class ViewHandler {
         if (paymentScene == null) {
             try {
                 loadFxmlresult loadFxmlresult = loadFXML(
-                    "../views/Payment/payment.fxml");
+                        "../views/Payment/payment.fxml");
                 Parent root = loadFxmlresult.getRoot();
                 paymentViewModel = (paymentViewController) loadFxmlresult.getController();
                 stage.setTitle("payment");
@@ -247,6 +240,6 @@ public class ViewHandler {
 
         ViewController vc = loader.getController();
         vc.init(this, vmf);
-        return new loadFxmlresult(root,vc);
+        return new loadFxmlresult(root, vc);
     }
 }

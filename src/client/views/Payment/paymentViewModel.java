@@ -1,6 +1,6 @@
 package client.views.Payment;
 
-import client.model.ClientText;
+import client.model.ClientModel;
 import client.model.SaveInfo;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -12,7 +12,7 @@ import java.beans.PropertyChangeEvent;
 
 public class paymentViewModel {
 
-    private ClientText clientText;
+    private ClientModel clientModel;
 
     //payment
     private StringProperty CardholderName;
@@ -32,9 +32,9 @@ public class paymentViewModel {
     //price
     private StringProperty price;
 
-    public paymentViewModel(ClientText clientText) {
-        this.clientText = clientText;
-        clientText.addListener(utils.NEWTICKET, this::onNewTicket);
+    public paymentViewModel(ClientModel clientModel) {
+        this.clientModel = clientModel;
+        clientModel.addListener(utils.NEWTICKET, this::onNewTicket);
 
         CardholderName = new SimpleStringProperty();
         CardNumber = new SimpleStringProperty();
@@ -75,17 +75,17 @@ public class paymentViewModel {
         System.out.println("Gets SavedInfo from Inputuser = " + SaveInfo.getInstance().getUser());
 
         myFlightTicket myFlightTicket1 = new myFlightTicket(String.valueOf(1),pg,ft,st,user);
-        clientText.deleteSeat(st);
+        clientModel.deleteSeat(st);
 
-        clientText.createTicket(myFlightTicket1);
+        clientModel.createTicket(myFlightTicket1);
 
 }
     public void SetPassengerInfomation() {
 
         Passenger pg = SaveInfo.getInstance().getPassenger();
         Flights ft =  SaveInfo.getInstance().getFlights();
-        clientText.ReadPassenger(pg.FirstName, pg.LastName, pg.TelNumber, pg.Email);
-        clientText.readPrice(ft.price);
+        clientModel.ReadPassenger(pg.FirstName, pg.LastName, pg.TelNumber, pg.Email);
+        clientModel.readPrice(ft.price);
 
         Platform.runLater(new Runnable() {
             @Override
@@ -107,7 +107,7 @@ public class paymentViewModel {
             String CardNumber = this.CardNumber.getValue();
             String CVV = this.CVV.getValue();
             String ExpirationDate = this.ExpirationDate.getValue();
-            clientText.payment(CardholderName,CardNumber,CVV,ExpirationDate);
+            clientModel.payment(CardholderName,CardNumber,CVV,ExpirationDate);
 
         }
     }

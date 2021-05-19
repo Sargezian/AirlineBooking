@@ -7,16 +7,62 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class SaveInfo {
 
-    private static SaveInfo instance;
-    private static Lock lock = new ReentrantLock();
     private Flights flights;
     private Seat seat;
     private Airport airport;
     private Arrival arrival;
     private Depature depature;
-    private PlaneType planeType;
     private Passenger passenger;
     private InputUser user;
+
+
+    private static SaveInfo instance;
+    private static Lock lock = new ReentrantLock();
+
+    private SaveInfo() {}
+
+    public static SaveInfo getInstance() {
+        // if one doesn't already exist, create it
+        if (instance == null) {
+            synchronized (lock) {
+               if (instance == null)
+                   instance = new SaveInfo();
+            }
+        }
+        return instance;
+    }
+
+    public Flights getFlights() {
+        return flights;
+    }
+
+    public void setFlights(Flights flights) {
+        this.flights = flights;
+    }
+
+    public InputUser getUser() {
+        return user;
+    }
+
+    public void setUser(InputUser user) {
+        this.user = user;
+    }
+
+    public Seat getSeat() {
+        return seat;
+    }
+
+    public void setSeat(Seat seat) {
+        this.seat = seat;
+    }
+
+    public Passenger getPassenger() {
+        return passenger;
+    }
+
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
+    }
 
     public Airport getAirport()
     {
@@ -48,55 +94,6 @@ public class SaveInfo {
         this.depature = depature;
     }
 
-
-
-    public static SaveInfo getInstance() {
-
-        if (instance == null) {
-            synchronized (lock) {
-               if (instance == null)
-                   instance = new SaveInfo();
-            }
-        }
-        return instance;
-    }
-
-    public Flights getFlights() {
-        return flights;
-    }
-
-    public void setFlights(Flights flights) {
-        this.flights = flights;
-    }
-
-    public InputUser getUser() {
-        return user;
-    }
-
-    public void setUser(InputUser user) {
-        this.user = user;
-    }
-
-    public PlaneType getPlaneType() {
-        return planeType;
-    }
-
-    public Seat getSeat() {
-        return seat;
-    }
-
-    public void setSeat(Seat seat) {
-        this.seat = seat;
-    }
-
-    public Passenger getPassenger() {
-        return passenger;
-    }
-
-    public void setPassenger(Passenger passenger) {
-        this.passenger = passenger;
-    }
-
     public void reset(){
         System.out.println("Her sætter vi flights til null");
         setFlights(null);
@@ -104,10 +101,6 @@ public class SaveInfo {
         setPassenger(null);
         setUser(null);
         System.out.println("Her getter vi en user " + getUser());
-    }
-
-    public void resetSeat(){
-
     }
 
     @Override
@@ -118,7 +111,6 @@ public class SaveInfo {
                 ", airport=" + airport +
                 ", arrival=" + arrival +
                 ", depature=" + depature +
-                ", planeType=" + planeType +
                 ", passenger=" + passenger +
                 ", user=" + user +
                 '}';

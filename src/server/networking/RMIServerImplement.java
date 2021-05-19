@@ -1,6 +1,6 @@
 package server.networking;
 
-import server.model.TextManager;
+import server.model.ServerManager;
 import shared.networking.ClientCallBack;
 import shared.networking.RMIServer;
 import shared.transferobjects.*;
@@ -16,11 +16,11 @@ import java.util.List;
 
 public class RMIServerImplement implements RMIServer {
 
-    private final TextManager textManager;
+    private final ServerManager serverManager;
 
-    public RMIServerImplement(TextManager textManager) throws RemoteException {
+    public RMIServerImplement(ServerManager serverManager) throws RemoteException {
         UnicastRemoteObject.exportObject(this,0);
-        this.textManager = textManager;
+        this.serverManager = serverManager;
     }
 
     public void startServer() throws RemoteException, AlreadyBoundException {
@@ -31,113 +31,102 @@ public class RMIServerImplement implements RMIServer {
     @Override public Airport CreateAirport(String airportId, String airportName,
         String airportCity)
     {
-        return textManager.CreateAirport(airportId,airportName,airportCity);
+        return serverManager.CreateAirport(airportId,airportName,airportCity);
     }
 
     @Override
     public InputChat createChat(String chat, double star) {
         System.out.println("RMI SERVER READ CHAT");
-        return textManager.createChat(chat, star);
+        return serverManager.createChat(chat, star);
     }
 
 
     @Override
     public List<InputChat> getChat()  {
-        return textManager.getChat();
+        return serverManager.getChat();
     }
 
     @Override
     public int CountChat() throws RemoteException {
-        return textManager.CountChat();
+        return serverManager.CountChat();
     }
 
     @Override
     public List<Rating> getRatings() throws RemoteException {
-        return textManager.getRatings();
+        return serverManager.getRatings();
     }
 
     @Override
     public double AverageStars() throws RemoteException {
-        return textManager.AverageStars();
+        return serverManager.AverageStars();
     }
 
     @Override
     public int CountRatings(double star) throws RemoteException {
-        return textManager.CountRatings(star);
+        return serverManager.CountRatings(star);
     }
 
     @Override
     public InputUser username(String user, String password)  {
-        return textManager.CreateUser(user, password);
+        return serverManager.CreateUser(user, password);
     }
 
     @Override
     public List<myFlightTicket> getflightlist(int userId) throws RemoteException {
-        return textManager.getflightlist(userId);
-    }
-
-    @Override
-    public myFlightTicket readUsername_(String user) throws RemoteException {
-        return textManager.readUsername_(user);
+        return serverManager.getflightlist(userId);
     }
 
     @Override
     public Flights readFlightsFromShoppingCart(String flightName, String departure, String arrival) throws RemoteException {
-        return textManager.readFlightsFromShoppingCart(flightName, departure, arrival);
+        return serverManager.readFlightsFromShoppingCart(flightName, departure, arrival);
     }
 
     @Override
     public Seat readSeatFromShoppingCart(String seatNumber, String classType) throws RemoteException {
-        return textManager.readSeatFromShoppingCart(seatNumber,classType);
+        return serverManager.readSeatFromShoppingCart(seatNumber,classType);
     }
 
     @Override
     public Flights readPrice(String price) throws RemoteException {
-        return textManager.readPrice(price);
+        return serverManager.readPrice(price);
     }
 
     @Override
     public InputUser readUser(String user, String password) throws RemoteException {
-        return textManager.readUser(user,password);
+        return serverManager.readUser(user,password);
     }
 
     @Override
     public InputUser readUsername(String user) throws RemoteException {
-        return textManager.readUsername(user);
+        return serverManager.readUsername(user);
     }
 
     @Override public Passenger passernger(String FirstName, String LastName,
                                           String TelNumber, String email)
     {
-        return textManager.passernger(FirstName, LastName, TelNumber,email);
+        return serverManager.passernger(FirstName, LastName, TelNumber,email);
     }
 
     @Override
     public Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email) throws RemoteException {
-        return textManager.ReadPassenger(Firstname,LastName,TelNumber,Email);
+        return serverManager.ReadPassenger(Firstname,LastName,TelNumber,Email);
     }
 
     @Override
     public Passenger readByEmail(String email) throws RemoteException {
-        return textManager.readByEmail(email);
+        return serverManager.readByEmail(email);
     }
 
 
     @Override
     public Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) {
-        return textManager.payment(cardholderName, cardNumber, CVV, expirationDate);
+        return serverManager.payment(cardholderName, cardNumber, CVV, expirationDate);
     }
-
-    /*@Override
-    public List<myFlightTicket> ReadPriceSUM() throws RemoteException  {
-        return textManager.ReadPriceSUM();
-    }*/
-
 
     @Override
     public List<InputUser> getUser()  {
         System.out.println("RMISERVER read user");
-        return textManager.getUser();
+        return serverManager.getUser();
     }
 
     @Override
@@ -149,10 +138,10 @@ public class RMIServerImplement implements RMIServer {
                 client.updateChat((InputChat) evt.getNewValue());
             } catch (RemoteException e) {
 
-                textManager.removeListener(utils.NEWCHAT, finalListener);
+                serverManager.removeListener(utils.NEWCHAT, finalListener);
             }
         };
-            textManager.addListener(utils.NEWCHAT, listener);
+            serverManager.addListener(utils.NEWCHAT, listener);
         }
 
     @Override
@@ -164,10 +153,10 @@ public class RMIServerImplement implements RMIServer {
                 client.updateUser((InputUser) evt.getNewValue());
             } catch (RemoteException e) {
 
-                textManager.removeListener(utils.NEWUSER, finalListener);
+                serverManager.removeListener(utils.NEWUSER, finalListener);
             }
         };
-        textManager.addListener(utils.NEWUSER, listener);
+        serverManager.addListener(utils.NEWUSER, listener);
     }
 
 
@@ -181,10 +170,10 @@ public class RMIServerImplement implements RMIServer {
                 client.updateTicket((myFlightTicket) evt.getNewValue());
             } catch (RemoteException e) {
 
-                textManager.removeListener(utils.NEWTICKET, finalListener);
+                serverManager.removeListener(utils.NEWTICKET, finalListener);
             }
         };
-        textManager.addListener(utils.NEWTICKET, listener);
+        serverManager.addListener(utils.NEWTICKET, listener);
 
     }
 
@@ -198,10 +187,10 @@ public class RMIServerImplement implements RMIServer {
                 client.updateFlight((Flights) evt.getNewValue());
             } catch (RemoteException e) {
 
-                textManager.removeListener(utils.NEWFLIGHT, finalListener);
+                serverManager.removeListener(utils.NEWFLIGHT, finalListener);
             }
         };
-        textManager.addListener(utils.NEWFLIGHT, listener);
+        serverManager.addListener(utils.NEWFLIGHT, listener);
 
     }
 
@@ -215,10 +204,10 @@ public class RMIServerImplement implements RMIServer {
                 client.updateArrival((Arrival) evt.getNewValue());
             } catch (RemoteException e) {
 
-                textManager.removeListener(utils.NEWARRIVAL, finalListener);
+                serverManager.removeListener(utils.NEWARRIVAL, finalListener);
             }
         };
-        textManager.addListener(utils.NEWARRIVAL, listener);
+        serverManager.addListener(utils.NEWARRIVAL, listener);
     }
 
     @Override
@@ -231,10 +220,10 @@ public class RMIServerImplement implements RMIServer {
                 client.updateDeparture((Depature) evt.getNewValue());
             } catch (RemoteException e) {
 
-                textManager.removeListener(utils.NEWDEPARTURE, finalListener);
+                serverManager.removeListener(utils.NEWDEPARTURE, finalListener);
             }
         };
-        textManager.addListener(utils.NEWDEPARTURE, listener);
+        serverManager.addListener(utils.NEWDEPARTURE, listener);
     }
 
     @Override
@@ -247,10 +236,10 @@ public class RMIServerImplement implements RMIServer {
                 client.updatePlane((PlaneType) evt.getNewValue());
             } catch (RemoteException e) {
 
-                textManager.removeListener(utils.NEWPLANE, finalListener);
+                serverManager.removeListener(utils.NEWPLANE, finalListener);
             }
         };
-        textManager.addListener(utils.NEWPLANE, listener);
+        serverManager.addListener(utils.NEWPLANE, listener);
     }
 
     @Override
@@ -263,10 +252,10 @@ public class RMIServerImplement implements RMIServer {
                 client.updateSeat((Seat) evt.getNewValue());
             } catch (RemoteException e) {
 
-                textManager.removeListener(utils.NEWSEAT, finalListener);
+                serverManager.removeListener(utils.NEWSEAT, finalListener);
             }
         };
-        textManager.addListener(utils.NEWSEAT, listener);
+        serverManager.addListener(utils.NEWSEAT, listener);
 
 
     }
@@ -281,129 +270,125 @@ public class RMIServerImplement implements RMIServer {
                 client.updateAirport((Airport) evt.getNewValue());
             } catch (RemoteException e) {
 
-                textManager.removeListener(utils.NEWAIRPORT, finalListener);
+                serverManager.removeListener(utils.NEWAIRPORT, finalListener);
             }
         };
-        textManager.addListener(utils.NEWAIRPORT, listener);
+        serverManager.addListener(utils.NEWAIRPORT, listener);
 
     }
 
 
     @Override
     public void createTicket(myFlightTicket myFlightTicket) throws RemoteException {
-        textManager.createTicket(myFlightTicket);
+        serverManager.createTicket(myFlightTicket);
     }
 
     @Override
     public List<Flights> getflights() {
-        return textManager.getflights();
+        return serverManager.getflights();
     }
 
     @Override
     public List<Flights> readByName(String searchString) throws RemoteException {
-        return textManager.readByName(searchString);
+        return serverManager.readByName(searchString);
     }
 
     @Override
     public Flights CreateFlights(String flightID, String flightName, String price) throws RemoteException {
-        return textManager.CreateFlights(flightID,flightName,price);
+        return serverManager.CreateFlights(flightID,flightName,price);
     }
 
     @Override
     public void deleteFlight(Flights flights) throws RemoteException {
-        textManager.deleteFlight(flights);
+        serverManager.deleteFlight(flights);
 
     }
 
     @Override
     public List<Flights> getAllTheFLights() throws RemoteException {
-        return textManager.getAllTheFLights();
+        return serverManager.getAllTheFLights();
     }
 
     @Override
     public Arrival CreateArrival(String Arrival, String Arrivaldate) throws RemoteException {
-        return textManager.CreateArrival(Arrival,Arrivaldate);
+        return serverManager.CreateArrival(Arrival,Arrivaldate);
     }
 
     @Override
     public Depature CreateDeparture(String Departure, String DepartureDate) throws RemoteException {
-        return textManager.CreateDeparture(Departure,DepartureDate);
+        return serverManager.CreateDeparture(Departure,DepartureDate);
     }
 
     @Override
     public PlaneType CreatePlane(String PlaneTypes) throws RemoteException {
-        return textManager.CreatePlane(PlaneTypes);
+        return serverManager.CreatePlane(PlaneTypes);
     }
 
     @Override
     public List<PlaneType> getAllPlaneType() throws RemoteException {
-        return textManager.getAllPlaneType();
+        return serverManager.getAllPlaneType();
     }
 
     @Override
     public List<Depature> getAllDeparture() throws RemoteException{
-        return textManager.getAllDeparture();
+        return serverManager.getAllDeparture();
     }
 
     @Override
     public List<Arrival> getAllArrival()throws RemoteException {
-        return textManager.getAllArrival();
+        return serverManager.getAllArrival();
     }
 
     @Override
     public void deleteArrival(Arrival arrival) throws RemoteException {
-        textManager.deleteArrival(arrival);
+        serverManager.deleteArrival(arrival);
     }
 
     @Override
     public void deleteDeparture(Depature depature) throws RemoteException {
-           textManager.deleteDeparture(depature);
+           serverManager.deleteDeparture(depature);
     }
 
     @Override
     public void deletePlaneType(PlaneType planeType) throws RemoteException {
-           textManager.deletePlaneType(planeType);
+           serverManager.deletePlaneType(planeType);
     }
 
     @Override
     public List<Seat> getSeats() throws RemoteException {
-        return textManager.getSeats();
+        return serverManager.getSeats();
     }
 
     @Override
     public List<Airport> getAirport() throws RemoteException {
-        return textManager.getAirport();
+        return serverManager.getAirport();
     }
 
     @Override
     public List<Seat> getSeat(int planeId) throws RemoteException {
-        return textManager.getSeat(planeId);
+        return serverManager.getSeat(planeId);
     }
 
     @Override
     public boolean ValidateUser(String user, String password) throws RemoteException {
-        return textManager.ValidateUser(user,password);
+        return serverManager.ValidateUser(user,password);
     }
 
     @Override public Seat getSeatId(int seatID, String seatNumber,
                                     String classType) throws RemoteException
     {
-        return textManager.getSeatID(seatID,seatNumber,classType);
+        return serverManager.getSeatID(seatID,seatNumber,classType);
     }
 
     @Override public Seat CreateSeat(String SeatNumber, String classtype)
     {
-        return textManager.CreateSeat(SeatNumber,classtype);
+        return serverManager.CreateSeat(SeatNumber,classtype);
     }
 
-    @Override public Seat countSeat()
-    {
-        return textManager.countSeat();
-    }
 
     @Override
     public void deleteSeat(Seat seat) throws RemoteException {
-        textManager.deleteSeat(seat);
+        serverManager.deleteSeat(seat);
     }
 
 

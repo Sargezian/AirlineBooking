@@ -8,7 +8,7 @@ import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TextManagerImpl implements TextManager{
+public class ServerManagerImpl implements ServerManager {
 
     private PropertyChangeSupport support;
     private List<InputChat> chatListe;
@@ -33,7 +33,7 @@ public class TextManagerImpl implements TextManager{
     private adminDao adminDao;
     private AirportDao airportDao;
 
-    public TextManagerImpl() {
+    public ServerManagerImpl() {
         support = new PropertyChangeSupport(this);
         chatListe = new ArrayList<>();
         userNameList = new ArrayList<>();
@@ -67,7 +67,6 @@ public class TextManagerImpl implements TextManager{
         System.out.println("support.getPropertyChangeListeners().length:" + support.getPropertyChangeListeners().length);
         return inputUser;
     }
-
 
 
     @Override
@@ -269,13 +268,6 @@ public class TextManagerImpl implements TextManager{
         return passengerDao.readByEmail(email);
     }
 
-
-   /* @Override
-    public List<myFlightTicket> ReadPriceSUM() {
-        return  new ArrayList<>(myFlightTicketDao.ReadPriceSUM());
-    }*/
-
-
     @Override
     public void createTicket(myFlightTicket myFlightTicket) {
         myFlightTicketDao.createTicket(myFlightTicket);
@@ -322,11 +314,6 @@ public class TextManagerImpl implements TextManager{
     @Override
     public List<myFlightTicket> getflightlist(int userId) {
         return new ArrayList<>(myFlightTicketDao.ReadFlightList(userId));
-    }
-
-    @Override
-    public myFlightTicket readUsername_(String user) {
-        return myFlightTicketDao.readUsername_(user);
     }
 
     @Override

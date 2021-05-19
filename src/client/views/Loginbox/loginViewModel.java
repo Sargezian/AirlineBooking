@@ -1,6 +1,6 @@
 package client.views.Loginbox;
 
-import client.model.ClientText;
+import client.model.ClientModel;
 import client.model.SaveInfo;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -8,14 +8,14 @@ import shared.transferobjects.*;
 
 
 public class loginViewModel {
-    private ClientText clientText;
+    private ClientModel clientModel;
     private StringProperty navn;
     private StringProperty kode;
     private StringProperty error;
 
 
-    public loginViewModel(ClientText clientText) {
-        this.clientText = clientText;
+    public loginViewModel(ClientModel clientModel) {
+        this.clientModel = clientModel;
         navn = new SimpleStringProperty();
         kode = new SimpleStringProperty();
         error =  new SimpleStringProperty();
@@ -32,8 +32,8 @@ public class loginViewModel {
 
     public boolean validateLoginInfo() {
 
-        if (clientText.ValidateUser(navn.getValue(), kode.getValue())) {
-            InputUser user = clientText.readUser(navn.getValue(), kode.getValue());
+        if (clientModel.ValidateUser(navn.getValue(), kode.getValue())) {
+            InputUser user = clientModel.readUser(navn.getValue(), kode.getValue());
             SaveInfo.getInstance().setUser(user);
 
             return true;

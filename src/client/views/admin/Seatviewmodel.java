@@ -1,11 +1,10 @@
 package client.views.admin;
 
-import client.model.ClientText;
+import client.model.ClientModel;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import shared.transferobjects.Airport;
-import shared.transferobjects.Flights;
 import shared.transferobjects.Seat;
 import shared.util.utils;
 
@@ -15,7 +14,7 @@ import java.util.List;
 
 public class Seatviewmodel {
 
-  private ClientText clientText;
+  private ClientModel clientModel;
   private IntegerProperty seatId;
   private StringProperty seatNumber;
   private StringProperty classType;
@@ -29,8 +28,8 @@ public class Seatviewmodel {
 
 
 
-  public Seatviewmodel(ClientText clientText){
-    this.clientText = clientText;
+  public Seatviewmodel(ClientModel clientModel){
+    this.clientModel = clientModel;
     seatId = new SimpleIntegerProperty();
     seatNumber = new SimpleStringProperty();
     classType = new SimpleStringProperty();
@@ -39,8 +38,8 @@ public class Seatviewmodel {
     airportName = new SimpleStringProperty();
     airportCity = new SimpleStringProperty();
     error = new SimpleStringProperty();
-    clientText.addListener(utils.NEWSEAT,this::onNewInputSeat);
-    clientText.addListener(utils.NEWAIRPORT,this::onNewInputAirport);
+    clientModel.addListener(utils.NEWSEAT,this::onNewInputSeat);
+    clientModel.addListener(utils.NEWAIRPORT,this::onNewInputAirport);
   }
 
   public void onNewInputAirport(PropertyChangeEvent event) {
@@ -62,7 +61,7 @@ public class Seatviewmodel {
 
       String SeatNumber = this.seatNumber.getValue();
       String SeatClassType = this.classType.getValue();
-      clientText.CreateSeat(SeatNumber,SeatClassType);
+      clientModel.CreateSeat(SeatNumber,SeatClassType);
 
 
     }
@@ -102,7 +101,7 @@ public class Seatviewmodel {
       String AirportID = this.airportId.getValue();
       String AirportName = this.airportName.getValue();
       String AirportCity = this.airportCity.getValue();
-      clientText.CreateAirport(AirportID,AirportName,AirportCity);
+      clientModel.CreateAirport(AirportID,AirportName,AirportCity);
 
     }
 
@@ -110,13 +109,13 @@ public class Seatviewmodel {
 
 
   public void loadSeat() {
-    List<Seat> seat = clientText.getSeats();
+    List<Seat> seat = clientModel.getSeats();
     seatObservableList = FXCollections.observableArrayList(seat);
   }
 
 
   public void loadAirport() {
-    List<Airport> airportList = clientText.getAirport();
+    List<Airport> airportList = clientModel.getAirport();
     airportObservableList = FXCollections.observableArrayList(airportList);
   }
 

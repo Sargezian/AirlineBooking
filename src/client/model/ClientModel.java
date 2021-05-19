@@ -6,9 +6,7 @@ import shared.util.Subject;
 import java.rmi.RemoteException;
 import java.util.List;
 
-public interface ClientText extends Subject {
-
-     Airport CreateAirport(String airportId, String airportName, String airportCity);
+public interface ClientModel extends Subject {
 
     //chat
     InputChat createChat(String chat, double star);
@@ -48,18 +46,19 @@ public interface ClientText extends Subject {
     void deletePlaneType(PlaneType planeType);
     List<Seat> getSeats();
     List<Airport> getAirport();
+    Airport CreateAirport(String airportId, String airportName, String airportCity);
 
     //seat
     List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID, String seatNumber, String classType);
     Seat CreateSeat(String SeatNumber,String classtype);
-    Seat countSeat();
     void deleteSeat(Seat seat);
 
     //passenger
     Passenger Createpassernger(String FirstName, String LastName, String TelNumber, String email);
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);
     Passenger readByEmail(String email);
+    // TODO: 20/05/2021 check det her 
 
     //payment
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate);
@@ -69,18 +68,12 @@ public interface ClientText extends Subject {
     Seat readSeatFromShoppingCart(String seatNumber,String classType);
 
     //ticket
-    /* List<myFlightTicket> ReadPriceSUM();*/
     List<myFlightTicket> getflightlist(int userId);
     void createTicket(myFlightTicket myFlightTicket);
-    myFlightTicket readUsername_(String user);
     Flights readPrice(String price);
 
-
     //Clock
-    Object cloak();
-
-
-
+    Object clock();
 }
 
 

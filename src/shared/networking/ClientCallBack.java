@@ -18,5 +18,4 @@ public interface ClientCallBack extends Remote {
     void updateSeat(Seat Seat) throws  RemoteException;
     void updateAirport(Airport airport) throws  RemoteException;
 
-
 }

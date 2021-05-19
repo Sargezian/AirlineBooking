@@ -5,7 +5,7 @@ import shared.util.Subject;
 
 import java.util.List;
 
-public interface TextManager extends Subject
+public interface ServerManager extends Subject
 {
 
     //chat
@@ -36,17 +36,6 @@ public interface TextManager extends Subject
     List<Flights> getflights();
     List<Flights> readByName(String searchString);
     Flights CreateFlights(String flightID, String flightName, String price);
-    void deleteFlight(Flights flights);
-    List<Flights> getAllTheFLights();
-    Arrival CreateArrival(String Arrival, String Arrivaldate);
-
-    Depature CreateDeparture(String Departure, String DepartureDate);
-
-    PlaneType CreatePlane(String PlaneTypes);
-
-    List<PlaneType> getAllPlaneType();
-    List<Depature> getAllDeparture();
-    List<Arrival> getAllArrival();
 
     //Admin
     void deleteArrival(Arrival arrival);
@@ -54,6 +43,15 @@ public interface TextManager extends Subject
     void deletePlaneType(PlaneType planeType);
     List<Seat> getSeats();
     List<Airport> getAirport();
+    void deleteFlight(Flights flights);
+    List<Flights> getAllTheFLights();
+    Arrival CreateArrival(String Arrival, String Arrivaldate);
+    Depature CreateDeparture(String Departure, String DepartureDate);
+    PlaneType CreatePlane(String PlaneTypes);
+    List<PlaneType> getAllPlaneType();
+    List<Depature> getAllDeparture();
+    List<Arrival> getAllArrival();
+    Airport CreateAirport(String airportId, String airportName, String airportCity);
 
     //passenger
     Passenger passernger(String FirstName, String LastName, String TelNumber,
@@ -63,9 +61,7 @@ public interface TextManager extends Subject
     Passenger readByEmail(String email);
 
     //ticket
-    /*List<myFlightTicket> ReadPriceSUM();*/
     List<myFlightTicket> getflightlist(int userId);
-    myFlightTicket readUsername_(String user);
 
     //payment
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate);
@@ -76,9 +72,6 @@ public interface TextManager extends Subject
         String arrival);
     Seat readSeatFromShoppingCart(String seatNumber, String classType);
     Flights readPrice(String price);
-
-    //Airport
-    Airport CreateAirport(String airportId, String airportName, String airportCity);
 
 }
 

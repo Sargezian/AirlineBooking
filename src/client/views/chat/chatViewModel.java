@@ -1,6 +1,6 @@
 package client.views.chat;
 
-import client.model.ClientText;
+import client.model.ClientModel;
 import javafx.application.Platform;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
@@ -12,12 +12,11 @@ import shared.transferobjects.Rating;
 import shared.util.utils;
 
 import java.beans.PropertyChangeEvent;
-import java.io.Serial;
 import java.util.List;
 
 public class chatViewModel {
 
-    private ClientText clientText;
+    private ClientModel clientModel;
     private ObservableList<InputChat> chats;
     private ObservableList<InputUser> users;
     private ObservableList<Rating> ratings;
@@ -32,27 +31,27 @@ public class chatViewModel {
 
     XYChart.Series<String, Double> series = new XYChart.Series<>();
 
-    public chatViewModel(ClientText clientText) {
-        this.clientText = clientText;
+    public chatViewModel(ClientModel clientModel) {
+        this.clientModel = clientModel;
         this.chat = new SimpleStringProperty();
         this.totalReviews = new SimpleStringProperty();
         this.average = new SimpleStringProperty();
         this.error = new SimpleStringProperty();
         this.progressbar = new SimpleDoubleProperty();
 
-        clientText.addListener(utils.NEWCHAT, this::onNewInputChat);
-        clientText.addListener(utils.NEWUSER, this::OnNewInputUser);
+        clientModel.addListener(utils.NEWCHAT, this::onNewInputChat);
+        clientModel.addListener(utils.NEWUSER, this::OnNewInputUser);
 
     }
 
     public void setCounter() {
-        totalReviews.setValue(String.valueOf(clientText.CountChat()));
+        totalReviews.setValue(String.valueOf(clientModel.CountChat()));
     }
 
     public void setAverage() {
-        average.setValue(String.valueOf(clientText.AverageStars()));
-        progressbar.setValue(clientText.AverageStars()/5);
-        System.out.println("avg" + clientText.AverageStars()/5);
+        average.setValue(String.valueOf(clientModel.AverageStars()));
+        progressbar.setValue(clientModel.AverageStars()/5);
+        System.out.println("avg" + clientModel.AverageStars()/5);
     }
 
     public void setBarchart(Rating rating) {
@@ -62,7 +61,7 @@ public class chatViewModel {
                 series.setName("Rating");
                 for (int i = 1; i <= 5; i++)
                 {
-                    double star_1 = clientText.CountRatings(i);
+                    double star_1 = clientModel.CountRatings(i);
                     series.getData().add(new XYChart.Data<String, Double>( i + " Star", star_1));
 
                 }
@@ -91,7 +90,7 @@ public class chatViewModel {
     public void chatPrint(Rating rating) {
 
         if (chat.getValue() != null && !"".equals(chat.getValue()) && rating != null) {
-            clientText.createChat(chat.getValue() + "  Message from : " + user + "   " + rating.star + " STAR ", rating.star);
+            clientModel.createChat(chat.getValue() + "  Message from : " + user + "   " + rating.star + " STAR ", rating.star);
             System.out.println("user;=" + user);
 
             setCounter();
@@ -106,17 +105,17 @@ public class chatViewModel {
 
 
     public void loadLogs() {
-        List<InputChat> chatList = clientText.getChat();
+        List<InputChat> chatList = clientModel.getChat();
         chats = FXCollections.observableArrayList(chatList);
     }
 
     public void loadLogs2() {
-        List<InputUser> userLists = clientText.getUser();
+        List<InputUser> userLists = clientModel.getUser();
         users = FXCollections.observableArrayList(userLists);
     }
 
     public void loadRatings() {
-        List<Rating> rating = clientText.getRatings();
+        List<Rating> rating = clientModel.getRatings();
         ratings = FXCollections.observableArrayList(rating);
     }
 

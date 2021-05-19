@@ -1,6 +1,6 @@
 package client.views.myflightplan;
 
-import client.model.ClientText;
+import client.model.ClientModel;
 import client.model.SaveInfo;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,7 +13,6 @@ import shared.util.utils;
 import javax.mail.*;
 import javax.mail.internet.*;
 import java.beans.PropertyChangeEvent;
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -24,16 +23,16 @@ import java.util.Properties;
 
 public class myflightplanViewModel {
 
-    private ClientText clientText;
+    private ClientModel clientModel;
     private ObservableList<myFlightTicket> myFlightTickets;
     private StringProperty username;
     private StringProperty print;
 
-    public myflightplanViewModel(ClientText clientText) {
+    public myflightplanViewModel(ClientModel clientModel) {
         System.out.println("myFlight view model");
-        this.clientText = clientText;
-        clientText.addListener(utils.NEWTICKET, this::onNewTicket);
-        clientText.addListener(utils.NEWTICKET, this::setUsernameProperty);
+        this.clientModel = clientModel;
+        clientModel.addListener(utils.NEWTICKET, this::onNewTicket);
+        clientModel.addListener(utils.NEWTICKET, this::setUsernameProperty);
         username = new SimpleStringProperty();
         print = new SimpleStringProperty();
 
@@ -47,7 +46,7 @@ public class myflightplanViewModel {
 
         InputUser id = SaveInfo.getInstance().getUser();
 
-        List<myFlightTicket> flight = clientText.getflightlist(id.getId());
+        List<myFlightTicket> flight = clientModel.getflightlist(id.getId());
         System.out.println("Loadmyflights " + SaveInfo.getInstance().getUser());
 
         myFlightTickets = FXCollections.observableArrayList(flight);
@@ -77,7 +76,7 @@ public class myflightplanViewModel {
         myFlightTickets.clear();
         InputUser id = SaveInfo.getInstance().getUser();
 
-        List<myFlightTicket> getflightlist = clientText.getflightlist(id.getId());
+        List<myFlightTicket> getflightlist = clientModel.getflightlist(id.getId());
         System.out.println("viewmodel on new passenger" + getflightlist.size());
         myFlightTickets.addAll(getflightlist);
 
@@ -86,7 +85,7 @@ public class myflightplanViewModel {
     public void setUsername(){
 
         InputUser user = SaveInfo.getInstance().getUser();
-        clientText.readUsername(user.user);
+        clientModel.readUsername(user.user);
 
 
 

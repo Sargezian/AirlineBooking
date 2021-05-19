@@ -1,21 +1,17 @@
 package client.views.passenger;
 
-import client.model.ClientText;
+import client.model.ClientModel;
 import client.model.SaveInfo;
 import javafx.application.Platform;
 import javafx.beans.property.*;
 import shared.transferobjects.*;
 import shared.util.utils;
 
-import javax.mail.*;
-import javax.mail.internet.*;
 import java.beans.PropertyChangeEvent;
-import java.io.IOException;
-import java.util.Properties;
 
 public class passengerViewModel {
 
-    private ClientText clientText;
+    private ClientModel clientModel;
 
     //passenger
     private StringProperty FirstName;
@@ -34,8 +30,8 @@ public class passengerViewModel {
     //error
     private StringProperty error;
 
-    public passengerViewModel(ClientText clientText) {
-        this.clientText = clientText;
+    public passengerViewModel(ClientModel clientModel) {
+        this.clientModel = clientModel;
         FirstName = new SimpleStringProperty();
         LastName = new SimpleStringProperty();
         TelNumber = new SimpleStringProperty();
@@ -48,8 +44,8 @@ public class passengerViewModel {
         price = new SimpleStringProperty();
         error = new SimpleStringProperty();
 
-       clientText.addListener(utils.NEWFLIGHT, this::onNewTicket);
-       clientText.addListener(utils.NEWSEAT, this::onNewTicket);
+       clientModel.addListener(utils.NEWFLIGHT, this::onNewTicket);
+       clientModel.addListener(utils.NEWSEAT, this::onNewTicket);
     }
 
 
@@ -66,9 +62,9 @@ public class passengerViewModel {
         Flights flights = SaveInfo.getInstance().getFlights();
         Seat seat = SaveInfo.getInstance().getSeat();
 
-        clientText.readFlightsFromShoppingCart(flights.flightName,flights.getDepartures(),flights.getArrivals());
-        clientText.readSeatFromShoppingCart(seat.seatNumber,seat.classType);
-        clientText.readPrice(flights.price);
+        clientModel.readFlightsFromShoppingCart(flights.flightName,flights.getDepartures(),flights.getArrivals());
+        clientModel.readSeatFromShoppingCart(seat.seatNumber,seat.classType);
+        clientModel.readPrice(flights.price);
 
         Platform.runLater(() -> {
             FlightName.setValue(flights.flightName);
@@ -91,7 +87,7 @@ public class passengerViewModel {
                 String LastName = this.LastName.getValue();
                 String TelNumber = this.TelNumber.getValue();
                 String Email = this.Email.getValue();
-                SaveInfo.getInstance().setPassenger(clientText.Createpassernger(FirstName,LastName,TelNumber,Email));
+                SaveInfo.getInstance().setPassenger(clientModel.Createpassernger(FirstName,LastName,TelNumber,Email));
 
             }
 

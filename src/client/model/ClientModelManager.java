@@ -9,16 +9,15 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-import java.rmi.RemoteException;
 import java.util.Date;
 import java.util.List;
 
-public class ClientTextManager implements ClientText {
+public class ClientModelManager implements ClientModel {
 
     private PropertyChangeSupport support = new PropertyChangeSupport(this);
     private Client client;
 
-    public ClientTextManager(Client client) {
+    public ClientModelManager(Client client) {
         System.out.println("client textmanager");
         this.client = client;
         client.startClient();
@@ -190,7 +189,6 @@ public class ClientTextManager implements ClientText {
         return client.getAirport();
     }
 
-    //-----------------------Seat Start---------------------------------------------
     @Override
     public List<Seat> getSeat(int planeId) {
             return client.getSeat(planeId);
@@ -208,17 +206,11 @@ public class ClientTextManager implements ClientText {
         return client.CreateSeat(SeatNumber,classtype);
     }
 
-    @Override public Seat countSeat()
-    {
-        return client.countSeat();
-    }
-
     @Override
     public void deleteSeat(Seat seat) {
         client.deleteSeat(seat);
 
     }
-
 
     @Override public Airport CreateAirport(String airportId, String airportName, String airportCity)
 
@@ -226,8 +218,6 @@ public class ClientTextManager implements ClientText {
         return client.CreateAirport(airportId,airportName,airportCity);
     }
 
-
-    //--------------------------Seat End--------------------------------------------
 
     @Override
     public InputUser readUser(String user, String password) {
@@ -248,7 +238,6 @@ public class ClientTextManager implements ClientText {
     public double AverageStars() {
         return client.AverageStars();
     }
-
 
 
 
@@ -288,10 +277,6 @@ public class ClientTextManager implements ClientText {
     public Seat readSeatFromShoppingCart(String seatNumber, String classType) {
         return client.readSeatFromShoppingCart(seatNumber,classType);
     }
-    /*@Override
-    public List<myFlightTicket> ReadPriceSUM() {
-        return client.ReadPriceSUM();
-    }*/
 
     @Override
     public void createTicket(myFlightTicket myFlightTicket) {
@@ -305,11 +290,6 @@ public class ClientTextManager implements ClientText {
     }
 
     @Override
-    public myFlightTicket readUsername_(String user) {
-        return client.readUsername_(user);
-    }
-
-    @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         support.addPropertyChangeListener(eventName, listener);
     }
@@ -319,17 +299,12 @@ public class ClientTextManager implements ClientText {
         support.removePropertyChangeListener(eventName, listener);
     }
 
-    public Object cloak(){
+    public Object clock(){
         Date myDate=new Date();
         support.firePropertyChange("time",-1,1);
 
         return myDate;
     }
-
-
-
-
-
 
 }
 

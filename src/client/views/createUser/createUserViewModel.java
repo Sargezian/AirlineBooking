@@ -1,6 +1,6 @@
 package client.views.createUser;
 
-import client.model.ClientText;
+import client.model.ClientModel;
 import client.model.SaveInfo;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -8,14 +8,14 @@ import shared.transferobjects.InputUser;
 
 public class createUserViewModel  {
 
-   private ClientText clientText;
+   private ClientModel clientModel;
     private StringProperty CreateUser;
     private StringProperty CreatePassword;
     private StringProperty Error;
 
     
-    public createUserViewModel(ClientText clientText) {
-        this.clientText = clientText;
+    public createUserViewModel(ClientModel clientModel) {
+        this.clientModel = clientModel;
         CreateUser = new SimpleStringProperty();
         CreatePassword = new SimpleStringProperty();
         Error = new SimpleStringProperty();
@@ -28,7 +28,7 @@ public class createUserViewModel  {
 
 
         if (CreateUser != null && !"".equals(CreateUser) && CreatePassword != null && !"".equals(CreatePassword)  ) {
-            InputUser username = clientText.username(CreateUser, CreatePassword);
+            InputUser username = clientModel.username(CreateUser, CreatePassword);
             SaveInfo.getInstance().setUser(username);
 
             Error.set("korrekt oprettet");
@@ -39,7 +39,7 @@ public class createUserViewModel  {
     }
 
     public boolean userValidation(){
-      SaveInfo.getInstance().setUser(clientText.readUsername(this.CreateUser.getValue()));
+      SaveInfo.getInstance().setUser(clientModel.readUsername(this.CreateUser.getValue()));
       InputUser user = SaveInfo.getInstance().getUser();
       if (user != null){
 
@@ -140,48 +140,6 @@ public class createUserViewModel  {
 
     }
 
-
-    /*public void addListener(String name, PropertyChangeListener listener) {
-        support.addPropertyChangeListener(name, listener);
-    }*/
-
-
-
-    /*@Override
-    public void createUser(String username, String pw, String pwAgain) {
-        String result = attemptCreateUser(username, pw, pwAgain);
-
-        if("OK".equals(result)) {
-            // adding the new user
-            users.add(new User(username, pw));
-        }
-
-        support.firePropertyChange("CreateUserResult", "", result);
-    }
-
-    */
-
-
-   /* private String attemptCreateUser(String username, String pw, String pwAgain) {
-        if(username == null) {
-            return "Username cannot be empty";
-        }
-        if(username.contains("#")) {
-            return "Username cannot contain #";
-        }
-        if(username.length() < 4) {
-            return "Username must contain more than 3 characters";
-        }
-        if(username.length() > 14) {
-            return "Username must contain less than 15 characters";
-        }
-        if(findUser(username) != null) {
-            return "Username already exists";
-        }
-
-        // checking the passwords
-        return validatePasswords(pw, pwAgain); // returning result of checking passwords
-    }*/
 
 
 

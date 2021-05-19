@@ -1,15 +1,9 @@
 package client.views.createUser;
 
-import client.model.ClientText;
-import client.model.ClientTextManager;
-import client.network.RMIClient;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import server.model.database.InputUserDao;
 import server.model.database.InputUserImpl;
-import shared.transferobjects.InputUser;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,9 +1,6 @@
 package client.views.admin;
 
-import client.model.ClientText;
-import client.model.SaveInfo;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
+import client.model.ClientModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -19,7 +16,7 @@ import java.util.List;
 
 public class adminFlightViewModel {
 
-    private ClientText clientText;
+    private ClientModel clientModel;
 
     private StringProperty flightId;
 
@@ -49,8 +46,8 @@ public class adminFlightViewModel {
 
 
 
-    public adminFlightViewModel(ClientText clientText) {
-        this.clientText = clientText;
+    public adminFlightViewModel(ClientModel clientModel) {
+        this.clientModel = clientModel;
         flightId = new SimpleStringProperty();
         flightName = new SimpleStringProperty();
         price = new SimpleStringProperty();
@@ -61,10 +58,10 @@ public class adminFlightViewModel {
         PlaneTypes = new SimpleStringProperty();
 
 
-        clientText.addListener(utils.NEWFLIGHT, this::onNewInputflight);
-        clientText.addListener(utils.NEWARRIVAL, this::onNewInputArrival);
-        clientText.addListener(utils.NEWDEPARTURE, this::onNewInputDeparture);
-        clientText.addListener(utils.NEWPLANE, this::onNewInputPlane);
+        clientModel.addListener(utils.NEWFLIGHT, this::onNewInputflight);
+        clientModel.addListener(utils.NEWARRIVAL, this::onNewInputArrival);
+        clientModel.addListener(utils.NEWDEPARTURE, this::onNewInputDeparture);
+        clientModel.addListener(utils.NEWPLANE, this::onNewInputPlane);
 
     }
 
@@ -77,7 +74,7 @@ public class adminFlightViewModel {
             String Flightname = flightName.getValue();
             String Price = price.getValue();
 
-            clientText.CreateFlights(FlightId,Flightname,Price);
+            clientModel.CreateFlights(FlightId,Flightname,Price);
 
         }
 
@@ -92,7 +89,7 @@ public class adminFlightViewModel {
             String arrivalDate = ArrivalDate.getValue();
 
 
-            clientText.CreateArrival(arrival,arrivalDate);
+            clientModel.CreateArrival(arrival,arrivalDate);
 
         }
 
@@ -108,7 +105,7 @@ public class adminFlightViewModel {
             String departureDate = DepartureDate.getValue();
 
 
-            clientText.CreateDeparture(departures,departureDate);
+            clientModel.CreateDeparture(departures,departureDate);
 
         }
 
@@ -123,7 +120,7 @@ public class adminFlightViewModel {
             String planeTypes = PlaneTypes.getValue();
 
 
-            clientText.CreatePlane(planeTypes);
+            clientModel.CreatePlane(planeTypes);
 
         }
 
@@ -132,7 +129,7 @@ public class adminFlightViewModel {
 
     public boolean deleteFlight(Flights flights){
 
-        clientText.deleteFlight(flights);
+        clientModel.deleteFlight(flights);
         this.flights.removeAll(flights);
 
         return true;
@@ -141,7 +138,7 @@ public class adminFlightViewModel {
 
 
     public boolean deleteArrival(Arrival arrival){
-        clientText.deleteArrival(arrival);
+        clientModel.deleteArrival(arrival);
         this.arrivals.removeAll(arrival);
         return true;
 
@@ -150,7 +147,7 @@ public class adminFlightViewModel {
 
     public boolean deleteDeparture(Depature depature){
 
-       clientText.deleteDeparture(depature);
+       clientModel.deleteDeparture(depature);
         this.depatures.removeAll(depatures);
         return true;
 
@@ -159,7 +156,7 @@ public class adminFlightViewModel {
 
 
     public boolean deletePlaneType(PlaneType planeType){
-         clientText.deletePlaneType(planeType);
+         clientModel.deletePlaneType(planeType);
         this.planeTypes.removeAll(planeType);
         return true;
 
@@ -173,25 +170,25 @@ public class adminFlightViewModel {
 
 
     public void loadFlights() {
-        List<Flights> flight = clientText.getAllTheFLights();
+        List<Flights> flight = clientModel.getAllTheFLights();
         flights = FXCollections.observableArrayList(flight);
     }
 
 
     public void loadArrival() {
-        List<Arrival> arrivals = clientText.getAllArrival();
+        List<Arrival> arrivals = clientModel.getAllArrival();
         this.arrivals = FXCollections.observableArrayList(arrivals);
     }
 
 
     public void loadDeparture() {
-        List<Depature> depatures = clientText.getAllDeparture();
+        List<Depature> depatures = clientModel.getAllDeparture();
         this.depatures = FXCollections.observableArrayList(depatures);
     }
 
 
     public void loadPlane() {
-        List<PlaneType> planeTypes1 = clientText.getAllPlaneType();
+        List<PlaneType> planeTypes1 = clientModel.getAllPlaneType();
         planeTypes = FXCollections.observableArrayList(planeTypes1);
     }
 

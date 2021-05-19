@@ -9,7 +9,7 @@ public class ClientFactory {
 
     public static Client getClient() {
         if (client == null) {
-           client = new RMIClient();
+            client = new RMIClient();
         }
         return client;
     }

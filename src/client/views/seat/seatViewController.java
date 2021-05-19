@@ -78,11 +78,5 @@ public class seatViewController implements ViewController {
   }
 
 
-
-   /* public void Setcolor(MouseEvent mouseEvent)
-    {
-        //sv.SetSeatId(mouseEvent);
-    }
-*/
 }
 

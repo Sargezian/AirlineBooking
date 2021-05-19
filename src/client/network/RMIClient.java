@@ -43,8 +43,6 @@ public class RMIClient implements Client, ClientCallBack
       server.registerSeatToClient(this);
       server.registerAirportToClient(this);
 
-      //server.registerpassengerToClient(this);
-
     }
     catch (RemoteException | NotBoundException e)
     {
@@ -364,18 +362,6 @@ public class RMIClient implements Client, ClientCallBack
       ; }
   }
 
-  @Override public Seat countSeat()
-  {
-    try
-    {
-      return server.countSeat();
-    }
-    catch (RemoteException e)
-    {
-      throw new RuntimeException("Kunne ikke oprettet forbindelse til server")
-          ; }
-  }
-
   @Override
   public void deleteSeat(Seat seat) {
 
@@ -439,7 +425,6 @@ public class RMIClient implements Client, ClientCallBack
   }
 
 
-
   @Override
   public Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) {
     try
@@ -451,18 +436,6 @@ public class RMIClient implements Client, ClientCallBack
       throw new RuntimeException("Kunne ikke få fat i server");
     }
   }
-
-  /*@Override
-  public List<myFlightTicket> ReadPriceSUM() {
-    try
-    {
-      return server.ReadPriceSUM();
-    }
-    catch (RemoteException e)
-    {
-      throw new RuntimeException("Kunne ikke få fat i server");
-    }
-  }*/
 
   @Override public void createTicket(myFlightTicket myFlightTicket)
   {
@@ -476,18 +449,6 @@ public class RMIClient implements Client, ClientCallBack
       throw new RuntimeException("Kunne ikke få fat i server");
     }
 
-  }
-
-  @Override
-  public myFlightTicket readUsername_(String user) {
-    try
-    {
-      return server.readUsername_(user);
-    }
-    catch (RemoteException e)
-    {
-      throw new RuntimeException("Kunne ikke få fat i server");
-    }
   }
 
   @Override

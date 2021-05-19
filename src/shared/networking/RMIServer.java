@@ -7,8 +7,6 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 public interface RMIServer extends Remote {
-    //Airport
-    Airport CreateAirport(String airportId, String airportName, String airportCity) throws RemoteException;
 
     //chat
     InputChat createChat(String chat, double star) throws RemoteException;
@@ -31,32 +29,27 @@ public interface RMIServer extends Remote {
     List<Flights> getflights() throws RemoteException;
     List<Flights> readByName(String searchString) throws RemoteException;
     Flights CreateFlights(String flightID, String flightName, String price) throws RemoteException;
-    void deleteFlight(Flights flights) throws RemoteException;
-    List<Flights> getAllTheFLights()throws RemoteException;
-    Arrival CreateArrival(String Arrival, String Arrivaldate) throws RemoteException;
-
-    Depature CreateDeparture(String Departure, String DepartureDate) throws RemoteException;
-
-    PlaneType CreatePlane(String PlaneTypes)throws RemoteException;
-
-    List<PlaneType> getAllPlaneType() throws RemoteException;
-    List<Depature> getAllDeparture()throws RemoteException;
-    List<Arrival> getAllArrival()throws RemoteException;
 
     //admin
-
     void deleteArrival(Arrival arrival) throws RemoteException;
     void deleteDeparture(Depature depature) throws RemoteException;
     void deletePlaneType(PlaneType planeType)throws RemoteException;
     List<Seat> getSeats() throws RemoteException;
     List<Airport> getAirport() throws RemoteException;
-
+    Airport CreateAirport(String airportId, String airportName, String airportCity) throws RemoteException;
+    void deleteFlight(Flights flights) throws RemoteException;
+    List<Flights> getAllTheFLights()throws RemoteException;
+    Arrival CreateArrival(String Arrival, String Arrivaldate) throws RemoteException;
+    Depature CreateDeparture(String Departure, String DepartureDate) throws RemoteException;
+    PlaneType CreatePlane(String PlaneTypes)throws RemoteException;
+    List<PlaneType> getAllPlaneType() throws RemoteException;
+    List<Depature> getAllDeparture()throws RemoteException;
+    List<Arrival> getAllArrival()throws RemoteException;
 
     //seat
     List<Seat> getSeat(int planeId) throws RemoteException;
     Seat getSeatId(int seatID, String seatNumber, String classType) throws RemoteException;
     Seat CreateSeat(String SeatNumber,String classtype) throws RemoteException;
-    Seat countSeat() throws RemoteException;
     void deleteSeat(Seat seat) throws RemoteException;
 
     //passenger
@@ -67,9 +60,8 @@ public interface RMIServer extends Remote {
     //payment
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) throws RemoteException;
 
-    //List<myFlightTicket> ReadPriceSUM() throws RemoteException;
+    //ticket
     List<myFlightTicket> getflightlist(int userId) throws RemoteException;
-    myFlightTicket readUsername_(String user) throws RemoteException;
 
     //shoppingcart
     Flights readFlightsFromShoppingCart(String flightName, String departure, String arrival) throws RemoteException;
@@ -87,9 +79,6 @@ public interface RMIServer extends Remote {
     void registerPlaneToClient(ClientCallBack client) throws  RemoteException;
     void registerSeatToClient(ClientCallBack client) throws  RemoteException;
     void registerAirportToClient(ClientCallBack client) throws  RemoteException;
-
-
-
 
 
 }

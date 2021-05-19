@@ -24,5 +24,4 @@ public class daoConnection {
                 "jdbc:postgresql://localhost:5432/postgres?currentSchema=sep2",
                 "postgres", "Sofuserenhund!");
     }
-
 }
