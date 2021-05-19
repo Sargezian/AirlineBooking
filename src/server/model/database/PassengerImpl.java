@@ -1,10 +1,7 @@
 package server.model.database;
 
 import shared.transferobjects.*;
-
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PassengerImpl implements PassengerDao {
 
@@ -82,7 +79,6 @@ public class PassengerImpl implements PassengerDao {
                 PreparedStatement statement = connection.prepareStatement("select * from passenger where Email = ?  ");
 
                 //passenger
-
                 statement.setString(1, email);
 
                 ResultSet resultSet = statement.executeQuery();

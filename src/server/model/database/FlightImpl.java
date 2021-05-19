@@ -119,21 +119,6 @@ public class FlightImpl implements FlightDao {
     return null;
   }
 
-  @Override
-  public List<Flights> updateFlight(Flights flights) {
-    try {
-      try (Connection connection = daoConnection.getConnection()) {
-        PreparedStatement statement = connection.prepareStatement("UPDATE flights SET flightName = flightName  WHERE flightID = ? ");
-        statement.setString(1,flights.flightID);
-        statement.executeUpdate();
-
-      }
-    } catch (SQLException throwables) {
-      throwables.printStackTrace();
-    }
-    return null;
-
-}
 }
 
 

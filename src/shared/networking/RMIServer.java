@@ -9,18 +9,18 @@ import java.util.List;
 public interface RMIServer extends Remote {
 
     //chat
-    InputChat createChat(String chat, double star) throws RemoteException;
     List<InputChat> getChat() throws RemoteException;
+    InputChat createChat(String chat, double star) throws RemoteException;
     int CountChat() throws RemoteException;
 
     //rating
-    public List<Rating> getRatings() throws RemoteException;
+    List<Rating> getRatings() throws RemoteException;
     double AverageStars() throws RemoteException;
     int CountRatings(double star) throws RemoteException;
 
     //user
-    InputUser username(String user, String password) throws RemoteException;
     List<InputUser> getUser() throws RemoteException;
+    InputUser username(String user, String password) throws RemoteException;
     InputUser readUser(String user,String password) throws RemoteException;
     InputUser readUsername(String user) throws RemoteException;
     boolean ValidateUser(String user, String password) throws RemoteException;
@@ -31,20 +31,20 @@ public interface RMIServer extends Remote {
     Flights CreateFlights(String flightID, String flightName, String price) throws RemoteException;
 
     //admin
-    void deleteArrival(Arrival arrival) throws RemoteException;
-    void deleteDeparture(Depature depature) throws RemoteException;
-    void deletePlaneType(PlaneType planeType)throws RemoteException;
+    List<Flights> getAllTheFLights()throws RemoteException;
     List<Seat> getSeats() throws RemoteException;
     List<Airport> getAirport() throws RemoteException;
-    Airport CreateAirport(String airportId, String airportName, String airportCity) throws RemoteException;
-    void deleteFlight(Flights flights) throws RemoteException;
-    List<Flights> getAllTheFLights()throws RemoteException;
-    Arrival CreateArrival(String Arrival, String Arrivaldate) throws RemoteException;
-    Depature CreateDeparture(String Departure, String DepartureDate) throws RemoteException;
-    PlaneType CreatePlane(String PlaneTypes)throws RemoteException;
     List<PlaneType> getAllPlaneType() throws RemoteException;
     List<Depature> getAllDeparture()throws RemoteException;
     List<Arrival> getAllArrival()throws RemoteException;
+    void deleteArrival(Arrival arrival) throws RemoteException;
+    void deleteDeparture(Depature depature) throws RemoteException;
+    void deletePlaneType(PlaneType planeType)throws RemoteException;
+    void deleteFlight(Flights flights) throws RemoteException;
+    Airport CreateAirport(String airportId, String airportName, String airportCity) throws RemoteException;
+    Arrival CreateArrival(String Arrival, String Arrivaldate) throws RemoteException;
+    Depature CreateDeparture(String Departure, String DepartureDate) throws RemoteException;
+    PlaneType CreatePlane(String PlaneTypes)throws RemoteException;
 
     //seat
     List<Seat> getSeat(int planeId) throws RemoteException;

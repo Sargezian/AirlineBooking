@@ -42,8 +42,10 @@ public class SeatImpl implements SeatDao {
                     int seatID = resultSet.getInt("seatID");
                     String seatNumber = resultSet.getString("seatNumber");
                     String classType = resultSet.getString("classType");
+
+                    //planetype
                     int getplaneId = resultSet.getInt("planeId");
-                    //Linje 38 skal måske kun have seat ID
+
                     Seat seat = new Seat(seatID, seatNumber, classType, new PlaneType(planeId));
                     Seats.add(seat);
                 }
@@ -69,7 +71,6 @@ public class SeatImpl implements SeatDao {
                 PreparedStatement statement = connection.prepareStatement("INSERT INTO seat(seatNumber,classType) VALUES (?,?) ", PreparedStatement.RETURN_GENERATED_KEYS);
 
                 //seat
-
                 statement.setString(1, SeatNumber);
                 statement.setString(2,classtype);
 
@@ -108,9 +109,10 @@ public class SeatImpl implements SeatDao {
                     int seatID = resultSet.getInt("seatID");
                     String seatNumber = resultSet.getString("seatNumber");
                     String classType = resultSet.getString("classType");
+
+                    //planetype
                     int planeID = resultSet.getInt("planeID");
 
-                    //Linje 38 skal måske kun have seat ID
                     Seat seat = new Seat(seatID, seatNumber, classType,new PlaneType(planeID));
                     Seats.add(seat);
                 }

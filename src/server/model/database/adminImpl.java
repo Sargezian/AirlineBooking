@@ -24,7 +24,6 @@ public class adminImpl implements adminDao {
         daoconnection = daoConnection.getInstance();
     }
 
-
     public static synchronized adminImpl getInstance(){
 
         if (daoInstance == null){
@@ -34,15 +33,11 @@ public class adminImpl implements adminDao {
     }
 
 
-
     @Override
     public Flights CreateFlights(String flightID, String flightName, String price ) {
         try {
             try (Connection connection = daoConnection.getConnection()) {
                 PreparedStatement statement = connection.prepareStatement("INSERT INTO flights(flightID,flightName,price) VALUES (?,?,?)");
-
-                //flights
-
 
                 statement.setString(1,flightID);
                 statement.setString(2,flightName);
@@ -131,12 +126,9 @@ public class adminImpl implements adminDao {
                 ArrayList<Flights> flightlist = new ArrayList<>();
                 while (resultSet.next()) {
 
-                    //flight
                     String flightID = resultSet.getString("flightID");
                     String flightName = resultSet.getString("flightName");
                     String price = resultSet.getString("price");
-
-
 
                     Flights flights = new Flights(flightID, flightName,price);
                     flightlist.add(flights);
@@ -161,7 +153,7 @@ public class adminImpl implements adminDao {
                 ArrayList<Arrival> Arrivallist = new ArrayList<>();
                 while (resultSet.next()) {
 
-                    //flight
+
                     int arrivalId = resultSet.getInt("ArrivalID");
                     String arrivals = resultSet.getString("arrivals");
                     String arrivalDate = resultSet.getString("Arrivaldate");
@@ -191,7 +183,7 @@ public class adminImpl implements adminDao {
                 ArrayList<Depature> depatureArrayList = new ArrayList<>();
                 while (resultSet.next()) {
 
-                    //flight
+
                     int departureId = resultSet.getInt("DepartureID");
                     String departures = resultSet.getString("departures");
                     String departuredate = resultSet.getString("Departuredate");
@@ -220,7 +212,7 @@ public class adminImpl implements adminDao {
                 ArrayList<PlaneType> planeArrayList = new ArrayList<>();
                 while (resultSet.next()) {
 
-                    //flight
+
                     int planeID = resultSet.getInt("planeID");
                     String planeTypes = resultSet.getString("planeTypes");
 
@@ -246,7 +238,7 @@ public class adminImpl implements adminDao {
             try (Connection connection =  daoConnection.getConnection()) {
                 PreparedStatement statement = connection.prepareStatement("INSERT INTO Arrival(arrivals,Arrivaldate) VALUES (?,?) ", PreparedStatement.RETURN_GENERATED_KEYS);
 
-                //payment
+
                 statement.setString(1, Arrival);
                 statement.setString(2, Arrivaldate);
 
@@ -274,7 +266,6 @@ public class adminImpl implements adminDao {
             try (Connection connection =  daoConnection.getConnection()) {
                 PreparedStatement statement = connection.prepareStatement("INSERT INTO Departure(departures,Departuredate) VALUES (?,?) ", PreparedStatement.RETURN_GENERATED_KEYS);
 
-                //payment
                 statement.setString(1, Departure);
                 statement.setString(2, DepartureDate);
 
@@ -303,7 +294,6 @@ public class adminImpl implements adminDao {
             try (Connection connection =  daoConnection.getConnection()) {
                 PreparedStatement statement = connection.prepareStatement("INSERT INTO planeType(planeTypes) VALUES (?) ", PreparedStatement.RETURN_GENERATED_KEYS);
 
-                //payment
                 statement.setString(1, PlaneTypes);
 
 

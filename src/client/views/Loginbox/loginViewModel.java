@@ -6,7 +6,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import shared.transferobjects.*;
 
-
 public class loginViewModel {
     private ClientModel clientModel;
     private StringProperty navn;
@@ -22,13 +21,13 @@ public class loginViewModel {
 
     }
 
-
-
+    //clearfields
     public void clearFields() {
         navn.setValue("");
         kode.setValue("");
         error.setValue("");
     }
+
 
     public boolean validateLoginInfo() {
 

@@ -50,15 +50,6 @@ public class paymentViewModel {
         error = new SimpleStringProperty();
     }
 
-    private void onNewTicket(PropertyChangeEvent propertyChangeEvent) {
-        SetPassengerInfomation();
-
-    }
-
-
-
-
-
 
     public void createTicket() {
 
@@ -171,6 +162,11 @@ public class paymentViewModel {
 
     }
 
+    private void onNewTicket(PropertyChangeEvent propertyChangeEvent) {
+        SetPassengerInfomation();
+
+    }
+
     public String getFirstName() {
         return FirstName.get();
     }
@@ -250,4 +246,5 @@ public class paymentViewModel {
     public StringProperty priceProperty() {
         return price;
     }
+
 }

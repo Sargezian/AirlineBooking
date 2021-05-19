@@ -17,16 +17,18 @@ import java.util.List;
 public class chatViewModel {
 
     private ClientModel clientModel;
+
     private ObservableList<InputChat> chats;
     private ObservableList<InputUser> users;
     private ObservableList<Rating> ratings;
+
     private StringProperty totalReviews;
     private StringProperty average;
+    private StringProperty error;
+    private StringProperty chat;
+
     private DoubleProperty progressbar;
 
-    private StringProperty error;
-
-    private StringProperty chat;
     private String user;
 
     XYChart.Series<String, Double> series = new XYChart.Series<>();
@@ -63,26 +65,7 @@ public class chatViewModel {
                 {
                     double star_1 = clientModel.CountRatings(i);
                     series.getData().add(new XYChart.Data<String, Double>( i + " Star", star_1));
-
                 }
-
-/*
-                if (rating.star == 1) {
-                    double star_1 = clientText.CountRatings(rating.star);
-                    series.getData().add(new XYChart.Data<String, Double>("1 Star", star_1));
-                } else if (rating.star == 2) {
-                    double star_2 = clientText.CountRatings(rating.star);
-                    series.getData().add(new XYChart.Data<String, Double>("2 Star", star_2));
-                } else if (rating.star == 3) {
-                    double star_3 = clientText.CountRatings(rating.star);
-                    series.getData().add(new XYChart.Data<String, Double>("3 Star", star_3));
-                } else if (rating.star == 4) {
-                    double star_4 = clientText.CountRatings(rating.star);
-                    series.getData().add(new XYChart.Data<String, Double>("4 Star", star_4));
-                } else if (rating.star == 5) {
-                    double star_5 = clientText.CountRatings(rating.star);
-                    series.getData().add(new XYChart.Data<String, Double>("5 Star", star_5));
-                }*/
             }});
     }
 
@@ -100,25 +83,25 @@ public class chatViewModel {
             System.out.println(chat.getValue());
         }
             chat.set("");
-
     }
 
-
+    //loadChat
     public void loadLogs() {
         List<InputChat> chatList = clientModel.getChat();
         chats = FXCollections.observableArrayList(chatList);
     }
 
+    //loadUser
     public void loadLogs2() {
         List<InputUser> userLists = clientModel.getUser();
         users = FXCollections.observableArrayList(userLists);
     }
 
+    //loadRatings
     public void loadRatings() {
         List<Rating> rating = clientModel.getRatings();
         ratings = FXCollections.observableArrayList(rating);
     }
-
 
     ObservableList<InputChat> getChats() {
         return chats;

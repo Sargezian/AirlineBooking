@@ -8,7 +8,6 @@ import client.views.createUser.createUserViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import shared.transferobjects.InputChat;
@@ -18,7 +17,6 @@ public class chatViewController implements ViewController {
 
     //barChart
     @FXML private BarChart<String, Double> barChart;
-    /*private XYChart.Data<String, Integer> x = new XYChart.Data<String, Integer>("X", 0);*/
 
     //total reviews
     @FXML public Label TotalReviews;
@@ -38,7 +36,6 @@ public class chatViewController implements ViewController {
     @FXML private TextField requestField;
     @FXML public TableColumn<String, InputChat> inputColumn;
 
-
     private chatViewModel vm;
     private createUserViewModel cuv;
     private ViewHandler vh;
@@ -53,27 +50,32 @@ public class chatViewController implements ViewController {
         vm.loadLogs2();
         vm.loadRatings();
 
+        //chat
         tableView.setItems(vm.getChats());
         inputColumn.setCellValueFactory(new PropertyValueFactory<>("chat"));
-
-        TotalReviews.textProperty().bind(vm.totalReviewsProperty());
-        AverageReviews.textProperty().bind(vm.averageProperty());
-
-        ProgressAvgBar.progressProperty().bind(vm.progressbarProperty());
-
         requestField.textProperty().bindBidirectional(vm.getChat());
-
-        errorRating.textProperty().bind(vm.errorProperty());
-
-        barChart.getData().add(vm.getSeries());
-
         vm.setUser(vmf.getcreateUserViewModel().getCreateUser());
+
+        //ratings
+        starList.setItems(vm.getRatings());
+
+        //total reviews
+        TotalReviews.textProperty().bind(vm.totalReviewsProperty());
         vm.setCounter();
+
+        //average reviews
+        AverageReviews.textProperty().bind(vm.averageProperty());
+        ProgressAvgBar.progressProperty().bind(vm.progressbarProperty());
         vm.setAverage();
 
-
-        starList.setItems(vm.getRatings());
+        //barchart
+        barChart.getData().add(vm.getSeries());
         vm.setBarchart((Rating) starList.getSelectionModel().getSelectedItem());
+
+        //error label
+        errorRating.textProperty().bind(vm.errorProperty());
+
+        //reload
         reloadchatview();
     }
 
@@ -89,32 +91,21 @@ public class chatViewController implements ViewController {
         }
     }
 
-
     @FXML
     private void onSubmitButton() {
-
         vm.chatPrint(starList.getSelectionModel().getSelectedItem());
-
         vm.setBarchart(starList.getSelectionModel().getSelectedItem());
-
-
     }
-
-
 
     public void onFlights(ActionEvent actionEvent) {
         vh.openToMyFlightPlan();
     }
 
-
-
-
-
     public void onBackDashboard(ActionEvent actionEvent) {
         vh.openToDashView();
     }
 
-  public void reloadchatview()
+    public void reloadchatview()
   {
       visible();
   }

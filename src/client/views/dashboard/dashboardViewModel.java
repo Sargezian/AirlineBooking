@@ -31,12 +31,11 @@ public class dashboardViewModel {
     }
 
 
+    //loadflights
     public void loadFlights() {
         List<Flights> flight = clientModel.getflights();
         flights = FXCollections.observableArrayList(flight);
     }
-
-
 
     public boolean getFlightInformation(Flights flights) {
 
@@ -50,6 +49,7 @@ public class dashboardViewModel {
         }
     }
 
+    //clock
     public void startClock(){
         Platform.runLater(new Runnable() {
             @Override
@@ -58,6 +58,11 @@ public class dashboardViewModel {
                 clock.setValue(String.valueOf(clientModel.clock()));
             }
         });
+    }
+
+    public void onNewInputflight(PropertyChangeEvent  evt) {
+        loadFlights();
+
     }
 
     private void clockPropertye(PropertyChangeEvent event) {
@@ -74,11 +79,6 @@ public class dashboardViewModel {
 
     public StringProperty searchProperty() {
         return search;
-    }
-
-    public void onNewInputflight(PropertyChangeEvent  evt) {
-        loadFlights();
-
     }
 
     public ObservableList<Flights> getflight() {

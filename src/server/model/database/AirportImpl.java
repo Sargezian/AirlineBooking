@@ -1,7 +1,6 @@
 package server.model.database;
 
 import shared.transferobjects.Airport;
-import shared.transferobjects.Flights;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -65,7 +64,6 @@ public class AirportImpl implements AirportDao
         ArrayList<Airport> airportArrayList = new ArrayList<>();
         while (resultSet.next()) {
 
-          //seat
           String airportId = resultSet.getString("airportID");
           String name = resultSet.getString("Name");
           String city = resultSet.getString("City");
@@ -83,14 +81,7 @@ public class AirportImpl implements AirportDao
     return null;
   }
 
-
-
-
-
-
-
-
-
+  // TODO: 20/05/2021 læg ind i admin
 
 }
 

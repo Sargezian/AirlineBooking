@@ -9,8 +9,8 @@ public interface ServerManager extends Subject
 {
 
     //chat
-    InputChat createChat(String chat, double star);
     List<InputChat> getChat();
+    InputChat createChat(String chat, double star);
     int CountChat();
 
     //rating
@@ -19,8 +19,8 @@ public interface ServerManager extends Subject
     int CountRatings(double star);
 
     //user
-    InputUser CreateUser(String user, String password);
     List<InputUser> getUser();
+    InputUser CreateUser(String user, String password);
     InputUser readUser(String user, String password);
     InputUser readUsername(String user);
     boolean ValidateUser(String user, String password);
@@ -29,7 +29,6 @@ public interface ServerManager extends Subject
     List<Seat> getSeat(int planeId);
     Seat getSeatID(int seatID, String seatNumber, String classType);
     Seat CreateSeat(String SeatNumber, String classtype);
-    Seat countSeat();
     void deleteSeat(Seat seat);
 
     //flight
@@ -38,20 +37,20 @@ public interface ServerManager extends Subject
     Flights CreateFlights(String flightID, String flightName, String price);
 
     //Admin
-    void deleteArrival(Arrival arrival);
-    void deleteDeparture(Depature depature);
-    void deletePlaneType(PlaneType planeType);
+    List<Flights> getAllTheFLights();
     List<Seat> getSeats();
     List<Airport> getAirport();
-    void deleteFlight(Flights flights);
-    List<Flights> getAllTheFLights();
-    Arrival CreateArrival(String Arrival, String Arrivaldate);
-    Depature CreateDeparture(String Departure, String DepartureDate);
-    PlaneType CreatePlane(String PlaneTypes);
     List<PlaneType> getAllPlaneType();
     List<Depature> getAllDeparture();
     List<Arrival> getAllArrival();
+    Arrival CreateArrival(String Arrival, String Arrivaldate);
+    Depature CreateDeparture(String Departure, String DepartureDate);
+    PlaneType CreatePlane(String PlaneTypes);
     Airport CreateAirport(String airportId, String airportName, String airportCity);
+    void deleteArrival(Arrival arrival);
+    void deleteDeparture(Depature depature);
+    void deletePlaneType(PlaneType planeType);
+    void deleteFlight(Flights flights);
 
     //passenger
     Passenger passernger(String FirstName, String LastName, String TelNumber,

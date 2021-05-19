@@ -37,7 +37,6 @@ public class ShoppingCartImpl implements ShoppingCartDao {
                 //arrival
                 statement.setString(3, arrivals);
 
-
                 ResultSet resultSet = statement.executeQuery();
 
                 if (resultSet.next()) {
@@ -110,10 +109,6 @@ public class ShoppingCartImpl implements ShoppingCartDao {
 
 
     }
-
-
-
-
 
 
 }

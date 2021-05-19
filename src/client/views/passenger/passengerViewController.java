@@ -2,7 +2,6 @@ package client.views.passenger;
 
 import client.core.ViewHandler;
 import client.core.ViewModelFactory;
-import client.model.SaveInfo;
 import client.views.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,12 +25,8 @@ public class passengerViewController implements ViewController {
     @FXML public Label arrival;
     @FXML public Label seat;
     @FXML public Label ClassType;
-    @FXML public Label Food;
 
     //price information
-    @FXML public Label Subtotal;
-    @FXML public Label seatPrice;
-    @FXML public Label FoodPrice;
     @FXML public Label TotalPrice;
 
     private ViewHandler vh;
@@ -41,17 +36,25 @@ public class passengerViewController implements ViewController {
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.vh = vh;
         pv = vmf.getPassengerViewModel();
+
+        //passenger
         FirstName.textProperty().bindBidirectional(pv.firstNameProperty());
         LastName.textProperty().bindBidirectional(pv.lastNameProperty());
         TelNumber.textProperty().bindBidirectional(pv.telNumberProperty());
         Email.textProperty().bindBidirectional(pv.emailProperty());
+
+        //shoppingcart
         FlightName.textProperty().bind(pv.flightNameProperty());
         departure.textProperty().bind(pv.departureProperty());
         arrival.textProperty().bind(pv.arrivalProperty());
         seat.textProperty().bind(pv.seatPropertyProperty());
         ClassType.textProperty().bind(pv.classTypeProperty());
-        error.textProperty().bind(pv.errorProperty());
         TotalPrice.textProperty().bind(pv.priceProperty());
+
+        //error
+        error.textProperty().bind(pv.errorProperty());
+
+        //reload
         reloadpassenger();
 
     }

@@ -59,31 +59,6 @@ public class createUserViewModel  {
 
     }
 
-
-    public String getCreateUser() {
-        return CreateUser.get();
-    }
-
-    public StringProperty createUserProperty() {
-        return CreateUser;
-    }
-
-    public String getCreatePassword() {
-        return CreatePassword.get();
-    }
-
-    public StringProperty createPasswordProperty() {
-        return CreatePassword;
-    }
-
-    public String getError() {
-        return Error.get();
-    }
-
-    public StringProperty errorProperty() {
-        return Error;
-    }
-
     public boolean attemptCreateUser() {
 
         if(CreateUser.getValue() == null) {
@@ -140,6 +115,29 @@ public class createUserViewModel  {
 
     }
 
+    public String getCreateUser() {
+        return CreateUser.get();
+    }
+
+    public StringProperty createUserProperty() {
+        return CreateUser;
+    }
+
+    public String getCreatePassword() {
+        return CreatePassword.get();
+    }
+
+    public StringProperty createPasswordProperty() {
+        return CreatePassword;
+    }
+
+    public String getError() {
+        return Error.get();
+    }
+
+    public StringProperty errorProperty() {
+        return Error;
+    }
 
 
 

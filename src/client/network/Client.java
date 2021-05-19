@@ -9,13 +9,13 @@ import java.util.List;
 public interface Client extends Subject {
 
     //chat
-    InputChat createChat(String chat, double star);
     List<InputChat> getChat();
+    InputChat createChat(String chat, double star);
     int CountChat();
 
     //user
-    InputUser username(String user, String password);
     List<InputUser> getUser();
+    InputUser username(String user, String password);
     InputUser readUser(String user,String password);
     InputUser readUsername(String user);
     boolean ValidateUser(String user, String password);
@@ -29,26 +29,26 @@ public interface Client extends Subject {
 
     //flights
     List<Flights> getflights();
-    Flights CreateFlights(String flightID, String flightName, String price);
     List<Flights> readByName(String searchString);
-
+    Flights CreateFlights(String flightID, String flightName, String price);
 
     //admin
-    void deleteFlight(Flights flights);
     List<Flights> getAllTheFLights();
+    List<Seat> getSeats();
+    List<Airport> getAirport();
+    List<PlaneType> getAllPlaneType();
+    List<Depature> getAllDeparture();
+    List<Arrival> getAllArrival();
+    Airport CreateAirport(String airportId, String airportName,
+                          String airportCity);
     Arrival CreateArrival(String Arrival, String Arrivaldate);
     Depature CreateDeparture(String Departure, String DepartureDate);
     PlaneType CreatePlane(String PlaneTypes);
-    List<PlaneType> getAllPlaneType();
-    List<Depature> getAllDeparture();
-    List<Arrival> getAllArrival();;
+
     void deleteArrival(Arrival arrival);
     void deleteDeparture(Depature depature);
     void deletePlaneType(PlaneType planeType);
-    List<Seat> getSeats();
-    List<Airport> getAirport();
-    Airport CreateAirport(String airportId, String airportName,
-                          String airportCity);
+    void deleteFlight(Flights flights);
 
     //seats
     List<Seat> getSeat(int planeId);

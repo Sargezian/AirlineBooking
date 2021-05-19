@@ -23,8 +23,12 @@ public class createUserViewController implements ViewController {
     public void init(ViewHandler vh, ViewModelFactory vmf) {
         this.vh = vh;
         this.cuv = vmf.getcreateUserViewModel();
+
+        //create login
         CreateUser.textProperty().bindBidirectional(cuv.createUserProperty());
         CreatePassword.textProperty().bindBidirectional(cuv.createPasswordProperty());
+
+        //error label
         Error.textProperty().bind(cuv.errorProperty());
 
     }
@@ -38,14 +42,10 @@ public class createUserViewController implements ViewController {
 
         }
 
-
-
     }
 
     public void onCancel(ActionEvent actionEvent) {
-
         vh.openLoginView();
     }
-
 
 }

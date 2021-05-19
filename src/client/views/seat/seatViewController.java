@@ -10,26 +10,19 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import shared.transferobjects.Seat;
-
-import java.util.ArrayList;
 
 public class seatViewController implements ViewController {
 
 
+    //seat
     @FXML public TableView<Seat> tableView;
     @FXML public TableColumn<String, Seat> seatIDColumn;
     @FXML public TableColumn<String, Seat> seatNumberColumn;
     @FXML public TableColumn<String, Seat> classTypeColumn;
 
-    @FXML public Pane paneTest;
+    //error label
     @FXML public Label errorlabel;
-
-
-    private ArrayList<Pane> paneArrayList = new ArrayList<>();
-    private ArrayList<Seat> seatArrayList;
 
     private seatViewModel sv;
     private ViewHandler vh;
@@ -44,8 +37,6 @@ public class seatViewController implements ViewController {
         classTypeColumn.setCellValueFactory(new PropertyValueFactory<>("classType"));
         errorlabel.textProperty().bind(sv.errorProperty());
 
-
-
     }
 
 
@@ -59,9 +50,7 @@ public class seatViewController implements ViewController {
 
     public void onNext(ActionEvent actionEvent) {
         if (sv.getSeatInformation(tableView.getSelectionModel().getSelectedItem())) {
-          //  sv.deleteSeat(tableView.getSelectionModel().getSelectedItem());
             vh.openPassengerView();
-            //fjerne select
 
         }
 
@@ -76,7 +65,6 @@ public class seatViewController implements ViewController {
     sv.loadSeat();
     tableView.setItems(sv.getSeat());
   }
-
 
 }
 

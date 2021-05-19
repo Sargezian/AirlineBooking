@@ -18,34 +18,6 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
         return daoInstance;
     }
 
-/*
-
-    @Override
-    public List<myFlightTicket> ReadPriceSUM() {
-        try{
-
-            try (Connection connection = daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("select SUM(price) from myFlightTicket ");
-                ResultSet resultSet = statement.executeQuery();
-
-                ArrayList<myFlightTicket> PriceSUM = new ArrayList<>();
-                while (resultSet.next()) {
-
-                    int price = resultSet.getInt("price");
-
-                    myFlightTicket Ticket = new myFlightTicket(price);
-
-                    PriceSUM.add(Ticket);
-                }
-                return PriceSUM;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-*/
-
     @Override
     public List<myFlightTicket> ReadFlightList(int userId)  {
 
@@ -58,7 +30,6 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
 
                 ArrayList<myFlightTicket> myFlightTickets = new ArrayList<>();
                 while (resultSet.next()) {
-
 
                     //InputUser
                     String user = resultSet.getString("user_");
@@ -130,76 +101,5 @@ public class MyFlightTicketImpl implements MyFlightTicketDao {
             throwables.printStackTrace();
         }
     }
-
-    public myFlightTicket readUsername_(String user) {
-
-        try {
-            try (Connection connection =  daoConnection.getConnection()) {
-
-                PreparedStatement statement = connection.prepareStatement("select *  from myFlightTicket join InputUser IU on IU.id = myFlightTicket.id WHERE user_ = ?  ");
-
-                //seat
-                statement.setString(1, user);
-
-
-                ResultSet resultSet = statement.executeQuery();
-
-                if (resultSet.next()) {
-                    int userId = resultSet.getInt("id");
-                    String password = resultSet.getString("password");
-
-                    //myflightticket
-                    String ticketid = resultSet.getString("ticketid");
-
-                    //flight
-                    String flightID = resultSet.getString("flightid");
-                    String flightName = resultSet.getString("flightName");
-                    String price = resultSet.getString("price");
-
-                    //planetype
-                    String planeType = resultSet.getString("planeTypes");
-                    int planeID = resultSet.getInt("planeid");
-
-                    //departure
-                    int depatureID = resultSet.getInt("departureid");
-                    String departure = resultSet.getString("departures");
-                    String depatureDate = resultSet.getString("departuredate");
-
-                    //arrival
-                    int arrivalID = resultSet.getInt("arrivalid");
-                    String arrivaldate = resultSet.getString("arrivaldate");
-                    String arrival = resultSet.getString("arrivals");
-
-                    //passenger
-
-                    int PassengerID = resultSet.getInt("passengerID");
-                    String FirstName = resultSet.getString("FirstName");
-                    String LastName = resultSet.getString("LastName");
-                    String TelNumber = resultSet.getString("TelNumber");
-                    String email = resultSet.getString("email");
-
-                    //seat
-                    int seatId = resultSet.getInt("seatid");
-                    String seatNumber = resultSet.getString("seatNumber");
-                    String classtype = resultSet.getString("classType");
-
-                    myFlightTicket myFlightTicket = new myFlightTicket(ticketid,new Passenger(PassengerID,FirstName,LastName,TelNumber,email),new Flights(flightID,flightName,new Depature(depatureID,departure,depatureDate),new Arrival(arrivalID,arrival,arrivaldate),new PlaneType(planeID,planeType),price),new Seat(seatId,seatNumber,classtype),new InputUser(userId,user,password));
-                    return myFlightTicket;
-
-                }
-                return null;
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return null;
-    }
-
-
-
-
-
-
-
 
 }

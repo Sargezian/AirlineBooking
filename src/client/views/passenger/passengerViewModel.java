@@ -49,14 +49,6 @@ public class passengerViewModel {
     }
 
 
-    private void onNewTicket(PropertyChangeEvent event) {
-         SetShoppingCart();
-    }
-
-
-
-
-
     public void SetShoppingCart() {
 
         Flights flights = SaveInfo.getInstance().getFlights();
@@ -76,7 +68,6 @@ public class passengerViewModel {
 
         });
     }
-
 
 
     public void getPassengerInformation() {
@@ -126,7 +117,6 @@ public class passengerViewModel {
             return true;
         }
 
-
     }
 
     public void clearFields() {
@@ -137,34 +127,6 @@ public class passengerViewModel {
         error.setValue("");
 
     }
-
-    public void createflight(){
-        Flights flights = SaveInfo.getInstance().getFlights();
-       // clientText.CreateFlights(flights.flightName,flights.price);
-    }
-
-//    public void sete(){
-//
-//        Passenger passenger = SaveInfo.getInstance().getPassenger();
-//        clientText.readUsername(passenger.Email);
-//
-//
-//
-//        Platform.runLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                Email.setValue(passenger.getEmail());
-//
-//            }
-//        });
-//
-//
-//    }
-
-
-
-
-
 
 
     public String getFlightName() {
@@ -259,6 +221,10 @@ public class passengerViewModel {
 
     public StringProperty priceProperty() {
         return price;
+    }
+
+    private void onNewTicket(PropertyChangeEvent event) {
+        SetShoppingCart();
     }
 
 
