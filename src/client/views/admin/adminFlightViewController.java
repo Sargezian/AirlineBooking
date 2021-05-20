@@ -5,6 +5,7 @@ import client.core.ViewModelFactory;
 import client.views.ViewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -93,7 +94,7 @@ public class adminFlightViewController implements ViewController {
     @FXML
     public TableColumn<String,Airport> AirportCityCoulmn;
     public TableColumn<Integer,Seat> planeIDCoulmn;
-
+    @FXML public Label error;
 
 
     private ViewHandler vh;
@@ -134,7 +135,6 @@ public class adminFlightViewController implements ViewController {
         ClassTypeCoulmn.setCellValueFactory(new PropertyValueFactory<>("classType"));
         planeIDCoulmn.setCellValueFactory(new PropertyValueFactory<>("planeId"));
 
-
         AirportIdCoulmn.setCellValueFactory(new PropertyValueFactory<>("AirportID"));
         AirportNameCoulmn.setCellValueFactory(new PropertyValueFactory<>("AirportName"));
         AirportCityCoulmn.setCellValueFactory(new PropertyValueFactory<>("AirportCity"));
@@ -154,29 +154,24 @@ public class adminFlightViewController implements ViewController {
         airportCity.textProperty().bindBidirectional(av.airportCityProperty());
 
 
-
-
         FlightTableview.setItems(av.getFlightsList());
         ArrivalTableview.setItems(av.getArrivalsList());
         DepartureTableview.setItems(av.getDepatures());
         PlaneTableview.setItems(av.getPlanetyp());
         SeatTableview.setItems(av.getSeatObservableList());
         AirportTableView.setItems(av.getAirportObservableList());
+
+
+        error.textProperty().bind(av.errorProperty());
     }
 
 
     public void onDelete(ActionEvent actionEvent) {
 
         Depature selectedItem = DepartureTableview.getSelectionModel().getSelectedItem();
-
-
         Flights selectedItem1 = FlightTableview.getSelectionModel().getSelectedItem();
-
-
         Arrival selectedItem2 = ArrivalTableview.getSelectionModel().getSelectedItem();
-
         PlaneType selectedItem3 = PlaneTableview.getSelectionModel().getSelectedItem();
-
 
         if (selectedItem != null){
             av.deleteDeparture(DepartureTableview.getSelectionModel().getSelectedItem());
@@ -210,6 +205,9 @@ public class adminFlightViewController implements ViewController {
 
     public void onAdd(ActionEvent actionEvent) {
 
+        if(av.validateFlightInformation() && av.validateArrivalInformation() && av.validateDepartureInformation() && av.validateSeatInformation() && av.validatePlanetypeInformation() && av.validateAirportInformation()){
+
+
         av.InsertAirportInfomation();
         av.InsertArrivalInformation();
         av.InsertDepartureInformation();
@@ -217,7 +215,6 @@ public class adminFlightViewController implements ViewController {
         av.InsertFlightInformation();
         av.InsertSeatInfomation();
 
-        av.validateAirportInformation();
 
         System.out.println(av.seatIdProperty());
         System.out.println(av.seatNumberProperty());
@@ -225,7 +222,10 @@ public class adminFlightViewController implements ViewController {
         System.out.println(av.airportCityProperty());
         System.out.println(av.airportNameProperty());
         System.out.println(av.airportIdProperty());
+
+        }
     }
+
 
     public void seatAdmin(ActionEvent actionEvent) {
         vh.openAdminSeat();
