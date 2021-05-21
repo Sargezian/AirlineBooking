@@ -34,30 +34,35 @@ public class chatViewModelTest
       Chatimpl = InputChatImpl.getInstance();
       resetDao = new ResetImpl();
       resetDao.reset();
-      chatViewModel.getChat().setValue("Det er en test");
-      chatViewModel.setUser("password");
-      chatViewModel.chatPrint(new Rating(1));
+
     }
 
     @Test void test_IfWeCanGetAverageStars(){
       //Her tester vi om vores Average stars virker på feedback siden.
 
       chatViewModel.getChat().setValue("hej");
+      chatViewModel.chatPrint(new Rating(1));
+      chatViewModel.getChat().setValue("hej");
       chatViewModel.chatPrint(new Rating(5));
       chatViewModel.setAverage();
-      assertEquals(3.0,chatViewModel.getAverage());
+
+      assertEquals("3.0",chatViewModel.getAverage());
     }
 
 
     @Test void test_ValidFeedback(){
-
-      assertNull(chatViewModel.errorProperty().get());
+        chatViewModel.getChat().setValue("Det er en test");
+        chatViewModel.setUser("user");
+        chatViewModel.chatPrint(new Rating(5));
+        assertEquals("",chatViewModel.errorProperty().get());
 
 
     }
   @Test void test_InvalidFeedback(){
+      chatViewModel.getChat().setValue(null);
+      chatViewModel.setUser("");
+      chatViewModel.chatPrint(new Rating(5));
 
-    chatViewModel.getChat().setValue(null);
     assertEquals("Please choose a rating", chatViewModel.errorProperty().get());
 
 

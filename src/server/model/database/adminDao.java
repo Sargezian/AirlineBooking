@@ -18,4 +18,6 @@ public interface adminDao {
     List<Depature> getAllDeparture();
     List<Arrival> getAllArrival();
 
+    void dropDatabase();
+
 }

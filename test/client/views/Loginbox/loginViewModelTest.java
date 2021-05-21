@@ -4,9 +4,13 @@ import client.core.ClientFactory;
 import client.core.ModelFactory;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import server.model.database.InputUserImpl;
+import server.model.database.ResetDao;
+import server.model.database.ResetImpl;
+import server.model.database.adminImpl;
 import shared.transferobjects.InputUser;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,15 +18,21 @@ import static org.junit.jupiter.api.Assertions.*;
   class jUnitTest{
     private loginViewModel LoginViewModel;
     private InputUserImpl loginDao;
+    private adminImpl adminDao;
+    private ResetDao resetDao;
 
 
 
 
-    @BeforeEach
+
+      @BeforeEach
     public void setUp(){
         ClientFactory.getInstance().getClient();
         LoginViewModel = new loginViewModel(ModelFactory.getInstance().getClientText());
         loginDao = InputUserImpl.getInstance();
+        adminDao = adminImpl.getInstance();
+        resetDao = new ResetImpl();
+        resetDao.reset();
 
     }
 
@@ -63,7 +73,7 @@ import static org.junit.jupiter.api.Assertions.*;
         loginDao.createUser(test.user, test.password);
         LoginViewModel.validateLoginInfo();
 
-        assertEquals("ERROR field is empty or username and password is incorrect",label.get());
+        assertEquals("username or password is incorrect",label.get());
     }
 
     @Test public void testLoginWithWrongPassword(){
@@ -83,7 +93,7 @@ import static org.junit.jupiter.api.Assertions.*;
         loginDao.createUser(test.user, test.password);
         LoginViewModel.validateLoginInfo();
 
-        assertEquals("ERROR field is empty or username and password is incorrect",label.get());
+        assertEquals("username or password is incorrect",label.get());
     }
 
 
@@ -105,8 +115,29 @@ import static org.junit.jupiter.api.Assertions.*;
         loginDao.createUser(test.user, test.password);
         LoginViewModel.validateLoginInfo();
 
-        assertEquals("ERROR field is empty or username and password is incorrect",label.get());
+        assertEquals("username or password is incorrect",label.get());
     }
+
+      @Test public void testLoginWithEmptyLoginDetails(){
+
+          StringProperty username = new SimpleStringProperty();
+          StringProperty password = new SimpleStringProperty();
+          StringProperty label = new SimpleStringProperty();
+          username.bindBidirectional(LoginViewModel.navnProperty());
+          password.bindBidirectional(LoginViewModel.kodeProperty());
+          label.bindBidirectional(LoginViewModel.errorProperty());
+
+          username.setValue(null);
+          password.setValue(null);
+
+
+          InputUser test = new InputUser("username","password");
+          loginDao.createUser(test.user, test.password);
+          LoginViewModel.validateLoginInfo();
+
+          assertEquals("ERROR field is empty",label.get());
+      }
+
 
       @Test public void testAdminLoginWithCorrectLoginDetails(){
 
@@ -127,6 +158,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
           assertEquals("successful",label.get());
       }
+
+
 
 
 

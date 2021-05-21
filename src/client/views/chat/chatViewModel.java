@@ -106,6 +106,8 @@ public class chatViewModel {
     }
 
 
+
+
     public void setUser(String user) {
         this.user = user;
     }
@@ -122,6 +124,10 @@ public class chatViewModel {
     }
     ObservableList<Rating> getRatings() {
         return ratings;
+    }
+
+    public String getAverage() {
+        return average.get();
     }
 
     public StringProperty totalReviewsProperty() {

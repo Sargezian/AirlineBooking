@@ -40,9 +40,15 @@ public class loginViewModel {
             error.setValue("successful");
 
             return true;
-        } else {
-            error.setValue("ERROR field is empty or username and password is incorrect");
+
+        } else if (navn.getValue() == null && kode.getValue() == null || navn.getValue().equals("") && kode.getValue().equals("")){
+            error.setValue("ERROR field is empty");
             return false;
+        } else{
+
+            error.setValue("username or password is incorrect");
+            return false;
+
         }
     }
 
@@ -53,9 +59,14 @@ public class loginViewModel {
             System.out.println("virker");
             error.setValue("successful");
             return true;
-        }else {
-            error.setValue("ERROR field is empty or username and password is incorrect");
+        }else if (navn.getValue() == null && kode.getValue() == null || navn.getValue().equals("") && kode.getValue().equals("")){
+            error.setValue("ERROR field is empty");
             return false;
+        } else{
+
+            error.setValue("username or password is incorrect");
+            return false;
+
         }
     }
 
