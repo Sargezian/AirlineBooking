@@ -1,13 +1,15 @@
 package client.views.Loginbox;
 
+import client.core.ModelFactory;
 import client.model.ClientModel;
+import client.model.ClientModelManager;
 import client.model.SaveInfo;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import shared.transferobjects.*;
 
 public class loginViewModel {
-    private ClientModel clientModel;
+    private ClientModel clientModel ;
     private StringProperty navn;
     private StringProperty kode;
     private StringProperty error;
@@ -20,6 +22,7 @@ public class loginViewModel {
         error =  new SimpleStringProperty();
 
     }
+
 
     //clearfields
     public void clearFields() {

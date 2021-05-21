@@ -5,9 +5,21 @@ import client.network.RMIClient;
 
 public class ClientFactory {
 
-    private static Client client;
+    private Client client;
+    private static ClientFactory clientFactory;
 
-    public static Client getClient() {
+    private ClientFactory() {
+
+    }
+
+    public static ClientFactory getInstance(){
+        if (clientFactory == null){
+            clientFactory = new ClientFactory();
+        }
+        return clientFactory;
+    }
+
+    public  Client getClient() {
         if (client == null) {
             client = new RMIClient();
         }

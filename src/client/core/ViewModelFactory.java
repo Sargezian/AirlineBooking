@@ -12,7 +12,7 @@ import client.views.seat.seatViewModel;
 
 public class ViewModelFactory {
 
-    private final ModelFactory mf;
+    private static ViewModelFactory viewModelFactory;
     private loginViewModel loginViewModel;
     private chatViewModel chatViewModel;
     private dashboardViewModel dashboardViewModel;
@@ -23,61 +23,71 @@ public class ViewModelFactory {
     private createUserViewModel createUserViewModel;
     private adminFlightViewModel adminViewModel;
 
-    public ViewModelFactory(ModelFactory mf) {
-        this.mf = mf;
+    public ViewModelFactory() {
+
+    }
+
+
+    public static ViewModelFactory getInstance()
+    {
+        if (viewModelFactory == null)
+        {
+            viewModelFactory = new ViewModelFactory();
+        }
+        return viewModelFactory;
     }
 
     public loginViewModel getloginViewModel() {
         if (loginViewModel == null)
-            loginViewModel = new loginViewModel(mf.getClientText());
+            loginViewModel = new loginViewModel(ModelFactory.getInstance().getClientText());
         return loginViewModel;
     }
 
     public chatViewModel getchatViewModel() {
         return (chatViewModel = chatViewModel == null ?
-                new chatViewModel(mf.getClientText()) :
+                new chatViewModel(ModelFactory.getInstance().getClientText()) :
                 chatViewModel);
     }
 
     public myflightplanViewModel getmyflightplanViewModel() {
         return (myflightplanViewModel = myflightplanViewModel == null ?
-                new myflightplanViewModel(mf.getClientText()) :
+                new myflightplanViewModel(ModelFactory.getInstance().getClientText()) :
                 myflightplanViewModel);
     }
 
     public dashboardViewModel getdashboardViewModel() {
         return (dashboardViewModel = dashboardViewModel == null ?
-                new dashboardViewModel(mf.getClientText()) :
+                new dashboardViewModel(ModelFactory.getInstance().getClientText()) :
                 dashboardViewModel);
     }
 
     public seatViewModel getseatViewModel() {
         return (seatViewModel = seatViewModel == null ?
-                new seatViewModel(mf.getClientText()) :
+                new seatViewModel(ModelFactory.getInstance().getClientText()) :
                 seatViewModel);
     }
 
     public passengerViewModel getPassengerViewModel() {
         return (passengerViewModel = passengerViewModel == null ?
-                new passengerViewModel(mf.getClientText()) :
+                new passengerViewModel(ModelFactory.getInstance().getClientText()) :
                 passengerViewModel);
     }
 
     public paymentViewModel getPaymentViewModel() {
         return (paymentViewModel = paymentViewModel == null ?
-                new paymentViewModel(mf.getClientText()) :
+                new paymentViewModel(ModelFactory.getInstance().getClientText()) :
                 paymentViewModel);
     }
 
     public createUserViewModel getcreateUserViewModel() {
         return (createUserViewModel = paymentViewModel == null ?
-                new createUserViewModel(mf.getClientText()) :
+                new createUserViewModel(ModelFactory.getInstance().getClientText()) :
                 createUserViewModel);
     }
 
     public adminFlightViewModel getadminViewModel() {
         return (adminViewModel = adminViewModel == null ?
-                new adminFlightViewModel(mf.getClientText()) :
+                new adminFlightViewModel(ModelFactory.getInstance().getClientText()) :
                 adminViewModel);
     }
 
