@@ -53,69 +53,6 @@ public class adminImpl implements adminDao {
     }
 
     @Override
-    public void deleteFlight(Flights flights) {
-        try {
-            try (Connection connection = daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("DELETE From flights WHERE flightID = ? ");
-                statement.setString(1,flights.getFlightID());
-                statement.executeUpdate();
-
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-    }
-
-    @Override
-    public void deleteArrival(Arrival arrival) {
-
-        try {
-            try (Connection connection = daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("DELETE From Arrival WHERE ArrivalID = ? ");
-                statement.setInt(1,arrival.getArrivalID());
-                statement.executeUpdate();
-
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-    }
-
-    @Override
-    public void deleteDeparture(Depature depature) {
-
-        try {
-            try (Connection connection = daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("DELETE From departures WHERE DepartureID = ? ");
-                statement.setInt(1,depature.getDepartureID());
-                statement.executeUpdate();
-
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-    }
-
-    @Override
-    public void deletePlaneType(PlaneType planeType) {
-
-        try {
-            try (Connection connection = daoConnection.getConnection()) {
-                PreparedStatement statement = connection.prepareStatement("DELETE From planeType WHERE planeID = ? ");
-                statement.setInt(1,planeType.getPlaneId());
-                statement.executeUpdate();
-
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-    }
-
-
-    @Override
     public List<Flights> getAllTheFLights() {
         try {
 

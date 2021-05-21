@@ -47,17 +47,12 @@ public interface ServerManager extends Subject
     Depature CreateDeparture(String Departure, String DepartureDate);
     PlaneType CreatePlane(String PlaneTypes);
     Airport CreateAirport(String airportId, String airportName, String airportCity);
-    void deleteArrival(Arrival arrival);
-    void deleteDeparture(Depature depature);
-    void deletePlaneType(PlaneType planeType);
-    void deleteFlight(Flights flights);
 
     //passenger
     Passenger passernger(String FirstName, String LastName, String TelNumber,
         String email);
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber,
         String Email);
-    Passenger readByEmail(String email);
 
     //ticket
     List<myFlightTicket> getflightlist(int userId);

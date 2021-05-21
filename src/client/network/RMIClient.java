@@ -147,18 +147,6 @@ public class RMIClient implements Client, ClientCallBack
   }
 
   @Override
-  public void deleteFlight(Flights flights) {
-    try
-    {
-      server.deleteFlight(flights);
-    }
-    catch (RemoteException e)
-    {
-      throw new RuntimeException("Kunne ikke få fat i server");
-    }
-
-  }
-  @Override
   public List<Flights> getAllTheFLights() {
     try
     {
@@ -242,41 +230,6 @@ public class RMIClient implements Client, ClientCallBack
     }
   }
 
-  @Override
-  public void deleteArrival(Arrival arrival) {
-    try
-    {
-        server.deleteArrival(arrival);
-    }
-    catch (RemoteException e)
-    {
-      throw new RuntimeException("Kunne ikke få fat i server");
-    }
-  }
-
-  @Override
-  public void deleteDeparture(Depature depature) {
-    try
-    {
-        server.deleteDeparture(depature);
-    }
-    catch (RemoteException e)
-    {
-      throw new RuntimeException("Kunne ikke få fat i server");
-    }
-  }
-
-  @Override
-  public void deletePlaneType(PlaneType planeType) {
-    try
-    {
-        server.deletePlaneType(planeType);
-    }
-    catch (RemoteException e)
-    {
-      throw new RuntimeException("Kunne ikke få fat i server");
-    }
-  }
 
   @Override
   public List<Seat> getSeats() {
@@ -411,19 +364,6 @@ public class RMIClient implements Client, ClientCallBack
       throw new RuntimeException("Kunne ikke få fat i server");
     }
   }
-
-  @Override
-  public Passenger readByEmail(String email) {
-    try
-    {
-      return server.readByEmail(email);
-    }
-    catch (RemoteException e)
-    {
-      throw new RuntimeException("Kunne ikke få fat i server");
-    }
-  }
-
 
   @Override
   public Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) {

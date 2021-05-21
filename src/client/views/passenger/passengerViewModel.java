@@ -128,97 +128,39 @@ public class passengerViewModel {
 
     }
 
-
-    public String getFlightName() {
-        return FlightName.get();
-    }
-
     public StringProperty flightNameProperty() {
         return FlightName;
     }
-
-    public String getDeparture() {
-        return departure.get();
-    }
-
     public StringProperty departureProperty() {
         return departure;
     }
-
-    public String getArrival() {
-        return arrival.get();
-    }
-
     public StringProperty arrivalProperty() {
         return arrival;
     }
-
-    public String getSeatProperty() {
-        return seatProperty.get();
-    }
-
     public StringProperty seatPropertyProperty() {
         return seatProperty;
     }
-
-    public String getClassType() {
-        return ClassType.get();
-    }
-
     public StringProperty classTypeProperty() {
         return ClassType;
     }
-
-    public String getEmail() {
-        return Email.get();
-    }
-
     public StringProperty emailProperty() {
         return Email;
     }
-
-    public String getFirstName()
-    {
-        return FirstName.get();
-    }
-
     public StringProperty firstNameProperty()
     {
         return FirstName;
     }
-
-    public String getLastName()
-    {
-        return LastName.get();
-    }
-
     public StringProperty lastNameProperty()
     {
         return LastName;
     }
-
-    public String getTelNumber()
-    {
-        return TelNumber.get();
-    }
-
     public StringProperty telNumberProperty()
     {
         return TelNumber;
     }
-
-    public String getError() {
-        return error.get();
-    }
-
     public StringProperty errorProperty() {
         return error;
     }
-
-    public String getPrice() {
-        return price.get();
-    }
-
     public StringProperty priceProperty() {
         return price;
     }

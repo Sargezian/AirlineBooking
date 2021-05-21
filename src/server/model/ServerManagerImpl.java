@@ -161,12 +161,6 @@ public class ServerManagerImpl implements ServerManager {
         return flights;
     }
 
-
-    @Override
-    public void deleteFlight(Flights flights) {
-        adminDao.deleteFlight(flights);
-    }
-
     @Override
     public List<Flights> getAllTheFLights() {
         return new ArrayList<>(adminDao.getAllTheFLights());
@@ -214,22 +208,6 @@ public class ServerManagerImpl implements ServerManager {
         return new ArrayList<>(adminDao.getAllArrival());
     }
 
-    @Override
-    public void deleteArrival(Arrival arrival) {
-        adminDao.deleteArrival(arrival);
-    }
-
-    @Override
-    public void deleteDeparture(Depature depature) {
-        adminDao.deleteDeparture(depature);
-
-    }
-
-    @Override
-    public void deletePlaneType(PlaneType planeType) {
-        adminDao.deletePlaneType(planeType);
-
-    }
 
     @Override
     public List<Seat> getSeats() {
@@ -253,11 +231,6 @@ public class ServerManagerImpl implements ServerManager {
     @Override
     public Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email) {
         return passengerDao.ReadPassenger(Firstname,LastName,TelNumber,Email);
-    }
-
-    @Override
-    public Passenger readByEmail(String email) {
-        return passengerDao.readByEmail(email);
     }
 
     @Override

@@ -121,7 +121,7 @@ public class ViewHandler {
                 loadFxmlresult loadFxmlresult = loadFXML(
                         "../views/chat/chat.fxml");
                 Parent root = loadFxmlresult.getRoot();
-                chatViewController = (client.views.chat.chatViewController) loadFxmlresult.getController();
+                chatViewController = (chatViewController) loadFxmlresult.getController();
 
                 stage.setTitle("Chat");
                 chatScene = new Scene(root);
@@ -140,7 +140,7 @@ public class ViewHandler {
                 loadFxmlresult loadFxmlresult = loadFXML(
                         "../views/passenger/passenger.fxml");
                 Parent root = loadFxmlresult.getRoot();
-                passengerViewController = (client.views.passenger.passengerViewController) loadFxmlresult.getController();
+                passengerViewController = (passengerViewController) loadFxmlresult.getController();
 
 
                 stage.setTitle("passenger");

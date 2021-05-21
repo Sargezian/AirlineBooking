@@ -14,7 +14,7 @@ public class loginViewModel {
     private StringProperty kode;
     private StringProperty error;
 
-
+    //constructor
     public loginViewModel(ClientModel clientModel) {
         this.clientModel = clientModel;
         navn = new SimpleStringProperty();
@@ -31,47 +31,41 @@ public class loginViewModel {
         error.setValue("");
     }
 
-
+    //validate
     public boolean validateLoginInfo() {
 
         if (clientModel.ValidateUser(navn.getValue(), kode.getValue())) {
             InputUser user = clientModel.readUser(navn.getValue(), kode.getValue());
             SaveInfo.getInstance().setUser(user);
+            error.setValue("successful");
 
             return true;
         } else {
-            error.setValue("ERROR field is empty");
+            error.setValue("ERROR field is empty or username and password is incorrect");
             return false;
         }
     }
 
-    public void validateAdmin() {
+    //validate
+    public boolean validateAdmin() {
 
-        if (navn.equals("Admin123@") && kode.equals("Admin")) {
+        if (navn.getValue().equals("Admin") && kode.getValue().equals("Admin123")) {
             System.out.println("virker");
+            error.setValue("successful");
+            return true;
+        }else {
+            error.setValue("ERROR field is empty or username and password is incorrect");
+            return false;
         }
     }
 
-    public String getNavn() {
-        return navn.get();
-    }
 
     public StringProperty navnProperty() {
         return navn;
     }
-
-    public String getKode() {
-        return kode.get();
-    }
-
     public StringProperty kodeProperty() {
         return kode;
     }
-
-    public String getError() {
-        return error.get();
-    }
-
     public StringProperty errorProperty() {
         return error;
     }

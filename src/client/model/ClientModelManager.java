@@ -124,12 +124,6 @@ public class ClientModelManager implements ClientModel {
     }
 
     @Override
-    public void deleteFlight(Flights flights) {
-        client.deleteFlight(flights);
-
-    }
-
-    @Override
     public List<Flights> getAllTheFLights() {
         return client.getAllTheFLights();
     }
@@ -165,23 +159,6 @@ public class ClientModelManager implements ClientModel {
     }
 
     @Override
-    public void deleteArrival(Arrival arrival) {
-        client.deleteArrival(arrival);
-
-    }
-
-    @Override
-    public void deleteDeparture(Depature depature) {
-        client.deleteDeparture(depature);
-
-    }
-
-    @Override
-    public void deletePlaneType(PlaneType planeType) {
-             client.deletePlaneType(planeType);
-    }
-
-    @Override
     public List<Seat> getSeats() {
         return client.getSeats();
     }
@@ -208,18 +185,11 @@ public class ClientModelManager implements ClientModel {
         return client.CreateSeat(SeatNumber,classtype);
     }
 
-    @Override
-    public void deleteSeat(Seat seat) {
-        client.deleteSeat(seat);
-
-    }
-
     @Override public Airport CreateAirport(String airportId, String airportName, String airportCity)
 
     {
         return client.CreateAirport(airportId,airportName,airportCity);
     }
-
 
     @Override
     public InputUser readUser(String user, String password) {
@@ -258,12 +228,6 @@ public class ClientModelManager implements ClientModel {
     public Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email) {
         return client.ReadPassenger(Firstname,LastName,TelNumber,Email);
     }
-
-    @Override
-    public Passenger readByEmail(String email) {
-        return client.readByEmail(email);
-    }
-
 
     @Override
     public Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) {

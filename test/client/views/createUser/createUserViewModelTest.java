@@ -1,30 +1,31 @@
 package client.views.createUser;
 
+import client.core.ClientFactory;
+import client.core.ModelFactory;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import server.model.database.InputUserDao;
 import server.model.database.InputUserImpl;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class createUserViewModelTest
+public class createUserViewModelTest
 {
-  private createUserViewModel vm;
-  private InputUserDao inputUserDao = InputUserImpl.getInstance();
+    private createUserViewModel createUserVM;
+    private InputUserDao inputUserDao;
 
-  @BeforeEach
-  public void setup(){
+    @BeforeEach
+    public void setup(){
+        ClientFactory.getInstance().getClient();
+        createUserVM = new createUserViewModel(ModelFactory.getInstance().getClientText());
+        inputUserDao = InputUserImpl.getInstance();
+    }
 
-    inputUserDao.createUser("Mark","12345677");
 
 
-  }
 
- @Test
-  public void testCreateUser(){
 
-       assertEquals("mark",inputUserDao.readUser());
 
-  }
+
+
+
+
+
 }
-

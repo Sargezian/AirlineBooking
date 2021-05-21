@@ -46,18 +46,20 @@ public class chatViewModel {
 
     }
 
+    //Countmetode der tæller antal reviews givet.
     public void setCounter() {
         totalReviews.setValue(String.valueOf(clientModel.CountChat()));
     }
 
+    //average ratings givet
     public void setAverage() {
         average.setValue(String.valueOf(clientModel.AverageStars()));
         progressbar.setValue(clientModel.AverageStars()/5);
         System.out.println("avg" + clientModel.AverageStars()/5);
     }
 
+    //tæller barchart op, alt efter hvilken rating givet
     public void setBarchart(Rating rating) {
-
         Platform.runLater(new Runnable() {
             @Override public void run() {
                 series.setName("Rating");
@@ -69,7 +71,7 @@ public class chatViewModel {
             }});
     }
 
-
+    //vores chat
     public void chatPrint(Rating rating) {
 
         if (chat.getValue() != null && !"".equals(chat.getValue()) && rating != null) {
@@ -103,16 +105,6 @@ public class chatViewModel {
         ratings = FXCollections.observableArrayList(rating);
     }
 
-    ObservableList<InputChat> getChats() {
-        return chats;
-    }
-    ObservableList<InputUser> getUsers() {
-        return users;
-    }
-
-    public StringProperty getChat(){
-        return chat;
-    }
 
     public void setUser(String user) {
         this.user = user;
@@ -121,48 +113,35 @@ public class chatViewModel {
     public void onNewInputChat(PropertyChangeEvent evt) {
         chats.add((InputChat) evt.getNewValue());
     }
-
     public void OnNewInputUser(PropertyChangeEvent evt){
         users.add((InputUser) evt.getNewValue());
     }
 
-    public String getTotalReviews() {
-        return totalReviews.get();
+    ObservableList<InputChat> getChats() {
+        return chats;
+    }
+    ObservableList<Rating> getRatings() {
+        return ratings;
     }
 
     public StringProperty totalReviewsProperty() {
         return totalReviews;
     }
-
-    public ObservableList<Rating> getRatings() {
-        return ratings;
-    }
-
-    public String getAverage() {
-        return average.get();
-    }
-
     public StringProperty averageProperty() {
         return average;
     }
-
-    public String getError() {
-        return error.get();
+    public StringProperty getChat(){
+        return chat;
     }
-
     public StringProperty errorProperty() {
         return error;
+    }
+    public DoubleProperty progressbarProperty() {
+        return progressbar;
     }
 
     public XYChart.Series<String, Double> getSeries() {
         return series;
     }
 
-    public double getProgressbar() {
-        return progressbar.get();
-    }
-
-    public DoubleProperty progressbarProperty() {
-        return progressbar;
-    }
 }
