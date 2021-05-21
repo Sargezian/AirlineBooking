@@ -37,6 +37,7 @@ public class loginViewModel {
         if (clientModel.ValidateUser(navn.getValue(), kode.getValue())) {
             InputUser user = clientModel.readUser(navn.getValue(), kode.getValue());
             SaveInfo.getInstance().setUser(user);
+            error.setValue("successful");
 
             return true;
         } else {

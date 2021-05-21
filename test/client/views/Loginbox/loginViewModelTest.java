@@ -47,11 +47,11 @@ class  jUnitTest{
         password.setValue("password");
 
         //We need a USer in the database
-        InputUser test = new InputUser("username","password");
+        InputUser test = new InputUser("Username","password");
         loginDao.createUser(test.user, test.password);
         LoginViewModel.validateLoginInfo();
 
-        assertEquals("",label.get());
+        assertEquals("successful",label.get());
     }
 
     @Test void test_validatefailed(){
@@ -64,14 +64,14 @@ class  jUnitTest{
         label.bindBidirectional(LoginViewModel.errorProperty());
 
         username.setValue("Username");
-        password.setValue("password");
+        password.setValue("Password");
 
         //We need a USer in the database
         InputUser test = new InputUser("username","password");
         loginDao.createUser(test.user, test.password);
         LoginViewModel.validateLoginInfo();
 
-        //assertEquals(",label.get());
+        assertEquals("ERROR field is empty",label.get());
     }
 
 }
