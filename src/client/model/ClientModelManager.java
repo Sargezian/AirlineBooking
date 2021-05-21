@@ -1,5 +1,7 @@
 package client.model;
 
+import client.core.ClientFactory;
+import client.core.ModelFactory;
 import client.network.Client;
 
 import shared.transferobjects.*;
@@ -59,9 +61,9 @@ public class ClientModelManager implements ClientModel {
     }
 
     private void onNewPlane(PropertyChangeEvent propertyChangeEvent) {
+
         support.firePropertyChange(propertyChangeEvent);
     }
-
 
     private void onNewInputChat(PropertyChangeEvent evt) {
         support.firePropertyChange(evt);

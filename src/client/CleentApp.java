@@ -11,10 +11,7 @@ public class CleentApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        ClientFactory cf = new ClientFactory();
-        ModelFactory mf = new ModelFactory(cf);
-        ViewModelFactory vmf = new ViewModelFactory(mf);
-        ViewHandler vh = new ViewHandler(vmf);
+        ViewHandler vh = new ViewHandler(ViewModelFactory.getInstance());
         vh.start();
     }
 
