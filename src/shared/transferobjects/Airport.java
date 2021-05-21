@@ -6,9 +6,9 @@ public class Airport implements Serializable {
 
     // TODO: 08/05/2021 fjerne metoder vi ikke bruger og ændre metodenavne til det rigtige (alle)
 
-    public String AirportID;
-    public String AirportName;
-    public String AirportCity;
+    private String AirportID;
+    private String AirportName;
+    private String AirportCity;
 
     public Airport(String AirportID, String AirportName, String AirportCity) {
         this.AirportID = AirportID;

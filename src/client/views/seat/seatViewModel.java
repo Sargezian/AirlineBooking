@@ -55,13 +55,6 @@ public class seatViewModel {
         }
     }
 
-    public void deleteSeat(Seat Seat) {
-        clientModel.deleteSeat(Seat);
-    }
-
-    public String getError() {
-        return error.get();
-    }
     public StringProperty errorProperty() {
         return error;
     }

@@ -45,11 +45,6 @@ public interface Client extends Subject {
     Depature CreateDeparture(String Departure, String DepartureDate);
     PlaneType CreatePlane(String PlaneTypes);
 
-    void deleteArrival(Arrival arrival);
-    void deleteDeparture(Depature depature);
-    void deletePlaneType(PlaneType planeType);
-    void deleteFlight(Flights flights);
-
     //seats
     List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID, String seatNumber, String classType);
@@ -59,7 +54,6 @@ public interface Client extends Subject {
     //passenger
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email);
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);
-    Passenger readByEmail(String email);
 
     //payment
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate);

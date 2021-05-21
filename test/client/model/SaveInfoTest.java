@@ -2,12 +2,9 @@ package client.model;
 
 import org.junit.Test;
 import shared.transferobjects.*;
-
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SaveInfoTest {
-
 
     @Test // vi har testet singleton//
     public void testSingletonIfNull(){
@@ -22,7 +19,6 @@ public class SaveInfoTest {
 
     }
 
-
     @Test
     public void TestSingletonIfNotNull(){
 
@@ -31,11 +27,10 @@ public class SaveInfoTest {
         Flights flight = new Flights("flightID", "flightName", new Depature(1,"departure","depatureDate"),new Arrival(1,"arrival","arrivaldate"),new PlaneType(1,"planeType"),"price");
 
         assertEquals(flights.toString(),flight.toString());
-
-
     }
 
-@Test
+    //virker ikke
+    @Test
     public void TestSingletonException(){
 
       //  SaveInfo.getInstance().setFlights(new Flights("flightID", "flightName","200"));
@@ -44,11 +39,6 @@ public class SaveInfoTest {
 
         assertThrows(NullPointerException.class,() -> SaveInfo.getInstance().getFlights());
 
-
-
     }
-
-
-
 
 }

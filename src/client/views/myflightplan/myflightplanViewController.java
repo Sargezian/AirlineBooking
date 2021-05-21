@@ -113,9 +113,7 @@ public class myflightplanViewController implements ViewController {
         vh.openToChatView();
     }
 
-
     public void printbillet(ActionEvent actionEvent) throws Exception {
-
 
         Path relativePath1 = Paths.get("src","myT.pdf");
 

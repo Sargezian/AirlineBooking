@@ -9,16 +9,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1067.0" prefWidth="1653.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.admin.adminFlightViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="794.0" prefWidth="1286.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.admin.adminFlightViewController">
    <children>
-      <Button layoutX="42.0" layoutY="897.0" mnemonicParsing="false" onAction="#onBack" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Back" textFill="WHITE" />
-      <Button layoutX="245.0" layoutY="898.0" mnemonicParsing="false" onAction="#onAdd" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Add" textFill="WHITE" />
-      <Label layoutX="381.0" layoutY="62.0" prefHeight="22.0" prefWidth="200.0" text="Flight Name:">
+      <Button layoutX="47.0" layoutY="730.0" mnemonicParsing="false" onAction="#onBack" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Back" textFill="WHITE" />
+      <Button layoutX="294.0" layoutY="730.0" mnemonicParsing="false" onAction="#onAdd" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Add" textFill="WHITE" />
+      <Label layoutX="270.0" layoutY="61.0" prefHeight="22.0" prefWidth="200.0" text="Flight Name:">
          <font>
             <Font size="17.0" />
          </font></Label>
-      <TextField fx:id="FlightName" layoutX="412.0" layoutY="95.0" prefHeight="27.0" prefWidth="200.0" promptText="Flight Name" style="-fx-background-color: white;" />
-      <TextField fx:id="Price" layoutX="20.0" layoutY="216.0" prefHeight="27.0" prefWidth="200.0" promptText="Price" style="-fx-background-color: white;" />
+      <TextField fx:id="FlightName" layoutX="273.0" layoutY="93.0" prefHeight="27.0" prefWidth="200.0" promptText="Flight Name" style="-fx-background-color: white;" />
+      <TextField fx:id="Price" layoutX="25.0" layoutY="208.0" prefHeight="27.0" prefWidth="200.0" promptText="Price" style="-fx-background-color: white;" />
       <TextField fx:id="FlightID" layoutX="19.0" layoutY="109.0" prefHeight="27.0" prefWidth="228.0" promptText="Flight ID" style="-fx-background-color: white;" />
       <Label layoutX="18.0" layoutY="62.0" prefHeight="22.0" prefWidth="200.0" text="Flight ID">
          <font>
@@ -33,130 +33,125 @@
             <Font name="Tahoma Bold" size="24.0" />
          </font></Label>
       <Separator layoutX="24.0" layoutY="143.0" prefHeight="3.0" prefWidth="192.0" />
-      <Separator layoutX="24.0" layoutY="261.0" prefHeight="3.0" prefWidth="192.0" />
-      <Separator layoutX="385.0" layoutY="143.0" prefHeight="3.0" prefWidth="192.0" />
-      <Separator layoutX="609.0" layoutY="11.0" orientation="VERTICAL" prefHeight="870.0" prefWidth="3.0" />
-      <Label fx:id="error" layoutX="406.0" layoutY="850.0" prefHeight="16.0" prefWidth="146.0" text="errorLabel" />
-      <TableView fx:id="FlightTableview" layoutX="667.0" layoutY="31.0" prefHeight="245.0" prefWidth="464.0">
+      <Separator layoutX="20.0" layoutY="237.0" prefHeight="3.0" prefWidth="192.0" />
+      <Separator layoutX="284.0" layoutY="144.0" prefHeight="3.0" prefWidth="192.0" />
+      <Label fx:id="error" layoutX="299.0" layoutY="675.0" prefHeight="16.0" prefWidth="146.0" text="errorLabel" />
+      <TableView fx:id="FlightTableview" layoutX="554.0" layoutY="32.0" prefHeight="199.0" prefWidth="318.0">
          <columns>
-            <TableColumn fx:id="FlightIdCoulmn" prefWidth="166.0" text="FlightId" />
-            <TableColumn fx:id="FlightNameColumn" prefWidth="199.0" text="FlightName" />
-            <TableColumn fx:id="PriceCoulmn" prefWidth="103.0" text="Price" />
+            <TableColumn fx:id="FlightIdCoulmn" prefWidth="91.562744140625" text="FlightId" />
+            <TableColumn fx:id="FlightNameColumn" prefWidth="115.1085205078125" text="FlightName" />
+            <TableColumn fx:id="PriceCoulmn" prefWidth="143.3914794921875" text="Price" />
          </columns>
       </TableView>
-      <Button layoutX="431.0" layoutY="897.0" mnemonicParsing="false" onAction="#onDelete" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Delete" textFill="WHITE" />
-      <Label layoutX="381.0" layoutY="170.0" prefHeight="22.0" prefWidth="200.0" text="Arrivals">
+      <Label layoutX="275.0" layoutY="169.0" prefHeight="22.0" prefWidth="200.0" text="Arrivals">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="18.0" layoutY="294.0" prefHeight="22.0" prefWidth="200.0" text="Arrivaldate">
+      <Label layoutX="24.0" layoutY="258.0" prefHeight="22.0" prefWidth="200.0" text="Arrivaldate">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="381.0" layoutY="294.0" prefHeight="22.0" prefWidth="200.0" text="Departures">
+      <Label layoutX="275.0" layoutY="258.0" prefHeight="22.0" prefWidth="200.0" text="Departures">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="Arrivals" layoutX="394.0" layoutY="209.0" prefHeight="27.0" prefWidth="228.0" promptText="Arrivals" style="-fx-background-color: white;" />
-      <TextField fx:id="Arrivaldate" layoutX="19.0" layoutY="333.0" prefHeight="27.0" prefWidth="228.0" promptText="Arrivaldate" style="-fx-background-color: white;" />
-      <Separator layoutX="388.0" layoutY="260.0" prefWidth="200.0" />
-      <TextField fx:id="departures" layoutX="394.0" layoutY="332.0" prefHeight="27.0" prefWidth="228.0" promptText="Departures" style="-fx-background-color: white;" />
-      <Separator layoutX="16.0" layoutY="384.0" prefHeight="3.0" prefWidth="192.0" />
-      <Separator layoutX="385.0" layoutY="374.0" prefHeight="3.0" prefWidth="192.0" />
-      <Label layoutX="20.0" layoutY="408.0" prefHeight="22.0" prefWidth="200.0" text="Departuredate">
+      <TextField fx:id="Arrivals" layoutX="281.0" layoutY="196.0" prefHeight="27.0" prefWidth="228.0" promptText="Arrivals" style="-fx-background-color: white;" />
+      <TextField fx:id="Arrivaldate" layoutX="21.0" layoutY="287.0" prefHeight="27.0" prefWidth="228.0" promptText="Arrivaldate" style="-fx-background-color: white;" />
+      <Separator layoutX="282.0" layoutY="236.0" prefWidth="200.0" />
+      <TextField fx:id="departures" layoutX="280.0" layoutY="287.0" prefHeight="27.0" prefWidth="228.0" promptText="Departures" style="-fx-background-color: white;" />
+      <Separator layoutX="25.0" layoutY="322.0" prefHeight="3.0" prefWidth="192.0" />
+      <Separator layoutX="289.0" layoutY="322.0" prefHeight="3.0" prefWidth="192.0" />
+      <Label layoutX="20.0" layoutY="348.0" prefHeight="22.0" prefWidth="200.0" text="Departuredate">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="381.0" layoutY="408.0" prefHeight="22.0" prefWidth="200.0" text="PlaneTypes">
+      <Label layoutX="286.0" layoutY="347.0" prefHeight="22.0" prefWidth="200.0" text="PlaneTypes">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="Departuredate" layoutX="19.0" layoutY="446.0" prefHeight="27.0" prefWidth="228.0" promptText="DepartureDate" style="-fx-background-color: white;" />
-      <TextField fx:id="PlaneTypes" layoutX="398.0" layoutY="446.0" prefHeight="27.0" prefWidth="228.0" promptText="PlaneTypes" style="-fx-background-color: white;" />
-      <Separator layoutX="22.0" layoutY="489.0" prefHeight="3.0" prefWidth="192.0" />
-      <Separator layoutX="381.0" layoutY="489.0" prefWidth="200.0" />
-      <TableView fx:id="ArrivalTableview" layoutX="1154.0" layoutY="30.0" prefHeight="245.0" prefWidth="464.0">
+      <TextField fx:id="Departuredate" layoutX="21.0" layoutY="372.0" prefHeight="27.0" prefWidth="228.0" promptText="DepartureDate" style="-fx-background-color: white;" />
+      <TextField fx:id="PlaneTypes" layoutX="285.0" layoutY="372.0" prefHeight="27.0" prefWidth="228.0" promptText="PlaneTypes" style="-fx-background-color: white;" />
+      <Separator layoutX="21.0" layoutY="406.0" prefHeight="3.0" prefWidth="192.0" />
+      <Separator layoutX="284.0" layoutY="406.0" prefWidth="200.0" />
+      <TableView fx:id="ArrivalTableview" layoutX="550.0" layoutY="245.0" prefHeight="245.0" prefWidth="322.0">
          <columns>
-            <TableColumn fx:id="ArrivalIDCoulmn" prefWidth="83.0" text="ArrivalID" />
-            <TableColumn fx:id="ArrivalsColumn" prefWidth="158.0" text="arrivals" />
-            <TableColumn fx:id="ArrivalDateCoulmn" prefWidth="227.0" text="Arrivaldate" />
+            <TableColumn fx:id="ArrivalIDCoulmn" prefWidth="64.8043212890625" text="ArrivalID" />
+            <TableColumn fx:id="ArrivalsColumn" prefWidth="82.3458251953125" text="arrivals" />
+            <TableColumn fx:id="ArrivalDateCoulmn" prefWidth="140.04248046875" text="Arrivaldate" />
          </columns>
       </TableView>
-      <TableView fx:id="DepartureTableview" layoutX="1143.0" layoutY="366.0" prefHeight="219.0" prefWidth="464.0">
+      <TableView fx:id="DepartureTableview" layoutX="907.0" layoutY="250.0" prefHeight="236.0" prefWidth="330.0">
          <columns>
-            <TableColumn fx:id="DepartureIDCoulmn" prefWidth="100.0" text="DepartureID" />
-            <TableColumn fx:id="DeparturesCoulmn" prefWidth="144.0" text="departures" />
-            <TableColumn fx:id="DepartureeDateCoulmn" prefWidth="224.0" text="Departuredate" />
+            <TableColumn fx:id="DepartureIDCoulmn" prefWidth="80.1500244140625" text="DepartureID" />
+            <TableColumn fx:id="DeparturesCoulmn" prefWidth="98.150146484375" text="departures" />
+            <TableColumn fx:id="DepartureeDateCoulmn" prefWidth="158.167236328125" text="Departuredate" />
          </columns>
       </TableView>
-      <TableView fx:id="PlaneTableview" layoutX="678.0" layoutY="377.0" prefHeight="219.0" prefWidth="414.0">
+      <TableView fx:id="PlaneTableview" layoutX="909.0" layoutY="33.0" prefHeight="198.0" prefWidth="335.0">
          <columns>
-            <TableColumn fx:id="PlaneIDCoulmn" prefWidth="166.0" text="planeID" />
-            <TableColumn fx:id="PlaneTypesCoulmn" prefWidth="297.0" text="planeTypes" />
+            <TableColumn fx:id="PlaneIDCoulmn" prefWidth="159.3914794921875" text="planeID" />
+            <TableColumn fx:id="PlaneTypesCoulmn" prefWidth="174.5" text="planeTypes" />
          </columns>
       </TableView>
-      <Separator layoutX="658.0" layoutY="303.0" prefHeight="3.0" prefWidth="942.0" />
-      <Button layoutX="406.0" layoutY="539.0" mnemonicParsing="false" onAction="#seatAdmin" prefHeight="23.0" prefWidth="72.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Seat" textFill="WHITE" />
-      <Label layoutX="85.0" layoutY="619.0" prefHeight="22.0" prefWidth="200.0" text="Class Type">
+      <Label layoutX="29.0" layoutY="493.0" prefHeight="22.0" prefWidth="200.0" text="Class Type">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="classType" layoutX="72.0" layoutY="657.0" prefHeight="27.0" prefWidth="200.0" promptText="Class Type" style="-fx-background-color: white;" />
-      <TextField fx:id="seatNumber" layoutX="379.0" layoutY="657.0" prefHeight="27.0" prefWidth="200.0" promptText="Seat Number" style="-fx-background-color: white;" />
-      <Label layoutX="385.0" layoutY="619.0" prefHeight="22.0" prefWidth="200.0" text="Seat Number">
+      <TextField fx:id="classType" layoutX="33.0" layoutY="518.0" prefHeight="27.0" prefWidth="200.0" promptText="Class Type" style="-fx-background-color: white;" />
+      <TextField fx:id="seatNumber" layoutX="276.0" layoutY="517.0" prefHeight="27.0" prefWidth="200.0" promptText="Seat Number" style="-fx-background-color: white;" />
+      <Label layoutX="271.0" layoutY="493.0" prefHeight="22.0" prefWidth="200.0" text="Seat Number">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Separator layoutX="83.0" layoutY="693.0" prefHeight="3.0" prefWidth="200.0" />
-      <Separator layoutX="368.0" layoutY="693.0" prefWidth="200.0" />
-      <Label layoutX="83.0" layoutY="713.0" prefHeight="22.0" prefWidth="200.0" text="Airport ID">
+      <Separator layoutX="33.0" layoutY="549.0" prefHeight="3.0" prefWidth="200.0" />
+      <Separator layoutX="277.0" layoutY="548.0" prefWidth="200.0" />
+      <Label layoutX="31.0" layoutY="572.0" prefHeight="22.0" prefWidth="200.0" text="Airport ID">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="376.0" layoutY="712.0" prefHeight="22.0" prefWidth="200.0" text="Airport Name:">
+      <Label layoutX="271.0" layoutY="572.0" prefHeight="22.0" prefWidth="200.0" text="Airport Name:">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="76.0" layoutY="798.0" prefHeight="22.0" prefWidth="200.0" text="Airport City">
+      <Label layoutX="28.0" layoutY="646.0" prefHeight="22.0" prefWidth="200.0" text="Airport City">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="airportId" layoutX="84.0" layoutY="749.0" prefHeight="27.0" prefWidth="200.0" promptText="Airport ID" style="-fx-background-color: white;" />
-      <TextField fx:id="airportName" layoutX="376.0" layoutY="749.0" prefHeight="27.0" prefWidth="200.0" promptText="Airport Name" style="-fx-background-color: white;" />
-      <TextField fx:id="airportCity" layoutX="82.0" layoutY="833.0" prefHeight="27.0" prefWidth="228.0" promptText="Airport City" style="-fx-background-color: white;" />
-      <Separator layoutX="78.0" layoutY="868.0" prefHeight="3.0" prefWidth="200.0" />
-      <Separator layoutX="370.0" layoutY="784.0" prefHeight="3.0" prefWidth="200.0" />
-      <Separator layoutX="83.0" layoutY="782.0" prefHeight="3.0" prefWidth="200.0" />
-      <TableView fx:id="SeatTableview" layoutX="675.0" layoutY="633.0" prefHeight="288.0" prefWidth="415.0">
+      <TextField fx:id="airportId" layoutX="37.0" layoutY="604.0" prefHeight="27.0" prefWidth="200.0" promptText="Airport ID" style="-fx-background-color: white;" />
+      <TextField fx:id="airportName" layoutX="281.0" layoutY="603.0" prefHeight="27.0" prefWidth="200.0" promptText="Airport Name" style="-fx-background-color: white;" />
+      <TextField fx:id="airportCity" layoutX="46.0" layoutY="670.0" prefHeight="27.0" prefWidth="228.0" promptText="Airport City" style="-fx-background-color: white;" />
+      <Separator layoutX="36.0" layoutY="702.0" prefHeight="3.0" prefWidth="200.0" />
+      <Separator layoutX="277.0" layoutY="638.0" prefHeight="3.0" prefWidth="200.0" />
+      <Separator layoutX="42.0" layoutY="639.0" prefHeight="3.0" prefWidth="200.0" />
+      <TableView fx:id="SeatTableview" layoutX="549.0" layoutY="505.0" prefHeight="240.0" prefWidth="325.0">
          <columns>
             <TableColumn fx:id="SeatIDCoulmn" prefWidth="77.0" text="SeatId" />
             <TableColumn fx:id="SeatNumberCoulmn" text="SeatNumber" />
             <TableColumn fx:id="ClassTypeCoulmn" prefWidth="112.0" text="ClassType" />
-            <TableColumn fx:id="planeIDCoulmn" prefWidth="75.0" text="planeId" />
          </columns>
       </TableView>
-      <TableView fx:id="AirportTableView" layoutX="1162.0" layoutY="608.0" prefHeight="329.0" prefWidth="342.0">
+      <TableView fx:id="AirportTableView" layoutX="904.0" layoutY="504.0" prefHeight="242.0" prefWidth="334.0">
          <columns>
             <TableColumn fx:id="AirportIdCoulmn" prefWidth="60.0" text="AirportID" />
             <TableColumn fx:id="AirportNameCoulmn" prefWidth="157.0" text="AirportName" />
             <TableColumn fx:id="AirportCityCoulmn" prefWidth="124.0" text="AirportCity" />
          </columns>
       </TableView>
-      <Separator layoutX="1132.0" layoutY="316.0" orientation="VERTICAL" prefHeight="620.0" prefWidth="6.0" />
-      <Label cacheShape="false" layoutX="45.0" layoutY="539.0" prefHeight="35.0" prefWidth="342.0" text="Seat and Airport Details">
+      <Label cacheShape="false" layoutX="20.0" layoutY="436.0" prefHeight="35.0" prefWidth="342.0" text="Seat &amp; Airport Details">
          <font>
             <Font name="Tahoma Bold" size="24.0" />
          </font>
       </Label>
+      <Separator layoutX="518.0" layoutY="33.0" orientation="VERTICAL" prefHeight="720.0" prefWidth="0.0" />
    </children>
 </AnchorPane>

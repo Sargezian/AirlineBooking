@@ -145,17 +145,8 @@ public class myflightplanViewModel {
         print.setValue(null);
     }
 
-    public String getPrint() {
-        return print.get();
-    }
-
     public StringProperty printProperty() {
         return print;
-    }
-
-
-    public String getUsername() {
-        return username.get();
     }
 
     public StringProperty usernameProperty() {

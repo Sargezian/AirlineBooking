@@ -6,7 +6,7 @@ import java.sql.*;
 public class PassengerImpl implements PassengerDao {
 
     private static PassengerImpl daoInstance;
-
+    private daoConnection daoconnection;
     public static synchronized PassengerImpl getInstance() {
 
         if (daoInstance == null) {
@@ -15,10 +15,20 @@ public class PassengerImpl implements PassengerDao {
         return daoInstance;
     }
 
+    private PassengerImpl()
+    {
+        try {
+            DriverManager.registerDriver(new org.postgresql.Driver());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        daoconnection = daoConnection.getInstance();
+    }
+
     @Override
     public Passenger CreatePassengers(String FirstName, String LastName, String TelNumber, String Email) {
-       try {
-             try (Connection connection = daoConnection.getConnection()) {
+        try {
+            try (Connection connection = daoConnection.getConnection()) {
                 PreparedStatement statement = connection.prepareStatement("INSERT INTO passenger(FirstName,LastName,TelNumber,email) VALUES (?,?,?,?) ", PreparedStatement.RETURN_GENERATED_KEYS);
 
                 //passenger
@@ -61,7 +71,9 @@ public class PassengerImpl implements PassengerDao {
 
                 if (resultSet.next()) {
 
-                    Passenger passenger = new Passenger(Firstname, LastName, TelNumber, Email);
+
+                    //Getter
+                    Passenger passenger = passengerFromResultset(resultSet);
                     return passenger;
                 }
                 return null;
@@ -71,45 +83,17 @@ public class PassengerImpl implements PassengerDao {
         }
         return null;
     }
-    @Override
-    public Passenger readByEmail(String email){
-        try {
-            try (Connection connection =  daoConnection.getConnection()) {
 
-                PreparedStatement statement = connection.prepareStatement("select * from passenger where Email = ?  ");
-
-                //passenger
-                statement.setString(1, email);
-
-                ResultSet resultSet = statement.executeQuery();
-
-                if (resultSet.next()) {
-
-                    Passenger passenger = new Passenger(email);
-                    return passenger;
-                }
-                return null;
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        return null;
-
-
-
-
+    private Passenger passengerFromResultset(
+            ResultSet resultSet) throws SQLException
+    {
+        String FirstName = resultSet.getString("FirstName");
+        String Lastname = resultSet.getString("LastName");
+        String Telnumber = resultSet.getString("TelNumber");
+        String email = resultSet.getString("email");
+        int PassengerID = resultSet.getInt("passengerID");
+        Passenger passenger = new Passenger(PassengerID, FirstName, Lastname, Telnumber, email);
+        return passenger;
     }
-
-
-
-
-
-
-
 
 }
-
-
-
-
-

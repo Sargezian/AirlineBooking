@@ -32,7 +32,6 @@ public interface ClientModel extends Subject {
     List<Flights> readByName(String searchString);
     List<Flights> getAllTheFLights();
     Flights CreateFlights(String flightID, String flightName, String price);
-    void deleteFlight(Flights flights);
 
     //admin
     List<Seat> getSeats();
@@ -44,21 +43,15 @@ public interface ClientModel extends Subject {
     Arrival CreateArrival(String Arrival, String Arrivaldate);
     Depature CreateDeparture(String Departure, String DepartureDate);
     PlaneType CreatePlane(String PlaneTypes);
-    void deleteArrival(Arrival arrival);
-    void deleteDeparture(Depature depature);
-    void deletePlaneType(PlaneType planeType);
 
     //seat
     List<Seat> getSeat(int planeId);
     Seat getSeatId(int seatID, String seatNumber, String classType);
     Seat CreateSeat(String SeatNumber,String classtype);
-    void deleteSeat(Seat seat);
 
     //passenger
     Passenger Createpassernger(String FirstName, String LastName, String TelNumber, String email);
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email);
-    Passenger readByEmail(String email);
-    // TODO: 20/05/2021 check det her 
 
     //payment
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate);

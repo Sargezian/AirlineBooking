@@ -12,7 +12,7 @@ public class loginViewModel {
     private StringProperty kode;
     private StringProperty error;
 
-
+    //constructor
     public loginViewModel(ClientModel clientModel) {
         this.clientModel = clientModel;
         navn = new SimpleStringProperty();
@@ -28,7 +28,7 @@ public class loginViewModel {
         error.setValue("");
     }
 
-
+    //validate
     public boolean validateLoginInfo() {
 
         if (clientModel.ValidateUser(navn.getValue(), kode.getValue())) {
@@ -42,6 +42,7 @@ public class loginViewModel {
         }
     }
 
+    //validate
     public void validateAdmin() {
 
         if (navn.equals("Admin123@") && kode.equals("Admin")) {
@@ -49,26 +50,13 @@ public class loginViewModel {
         }
     }
 
-    public String getNavn() {
-        return navn.get();
-    }
 
     public StringProperty navnProperty() {
         return navn;
     }
-
-    public String getKode() {
-        return kode.get();
-    }
-
     public StringProperty kodeProperty() {
         return kode;
     }
-
-    public String getError() {
-        return error.get();
-    }
-
     public StringProperty errorProperty() {
         return error;
     }

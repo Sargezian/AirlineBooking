@@ -14,7 +14,6 @@ import java.util.List;
 
 public class dashboardViewModel {
 
-
     private ClientModel clientModel;
     private ObservableList<Flights> flights;
     private StringProperty search;
@@ -27,9 +26,8 @@ public class dashboardViewModel {
         error = new SimpleStringProperty();
         clock = new SimpleStringProperty();
         clientModel.addListener(utils.NEWFLIGHT, this::onNewInputflight);
-        clientModel.addListener("time", this::clockPropertye);
+        clientModel.addListener("time", this::clockProperty);
     }
-
 
     //loadflights
     public void loadFlights() {
@@ -37,8 +35,8 @@ public class dashboardViewModel {
         flights = FXCollections.observableArrayList(flight);
     }
 
+    //getflight information
     public boolean getFlightInformation(Flights flights) {
-
         if (flights != null) {
             SaveInfo.getInstance().setFlights(flights);
             System.out.println("Save flightInformation  = " + SaveInfo.getInstance());
@@ -60,39 +58,28 @@ public class dashboardViewModel {
         });
     }
 
-    public void onNewInputflight(PropertyChangeEvent  evt) {
-        loadFlights();
-
-    }
-
-    private void clockPropertye(PropertyChangeEvent event) {
-        startClock();
-    }
-
+    //search
     public void search(){
         flights.setAll(clientModel.readByName(search.getValue()));
     }
 
-    public String getSearch() {
-        return search.get();
+    public void onNewInputflight(PropertyChangeEvent  evt) {
+        loadFlights();
     }
-
-    public StringProperty searchProperty() {
-        return search;
+    private void clockProperty(PropertyChangeEvent event) {
+        startClock();
     }
 
     public ObservableList<Flights> getflight() {
         return flights;
     }
 
-    public String getError() {
-        return error.get();
+    public StringProperty searchProperty() {
+        return search;
     }
-
     public StringProperty errorProperty() {
         return error;
     }
-
     public StringProperty clockProperty(){return clock;}
 
 

@@ -18,11 +18,4 @@ public interface adminDao {
     List<Depature> getAllDeparture();
     List<Arrival> getAllArrival();
 
-    void deleteFlight(Flights flights);
-    void deleteArrival(Arrival arrival);
-    void deleteDeparture(Depature depature);
-    void deletePlaneType(PlaneType planeType);
-
-
-
 }

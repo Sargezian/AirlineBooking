@@ -37,10 +37,6 @@ public interface RMIServer extends Remote {
     List<PlaneType> getAllPlaneType() throws RemoteException;
     List<Depature> getAllDeparture()throws RemoteException;
     List<Arrival> getAllArrival()throws RemoteException;
-    void deleteArrival(Arrival arrival) throws RemoteException;
-    void deleteDeparture(Depature depature) throws RemoteException;
-    void deletePlaneType(PlaneType planeType)throws RemoteException;
-    void deleteFlight(Flights flights) throws RemoteException;
     Airport CreateAirport(String airportId, String airportName, String airportCity) throws RemoteException;
     Arrival CreateArrival(String Arrival, String Arrivaldate) throws RemoteException;
     Depature CreateDeparture(String Departure, String DepartureDate) throws RemoteException;
@@ -55,7 +51,6 @@ public interface RMIServer extends Remote {
     //passenger
     Passenger passernger(String FirstName, String LastName, String TelNumber, String email) throws RemoteException;
     Passenger ReadPassenger(String Firstname, String LastName, String TelNumber, String Email) throws RemoteException;
-    Passenger readByEmail(String email) throws RemoteException;
 
     //payment
     Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) throws RemoteException;

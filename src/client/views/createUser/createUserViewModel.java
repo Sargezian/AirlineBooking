@@ -13,7 +13,6 @@ public class createUserViewModel  {
     private StringProperty CreatePassword;
     private StringProperty Error;
 
-    
     public createUserViewModel(ClientModel clientModel) {
         this.clientModel = clientModel;
         CreateUser = new SimpleStringProperty();
@@ -22,10 +21,9 @@ public class createUserViewModel  {
 
     }
 
-    public void SetUser() {
+    public void createUser() {
         String CreateUser = this.CreateUser.getValue();
         String CreatePassword = this.CreatePassword.getValue();
-
 
         if (CreateUser != null && !"".equals(CreateUser) && CreatePassword != null && !"".equals(CreatePassword)  ) {
             InputUser username = clientModel.username(CreateUser, CreatePassword);
@@ -80,7 +78,6 @@ public class createUserViewModel  {
         } else {
             return true;
         }
-
     }
 
     public boolean validatePasswords() {
@@ -118,23 +115,12 @@ public class createUserViewModel  {
     public String getCreateUser() {
         return CreateUser.get();
     }
-
     public StringProperty createUserProperty() {
         return CreateUser;
     }
-
-    public String getCreatePassword() {
-        return CreatePassword.get();
-    }
-
     public StringProperty createPasswordProperty() {
         return CreatePassword;
     }
-
-    public String getError() {
-        return Error.get();
-    }
-
     public StringProperty errorProperty() {
         return Error;
     }

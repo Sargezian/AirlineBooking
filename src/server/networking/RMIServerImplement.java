@@ -113,12 +113,6 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public Passenger readByEmail(String email) throws RemoteException {
-        return serverManager.readByEmail(email);
-    }
-
-
-    @Override
     public Payment payment(String cardholderName, String cardNumber, String CVV, String expirationDate) {
         return serverManager.payment(cardholderName, cardNumber, CVV, expirationDate);
     }
@@ -299,12 +293,6 @@ public class RMIServerImplement implements RMIServer {
     }
 
     @Override
-    public void deleteFlight(Flights flights) throws RemoteException {
-        serverManager.deleteFlight(flights);
-
-    }
-
-    @Override
     public List<Flights> getAllTheFLights() throws RemoteException {
         return serverManager.getAllTheFLights();
     }
@@ -337,21 +325,6 @@ public class RMIServerImplement implements RMIServer {
     @Override
     public List<Arrival> getAllArrival()throws RemoteException {
         return serverManager.getAllArrival();
-    }
-
-    @Override
-    public void deleteArrival(Arrival arrival) throws RemoteException {
-        serverManager.deleteArrival(arrival);
-    }
-
-    @Override
-    public void deleteDeparture(Depature depature) throws RemoteException {
-           serverManager.deleteDeparture(depature);
-    }
-
-    @Override
-    public void deletePlaneType(PlaneType planeType) throws RemoteException {
-           serverManager.deletePlaneType(planeType);
     }
 
     @Override

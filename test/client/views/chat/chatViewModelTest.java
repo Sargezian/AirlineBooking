@@ -11,8 +11,6 @@ public class chatViewModelTest
  public void setUp(){
 
 
-
-
 }
 
 

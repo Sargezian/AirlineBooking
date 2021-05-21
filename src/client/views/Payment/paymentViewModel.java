@@ -66,7 +66,6 @@ public class paymentViewModel {
         System.out.println("Gets SavedInfo from Inputuser = " + SaveInfo.getInstance().getUser());
 
         myFlightTicket myFlightTicket1 = new myFlightTicket(String.valueOf(1),pg,ft,st,user);
-        clientModel.deleteSeat(st);
 
         clientModel.createTicket(myFlightTicket1);
 
@@ -153,7 +152,6 @@ public class paymentViewModel {
 
     }
 
-
     public void clearFields() {
         CardholderName.setValue("");
         CardNumber.setValue("");
@@ -167,82 +165,35 @@ public class paymentViewModel {
 
     }
 
-    public String getFirstName() {
-        return FirstName.get();
-    }
+
 
     public StringProperty firstNameProperty() {
         return FirstName;
     }
-
-    public String getLastName() {
-        return LastName.get();
-    }
-
     public StringProperty lastNameProperty() {
         return LastName;
     }
-
-    public String getEmail() {
-        return Email.get();
-    }
-
     public StringProperty emailProperty() {
         return Email;
     }
-
-    public String getPhone() {
-        return Phone.get();
-    }
-
     public StringProperty phoneProperty() {
         return Phone;
     }
-
-    public String getCardholderName() {
-        return CardholderName.get();
-    }
-
     public StringProperty cardholderNameProperty() {
         return CardholderName;
     }
-
-    public String getCardNumber() {
-        return CardNumber.get();
-    }
-
     public StringProperty cardNumberProperty() {
         return CardNumber;
     }
-
-    public String getCVV() {
-        return CVV.get();
-    }
-
     public StringProperty CVVProperty() {
         return CVV;
     }
-
-    public String getExpirationDate() {
-        return ExpirationDate.get();
-    }
-
     public StringProperty expirationDateProperty() {
         return ExpirationDate;
     }
-
-    public String getError() {
-        return error.get();
-    }
-
     public StringProperty errorProperty() {
         return error;
     }
-
-    public String getPrice() {
-        return price.get();
-    }
-
     public StringProperty priceProperty() {
         return price;
     }
