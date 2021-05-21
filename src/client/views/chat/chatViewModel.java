@@ -35,10 +35,10 @@ public class chatViewModel {
 
     public chatViewModel(ClientModel clientModel) {
         this.clientModel = clientModel;
-        this.chat = new SimpleStringProperty();
-        this.totalReviews = new SimpleStringProperty();
-        this.average = new SimpleStringProperty();
-        this.error = new SimpleStringProperty();
+        this.chat = new SimpleStringProperty("");
+        this.totalReviews = new SimpleStringProperty("");
+        this.average = new SimpleStringProperty("");
+        this.error = new SimpleStringProperty("");
         this.progressbar = new SimpleDoubleProperty();
 
         clientModel.addListener(utils.NEWCHAT, this::onNewInputChat);
@@ -79,7 +79,7 @@ public class chatViewModel {
             setCounter();
             setAverage();
         } else {
-            error.set("please choose a rating");
+            error.set("Please choose a rating");
             System.out.println(chat.getValue());
         }
             chat.set("");
