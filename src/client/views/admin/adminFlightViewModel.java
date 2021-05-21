@@ -16,68 +16,67 @@ import java.util.List;
 public class adminFlightViewModel {
     private ClientModel clientModel;
 
+    //flight
     private StringProperty flightId;
-
     private StringProperty flightName;
-
     private StringProperty price;
-
-    private StringProperty Arrivals;
-
-    private StringProperty ArrivalDate;
-
-    private StringProperty Departures;
-
-    private StringProperty DepartureDate;
-
-    private StringProperty PlaneTypes;
-
     private ObservableList<Flights> flights;
 
+    //arrival
+    private StringProperty Arrivals;
+    private StringProperty ArrivalDate;
     private ObservableList<Arrival> arrivals;
 
+    //departure
+    private StringProperty Departures;
+    private StringProperty DepartureDate;
     private ObservableList<Depature> depatures;
 
+    //planetype
+    private StringProperty PlaneTypes;
     private  ObservableList<PlaneType> planeTypes;
 
-
+    //seat
     private IntegerProperty seatId;
     private StringProperty seatNumber;
     private StringProperty classType;
-    private StringProperty error;
+    private ObservableList<Seat>seatObservableList;
+
+    //airport
     private StringProperty airportId;
     private StringProperty airportName;
     private StringProperty airportCity;
-    private ObservableList<Seat>seatObservableList;
     private ObservableList<Airport> airportObservableList;
 
-
-
-
+    //error label
+    private StringProperty error;
 
     public adminFlightViewModel(ClientModel clientModel) {
         this.clientModel = clientModel;
+
         flightId = new SimpleStringProperty();
         flightName = new SimpleStringProperty();
         price = new SimpleStringProperty();
+
         Arrivals = new SimpleStringProperty();
-        Departures = new SimpleStringProperty();
         ArrivalDate = new SimpleStringProperty();
+
+        Departures = new SimpleStringProperty();
         DepartureDate = new SimpleStringProperty();
+
         PlaneTypes = new SimpleStringProperty();
 
         seatId = new SimpleIntegerProperty();
         seatNumber = new SimpleStringProperty();
         classType = new SimpleStringProperty();
-        error = new SimpleStringProperty();
+
         airportId = new SimpleStringProperty();
         airportName = new SimpleStringProperty();
         airportCity = new SimpleStringProperty();
+
         error = new SimpleStringProperty();
         clientModel.addListener(utils.NEWSEAT,this::onNewInputSeat);
         clientModel.addListener(utils.NEWAIRPORT,this::onNewInputAirport);
-
-
         clientModel.addListener(utils.NEWFLIGHT, this::onNewInputflight);
         clientModel.addListener(utils.NEWARRIVAL, this::onNewInputArrival);
         clientModel.addListener(utils.NEWDEPARTURE, this::onNewInputDeparture);
@@ -88,7 +87,6 @@ public class adminFlightViewModel {
     public void InsertFlightInformation() {
 
         if (flightId.getValue() != null && !"".equals(flightId.getValue()) && flightName.getValue() != null && !"".equals(flightName.getValue()) && price.getValue() != null && !"".equals(price.getValue())) {
-
 
             String FlightId = flightId.getValue();
             String Flightname = flightName.getValue();
@@ -104,10 +102,8 @@ public class adminFlightViewModel {
 
         if (Arrivals.getValue() != null && !"".equals(Arrivals.getValue()) && ArrivalDate.getValue() != null && !"".equals(ArrivalDate.getValue())) {
 
-
             String arrival = Arrivals.getValue();
             String arrivalDate = ArrivalDate.getValue();
-
 
             clientModel.CreateArrival(arrival,arrivalDate);
 
@@ -120,15 +116,12 @@ public class adminFlightViewModel {
 
         if ( Departures.getValue() != null && !"".equals(Departures.getValue()) && DepartureDate.getValue() != null && !"".equals(DepartureDate.getValue())) {
 
-
             String departures = Departures.getValue();
             String departureDate = DepartureDate.getValue();
-
 
             clientModel.CreateDeparture(departures,departureDate);
 
         }
-
     }
 
 
@@ -139,11 +132,9 @@ public class adminFlightViewModel {
 
             String planeTypes = PlaneTypes.getValue();
 
-
             clientModel.CreatePlane(planeTypes);
 
         }
-
     }
 
 
@@ -173,15 +164,12 @@ public class adminFlightViewModel {
 
     }
 
-
-
     public boolean deletePlaneType(PlaneType planeType){
         clientModel.deletePlaneType(planeType);
         this.planeTypes.removeAll(planeType);
         return true;
 
     }
-
 
     public void loadFlights() {
         List<Flights> flight = clientModel.getAllTheFLights();
@@ -207,18 +195,6 @@ public class adminFlightViewModel {
     }
 
 
-
-    public void onNewInputAirport(PropertyChangeEvent event) {
-        airportObservableList.add((Airport) event.getNewValue());
-
-    }
-
-    public void onNewInputSeat(PropertyChangeEvent event) {
-        seatObservableList.add((Seat) event.getNewValue());
-    }
-
-
-
     public void InsertSeatInfomation()
     {
 
@@ -232,31 +208,6 @@ public class adminFlightViewModel {
 
         }
 
-    }
-
-    public boolean validatePassengerInformation()
-    {
-
-        if (seatId.getValue() == null)
-        {
-            error.set("ID cannot be empty");
-            return false;
-        }
-        if (seatNumber.getValue() == null)
-        {
-            error.set("Airport Name cannot be empty");
-            return false;
-        }
-        if (classType.getValue() == null)
-        {
-            error.set("Airport City cannot be empty");
-            return false;
-        }
-        else
-        {
-
-            return true;
-        }
     }
 
     public void InsertAirportInfomation()
@@ -273,19 +224,159 @@ public class adminFlightViewModel {
 
     }
 
+    //flight
+    public boolean validateFlightInformation() {
+        if (flightId.getValue() == null)
+        {
+            error.set("flightID cannot be empty");
+            return false;
+        }
+        if (flightName.getValue() == null)
+        {
+            error.set("flight Name cannot be empty");
+            return false;
+        }
+        if (price.getValue() == null)
+        {
+            error.set("price cannot be empty");
+            return false;
+        }
+
+        else
+        {
+            return true;
+        }
+    }
+
+    //arrival
+    public boolean validateArrivalInformation() {
+        if (Arrivals.getValue() == null)
+        {
+            error.set("Arrivals cannot be empty");
+            return false;
+        }
+        if (ArrivalDate.getValue() == null)
+        {
+            error.set("ArrivalDate cannot be empty");
+            return false;
+        }
+
+        else
+        {
+            return true;
+        }
+
+    }
+
+    //departure
+    public boolean validateDepartureInformation() {
+        if (Departures.getValue() == null)
+        {
+            error.set("Departure cannot be empty");
+            return false;
+        }
+        if (DepartureDate.getValue() == null)
+        {
+            error.set("DepartureDate cannot be empty");
+            return false;
+        }
+
+        else
+        {
+            return true;
+        }
+    }
+
+    //planetype
+    public boolean validatePlanetypeInformation() {
+        if (PlaneTypes.getValue() == null)
+        {
+            error.set("planetype cannot be empty");
+            return false;
+        }
+
+        else
+        {
+            return true;
+        }
+
+    }
+
+    public boolean validateSeatInformation() {
+        if (seatId.getValue() == null)
+        {
+            error.set("seatId cannot be empty");
+            return false;
+        }
+        if (seatNumber.getValue() == null)
+        {
+            error.set("SeatNumber cannot be empty");
+            return false;
+        }
+        if (!classType.getValue().equals("Economy class") || !classType.getValue().equals("Business class") || !classType.getValue().equals("First class"))
+        {
+            error.set("classType must be either; Economy class, Business class or First class ");
+            return false;
+        }
+
+        else
+        {
+            return true;
+        }
+
+    }
+
+
+    public boolean validateAirportInformation()
+    {
+        //airport
+        if (airportId.getValue() == null)
+        {
+            error.set("AirportID cannot be empty");
+            return false;
+        }
+        if (airportId.getValue().length() != 3)
+        {
+            error.set("airportID must be 3 characters");
+            return false;
+        }
+
+        if (airportName.getValue() == null)
+        {
+            error.set("Airport Name cannot be empty");
+            return false;
+        }
+        if (airportCity.getValue() == null)
+        {
+            error.set("Airport City cannot be empty");
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+
 
     public void loadSeat() {
         List<Seat> seat = clientModel.getSeats();
         seatObservableList = FXCollections.observableArrayList(seat);
     }
 
-
     public void loadAirport() {
         List<Airport> airportList = clientModel.getAirport();
         airportObservableList = FXCollections.observableArrayList(airportList);
     }
 
+    public void onNewInputAirport(PropertyChangeEvent event) {
+        airportObservableList.add((Airport) event.getNewValue());
 
+    }
+
+    public void onNewInputSeat(PropertyChangeEvent event) {
+        seatObservableList.add((Seat) event.getNewValue());
+    }
 
     public ObservableList<Seat> getSeatObservableList() {
         return seatObservableList;
@@ -355,31 +446,6 @@ public class adminFlightViewModel {
         this.error.set(error);
     }
 
-    public boolean validateAirportInformation()
-    {
-
-        if (airportId.getValue() == null)
-        {
-            error.set("ID cannot be empty");
-            return false;
-        }
-        if (airportName.getValue() == null)
-        {
-            error.set("Airport Name cannot be empty");
-            return false;
-        }
-        if (airportCity.getValue() == null)
-        {
-            error.set("Airport City cannot be empty");
-            return false;
-        }
-        else
-        {
-
-            return true;
-        }
-    }
-
     public int getSeatId()
     {
         return seatId.get();
@@ -425,8 +491,6 @@ public class adminFlightViewModel {
         this.classType.set(classType);
     }
 
-
-
     public void onNewInputflight(PropertyChangeEvent evt) {
         flights.add((Flights) evt.getNewValue());
     }
@@ -444,9 +508,6 @@ public class adminFlightViewModel {
     public void onNewInputPlane(PropertyChangeEvent evt) {
         planeTypes.add((PlaneType) evt.getNewValue());
     }
-
-
-
 
 
     public String getArrivals() {
