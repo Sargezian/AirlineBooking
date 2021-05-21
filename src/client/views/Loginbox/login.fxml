@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="717.0" prefWidth="941.0" style="-fx-background-color: #4153F2;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.Loginbox.loginViewController">
+<AnchorPane prefHeight="717.0" prefWidth="941.0" style="-fx-background-color: #4153F2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.Loginbox.loginViewController">
    <children>
       <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="99.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: #ffffff;">
          <image>
@@ -39,7 +39,7 @@
                </image>
             </ImageView>
             <Button cacheShape="false" layoutX="82.0" layoutY="439.0" mnemonicParsing="false" onAction="#onLogButton" prefHeight="44.0" prefWidth="293.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Log Ind" textFill="WHITE" />
-            <Label fx:id="error" layoutX="91.0" layoutY="403.0" prefHeight="17.0" prefWidth="161.0" text="Error label" />
+            <Label fx:id="error" layoutX="57.0" layoutY="403.0" prefHeight="17.0" prefWidth="396.0" text="Error label" />
             <Label layoutX="72.0" layoutY="117.0" text="Welcome">
                <font>
                   <Font name="System Bold" size="29.0" />

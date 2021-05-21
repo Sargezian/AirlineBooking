@@ -41,16 +41,21 @@ public class loginViewModel {
 
             return true;
         } else {
-            error.setValue("ERROR field is empty");
+            error.setValue("ERROR field is empty or username and password is incorrect");
             return false;
         }
     }
 
     //validate
-    public void validateAdmin() {
+    public boolean validateAdmin() {
 
-        if (navn.equals("Admin123@") && kode.equals("Admin")) {
+        if (navn.getValue().equals("Admin") && kode.getValue().equals("Admin123")) {
             System.out.println("virker");
+            error.setValue("successful");
+            return true;
+        }else {
+            error.setValue("ERROR field is empty or username and password is incorrect");
+            return false;
         }
     }
 

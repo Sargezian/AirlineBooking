@@ -38,9 +38,8 @@ public class loginViewController implements ViewController {
     }
 
     public void onLogButton() {
-        if (navn.getText().equals("Admin") && kode.getText().equals("Admin123")) {
+        if (viewModel.validateAdmin()) {
             System.out.println("Tester om vi kommer i åben admin if statement");
-            viewModel.validateAdmin();
             vh.openAdminView();
             viewModel.clearFields();
         } else {

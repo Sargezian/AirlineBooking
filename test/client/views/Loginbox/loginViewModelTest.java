@@ -2,26 +2,19 @@ package client.views.Loginbox;
 
 import client.core.ClientFactory;
 import client.core.ModelFactory;
-import client.core.ViewModelFactory;
-import client.model.ClientModel;
-import client.network.Client;
-import client.views.createUser.createUserViewModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import server.model.database.InputUserDao;
 import server.model.database.InputUserImpl;
 import shared.transferobjects.InputUser;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 
-class  jUnitTest{
+  class jUnitTest{
     private loginViewModel LoginViewModel;
     private InputUserImpl loginDao;
-    private InputUserDao InputUserDao;
-    private createUserViewModel createUserViewModel;
+
 
 
 
@@ -29,12 +22,11 @@ class  jUnitTest{
     public void setUp(){
         ClientFactory.getInstance().getClient();
         LoginViewModel = new loginViewModel(ModelFactory.getInstance().getClientText());
-        //Database access Object is needed for various tests
         loginDao = InputUserImpl.getInstance();
 
     }
 
-    @Test void test_validateLoginSuccess(){
+    @Test public void testLoginWithCorrectLoginDetails(){
 
         StringProperty username = new SimpleStringProperty();
         StringProperty password = new SimpleStringProperty();
@@ -46,7 +38,7 @@ class  jUnitTest{
         username.setValue("Username");
         password.setValue("password");
 
-        //We need a USer in the database
+
         InputUser test = new InputUser("Username","password");
         loginDao.createUser(test.user, test.password);
         LoginViewModel.validateLoginInfo();
@@ -54,7 +46,7 @@ class  jUnitTest{
         assertEquals("successful",label.get());
     }
 
-    @Test void test_validatefailed(){
+    @Test public void testLoginWithWrongLoginDetails(){
 
         StringProperty username = new SimpleStringProperty();
         StringProperty password = new SimpleStringProperty();
@@ -63,15 +55,82 @@ class  jUnitTest{
         password.bindBidirectional(LoginViewModel.kodeProperty());
         label.bindBidirectional(LoginViewModel.errorProperty());
 
-        username.setValue("Username");
-        password.setValue("Password");
+        username.setValue("user11");
+        password.setValue("pass11");
 
-        //We need a USer in the database
+
         InputUser test = new InputUser("username","password");
         loginDao.createUser(test.user, test.password);
         LoginViewModel.validateLoginInfo();
 
-        assertEquals("ERROR field is empty",label.get());
+        assertEquals("ERROR field is empty or username and password is incorrect",label.get());
     }
+
+    @Test public void testLoginWithWrongPassword(){
+
+        StringProperty username = new SimpleStringProperty();
+        StringProperty password = new SimpleStringProperty();
+        StringProperty label = new SimpleStringProperty();
+        username.bindBidirectional(LoginViewModel.navnProperty());
+        password.bindBidirectional(LoginViewModel.kodeProperty());
+        label.bindBidirectional(LoginViewModel.errorProperty());
+
+        username.setValue("username");
+        password.setValue("password123");
+
+
+        InputUser test = new InputUser("username","password");
+        loginDao.createUser(test.user, test.password);
+        LoginViewModel.validateLoginInfo();
+
+        assertEquals("ERROR field is empty or username and password is incorrect",label.get());
+    }
+
+
+
+    @Test public void testLoginWithWrongUsername(){
+
+        StringProperty username = new SimpleStringProperty();
+        StringProperty password = new SimpleStringProperty();
+        StringProperty label = new SimpleStringProperty();
+        username.bindBidirectional(LoginViewModel.navnProperty());
+        password.bindBidirectional(LoginViewModel.kodeProperty());
+        label.bindBidirectional(LoginViewModel.errorProperty());
+
+        username.setValue("user123");
+        password.setValue("password");
+
+
+        InputUser test = new InputUser("username","password");
+        loginDao.createUser(test.user, test.password);
+        LoginViewModel.validateLoginInfo();
+
+        assertEquals("ERROR field is empty or username and password is incorrect",label.get());
+    }
+
+      @Test public void testAdminLoginWithCorrectLoginDetails(){
+
+          StringProperty username = new SimpleStringProperty();
+          StringProperty password = new SimpleStringProperty();
+          StringProperty label = new SimpleStringProperty();
+          username.bindBidirectional(LoginViewModel.navnProperty());
+          password.bindBidirectional(LoginViewModel.kodeProperty());
+          label.bindBidirectional(LoginViewModel.errorProperty());
+
+          username.setValue("Admin");
+          password.setValue("Admin123");
+
+
+          InputUser test = new InputUser("Admin","Admin123");
+          loginDao.createUser(test.user, test.password);
+          LoginViewModel.validateAdmin();
+
+          assertEquals("successful",label.get());
+      }
+
+
+
+
+
 
 }
