@@ -115,6 +115,9 @@ public class myflightplanViewController implements ViewController {
 
     public void printbillet(ActionEvent actionEvent) throws Exception {
 
+        if (vm.checkIfFlightsIsNull() == true){
+
+            System.out.println("hello");
         Path relativePath1 = Paths.get("src","myT.pdf");
 
         File out = new File("myT.pdf");
@@ -285,10 +288,17 @@ public class myflightplanViewController implements ViewController {
         pdf.close();
         fos.close();
 
-        vm.sendtoEmail();
 
         System.out.println("Saved");
 
-    }
+    } else{
+
+            System.out.println("hahahhaha");
+
+        }
+
+
+}
+
 
 }

@@ -53,6 +53,20 @@ public class myflightplanViewModel {
         return myFlightTickets;
     }
 
+    public boolean checkIfFlightsIsNull() throws AddressException {
+
+        if (myFlightTickets.isEmpty()){
+            print.setValue("Vi kan desværre ikke printe din billet, husk at købe en først");
+            return false;
+
+        } else {
+            sendtoEmail();
+
+            return true;
+        }
+
+    }
+
 
     public void onNewTicket(PropertyChangeEvent evt) {
         System.out.println("onNewTicket " + SaveInfo.getInstance().getUser());
@@ -82,6 +96,8 @@ public class myflightplanViewModel {
 
 
     public void sendtoEmail( ) throws AddressException {
+        if (myFlightTickets != null){
+
 
         for (myFlightTicket myFlightTicket : myFlightTickets) {
 
@@ -137,6 +153,14 @@ public class myflightplanViewModel {
         } catch (MessagingException | IOException e) {
             e.printStackTrace();
         }
+
+        }
+
+        } else{
+
+            print.setValue("flight ticket is null");
+
+
         }
 
     }

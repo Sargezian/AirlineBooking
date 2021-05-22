@@ -15,6 +15,7 @@ public class Seat implements Serializable {
         this.seatNumber = seatNumber;
         this.classType = classType;
 
+
     }
 
     public Seat(String seatNumber, String classType) {
@@ -34,6 +35,7 @@ public class Seat implements Serializable {
 
     //seat
     public int getSeatID() {
+        Seat seat = new Seat(1,"22","Business class");
         return seatID;
     }
     public String getSeatNumber() {

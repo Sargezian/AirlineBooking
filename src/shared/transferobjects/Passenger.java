@@ -15,6 +15,7 @@ public class Passenger implements Serializable
         LastName = lastName;
         TelNumber = telNumber;
         Email = email;
+
     }
 
     public Passenger(String firstName, String lastName, String telNumber, String email) {
@@ -25,6 +26,7 @@ public class Passenger implements Serializable
     }
 
     public Passenger(String email) {
+
         this.Email = email;
     }
 

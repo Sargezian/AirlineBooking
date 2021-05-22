@@ -21,6 +21,12 @@ public class Depature implements Serializable {
         this.departure = departure;
     }
 
+    public Depature(String departure, String departureDate) {
+        this.departure = departure;
+        this.departureDate = departureDate;
+
+    }
+
     //airport
     public Airport getAirport() {
         return airport;

@@ -15,6 +15,11 @@ public class Arrival implements Serializable {
         this.arrivalDate = arrivalDate;
     }
 
+    public Arrival(String arrival, String arrivalDate) {
+        this.arrival = arrival;
+        this.arrivalDate = arrivalDate;
+    }
+
     public Arrival(String arrival)
     {
         this.arrival = arrival;

@@ -119,6 +119,30 @@ public class FlightImpl implements FlightDao {
     return null;
   }
 
+
+  @Override
+  public Flights CreateFlights(String flightID, String flightName, String price,int arrivalid,int departureid,int planeid ) {
+    try {
+      try (Connection connection = daoConnection.getConnection()) {
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO flights(flightID,flightName,ArrivalID,DepartureID,price, planeID) VALUES (?,?,?,?,?,?)");
+
+        statement.setString(1,flightID);
+        statement.setString(2,flightName);
+        statement.setInt(3,arrivalid);
+        statement.setInt(4,departureid);
+        statement.setString(5,price);
+        statement.setInt(6,planeid);
+
+        statement.executeUpdate();
+        return new Flights(flightID,flightName,price);
+      }
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+    return null;
+  }
+
+
 }
 
 
