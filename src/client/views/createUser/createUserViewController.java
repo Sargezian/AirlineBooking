@@ -35,7 +35,7 @@ public class createUserViewController implements ViewController {
 
     public void onCreateLogin(ActionEvent actionEvent) {
 
-        if (cuv.attemptCreateUser() && cuv.validatePasswords() &&  cuv.userValidation()){
+        if (cuv.validateSignUp()){
             cuv.createUser();
             cuv.clearFields();
             vh.openLoginView();

@@ -29,11 +29,9 @@ public class createUserViewModel  {
             InputUser username = clientModel.username(CreateUser, CreatePassword);
             SaveInfo.getInstance().setUser(username);
 
-            Error.set("korrekt oprettet");
-        } else {
-            Error.set("Feltet kan ikke være tomt");
+            Error.set("successful");
         }
-        this.Error.set("");
+
     }
 
     public boolean userValidation(){
@@ -57,6 +55,34 @@ public class createUserViewModel  {
 
     }
 
+    public boolean validateSignUp(){
+        if (attemptCreateUser() && validatePasswords() && validateCreateUserAndCreatePassword() && userValidation()){
+
+            Error.set("successful");
+            return true;
+
+        }
+        return false;
+
+    }
+
+    public boolean validateCreateUserAndCreatePassword(){
+        if (CreatePassword.getValue() == null && CreateUser.getValue() == null) {
+            Error.set("Username/password cannot be empty");
+            return false;
+        }
+        if(CreateUser.getValue().contains("#") && CreatePassword.getValue().contains("#")) {
+            Error.set("Password/Username cannot contain #");
+            return false;
+        }else{
+
+
+            return true;
+        }
+
+
+    }
+
     public boolean attemptCreateUser() {
 
         if(CreateUser.getValue() == null) {
@@ -76,13 +102,14 @@ public class createUserViewModel  {
           Error.set("Username must contain less than 15 characters");
             return false;
         } else {
+
             return true;
         }
     }
 
     public boolean validatePasswords() {
 
-        if (CreatePassword.getValue() == null) {
+        if (CreatePassword.getValue() == null && CreateUser.getValue() == null) {
             Error.set("Password cannot be empty");
             return false;
         }
