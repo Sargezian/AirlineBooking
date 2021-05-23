@@ -4,21 +4,17 @@ import client.core.ClientFactory;
 import client.core.ModelFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import server.model.database.*;
-import shared.transferobjects.InputChat;
-import shared.transferobjects.InputUser;
+import server.model.database.ResetDao;
+import server.model.database.ResetImpl;
 import shared.transferobjects.Rating;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 // TODO: 08/05/2021 lave test færdig (alle)
 
 public class chatViewModelTest
 {
     private chatViewModel chatViewModel;
-    private InputChatImpl Chatimpl;
-    private InputChatDao InputChatDao;
     private ResetDao resetDao;
 
 
@@ -31,7 +27,6 @@ public class chatViewModelTest
       chatViewModel.loadLogs();
       chatViewModel.loadLogs2();
       chatViewModel.loadRatings();
-      Chatimpl = InputChatImpl.getInstance();
       resetDao = new ResetImpl();
       resetDao.reset();
 

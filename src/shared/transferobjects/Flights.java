@@ -5,12 +5,12 @@ import java.io.Serializable;
 
 public class Flights implements Serializable {
 
-    public String flightID;
-    public String flightName;
-    public Depature departure;
-    public Arrival arrival;
-    public PlaneType planeType;
-    public String price;
+    private String flightID;
+    private String flightName;
+    private Depature departure;
+    private Arrival arrival;
+    private PlaneType planeType;
+    private String price;
 
     public Flights(String flightID, String flightName, Depature departure, Arrival arrival, PlaneType planeType, String price) {
         this.flightID = flightID;
@@ -48,14 +48,14 @@ public class Flights implements Serializable {
 
     //departure
     public int getDepartureID() {
-        return departure.departureID;
+        return departure.getDepartureID();
     }
     public String getDepartures() {
-        return departure.departure;
+        return departure.getDeparture();
 
     }
     public String getDepartureDate() {
-        return departure.departureDate;
+        return departure.getDepartureDate();
     }
     public Depature getDeparture() {
         return departure;
@@ -63,13 +63,13 @@ public class Flights implements Serializable {
 
     //arrival
     public String getArrivals() {
-        return arrival.arrival;
+        return arrival.getArrival();
     }
     public String getArrivalDate() {
-        return arrival.arrivalDate;
+        return arrival.getArrivalDate();
     }
     public int getArrivalID() {
-        return arrival.arrivalID;
+        return arrival.getArrivalID();
     }
     public Arrival getArrival() {
         return arrival;
@@ -91,10 +91,10 @@ public class Flights implements Serializable {
         return planeType;
     }
     public int getPlaneId() {
-        return planeType.planeId;
+        return planeType.getPlaneId();
     }
     public String getPlaneTypes() {
-        return planeType.planeType;
+        return planeType.getPlaneType();
     }
 
     @Override

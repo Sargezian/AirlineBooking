@@ -54,17 +54,17 @@ public class passengerViewModel {
         Flights flights = SaveInfo.getInstance().getFlights();
         Seat seat = SaveInfo.getInstance().getSeat();
 
-        clientModel.readFlightsFromShoppingCart(flights.flightName,flights.getDepartures(),flights.getArrivals());
-        clientModel.readSeatFromShoppingCart(seat.seatNumber,seat.classType);
-        clientModel.readPrice(flights.price);
+        clientModel.readFlightsFromShoppingCart(flights.getFlightName(),flights.getDepartures(),flights.getArrivals());
+        clientModel.readSeatFromShoppingCart(seat.getSeatNumber(),seat.getClassType());
+        clientModel.readPrice(flights.getPrice());
 
         Platform.runLater(() -> {
-            FlightName.setValue(flights.flightName);
+            FlightName.setValue(flights.getFlightName());
             departure.setValue(flights.getDepartures());
             arrival.setValue(flights.getArrivals());
-            seatProperty.setValue(seat.seatNumber);
-            ClassType.setValue(seat.classType);
-            price.setValue(String.valueOf(flights.price));
+            seatProperty.setValue(seat.getSeatNumber());
+            ClassType.setValue(seat.getClassType());
+            price.setValue(String.valueOf(flights.getPrice()));
 
         });
     }

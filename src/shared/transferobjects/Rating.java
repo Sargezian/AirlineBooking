@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Rating implements Serializable {
 
-    public double star;
+    private double star;
 
     public Rating(double star) {
         this.star = star;

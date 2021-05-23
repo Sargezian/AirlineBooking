@@ -2,23 +2,17 @@ package client.views.admin;
 
 import client.core.ClientFactory;
 import client.core.ModelFactory;
-import client.model.ClientModel;
-import client.views.myflightplan.myflightplanViewModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.collections.ObservableList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import server.model.database.*;
-import shared.transferobjects.Airport;
-import shared.transferobjects.Passenger;
-import shared.transferobjects.PlaneType;
-import shared.transferobjects.Seat;
+import server.model.database.ResetDao;
+import server.model.database.ResetImpl;
+import server.model.database.adminDao;
+import server.model.database.adminImpl;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class adminFlightViewModelTest {
 

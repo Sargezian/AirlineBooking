@@ -79,10 +79,10 @@ class myflightplanViewModelTest
     InputUser user = SaveInfo.getInstance().getUser();
 
 
-    loginDao.createUser(user.user,user.password);
-    passengerDao.CreatePassengers(pg.FirstName,pg.LastName,pg.TelNumber,pg.Email);
-    seatDao.CreateSeat(st.seatNumber,st.classType);
-    flightDao.CreateFlights(ft.flightID,ft.flightName,ft.price,ft.getArrivalID(),ft.getDepartureID(),ft.getPlaneId());
+    loginDao.createUser(user.getOutput(),user.getPassword());
+    passengerDao.CreatePassengers(pg.getFirstName(),pg.getLastName(),pg.getTelNumber(),pg.getEmail());
+    seatDao.CreateSeat(st.getSeatNumber(),st.getClassType());
+    flightDao.CreateFlights(ft.getFlightID(),ft.getFlightName(),ft.getPrice(),ft.getArrivalID(),ft.getDepartureID(),ft.getPlaneId());
 
 
 

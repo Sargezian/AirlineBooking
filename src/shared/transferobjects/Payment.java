@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 public class Payment implements Serializable {
 
-    public int PaymentID;
-    public String CardholderName, CardNumber, CVV, ExpirationDate;
+    private int PaymentID;
+    private String CardholderName, CardNumber, CVV, ExpirationDate;
     private Flights flights;
 
     public Payment(int paymentID, String cardholderName, String cardNumber, String CVV, String expirationDate) {
@@ -39,7 +39,7 @@ public class Payment implements Serializable {
 
     //flight
     public String getPrice(){
-        return flights.price;
+        return flights.getPrice();
     }
 
     @Override

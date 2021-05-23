@@ -82,7 +82,7 @@ public class myflightplanViewModel {
     public void setUsername(){
 
         InputUser user = SaveInfo.getInstance().getUser();
-        clientModel.readUsername(user.user);
+        clientModel.readUsername(user.getOutput());
 
         Platform.runLater(new Runnable() {
             @Override

@@ -1,16 +1,12 @@
 package client.model;
 
-import client.core.ClientFactory;
-import client.core.ModelFactory;
 import client.network.Client;
-
 import shared.transferobjects.*;
 import shared.util.utils;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-
 import java.util.Date;
 import java.util.List;
 

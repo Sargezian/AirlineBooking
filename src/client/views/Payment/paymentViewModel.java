@@ -74,17 +74,17 @@ public class paymentViewModel {
 
         Passenger pg = SaveInfo.getInstance().getPassenger();
         Flights ft =  SaveInfo.getInstance().getFlights();
-        clientModel.ReadPassenger(pg.FirstName, pg.LastName, pg.TelNumber, pg.Email);
-        clientModel.readPrice(ft.price);
+        clientModel.ReadPassenger(pg.getFirstName(), pg.getLastName(), pg.getTelNumber(), pg.getEmail());
+        clientModel.readPrice(ft.getPrice());
 
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                FirstName.setValue(pg.FirstName);
-                LastName.setValue(pg.LastName);
-                Phone.setValue(pg.TelNumber);
-                Email.setValue(pg.Email);
-                price.setValue(String.valueOf(ft.price));
+                FirstName.setValue(pg.getFirstName());
+                LastName.setValue(pg.getLastName());
+                Phone.setValue(pg.getTelNumber());
+                Email.setValue(pg.getEmail());
+                price.setValue(String.valueOf(ft.getPrice()));
             }
         });
     }

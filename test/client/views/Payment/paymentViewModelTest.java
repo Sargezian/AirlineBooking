@@ -4,7 +4,6 @@ import client.core.ClientFactory;
 import client.core.ModelFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import server.model.database.PassengerDao;
 import server.model.database.PaymentDao;
 import server.model.database.PaymentImpl;
 import server.model.database.ResetDao;
@@ -31,6 +30,7 @@ private ResetDao resetDao;
 }
 
 @Test
+//  On boundary
   public void testIfCarNumberCanBe16(){
   paymentViewModel.validatePaymentInfo();
   assertNull(paymentViewModel.errorProperty().get());
@@ -38,6 +38,7 @@ private ResetDao resetDao;
 }
 
   @Test
+  //  1 before boundary
   public void testIfCarNumberLowerThen16(){
     paymentViewModel.clearFields();
     paymentViewModel.cardholderNameProperty().setValue("Mark Pedersen");
@@ -50,6 +51,7 @@ private ResetDao resetDao;
 
 
   @Test
+  //  1 after boundary
   public void testIfCarNumberHigherThen16(){
     paymentViewModel.clearFields();
     paymentViewModel.cardholderNameProperty().setValue("Mark Pedersen");
@@ -62,6 +64,7 @@ private ResetDao resetDao;
 
 
   @Test
+    //  On boundary
   public void testIfCvvCanBe3(){
     paymentViewModel.validatePaymentInfo();
 
@@ -70,11 +73,11 @@ private ResetDao resetDao;
 
 
   @Test
+  //  1 before boundary
   public void testIfCvvCanBeLowerThen3(){
   paymentViewModel.CVVProperty().setValue("1234");
     paymentViewModel.validatePaymentInfo();
 assertEquals("CVV must contain less than 3 characters",paymentViewModel.errorProperty().get());
-
   }
 
 

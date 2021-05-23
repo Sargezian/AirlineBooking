@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 public class InputUser implements Serializable {
 
-    public int id;
-    public String user;
-    public String password;
+    private int id;
+    private String user;
+    private String password;
 
     public InputUser(int id, String user, String password) {
         this.id = id;

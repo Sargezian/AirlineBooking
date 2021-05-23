@@ -75,7 +75,7 @@ public class chatViewModel {
     public void chatPrint(Rating rating) {
 
         if (chat.getValue() != null && !"".equals(chat.getValue()) && rating != null) {
-            clientModel.createChat(chat.getValue() + "  Message from : " + user + "   " + rating.star + " STAR ", rating.star);
+            clientModel.createChat(chat.getValue() + "  Message from : " + user + "   " + rating.getStar() + " STAR ", rating.getStar());
             System.out.println("user;=" + user);
 
             setCounter();

@@ -5,9 +5,9 @@ import java.util.Objects;
 
 public class Passenger implements Serializable
 {
-    public int passengerID;
-    public String FirstName, LastName,TelNumber;
-    public String Email;
+    private int passengerID;
+    private String FirstName, LastName,TelNumber;
+    private String Email;
 
     public Passenger(int passengerID, String firstName, String lastName, String telNumber, String email) {
         this.passengerID = passengerID;

@@ -22,11 +22,12 @@ public class Airport implements Serializable {
         + AirportName + '\'' + ", AirportCity='" + AirportCity + '\'' + '}';
   }
 
+  // TODO: 24-05-2021 fjern hvis de ikke bliver brugt inden afv data
   public String getAirportID()
   {
     return AirportID;
   }
-
+  // TODO: 24-05-2021 fjern hvis de ikke bliver brugt inden afv data
   public void setAirportID(String airportID)
   {
     AirportID = airportID;

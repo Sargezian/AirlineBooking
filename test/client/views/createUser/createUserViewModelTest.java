@@ -132,7 +132,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
         password.setValue("Test1234");
 
         InputUser test = new InputUser("Test","Test1234");
-        CreateDao.createUser(test.user, test.password);
+        CreateDao.createUser(test.getOutput(), test.getPassword());
 
         createUserViewModel.validateSignUp();
 

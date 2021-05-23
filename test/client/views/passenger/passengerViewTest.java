@@ -7,13 +7,8 @@ import org.junit.jupiter.api.Test;
 import server.model.database.PassengerDao;
 import server.model.database.PassengerImpl;
 import server.model.database.ResetDao;
-import shared.transferobjects.Flights;
-import shared.transferobjects.Passenger;
-import shared.transferobjects.Seat;
 
-import java.security.PublicKey;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class passengerViewTest
 {

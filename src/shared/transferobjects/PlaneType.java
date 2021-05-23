@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 public class PlaneType implements Serializable {
 
-    public int planeId;
-    public String planeType;
+    private int planeId;
+    private String planeType;
 
     public PlaneType(int planeId, String planeType) {
         this.planeId = planeId;

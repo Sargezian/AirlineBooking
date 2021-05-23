@@ -5,8 +5,8 @@ import java.util.Objects;
 
 public class InputChat implements Serializable {
 
-    public String chat;
-    public Rating rating;
+    private String chat;
+    private Rating rating;
 
     public InputChat(String chat, Rating rating) {
         this.chat = chat;
@@ -14,7 +14,7 @@ public class InputChat implements Serializable {
     }
 
     public double getStar() {
-        return rating.star;
+        return rating.getStar();
     }
 
     public Rating getRating() {

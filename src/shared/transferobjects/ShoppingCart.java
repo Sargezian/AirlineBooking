@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class ShoppingCart implements Serializable {
 
-    public Flights flights;
-    public Seat seat;
-    public Depature depature;
-    public Arrival arrival;
+    private Flights flights;
+    private Seat seat;
+    private Depature depature;
+    private Arrival arrival;
 
     public ShoppingCart(Flights flights, Seat seat, Depature depature, Arrival arrival) {
         this.flights = flights;
@@ -18,13 +18,13 @@ public class ShoppingCart implements Serializable {
 
     //departure
     public int getDepartureID() {
-        return depature.departureID;
+        return depature.getDepartureID();
     }
     public String getDepartures() {
-        return depature.departure;
+        return depature.getDeparture();
     }
     public String getDepartureDate() {
-        return depature.departureDate;
+        return depature.getDepartureDate();
     }
     public Depature getDepature() {
         return depature;
@@ -32,13 +32,13 @@ public class ShoppingCart implements Serializable {
 
     //arrival
     public int getArrivalID() {
-        return arrival.arrivalID;
+        return arrival.getArrivalID();
     }
     public String getArrivals() {
-        return arrival.arrival;
+        return arrival.getArrival();
     }
     public String getArrivalDate() {
-        return arrival.arrivalDate;
+        return arrival.getArrivalDate();
     }
     public Arrival getArrival() {
         return arrival;
@@ -49,7 +49,7 @@ public class ShoppingCart implements Serializable {
         return flights;
     }
     public String getFlightID(){
-        return flights.flightID;
+        return flights.getFlightID();
     }
 
     //seat
@@ -57,10 +57,10 @@ public class ShoppingCart implements Serializable {
         return seat;
     }
     public String getSeatNumber() {
-        return seat.seatNumber;
+        return seat.getSeatNumber();
     }
     public String getClassType(){
-        return seat.classType;
+        return seat.getClassType();
     }
 
     @Override

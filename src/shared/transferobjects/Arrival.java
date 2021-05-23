@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class Arrival implements Serializable {
 
-    public int arrivalID;
-    public String arrival;
-    public String arrivalDate;
-    public Airport airport;
+    private int arrivalID;
+    private String arrival;
+    private String arrivalDate;
+    private Airport airport;
 
     public Arrival(int arrivalID, String arrival, String arrivalDate) {
         this.arrivalID = arrivalID;

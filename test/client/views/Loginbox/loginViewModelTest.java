@@ -43,7 +43,7 @@ import static org.junit.jupiter.api.Assertions.*;
         password.setValue("password");
 
         InputUser test = new InputUser("Username","password");
-        loginDao.createUser(test.user, test.password);
+        loginDao.createUser(test.getOutput(), test.getPassword());
         LoginViewModel.validateLoginInfo();
 
         assertEquals("successful",label.get());
@@ -55,7 +55,7 @@ import static org.junit.jupiter.api.Assertions.*;
         password.setValue("pass11");
 
         InputUser test = new InputUser("username","password");
-        loginDao.createUser(test.user, test.password);
+        loginDao.createUser(test.getOutput(), test.getPassword());
         LoginViewModel.validateLoginInfo();
 
         assertEquals("username or password is incorrect",label.get());
@@ -67,7 +67,7 @@ import static org.junit.jupiter.api.Assertions.*;
         password.setValue("password123");
 
         InputUser test = new InputUser("username","password");
-        loginDao.createUser(test.user, test.password);
+        loginDao.createUser(test.getOutput(), test.getPassword());
         LoginViewModel.validateLoginInfo();
 
         assertEquals("username or password is incorrect",label.get());
@@ -81,7 +81,7 @@ import static org.junit.jupiter.api.Assertions.*;
         password.setValue("password");
 
         InputUser test = new InputUser("username","password");
-        loginDao.createUser(test.user, test.password);
+        loginDao.createUser(test.getOutput(), test.getPassword());
         LoginViewModel.validateLoginInfo();
 
         assertEquals("username or password is incorrect",label.get());
@@ -93,7 +93,7 @@ import static org.junit.jupiter.api.Assertions.*;
           password.setValue(null);
 
           InputUser test = new InputUser("username","password");
-          loginDao.createUser(test.user, test.password);
+          loginDao.createUser(test.getOutput(), test.getPassword());
           LoginViewModel.validateLoginInfo();
 
           assertEquals("ERROR field is empty",label.get());
@@ -107,7 +107,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
           InputUser test = new InputUser("Admin","Admin123");
-          loginDao.createUser(test.user, test.password);
+          loginDao.createUser(test.getOutput(), test.getPassword());
           LoginViewModel.validateAdmin();
 
           assertEquals("successful",label.get());

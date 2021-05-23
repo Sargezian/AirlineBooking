@@ -1,9 +1,11 @@
 package server.model.database;
 
-import shared.transferobjects.Passenger;
 import shared.transferobjects.Payment;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class PaymentImpl implements PaymentDao {
 

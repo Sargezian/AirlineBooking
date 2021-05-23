@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 public class myFlightTicket implements Serializable {
 
- public String ticketID;
- public Passenger passenger;
- public Flights flights;
- public Seat seat;
- public InputUser user;
+ private String ticketID;
+ private Passenger passenger;
+ private Flights flights;
+ private Seat seat;
+ private InputUser user;
 
 
     public myFlightTicket(String ticketID, Passenger passenger, Flights flights, Seat seat) {
@@ -37,7 +37,7 @@ public class myFlightTicket implements Serializable {
 
 
     public int getId() {
-        return user.id;
+        return user.getId();
     }
 
 
@@ -51,23 +51,23 @@ public class myFlightTicket implements Serializable {
         return passenger;
     }
     public String getEmail() {
-        return passenger.Email;
+        return passenger.getEmail();
     }
     public int getPassengerID()
     {
-        return passenger.passengerID;
+        return passenger.getPassengerID();
     }
     public String getTelNumber()
     {
-        return passenger.TelNumber;
+        return passenger.getTelNumber();
     }
     public String getFirstName()
     {
-        return passenger.FirstName;
+        return passenger.getFirstName();
     }
     public String getLastName()
     {
-        return passenger.LastName;
+        return passenger.getLastName();
     }
 
     //Departue
@@ -91,13 +91,15 @@ public class myFlightTicket implements Serializable {
         return flights;
     }
     public String getFlightID() {
-        return flights.flightID;
+        return flights.getFlightID();
     }
     public String getFlightName() {
-        return flights.flightName;
+        return flights.getFlightName();
     }
+
+  // TODO: 24-05-2021 Mangler at sætte price i myflightticket
     public String getPrices() {
-        return flights.price;
+        return flights.getPrice();
     }
 
     //Seat
@@ -105,13 +107,13 @@ public class myFlightTicket implements Serializable {
         return seat;
     }
     public int getSeatID() {
-        return seat.seatID;
+        return seat.getSeatID();
     }
     public String getSeatNumber() {
-        return seat.seatNumber;
+        return seat.getSeatNumber();
     }
     public String getClassType(){
-        return seat.classType;
+        return seat.getClassType();
     }
 
     //PlaneType

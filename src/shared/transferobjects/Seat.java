@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class Seat implements Serializable {
 
-    public int seatID;
-    public String seatNumber;
-    public String classType;
-    public PlaneType planeType;
+    private int seatID;
+    private String seatNumber;
+    private String classType;
+    private PlaneType planeType;
 
     public Seat(int seatID, String seatNumber, String classType)
     {
@@ -49,7 +49,7 @@ public class Seat implements Serializable {
 
 
     public int getPlaneId(){
-        return planeType.planeId;
+        return planeType.getPlaneId();
     }
 
     @Override public String toString()
