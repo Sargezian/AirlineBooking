@@ -99,7 +99,7 @@ public class passengerViewModel {
             return false;
         }
 
-         if (TelNumber.getValue().length()> 8 && TelNumber.getValue().length() < 8 ) {
+         if (TelNumber.getValue().length()>=7 && TelNumber.getValue().length() <= 9 ) {
             error.set("TelNumber must be 8 digits");
             return false;
         }

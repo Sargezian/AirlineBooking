@@ -58,7 +58,7 @@ public class chatViewModelTest
 
 
     }
-  @Test void test_InvalidFeedback(){
+  @Test void test_InvalidFeedbackIfNoComments(){
       chatViewModel.getChat().setValue(null);
       chatViewModel.setUser("");
       chatViewModel.chatPrint(new Rating(5));
@@ -67,7 +67,21 @@ public class chatViewModelTest
 
 
   }
+  @Test void test_InvalidFeedbackIfRatingOver5(){
+    chatViewModel.getChat().setValue("Mega fed rejse");
+    chatViewModel.setUser("Mark");
+    chatViewModel.chatPrint(new Rating(6));
 
+    assertEquals("Please choose a rating", chatViewModel.errorProperty().get());
+
+
+  }
+  @Test void test_InvalidFeedbackIfRatingUnder0(){
+    chatViewModel.getChat().setValue("Mega fed rejse");
+    chatViewModel.setUser("Mark");
+    chatViewModel.chatPrint(new Rating(-1));
+    assertEquals("Please choose a rating", chatViewModel.errorProperty().get());
+  }
 
 }
 

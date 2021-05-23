@@ -1,36 +1,88 @@
 package client.views.passenger;
 
+import client.core.ClientFactory;
+import client.core.ModelFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import server.model.database.PassengerDao;
 import server.model.database.PassengerImpl;
+import server.model.database.ResetDao;
 import shared.transferobjects.Flights;
 import shared.transferobjects.Passenger;
 import shared.transferobjects.Seat;
+
+import java.security.PublicKey;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class passengerDaoTest
 {
+    private passengerViewModel passengerViewModel;
+    private PassengerImpl passengerimpl;
     private PassengerDao passengerDao;
+    private ResetDao resetDao;
 
     @BeforeEach public void setup()
     {
-        passengerDao = PassengerImpl.getInstance();
+        ClientFactory.getInstance().getClient();
+        passengerViewModel = new passengerViewModel(ModelFactory.getInstance()
+            .getClientText());
+        passengerViewModel.clearFields();
+        passengerimpl = PassengerImpl.getInstance();
+        passengerViewModel.telNumberProperty().setValue("51408516");
+        passengerViewModel.firstNameProperty().setValue("Mark");
+        passengerViewModel.lastNameProperty().setValue("Pedersen");
+        passengerViewModel.emailProperty().setValue("Mark@test.com");
+
     }
 
     @Test
-    public void testIfWeCanCreateAndReadFromDatabase(){
+    public void testIfTelefonWorksAt8Chars(){
 
-        Passenger passenger = new Passenger("hej","Hej","12345678","Mark@gmail.com");
-        Passenger test = passengerDao.CreatePassengers(passenger.getFirstName(), passenger.getLastName(), passenger.getTelNumber(),passenger.getEmail());
-        Passenger readpassenger = passengerDao.ReadPassenger(test.getFirstName(),
-                test.getLastName(), test.getTelNumber(), test.getEmail());
-
-        assertEquals(test.getFirstName(), readpassenger.getFirstName());
-        assertEquals(test.getPassengerID(), readpassenger.getPassengerID());
-        assertEquals(test.getLastName(), readpassenger.getLastName());
-        assertEquals(test.getTelNumber(), readpassenger.getTelNumber());
+        assertEquals("",passengerViewModel.errorProperty().get());
     }
+
+    @Test
+    public void testIfTelefonWorksAt7Chars(){
+        passengerViewModel.clearFields();
+        passengerViewModel.firstNameProperty().setValue("Mark");
+        passengerViewModel.lastNameProperty().setValue("Pedersen");
+        passengerViewModel.emailProperty().setValue("Mark@test.com");
+        passengerViewModel.telNumberProperty().setValue("1234567");
+        passengerViewModel.validatePassengerInformation();
+        assertEquals("",passengerViewModel.errorProperty().get());
+    }
+    @Test
+    public void testIfTelefonWorksAt9Chars(){
+        passengerViewModel.clearFields();
+        passengerViewModel.firstNameProperty().setValue("Mark");
+        passengerViewModel.lastNameProperty().setValue("Pedersen");
+        passengerViewModel.emailProperty().setValue("Mark@test.com");
+        passengerViewModel.telNumberProperty().setValue("123456789");
+        passengerViewModel.validatePassengerInformation();
+        assertEquals("",passengerViewModel.errorProperty().get());
+    }
+
+    @Test
+    public void testIfEmailworkwitha(){
+        passengerViewModel.clearFields();
+        passengerViewModel.firstNameProperty().setValue("Mark");
+        passengerViewModel.lastNameProperty().setValue("Pedersen");
+        passengerViewModel.emailProperty().setValue("Mark@test.com");
+        passengerViewModel.telNumberProperty().setValue("1234567");
+        passengerViewModel.validatePassengerInformation();
+        assertEquals("",passengerViewModel.errorProperty().get());
+    }
+    @Test
+    public void testIfEmailworkwithouta(){
+        passengerViewModel.clearFields();
+        passengerViewModel.firstNameProperty().setValue("Mark");
+        passengerViewModel.lastNameProperty().setValue("Pedersen");
+        passengerViewModel.emailProperty().setValue("Marktest.com");
+        passengerViewModel.telNumberProperty().setValue("1234567");
+        passengerViewModel.validatePassengerInformation();
+        assertEquals("",passengerViewModel.errorProperty().get());
+    }
+
 
 }
