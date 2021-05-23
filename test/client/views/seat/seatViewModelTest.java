@@ -2,12 +2,11 @@ package client.views.seat;
 
 import client.core.ClientFactory;
 import client.core.ModelFactory;
+import client.model.SaveInfo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import server.model.database.*;
-import shared.transferobjects.Flights;
-import shared.transferobjects.Passenger;
-import shared.transferobjects.Seat;
+import shared.transferobjects.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,10 +22,8 @@ class seatViewModelTest
     seatDao = new SeatImpl();
     ClientFactory.getInstance().getClient();
     viewModel = new seatViewModel(ModelFactory.getInstance().getClientText());
-    viewModel.loadSeat();
     seatimpl = SeatImpl.getInstance();
     resetDao = new ResetImpl();
-
     resetDao.reset();
 
   }
@@ -48,12 +45,22 @@ class seatViewModelTest
 
   }
 
-  @Test public void TestNoSelectedSeet()
+  @Test public void TestSelectedSeat()
   {
-    Seat seat = new Seat(54, "A5", "First class");
-//    viewModel.getSeat()
- //       .add(seat.getSeatID(), seat.getSeatNumber(), seat.getClassType());
+    SaveInfo.getInstance().setFlights(new Flights("1","sas",new Depature(1,"KBH","2021-08-08 19:30:00"),new Arrival(1,"AAR","2021-09-08 19:30:00")
+        ,new PlaneType(1,"Airbus7"),"200"));
+    SaveInfo.getInstance().setSeat(new Seat(1,"22","Business class"));
+    Seat seat = SaveInfo.getInstance().getSeat();
     viewModel.getSeatInformation(seat);
-    assertEquals("", viewModel.errorProperty().get());
+    assertNull( viewModel.errorProperty().get());
+  }
+
+  @Test public void TestNoSelectedSeat()
+  {
+    SaveInfo.getInstance().setFlights(new Flights("1","sas",new Depature(1,"KBH","2021-08-08 19:30:00"),new Arrival(1,"AAR","2021-09-08 19:30:00")
+        ,new PlaneType(1,"Airbus7"),"200"));
+    Seat seat = SaveInfo.getInstance().getSeat();
+    viewModel.getSeatInformation(seat);
+    assertEquals("Please select seat for continue", viewModel.errorProperty().get());
   }
 }

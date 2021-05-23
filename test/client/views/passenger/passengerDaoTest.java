@@ -39,7 +39,7 @@ class passengerDaoTest
     @Test
     public void testIfTelefonWorksAt8Chars(){
 
-        assertEquals("",passengerViewModel.errorProperty().get());
+        assertNull(passengerViewModel.errorProperty().get());
     }
 
     @Test
