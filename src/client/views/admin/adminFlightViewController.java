@@ -140,7 +140,7 @@ public class adminFlightViewController implements ViewController {
 
     public void onAdd(ActionEvent actionEvent) {
 
-        if(adminFlightViewModel.validateFlightInformation() && adminFlightViewModel.validateArrivalInformation() && adminFlightViewModel.validateDepartureInformation() && adminFlightViewModel.validateSeatInformation() && adminFlightViewModel.validatePlanetypeInformation() && adminFlightViewModel.validateAirportInformation()){
+        if(adminFlightViewModel.validate()){
 
         adminFlightViewModel.InsertAirportInfomation();
         adminFlightViewModel.InsertArrivalInformation();

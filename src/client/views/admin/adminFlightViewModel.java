@@ -153,6 +153,21 @@ public class adminFlightViewModel {
         }
     }
 
+
+    public boolean validate(){
+        if(validateFlightInformation() && validateArrivalInformation() && validateDepartureInformation() && validateSeatInformation() && validatePlanetypeInformation() && validateAirportInformation()){
+
+            return true;
+
+
+        } else{
+            return false;
+        }
+
+
+
+    }
+
     //validateInformation
     public boolean validateFlightInformation() {
         if (flightId.getValue() == null)
