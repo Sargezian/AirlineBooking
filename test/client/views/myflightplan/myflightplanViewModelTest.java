@@ -43,8 +43,7 @@ class myflightplanViewModelTest
     resetDao.reset();
     print = new SimpleStringProperty();
     print.bind(myflightplan.printProperty());
-
-
+    SaveInfo.getInstance().reset();
   }
 
   @Test
@@ -61,7 +60,7 @@ class myflightplanViewModelTest
   }
 
 
-
+  //  On boundary
   @Test
   public void TestPrintIfMyFlightTicketIsNotNull()  {
 
@@ -101,8 +100,6 @@ class myflightplanViewModelTest
     } catch (AddressException e) {
       e.printStackTrace();
     }
-
-
     assertEquals("The ticket has been sent to your email " + pg.getEmail(),print.get());
 
   }

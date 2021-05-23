@@ -9,6 +9,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import shared.transferobjects.Flights;
 import shared.util.utils;
+
+import javax.mail.internet.AddressException;
 import java.beans.PropertyChangeEvent;
 import java.util.List;
 
@@ -58,6 +60,22 @@ public class dashboardViewModel {
         });
     }
 
+    public boolean checkIfFlightSearchIsNull() {
+         search();
+        if (flights.isEmpty()){
+            error.setValue("Could not find the search given");
+            search();
+            return false;
+
+        } else {
+            error.setValue("");
+            return true;
+        }
+
+    }
+
+
+
     //search
     public void search(){
         flights.setAll(clientModel.readByName(search.getValue()));
@@ -65,6 +83,7 @@ public class dashboardViewModel {
 
     public void onNewInputflight(PropertyChangeEvent  evt) {
         loadFlights();
+        search();
     }
     private void clockProperty(PropertyChangeEvent event) {
         startClock();

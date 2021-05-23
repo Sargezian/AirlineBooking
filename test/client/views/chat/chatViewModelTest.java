@@ -31,7 +31,7 @@ public class chatViewModelTest
       resetDao.reset();
 
     }
-
+    //  On boundary
     @Test void test_IfWeCanGetAverageStars(){
       //Her tester vi om vores Average stars virker på feedback siden.
 
@@ -44,7 +44,7 @@ public class chatViewModelTest
       assertEquals("3.0",chatViewModel.getAverage());
     }
 
-
+    //  On boundary
     @Test void test_ValidFeedback(){
         chatViewModel.getChat().setValue("Det er en test");
         chatViewModel.setUser("user");
@@ -62,21 +62,7 @@ public class chatViewModelTest
 
 
   }
-  @Test void test_InvalidFeedbackIfRatingOver5(){
-    chatViewModel.getChat().setValue("Mega fed rejse");
-    chatViewModel.setUser("Mark");
-    chatViewModel.chatPrint(new Rating(6));
 
-    assertEquals("Please choose a rating", chatViewModel.errorProperty().get());
-
-
-  }
-  @Test void test_InvalidFeedbackIfRatingUnder0(){
-    chatViewModel.getChat().setValue("Mega fed rejse");
-    chatViewModel.setUser("Mark");
-    chatViewModel.chatPrint(new Rating(-1));
-    assertEquals("Please choose a rating", chatViewModel.errorProperty().get());
-  }
 
 }
 

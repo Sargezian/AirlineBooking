@@ -19,7 +19,7 @@ public class SaveInfoTest
         assertEquals(saveInfo1.toString(), saveInfo2.toString());
 
     }
-
+    //  On boundary
     @Test public void TestSingletonIfNotNull()
     {
 

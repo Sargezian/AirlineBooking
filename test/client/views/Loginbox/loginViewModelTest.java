@@ -36,7 +36,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
       }
-
+      //  On boundary
     @Test public void testLoginWithCorrectLoginDetails(){
 
         username.setValue("Username");
@@ -99,7 +99,7 @@ import static org.junit.jupiter.api.Assertions.*;
           assertEquals("ERROR field is empty",label.get());
       }
 
-
+      //  On boundary
       @Test public void testAdminLoginWithCorrectLoginDetails(){
 
           username.setValue("Admin");

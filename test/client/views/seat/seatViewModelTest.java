@@ -36,7 +36,7 @@ class seatViewModelTest
     viewModel.getSeatInformation(seat);
     assertEquals("Please select seat for continue", viewModel.errorProperty().get());
   }
-
+  //  On boundary
   @Test public void TestSelectedSeat()
   {
     SaveInfo.getInstance().setFlights(new Flights("1","sas",new Depature(1,"KBH","2021-08-08 19:30:00"),new Arrival(1,"AAR","2021-09-08 19:30:00")

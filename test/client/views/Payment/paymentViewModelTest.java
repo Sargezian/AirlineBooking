@@ -4,9 +4,7 @@ import client.core.ClientFactory;
 import client.core.ModelFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import server.model.database.PaymentDao;
-import server.model.database.PaymentImpl;
-import server.model.database.ResetDao;
+import server.model.database.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,21 +22,23 @@ private ResetDao resetDao;
       .getClientText());
   paymentViewModel.clearFields();
   paymentimpl = PaymentImpl.getInstance();
+  resetDao = new ResetImpl();
+  resetDao.reset();
+
   paymentViewModel.cardholderNameProperty().setValue("Mark Pedersen");
   paymentViewModel.cardNumberProperty().setValue("1234567812345678");
   paymentViewModel.CVVProperty().setValue("123");
-}
 
+}
+  //  On boundary
 @Test
-//  On boundary
   public void testIfCarNumberCanBe16(){
   paymentViewModel.validatePaymentInfo();
   assertNull(paymentViewModel.errorProperty().get());
 
 }
-
-  @Test
   //  1 before boundary
+  @Test
   public void testIfCarNumberLowerThen16(){
     paymentViewModel.clearFields();
     paymentViewModel.cardholderNameProperty().setValue("Mark Pedersen");
@@ -49,9 +49,8 @@ private ResetDao resetDao;
     assertEquals("CardNumber must contain 16 characters",paymentViewModel.errorProperty().get());
   }
 
-
-  @Test
   //  1 after boundary
+  @Test
   public void testIfCarNumberHigherThen16(){
     paymentViewModel.clearFields();
     paymentViewModel.cardholderNameProperty().setValue("Mark Pedersen");
@@ -62,22 +61,22 @@ private ResetDao resetDao;
     assertEquals("CardNumber must contain 16 characters",paymentViewModel.errorProperty().get());
   }
 
-
+  //  On boundary
   @Test
-    //  On boundary
   public void testIfCvvCanBe3(){
     paymentViewModel.validatePaymentInfo();
 
     assertNull(paymentViewModel.errorProperty().get());
   }
 
-
-  @Test
   //  1 before boundary
+  @Test
   public void testIfCvvCanBeLowerThen3(){
+
   paymentViewModel.CVVProperty().setValue("1234");
-    paymentViewModel.validatePaymentInfo();
-assertEquals("CVV must contain less than 3 characters",paymentViewModel.errorProperty().get());
+  paymentViewModel.validatePaymentInfo();
+  assertEquals("CVV must contain less than 3 characters",paymentViewModel.errorProperty().get());
+
   }
 
 }

@@ -40,7 +40,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
         label.bindBidirectional(createUserViewModel.errorProperty());
 
     }
-
+    //  1 before boundary
     @Test
     public void testCreateUserWithLessThen3characters(){
 
@@ -52,7 +52,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
         assertEquals("Username must contain more than 3 characters",label.get());
     }
 
-
+    //  1 after boundary
     @Test
     public void testCreateUserWithMoreThen15characters(){
 
@@ -63,7 +63,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
         assertEquals("Username must contain less than 15 characters",label.get());
     }
-
+    //  1 before boundary
     @Test
     public void testCreatePasswordWith7characters(){
 
@@ -75,7 +75,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
         assertEquals("Password length must be 8 or more",label.get());
     }
 
-
+    //  1 after boundary
     @Test
     public void testCreatePasswordWith15characters(){
 
@@ -143,7 +143,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
     }
 
-
+    //  On boundary
     @Test
     public void testIfYouCanSignUpSuccessfully(){
         username.setValue("Test");

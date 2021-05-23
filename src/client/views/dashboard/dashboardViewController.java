@@ -81,10 +81,18 @@ public class dashboardViewController implements ViewController {
             vh.openSeat();
 
         }
+
+
+
     }
 
     public void onSearch(ActionEvent actionEvent) {
-         dv.search();
+        if(dv.checkIfFlightSearchIsNull() == true){
+            dv.search();
+        }
+
+
+
     }
 
     public void onReviews(ActionEvent actionEvent) {

@@ -24,19 +24,23 @@ class passengerViewTest
             .getClientText());
         passengerViewModel.clearFields();
         passengerimpl = PassengerImpl.getInstance();
+
+
+
+
         passengerViewModel.telNumberProperty().setValue("51408516");
         passengerViewModel.firstNameProperty().setValue("Mark");
         passengerViewModel.lastNameProperty().setValue("Pedersen");
         passengerViewModel.emailProperty().setValue("Mark@test.com");
 
     }
-
+    //  On boundary
     @Test
     public void testIfTelefonWorksAt8Chars(){
 
         assertEquals("",passengerViewModel.errorProperty().get());
     }
-
+    //  1 before boundary
     @Test
     public void testIfTelefonWorksAt7Chars(){
         passengerViewModel.clearFields();
@@ -47,6 +51,8 @@ class passengerViewTest
         passengerViewModel.validatePassengerInformation();
         assertEquals("",passengerViewModel.errorProperty().get());
     }
+
+    //  1 after boundary
     @Test
     public void testIfTelefonWorksAt9Chars(){
         passengerViewModel.clearFields();

@@ -133,12 +133,13 @@ class adminFlightViewModelTest {
         assertEquals("flightID cannot be empty",error.get());
 }
 
+
 @Test void testInvalidClasstype(){
         classType.setValue("TEST Class");
         adminFlightViewModel.validateSeatInformation();
         assertEquals("classType must be either; Economy class, Business class or First class ",error.get());
 }
-
+    //  On boundary
 @Test void testAirportIdMustbe3(){
         airportName.setValue("A6");
         airportCity.setValue("TESTBY");
@@ -146,6 +147,7 @@ class adminFlightViewModelTest {
         adminFlightViewModel.validateAirportInformation();
         assertNull(error.get());
 }
+    //  1 after boundary
     @Test void testAirportIdMustHigherThen3(){
         airportName.setValue("A6");
         airportCity.setValue("TESTBY");
@@ -154,7 +156,7 @@ class adminFlightViewModelTest {
         assertEquals("airportID must be under 3 characters",error.get());
     }
 
-
+    //  On boundary
     @Test void testIfAllFeildsAreValid(){
 
         flightId.setValue("1");
@@ -170,8 +172,8 @@ class adminFlightViewModelTest {
         airportCity.setValue("testAirportCity");
         airportId.setValue("LMK");
         airportName.setValue("TestairportName");
-adminFlightViewModel.validate();
-assertNull(error.get());
+        adminFlightViewModel.validate();
+        assertNull(error.get());
     }
 
 
