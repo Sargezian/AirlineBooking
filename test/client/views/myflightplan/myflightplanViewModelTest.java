@@ -45,8 +45,6 @@ class myflightplanViewModelTest
     print.bind(myflightplan.printProperty());
 
 
-
-
   }
 
   @Test
@@ -105,7 +103,7 @@ class myflightplanViewModelTest
     }
 
 
-    assertEquals("The ticket has been sent to your email bobbib@gmail.com",print.get());
+    assertEquals("The ticket has been sent to your email " + pg.getEmail(),print.get());
 
   }
 
