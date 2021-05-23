@@ -117,10 +117,69 @@ class adminFlightViewModelTest {
 
         //error label
         error.bind(adminFlightViewModel.errorProperty());
+
+        flightId.setValue(null);
+        flightName.setValue(null);
+        price.setValue(null);
+        ArrivalDate.setValue(null);
+        Arrivals.setValue(null);
+        DepartureDate.setValue(null);
+        Departures.setValue(null);
+        PlaneTypes.setValue(null);
+        classType.setValue(null);
+        seatNumber.setValue(null);
+        airportCity.setValue(null);
+        airportId.setValue(null);
+        airportName.setValue(null);
+
+    }
+
+@Test void testIfWeCanAddAemptyFlightInformation(){
+    adminFlightViewModel.validate();
+        assertEquals("flightID cannot be empty",error.get());
+}
+
+@Test void testInvalidClasstype(){
+        seatNumber.setValue("a5");
+        classType.setValue("TEST Class");
+        adminFlightViewModel.validateSeatInformation();
+        assertEquals("classType must be either; Economy class, Business class or First class ",error.get());
+}
+
+@Test void testAirportIdMustbe3(){
+        airportName.setValue("A6");
+        airportCity.setValue("TESTBY");
+        airportId.setValue("123");
+        adminFlightViewModel.validateAirportInformation();
+        assertNull(error.get());
+}
+    @Test void testAirportIdMustHigherThen3(){
+        airportName.setValue("A6");
+        airportCity.setValue("TESTBY");
+        airportId.setValue("1234");
+        adminFlightViewModel.validateAirportInformation();
+        assertEquals("airportID must be under 3 characters",error.get());
     }
 
 
+    @Test void testIfAllFeildsAreValid(){
 
+        flightId.setValue("1");
+        flightName.setValue("TestFlightName");
+        price.setValue("400");
+        ArrivalDate.setValue("2021-06-06 17:30:00");
+        Arrivals.setValue("BIL");
+        DepartureDate.setValue("2021-06-06 17:30:00");
+        Departures.setValue("AAR");
+        PlaneTypes.setValue("TestPlaneType");
+        classType.setValue("First class");
+        seatNumber.setValue("Testseatnumber");
+        airportCity.setValue("testAirportCity");
+        airportId.setValue("LMK");
+        airportName.setValue("TestairportName");
+adminFlightViewModel.validate();
+assertNull(error.get());
+    }
 
 
 
