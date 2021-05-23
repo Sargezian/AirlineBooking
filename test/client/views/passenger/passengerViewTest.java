@@ -15,7 +15,7 @@ import java.security.PublicKey;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class passengerDaoTest
+class passengerViewTest
 {
     private passengerViewModel passengerViewModel;
     private PassengerImpl passengerimpl;
@@ -39,7 +39,7 @@ class passengerDaoTest
     @Test
     public void testIfTelefonWorksAt8Chars(){
 
-        assertNull(passengerViewModel.errorProperty().get());
+        assertEquals("",passengerViewModel.errorProperty().get());
     }
 
     @Test
@@ -60,28 +60,28 @@ class passengerDaoTest
         passengerViewModel.emailProperty().setValue("Mark@test.com");
         passengerViewModel.telNumberProperty().setValue("123456789");
         passengerViewModel.validatePassengerInformation();
-        assertEquals("",passengerViewModel.errorProperty().get());
+        assertEquals("TelNumber must be 8 digits",passengerViewModel.errorProperty().get());
     }
 
     @Test
-    public void testIfEmailworkwitha(){
+    public void testIfEmailworkwithSymbol(){
         passengerViewModel.clearFields();
         passengerViewModel.firstNameProperty().setValue("Mark");
         passengerViewModel.lastNameProperty().setValue("Pedersen");
         passengerViewModel.emailProperty().setValue("Mark@test.com");
-        passengerViewModel.telNumberProperty().setValue("1234567");
+        passengerViewModel.telNumberProperty().setValue("16781234");
         passengerViewModel.validatePassengerInformation();
         assertEquals("",passengerViewModel.errorProperty().get());
     }
     @Test
-    public void testIfEmailworkwithouta(){
+    public void testIfEmailworkwithoutSymbol(){
         passengerViewModel.clearFields();
         passengerViewModel.firstNameProperty().setValue("Mark");
         passengerViewModel.lastNameProperty().setValue("Pedersen");
         passengerViewModel.emailProperty().setValue("Marktest.com");
-        passengerViewModel.telNumberProperty().setValue("1234567");
+        passengerViewModel.telNumberProperty().setValue("12341234");
         passengerViewModel.validatePassengerInformation();
-        assertEquals("",passengerViewModel.errorProperty().get());
+        assertEquals("Email must contain '@' ",passengerViewModel.errorProperty().get());
     }
 
 

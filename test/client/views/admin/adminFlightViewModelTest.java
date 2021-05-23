@@ -140,7 +140,6 @@ class adminFlightViewModelTest {
 }
 
 @Test void testInvalidClasstype(){
-        seatNumber.setValue("a5");
         classType.setValue("TEST Class");
         adminFlightViewModel.validateSeatInformation();
         assertEquals("classType must be either; Economy class, Business class or First class ",error.get());

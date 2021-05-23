@@ -25,24 +25,16 @@ class seatViewModelTest
     seatimpl = SeatImpl.getInstance();
     resetDao = new ResetImpl();
     resetDao.reset();
+    SaveInfo.getInstance().reset();
 
   }
 
-  @Test public void testifwecanreadfromdatabase()
+  @Test public void TestNoSelectedSeat()
   {
-    Flights flights = new Flights("200", "flydummydeparture", "flydummyarrivals");
-
-    Seat seat = new Seat(1, "A9", "First Class");
-    seatDao.getSeat(1).equals(seat);
-
-    assertEquals(seat, seatDao.getSeat(1));
-  }
-
-  @Test public void Testifwecanaddtodatabase()
-  {
-    seatDao.getSeatId(100, "A49", "Fist Class");
-    seatDao.getSeat(1);
-
+    //Virker når vi kører den selv om ikke sammen med de andre test
+    Seat seat = SaveInfo.getInstance().getSeat();
+    viewModel.getSeatInformation(seat);
+    assertEquals("Please select seat for continue", viewModel.errorProperty().get());
   }
 
   @Test public void TestSelectedSeat()
@@ -55,12 +47,5 @@ class seatViewModelTest
     assertNull( viewModel.errorProperty().get());
   }
 
-  @Test public void TestNoSelectedSeat()
-  {
-    SaveInfo.getInstance().setFlights(new Flights("1","sas",new Depature(1,"KBH","2021-08-08 19:30:00"),new Arrival(1,"AAR","2021-09-08 19:30:00")
-        ,new PlaneType(1,"Airbus7"),"200"));
-    Seat seat = SaveInfo.getInstance().getSeat();
-    viewModel.getSeatInformation(seat);
-    assertEquals("Please select seat for continue", viewModel.errorProperty().get());
-  }
+
 }
