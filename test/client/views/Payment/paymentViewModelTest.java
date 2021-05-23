@@ -79,5 +79,5 @@ private ResetDao resetDao;
     paymentViewModel.validatePaymentInfo();
 assertEquals("CVV must contain less than 3 characters",paymentViewModel.errorProperty().get());
   }
-  
+
 }
