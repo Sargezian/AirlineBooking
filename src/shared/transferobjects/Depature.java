@@ -1,6 +1,7 @@
 package shared.transferobjects;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class Depature implements Serializable {
 
@@ -26,6 +27,7 @@ public class Depature implements Serializable {
         this.departureDate = departureDate;
 
     }
+
 
     //airport
     public Airport getAirport() {

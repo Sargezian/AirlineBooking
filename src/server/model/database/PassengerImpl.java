@@ -2,6 +2,8 @@ package server.model.database;
 
 import shared.transferobjects.*;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PassengerImpl implements PassengerDao {
 
@@ -94,6 +96,39 @@ public class PassengerImpl implements PassengerDao {
         int PassengerID = resultSet.getInt("passengerID");
         Passenger passenger = new Passenger(PassengerID, FirstName, Lastname, Telnumber, email);
         return passenger;
+    }
+
+@Override
+    public List<Passenger> ReadAllThePassengers() {
+        try {
+            try (Connection connection =  daoConnection.getConnection()) {
+
+                PreparedStatement statement = connection.prepareStatement("select * from passenger");
+
+
+
+                ResultSet resultSet = statement.executeQuery();
+                ArrayList<Passenger> passengersList = new ArrayList<>();
+
+                while (resultSet.next()) {
+
+                    int PassengerID = resultSet.getInt("passengerID");
+                    String FirstName = resultSet.getString("FirstName");
+                    String LastName = resultSet.getString("LastName");
+                    String TelNumber = resultSet.getString("TelNumber");
+                    String email = resultSet.getString("email");
+
+
+
+                    Passenger passenger = new Passenger(PassengerID,FirstName,LastName,TelNumber,email);
+                   passengersList.add(passenger);
+                }
+                return passengersList;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
     }
 
 }

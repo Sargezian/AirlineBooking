@@ -254,21 +254,5 @@ public class adminImpl implements adminDao {
 
 
 
- public void dropDatabase(){
 
-     try {
-         try (Connection connection =  daoConnection.getConnection()) {
-             PreparedStatement statement = connection.prepareStatement("DROP DATABASE sep2");
-             statement.executeUpdate();
-             System.out.println("Database dropped successfully...");
-         }
-     } catch (SQLException throwables) {
-         throwables.printStackTrace();
-     }
-
-}
-
-
-
-    //DROP DATABASE STUDENTS
 }
