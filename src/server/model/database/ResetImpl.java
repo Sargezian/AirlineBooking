@@ -51,7 +51,7 @@ public class ResetImpl implements ResetDao
                 "(\n" +
                 "    DepartureID   SERIAL    NOT NULL PRIMARY KEY,\n" +
                 "    departures    VARCHAR   NOT NULL,\n" +
-                "    Departuredate timestamp NOT NULL,\n" +
+                "    Departuredate VARCHAR NOT NULL,\n" +
                 "    FOREIGN KEY (departures) REFERENCES airport (airportID)\n" +
                 ");\n" +
                 "\n" +
@@ -59,7 +59,7 @@ public class ResetImpl implements ResetDao
                 "(\n" +
                 "    ArrivalID   SERIAL    NOT NULL PRIMARY KEY,\n" +
                 "    arrivals    VARCHAR   NOT NULL,\n" +
-                "    Arrivaldate timestamp NOT NULL,\n" +
+                "    Arrivaldate VARCHAR NOT NULL,\n" +
                 "    FOREIGN KEY (arrivals) REFERENCES airport (airportID)\n" +
                 "\n" +
                 ");\n" +

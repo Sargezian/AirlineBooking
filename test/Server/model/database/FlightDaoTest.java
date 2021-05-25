@@ -21,14 +21,12 @@ class FlightDaoTest {
 
 
     private FlightDao flightDao;
-    private adminDao adminDaos;
     private ResetDao resetDao;
 
 
     @BeforeEach
     public void setUp()  {
         flightDao = FlightImpl.getInstance();
-        adminDaos = adminImpl.getInstance();
         resetDao = new ResetImpl();
         resetDao.reset();
 

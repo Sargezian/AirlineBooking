@@ -197,6 +197,7 @@ public class adminImpl implements adminDao {
         return null;
     }
 
+
     @Override
     public Depature CreateDeparture(String Departure, String DepartureDate) {
         try {
@@ -251,6 +252,7 @@ public class adminImpl implements adminDao {
         }
         return null;
     }
+
 
 
 
