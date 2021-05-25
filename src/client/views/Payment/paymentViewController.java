@@ -56,14 +56,17 @@ public class paymentViewController implements ViewController {
 
         //reload
         reloadpayment();
+
+
     }
 
     public void OnCheckOut(ActionEvent actionEvent) {
-        if (pv.validatePaymentInfo()) {
+        if (pv.validatepayment()) {
             pv.getPaymentInformation();
             pv.createTicket();
             vh.openToMyFlightPlan();
             pv.clearFields();
+
         }
     }
 

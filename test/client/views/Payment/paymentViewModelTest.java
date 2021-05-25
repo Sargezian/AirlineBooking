@@ -79,4 +79,15 @@ private ResetDao resetDao;
 
   }
 
+
+  @Test
+  public void TestPaymentWithCorrectPaymentInfo(){
+
+    this.paymentViewModel.validatepayment();
+
+    assertEquals("",paymentViewModel.errorProperty().get());
+
+
+  }
+
 }

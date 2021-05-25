@@ -70,6 +70,27 @@ public class paymentViewModel {
         clientModel.createTicket(myFlightTicket1);
 
 }
+
+public void set(){
+    error.setValue("");
+
+}
+
+public boolean validatepayment() {
+
+        if (validatePaymentInfo() == true){
+            error.set("");
+
+            return true;
+
+
+        } else {
+            return false;
+        }
+
+}
+
+
     public void SetPassengerInfomation() {
 
         Passenger pg = SaveInfo.getInstance().getPassenger();
