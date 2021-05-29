@@ -4,9 +4,14 @@ import client.core.ClientFactory;
 import client.core.ModelFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import server.model.database.ResetDao;
 import server.model.database.ResetImpl;
+
 import shared.transferobjects.Rating;
+
+import java.rmi.AlreadyBoundException;
+import java.rmi.RemoteException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,7 +25,7 @@ public class chatViewModelTest
 
 
     @BeforeEach
-    public void setUp(){
+    public void setUp()  {
       ClientFactory.getInstance().getClient();
       chatViewModel = new chatViewModel(ModelFactory.getInstance().getClientText());
       //Database access Object is needed for various tests
@@ -29,6 +34,7 @@ public class chatViewModelTest
       chatViewModel.loadRatings();
       resetDao = new ResetImpl();
       resetDao.reset();
+
 
     }
     //  On boundary

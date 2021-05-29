@@ -2,9 +2,11 @@ package client.views.Payment;
 
 import client.core.ClientFactory;
 import client.core.ModelFactory;
+import client.model.SaveInfo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import server.model.database.*;
+import shared.transferobjects.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -83,7 +85,9 @@ private ResetDao resetDao;
   @Test
   public void TestPaymentWithCorrectPaymentInfo(){
 
+
     this.paymentViewModel.validatepayment();
+
 
     assertEquals("",paymentViewModel.errorProperty().get());
 

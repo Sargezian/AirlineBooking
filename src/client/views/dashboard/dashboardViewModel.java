@@ -60,6 +60,10 @@ public class dashboardViewModel {
         });
     }
 
+    private void clockProperty(PropertyChangeEvent event) {
+        startClock();
+    }
+
     public boolean checkIfFlightSearchIsNull() {
          search();
         if (flights.isEmpty()){
@@ -85,9 +89,7 @@ public class dashboardViewModel {
         loadFlights();
         search();
     }
-    private void clockProperty(PropertyChangeEvent event) {
-        startClock();
-    }
+
 
     public ObservableList<Flights> getflight() {
         return flights;

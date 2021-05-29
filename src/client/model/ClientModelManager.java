@@ -263,7 +263,7 @@ public class ClientModelManager implements ClientModel {
 
     public Object clock(){
         Date myDate=new Date();
-        support.firePropertyChange("time",-1,1);
+        support.firePropertyChange("time",null,myDate.getTime());
 
         return myDate;
     }

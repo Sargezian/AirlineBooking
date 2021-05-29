@@ -80,6 +80,9 @@ public class InputUserImpl implements InputUserDao {
         }
         return null;
     }
+
+
+
     @Override
     public InputUser readUser(String user,String password) {
         try {
