@@ -6,10 +6,15 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import server.model.ServerManagerImpl;
 import server.model.database.ResetDao;
 import server.model.database.ResetImpl;
 import server.model.database.adminDao;
 import server.model.database.adminImpl;
+import server.networking.RMIServerImplement;
+
+import java.rmi.AlreadyBoundException;
+import java.rmi.RemoteException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -48,7 +53,9 @@ class adminFlightViewModelTest {
     //error label
     private StringProperty error;
 
-    @BeforeEach public void setup() {
+    @BeforeEach public void setup() throws RemoteException, AlreadyBoundException {
+
+
         ClientFactory.getInstance().getClient();
 
         adminFlightViewModel = new adminFlightViewModel(ModelFactory.getInstance().getClientText());

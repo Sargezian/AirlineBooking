@@ -1,31 +1,42 @@
 package shared.networking;
 
+import client.network.RMIClient;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import server.model.ServerManagerImpl;
+import server.networking.RMIServerImplement;
+
 
 import java.rmi.AlreadyBoundException;
+
 import java.rmi.RemoteException;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class RMIServerTest {
 
-/*
-    @BeforeEach
-    public static void setup() throws RemoteException, AlreadyBoundException {
-        CalculatorImpl calculator = new CalculatorImpl();
-        RemoteCalculator stub = (RemoteCalculator) UnicastRemoteObject.exportObject(calculator, 0);
+    private RMIClient rmiClient;
 
-        Registry registry = LocateRegistry.createRegistry(36973);
-        registry.bind("calculator", stub);
+
+    @BeforeEach
+    public void setup() throws RemoteException, AlreadyBoundException {
+
+        ServerManagerImpl serverManager = new ServerManagerImpl();
+        RMIServerImplement rmiserver = new RMIServerImplement(serverManager);
+        rmiserver.startServer();
+
+         rmiClient = new RMIClient();
+         rmiClient.startClient();
     }
 
     @Test
-    public void somarTest() throws RemoteException, AlreadyBoundException, NotBoundException {
-        Registry registry = LocateRegistry.getRegistry(36973);
-        RemoteCalculator remoteCalculator = (RemoteCalculator) registry.lookup("calculator");
-        Cliente cliente = new Cliente(remoteCalculator);
-        Assert.assertEquals(12, cliente.calculate(5, 7, Operador.SOMA));
-    }*/
+    public void TestIfWeCanGetFlightsFromServer() {
+
+        assertEquals(6,rmiClient.getflights().size());
+
+    }
+
 
 
 

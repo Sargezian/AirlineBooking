@@ -11,6 +11,7 @@ import java.util.List;
 public class ServerManagerImpl implements ServerManager {
 
     private PropertyChangeSupport support;
+
     private List<InputChat> chatListe;
     private List<InputUser> userNameList;
     private List<Passenger> passengersList;
