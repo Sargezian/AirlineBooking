@@ -11,12 +11,11 @@ public class SaveInfoTest
     public void testSingletonIfNull()
     {
 
-        SaveInfo saveInfo1 = SaveInfo.getInstance();
-        SaveInfo saveInfo2 = SaveInfo.getInstance();
-        System.out.println("saveInfo1" + saveInfo1);
-        System.out.println("saveInfo2" + saveInfo2);
+        SaveInfo.getInstance().setFlights(null);
 
-        assertEquals(saveInfo1.toString(), saveInfo2.toString());
+        Flights flights = SaveInfo.getInstance().getFlights();
+
+        assertNull(flights);
 
     }
     //  On boundary
