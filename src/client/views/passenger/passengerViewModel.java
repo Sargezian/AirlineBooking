@@ -112,6 +112,16 @@ public class passengerViewModel {
             return false;
         }
 
+        if (!Email.getValue().contains("gmail") && !Email.getValue().contains("yahoo") && !Email.getValue().contains("live") && !Email.getValue().contains("via") &&!Email.getValue().contains("hotmail") ) {
+            error.set("Email Service Providers of either gmail,yahoo,live or via most be specified");
+            return false;
+        }
+
+        if (!Email.getValue().contains(".dk") && !Email.getValue().contains(".com")) {
+            error.set("Email must contain either .dk or .com");
+            return false;
+        }
+
          else {
 
             return true;
