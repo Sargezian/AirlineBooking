@@ -22,10 +22,6 @@ class RMIServerTest {
     @BeforeEach
     public void setup() throws RemoteException, AlreadyBoundException {
 
-        ServerManagerImpl serverManager = new ServerManagerImpl();
-        RMIServerImplement rmiserver = new RMIServerImplement(serverManager);
-        rmiserver.startServer();
-
          rmiClient = new RMIClient();
          rmiClient.startClient();
     }
