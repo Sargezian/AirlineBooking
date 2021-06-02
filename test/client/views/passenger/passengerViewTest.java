@@ -85,5 +85,27 @@ class passengerViewTest
         assertEquals("Email must contain '@' ",passengerViewModel.errorProperty().get());
     }
 
+    @Test
+    public void testIfEmailworkwithoutDomain(){
+        passengerViewModel.clearFields();
+        passengerViewModel.firstNameProperty().setValue("Mark");
+        passengerViewModel.lastNameProperty().setValue("Pedersen");
+        passengerViewModel.emailProperty().setValue("Marktest@gmail");
+        passengerViewModel.telNumberProperty().setValue("12341234");
+        passengerViewModel.validatePassengerInformation();
+        assertEquals("Email must contain either .dk or .com",passengerViewModel.errorProperty().get());
+    }
+
+    @Test
+    public void testIfEmailworkwithoutEmailProvider(){
+        passengerViewModel.clearFields();
+        passengerViewModel.firstNameProperty().setValue("Mark");
+        passengerViewModel.lastNameProperty().setValue("Pedersen");
+        passengerViewModel.emailProperty().setValue("Marktest@.dk");
+        passengerViewModel.telNumberProperty().setValue("12341234");
+        passengerViewModel.validatePassengerInformation();
+        assertEquals("Email Service Providers of either gmail,yahoo,live or via most be specified",passengerViewModel.errorProperty().get());
+    }
+
 
 }
