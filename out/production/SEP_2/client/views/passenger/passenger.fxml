@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1052.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.passenger.passengerViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="644.0" prefWidth="1052.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.views.passenger.passengerViewController">
     <children>
       <Line endX="35.0" layoutX="197.0" layoutY="98.0" startX="-100.0" stroke="#0088ff" style="-fx-blend-mode: #37a1ff;" />
         <Button layoutX="87.0" layoutY="487.0" mnemonicParsing="false" onAction="#onBack" prefHeight="35.0" prefWidth="146.0" style="-fx-background-color: #37a1ff; -fx-background-radius: 15px;" text="Back" textFill="WHITE" />
@@ -100,6 +100,6 @@
       <Label layoutX="479.0" layoutY="119.0" text="Payment" />
       <Label layoutX="355.0" layoutY="119.0" text="Passenger" />
       <Label layoutX="209.0" layoutY="119.0" text="Seat" />
-      <Label fx:id="error" layoutX="308.0" layoutY="455.0" prefHeight="16.0" prefWidth="146.0" text="errorLabel" />
+      <Label fx:id="error" layoutX="49.0" layoutY="455.0" prefHeight="17.0" prefWidth="487.0" text="errorLabel" />
     </children>
 </AnchorPane>
