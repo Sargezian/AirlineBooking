@@ -1,7 +1,7 @@
-#Airline Booking 
+# Airline Booking 
 Airline Booking application using JAVA, RMI, JavaFx, JDBC, PostgreSQL & JUnit
 
-#Features
+# Features
 - Signup/Login
 - Pick flight, seat and insert passenger information. 
 - Order ticket
