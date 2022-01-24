@@ -11,7 +11,7 @@ Airline Booking application using JAVA, RMI, JavaFx, JDBC, PostgreSQL & JUnit
 # Screenshots
 
 Dashboard
-![Dashboard](Dashboard)
+/Users/lennartsargezian/Documents/GitHub/AirlineBooking/src/Billeder/Dashboard.png 
 
 Login page
 ![img_1.png](img_1.png)
