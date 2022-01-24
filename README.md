@@ -11,7 +11,7 @@ Airline Booking application using JAVA, RMI, JavaFx, JDBC, PostgreSQL & JUnit
 # Screenshots
 
 Dashboard
-![Dashboard.png](Dashboard.png)
+![Dashboard](Dashboard)
 
 Login page
 ![img_1.png](img_1.png)
