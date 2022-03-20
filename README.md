@@ -6,7 +6,7 @@ Airline Booking application using JAVA, RMI, JavaFx, JDBC, PostgreSQL & JUnit
 - Pick flight, seat and insert passenger information. 
 - Order ticket
 - Flightplan
-- Review
+- Reviewwwwwww
 
 # Screenshots
 
